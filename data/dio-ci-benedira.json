@@ -10,7 +10,7 @@
   "measure_keys": {
     "64": -1
   },
-  "tempo": 96,
+  "tempo": 124,
   "measure_beats": [
     4,
     4,
@@ -116,7 +116,7 @@
     "The sopranos divide in (printed) bars 24, 25, 26, 27, 32, 33, 36, 37, 48, 49, 50, 51, 58, 59, 60, 61, 62, 66, 67, 70, 71, 78, 79, 80, 83, 84, 85, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96; the data keeps the upper (melody) note of each printed dyad.",
     "Key change to F major at printed bar 64; printed bars 87 and 89 are printed in 2/4 (shown as short bars, the engraving keeps 4/4).",
     "The score prints no hyphens; word divisions follow the Italian text. Printed elisions (ci.as, qui.il, …) are shown with ‿.",
-    "No tempo is printed: quarter = 96 is a suggested moderate tempo; the closing “Rall.” is not applied automatically."
+    "No tempo is printed: quarter = 124 is the default tempo (user choice); the closing “Rall.” is not applied automatically."
   ],
   "backing_track": {
     "instrument": "organ",

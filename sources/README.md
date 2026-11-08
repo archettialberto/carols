@@ -16,7 +16,7 @@
   `run`, `dump`; see its docstring for the build notes). Drafts are starting points only.
 - `scripts/song_kit.py`: shared helpers for generators — note onsets, one-syllable-per-beat cues,
   fitting shared lyrics to a part's held notes, cropping scan systems, validated saving.
-- `scripts/make_<song>.py` (God Rest, Joy, Ding Dong, Away Cradle, Three Ships, Holy Night, …): worked examples. Each records every reading
+- `scripts/make_<song>.py` (God Rest, Joy, Ding Dong, Away Cradle, Three Ships, Holy Night, Carol of the Bells, Angels’ Carol, …): worked examples. Each records every reading
   (parts, verses, verse-specific ties, staggered entries, form, compact layout) and regenerates
   `data/<id>.json`. Copy one as `make_<song>.py` for a new song.
 

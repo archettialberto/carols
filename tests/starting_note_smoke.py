@@ -13,7 +13,7 @@ with sync_playwright() as p:
     errors=[]
     page.on('pageerror',lambda e:errors.append(str(e)))
     page.goto(base);page.wait_for_function('!!performanceData');page.locator('.song-card[aria-current=true]').click()
-    assert page.locator('details').count()==0
+    assert page.locator('details:not(#booklet)').count()==0
     assert page.locator('#download').count()==1
     key=lambda voice: page.locator(f'.key[data-voice={voice}]')
     for title,pitches in [('Jingle Bells',{'soprano':71,'alto':67,'tenor':62,'bass':55}),

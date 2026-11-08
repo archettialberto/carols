@@ -120,7 +120,7 @@ for page, counts in LAYOUT:
 song = {
     'id': 'dio-ci-benedira', 'title': 'Dio ci benedirà', 'emoji': '🙏',
     'composer': 'the composers', 'arranger': 'a local choir',
-    'meter': [4, 4], 'key_fifths': -3, 'measure_keys': {str(data_no[64]): -1}, 'tempo': 96,
+    'meter': [4, 4], 'key_fifths': -3, 'measure_keys': {str(data_no[64]): -1}, 'tempo': 124,
     'measure_beats': [SHORT.get(m, 4) for m in KEEP],
     'source_pdf': PDF,
     'sources': [{'description': 'Supplied six-page Finale vector PDF (Maestro font), SATB on four staves; all notes and words.'}],
@@ -130,7 +130,7 @@ song = {
         f'The sopranos divide in (printed) bars {", ".join(map(str, divisi))}; the data keeps the upper (melody) note of each printed dyad.',
         'Key change to F major at printed bar 64; printed bars 87 and 89 are printed in 2/4 (shown as short bars, the engraving keeps 4/4).',
         'The score prints no hyphens; word divisions follow the Italian text. Printed elisions (ci.as, qui.il, …) are shown with ‿.',
-        'No tempo is printed: quarter = 96 is a suggested moderate tempo; the closing “Rall.” is not applied automatically.',
+        'No tempo is printed: quarter = 124 is the default tempo (user choice); the closing “Rall.” is not applied automatically.',
     ],
     'backing_track': {'instrument': 'organ', 'parts': organ},
     'parts': parts, 'playback': [{'measure': m} for m in range(1, len(KEEP) + 1)],

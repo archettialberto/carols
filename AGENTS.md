@@ -85,6 +85,11 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   MusicXML/MIDI/HTML remain development artifacts under `exports/`, not UI controls.
 - The verse selector reads "Str. N · “first 3–4 words”" (`verse_incipit`, skipping an
   opening chorus); the interface omits redundant captions such as a lyric heading or tap hints.
+- Lyrics run as one sliding line under the score: the sung syllable sits near the left quarter so
+  the next bars' words are always visible to read ahead; the left edge fades only once text scrolled.
+- At the bottom of the Brani list, “Genera PDF” joins the chosen editions (checkboxes, “Seleziona tutti”, drag ⠿ to reorder; summary with a ▾ arrow)
+  into one PDF in the browser (vendored pdf-lib, loaded on demand); “Rendi pagine pari” pads each
+  song to an even page count so double-sided copies start every song on a right-hand page.
 - The playback dock puts Play/restart on the left and the starting-note keys on the right.
 - Provide starting-note keys S/A/T/B that behave like piano keys: a tap rings a short
   cue (1.6 s), holding sustains, several keys together form a chord (multi-touch).

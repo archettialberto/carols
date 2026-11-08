@@ -5,7 +5,7 @@
 const CACHE = 'carol-choir-v6';
 // Relative paths: the app may live in a sub-folder (e.g. GitHub Pages /<repo>/).
 const SHELL = ['./', 'index.html', 'style.css', 'appearance.js', 'i18n.js', 'notation.js', 'sounds.js', 'player.js',
-  'vendor/abcjs-basic-6.7.2.min.js', 'fonts/im-fell-english.woff2', 'manifest.webmanifest', 'icons/icon-192.png', 'api/songs.json'];
+  'vendor/abcjs-basic-6.7.2.min.js', 'booklet.js', 'fonts/im-fell-english.woff2', 'manifest.webmanifest', 'icons/icon-192.png', 'api/songs.json'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(
   caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));

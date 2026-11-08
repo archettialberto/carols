@@ -1,0 +1,7 @@
+# Development tools only: the app itself needs just Python 3.10+ (standard library).
+# python -m venv .venv && .venv/bin/pip install -r requirements.txt && .venv/bin/playwright install chromium
+playwright==1.64.1   # browser checks and PDF editions (tools/digital_score.py --pdf)
+pymupdf==2.1         # reading scans and vector PDFs (sources/scripts)
+numpy==2.5.4
+scipy==1.18.1
+pillow==13.0.0

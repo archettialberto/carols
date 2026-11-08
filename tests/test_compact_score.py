@@ -20,10 +20,15 @@ class CompactScoreTest(unittest.TestCase):
             if any('playback' in v for v in song['verses']): continue
             compact=compact_score(song)
             base=performance(song)
+            # Compare up to the first repeat jump: after it, playback leaves printed order.
+            order=[e['measure'] for e in song['playback']]
+            inorder=next((i for i,m in enumerate(order) if m!=i+1),len(order))
+            limit=min(len(compact['bars']),inorder)*base['beats_per_bar']
             for voice in VOICES:
                 actual=[];tie=False
                 for bar in compact['bars']:
                     at=bar['start']
+                    if at>=limit: break
                     for note in bar['parts'][voice]:
                         if note['pitch']!='R':
                             if tie:
@@ -31,7 +36,7 @@ class CompactScoreTest(unittest.TestCase):
                                 actual[-1]['duration']+=note['duration']
                             else: actual.append(dict(start=at,duration=note['duration'],pitch=note['pitch']))
                         tie=note['tie'];at+=note['duration']
-                expected=[{key:n[key] for key in ('start','duration','pitch')} for n in base['events'][voice] if n['start']<len(compact['bars'])*base['beats_per_bar']]
+                expected=[{key:n[key] for key in ('start','duration','pitch')} for n in base['events'][voice] if n['start']<limit]
                 self.assertEqual(actual,expected)
 
     def test_numbered_stanzas_and_common_refrains(self):

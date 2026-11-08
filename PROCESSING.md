@@ -533,3 +533,24 @@ within each beat group. The notation suite re-verified every engraved note and s
 - Dio ci benedirà: all 96 printed bars restored; an organ part was added at the user's request
   (not printed in the source): it doubles the choir and fills the instrumental bars with choir
   material (1–4 = bars 6–9, 5 = E♭ chord, 28–29 = bars 6–7, 52–54 = bars 49–51).
+
+## Carol of the Bells
+
+- Source: the supplied six-page raster scan, renamed `songs/Carol of the Bells.pdf`. SATB a cappella
+  (the rehearsal keyboard is not encoded), G minor, 3/4, 42 bars: bars 5–36 repeat (1st ending
+  33–36), 2nd ending 37–42. Playback 1–36, 5–32, 37–42 with the same words both times.
+- Audiveris failed on this scan; notes were read by eye from 260–300 dpi crops, with doubtful heads
+  measured against local staff lines. Bar 41 soprano divisi: the lower (ostinato) line is encoded.
+  Tempo ♩ = 160 (“Allegro”). Generator: `sources/scripts/make_carol_bells.py`.
+- `tests/test_compact_score.py` now compares compact and unfolded music only up to the first
+  repeat jump.
+
+## Angels' Carol
+
+- Source: the supplied eight-page scan, renamed `songs/Angels' Carol.pdf`. F major → G major at bar
+  71, 2/2 (4/4 Tranquil at 104), 107 bars, three stanzas through-composed with Gloria refrains.
+- An Audiveris draft (`.omr/out/angels.mxl`) was checked system by system against enlarged crops;
+  bars it missed or garbled were read by eye. Divisi: each part takes its upper note.
+- The piano/harp part is a simplified organ: one chord per half bar read from the piano (`CHORDS`
+  in the generator), root in the pedal and three close chord tones. Tempo 𝅗𝅥 = 69.
+  Generator: `sources/scripts/make_angels_carol.py`. Listening check still advised.

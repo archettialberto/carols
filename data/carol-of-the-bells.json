@@ -1,0 +1,777 @@
+{
+  "id": "carol-of-the-bells",
+  "title": "Carol of the Bells",
+  "emoji": "🔔",
+  "source_pdf": "songs/Carol of the Bells.pdf",
+  "meter": [
+    3,
+    4
+  ],
+  "key_fifths": -2,
+  "tempo": 140,
+  "review_notes": [
+    "Read by eye from 260–300 dpi crops of a raster scan (OMR failed); doubtful heads were measured against local staff lines. The rehearsal keyboard part is not encoded.",
+    "Form: bars 5–36 repeat (1st ending 33–36), then the 2nd ending 37–42. Playback: 1–36, 5–32, 37–42; the words are the same both times.",
+    "Bar 41 sopranos divide (D5–C5–D5 over B♭4–A4–B♭4): only the lower line (the ostinato) is encoded. Bar 42 “Bohm!” is basses only; the “Slowly (dictated)” close and the fermatas are not applied.",
+    "Default tempo quarter = 140 (user choice; “Allegro”)."
+  ],
+  "parts": {
+    "soprano": [
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "D5:1 C5:0.5 D5:0.5 Bb4:1",
+      "D5:1 C5:0.5 D5:0.5 Bb4:1",
+      "D5:1 C5:0.5 D5:0.5 Bb4:1",
+      "D5:1 C5:0.5 D5:0.5 Bb4:1",
+      "G5:1 G5:0.5 G5:0.5 F5:0.5 Eb5:0.5",
+      "D5:1 D5:0.5 D5:0.5 C5:0.5 Bb4:0.5",
+      "C5:1 C5:0.5 C5:0.5 D5:0.5 C5:0.5",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "D4:0.5 E4:0.5 F#4:0.5 G4:0.5 A4:0.5 Bb4:0.5",
+      "C5:0.5 D5:0.5 C5:1 Bb4:1",
+      "D4:0.5 E4:0.5 F#4:0.5 G4:0.5 A4:0.5 Bb4:0.5",
+      "C5:0.5 D5:0.5 C5:1 Bb4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "G4:3~",
+      "G4:3~",
+      "G4:3~",
+      "G4:3",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1~",
+      "G4:3"
+    ],
+    "alto": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "G4:3",
+      "F4:3",
+      "Eb4:3",
+      "D4:3",
+      "G4:3",
+      "F4:3",
+      "Eb4:3",
+      "D4:3",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "Bb4:1 A4:0.5 Bb4:0.5 G4:1",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "G4:1 G4:0.5 G4:0.5 G4:1",
+      "D4:3",
+      "E4:1 F#4:1 G4:1",
+      "D4:3",
+      "E4:1 F#4:1 G4:1",
+      "D4:3",
+      "C4:3",
+      "F4:3",
+      "Eb4:3",
+      "D4:3~",
+      "D4:3~",
+      "D4:3",
+      "R:3",
+      "D4:3~",
+      "D4:3~",
+      "D4:3~",
+      "D4:3",
+      "R:3",
+      "R:3"
+    ],
+    "tenor": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "Eb4:3",
+      "D4:3",
+      "C4:3",
+      "G3:3",
+      "C4:1 C4:0.5 C4:0.5 C4:1",
+      "D4:1 D4:0.5 D4:0.5 D4:1",
+      "Eb4:1 Eb4:0.5 Eb4:0.5 Eb4:1",
+      "D4:1 D4:0.5 D4:0.5 D4:1",
+      "D4:3",
+      "E4:3",
+      "F4:1 Eb4:1 D4:1",
+      "G4:0.5 F4:0.5 Eb4:1 D4:1",
+      "D4:1 D4:0.5 D4:0.5 D4:0.5 C4:0.5",
+      "D4:1 D4:0.5 D4:0.5 D4:1",
+      "Eb4:1 Eb4:0.5 Eb4:0.5 F4:0.5 Eb4:0.5",
+      "D4:1 D4:0.5 D4:0.5 D4:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "G3:3",
+      "G3:3",
+      "G3:3",
+      "G3:3",
+      "G3:3~",
+      "G3:3~",
+      "G3:3",
+      "R:3",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "R:3",
+      "R:3"
+    ],
+    "bass": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "Eb3:1 Eb3:0.5 Eb3:0.5 Eb3:1",
+      "G3:1 G3:0.5 G3:0.5 G3:1",
+      "C4:1 C4:0.5 C4:0.5 C4:1",
+      "G3:1 G3:0.5 G3:0.5 G3:1",
+      "G3:1 G3:0.5 G3:0.5 G3:1",
+      "G3:1 G3:0.5 G3:0.5 G3:1",
+      "G3:1 G3:0.5 G3:0.5 G3:1",
+      "G3:1 G3:0.5 G3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "Bb3:1 A3:0.5 Bb3:0.5 G3:1",
+      "D3:3",
+      "D3:3",
+      "D3:3",
+      "D3:2 E3:1",
+      "F3:3",
+      "Eb3:3",
+      "D3:3",
+      "C3:3",
+      "G2:3~",
+      "G2:3~",
+      "G2:3",
+      "R:3",
+      "G2:3~",
+      "G2:3~",
+      "G2:3~",
+      "G2:3",
+      "R:3",
+      "G2:3"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    },
+    {
+      "measure": 18
+    },
+    {
+      "measure": 19
+    },
+    {
+      "measure": 20
+    },
+    {
+      "measure": 21
+    },
+    {
+      "measure": 22
+    },
+    {
+      "measure": 23
+    },
+    {
+      "measure": 24
+    },
+    {
+      "measure": 25
+    },
+    {
+      "measure": 26
+    },
+    {
+      "measure": 27
+    },
+    {
+      "measure": 28
+    },
+    {
+      "measure": 29
+    },
+    {
+      "measure": 30
+    },
+    {
+      "measure": 31
+    },
+    {
+      "measure": 32
+    },
+    {
+      "measure": 33
+    },
+    {
+      "measure": 34
+    },
+    {
+      "measure": 35
+    },
+    {
+      "measure": 36
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    },
+    {
+      "measure": 18
+    },
+    {
+      "measure": 19
+    },
+    {
+      "measure": 20
+    },
+    {
+      "measure": 21
+    },
+    {
+      "measure": 22
+    },
+    {
+      "measure": 23
+    },
+    {
+      "measure": 24
+    },
+    {
+      "measure": 25
+    },
+    {
+      "measure": 26
+    },
+    {
+      "measure": 27
+    },
+    {
+      "measure": 28
+    },
+    {
+      "measure": 29
+    },
+    {
+      "measure": 30
+    },
+    {
+      "measure": 31
+    },
+    {
+      "measure": 32
+    },
+    {
+      "measure": 37
+    },
+    {
+      "measure": 38
+    },
+    {
+      "measure": 39
+    },
+    {
+      "measure": 40
+    },
+    {
+      "measure": 41
+    },
+    {
+      "measure": 42
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/carol-of-the-bells-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 944,
+      "height": 508
+    },
+    {
+      "image": "scores/carol-of-the-bells-2.png",
+      "page": 1,
+      "first_measure": 4,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 944,
+      "height": 619
+    },
+    {
+      "image": "scores/carol-of-the-bells-3.png",
+      "page": 2,
+      "first_measure": 8,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 944,
+      "height": 619
+    },
+    {
+      "image": "scores/carol-of-the-bells-4.png",
+      "page": 2,
+      "first_measure": 12,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 944,
+      "height": 603
+    },
+    {
+      "image": "scores/carol-of-the-bells-5.png",
+      "page": 3,
+      "first_measure": 16,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 944,
+      "height": 619
+    },
+    {
+      "image": "scores/carol-of-the-bells-6.png",
+      "page": 3,
+      "first_measure": 20,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 944,
+      "height": 603
+    },
+    {
+      "image": "scores/carol-of-the-bells-7.png",
+      "page": 4,
+      "first_measure": 23,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 944,
+      "height": 619
+    },
+    {
+      "image": "scores/carol-of-the-bells-8.png",
+      "page": 4,
+      "first_measure": 26,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 944,
+      "height": 603
+    },
+    {
+      "image": "scores/carol-of-the-bells-9.png",
+      "page": 5,
+      "first_measure": 29,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 944,
+      "height": 619
+    },
+    {
+      "image": "scores/carol-of-the-bells-10.png",
+      "page": 5,
+      "first_measure": 33,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 944,
+      "height": 603
+    },
+    {
+      "image": "scores/carol-of-the-bells-11.png",
+      "page": 6,
+      "first_measure": 37,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 944,
+      "height": 619
+    },
+    {
+      "image": "scores/carol-of-the-bells-12.png",
+      "page": 6,
+      "first_measure": 40,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 944,
+      "height": 381
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Strofa 1",
+      "lyrics": {
+        "soprano": [
+          "0:Hark! 1:how 1.5:the 2:bells,",
+          "0:sweet 1:sil- 1.5:ver 2:bells,",
+          "0:All 1:seem 1.5:to 2:say,",
+          "0:“throw 1:cares 1.5:a- 2:way.”",
+          "0:Christ- 1:mas 1.5:is 2:here",
+          "0:bring- 1:ing 1.5:good 2:cheer,",
+          "0:To 1:young 1.5:and 2:old,",
+          "0:meek 1:and 1.5:the 2:bold.",
+          "0:Ding, 1:dong, 1.5:ding, 2:dong,",
+          "0:that 1:is 1.5:their 2:song,",
+          "0:With 1:joy- 1.5:ful 2:ring,",
+          "0:all 1:car- 1.5:ol- 2:ing.",
+          "0:One 1:seems 1.5:to 2:hear",
+          "0:words 1:of 1.5:good 2:cheer",
+          "0:From 1:ev- 1.5:’ry- 2:where,",
+          "0:fill- 1:ing 1.5:the 2:air.",
+          "0:Oh, 1:how 1.5:they 2:pound,",
+          "0:rais- 1:ing 1.5:the 2:sound,",
+          "0:O’er 1:hill 1.5:and 2:dale,",
+          "0:tell- 1:ing 1.5:their 2:tale.",
+          "0:Gai- 1:ly 1.5:they 2:ring,",
+          "0:while 1:peo- 1.5:ple 2:sing,",
+          "0:songs 1:of 1.5:good 2:cheer,",
+          "0:Christ- 1:mas 1.5:is 2:here!",
+          "0:Mer- 0.5:ry, 1:Mer- 1.5:ry, 2:Mer- 2.5:ry,",
+          "0:Mer- 0.5:ry 1:Christ- 2:mas!",
+          "0:Mer- 0.5:ry, 1:Mer- 1.5:ry, 2:Mer- 2.5:ry,",
+          "0:Mer- 0.5:ry 1:Christ- 2:mas!",
+          "0:On, 1:on 1.5:they 2:send,",
+          "0:on 1:with- 1.5:out 2:end,",
+          "0:Their 1:joy- 1.5:ful 2:tone",
+          "0:to 1:eve- 1.5:ry 2:home.",
+          "0:Hark! 1:how 1.5:the 2:bells,",
+          "0:sweet 1:sil- 1.5:ver 2:bells,",
+          "0:All 1:seem 1.5:to 2:say,",
+          "0:“throw 1:cares 1.5:a- 2:way.”",
+          "0:dong.",
+          "",
+          "",
+          "",
+          "0:Ding, 1:dong, 1.5:ding, 2:dong.",
+          ""
+        ],
+        "alto": [
+          "",
+          "",
+          "",
+          "",
+          "0:Ding,",
+          "0:dong,",
+          "0:ding,",
+          "0:dong,",
+          "0:Ding,",
+          "0:dong,",
+          "0:ding,",
+          "0:dong,",
+          "0:One 1:seems 1.5:to 2:hear",
+          "0:words 1:of 1.5:good 2:cheer",
+          "0:From 1:ev- 1.5:’ry- 2:where,",
+          "0:fill- 1:ing 1.5:the 2:air.",
+          "0:Oh, 1:how 1.5:they 2:pound,",
+          "0:rais- 1:ing 1.5:the 2:sound,",
+          "0:O’er 1:hill 1.5:and 2:dale,",
+          "0:tell- 1:ing 1.5:their 2:tale.",
+          "0:Gai- 1:ly 1.5:they 2:ring,",
+          "0:while 1:peo- 1.5:ple 2:sing,",
+          "0:songs 1:of 1.5:good 2:cheer,",
+          "0:Christ- 1:mas 1.5:is 2:here!",
+          "0:Ding,",
+          "0:ding, 2:dong.",
+          "0:Ding,",
+          "0:ding, 2:dong,",
+          "0:Ding,",
+          "0:dong,",
+          "0:ding,",
+          "",
+          "0:dong.",
+          "",
+          "",
+          "",
+          "0:dong.",
+          "",
+          "",
+          "",
+          "",
+          ""
+        ],
+        "tenor": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0:Ding,",
+          "0:dong,",
+          "0:ding,",
+          "0:dong.",
+          "0:One 1:seems 1.5:to 2:hear",
+          "0:words 1:of 1.5:good 2:cheer",
+          "0:From 1:ev- 1.5:’ry- 2:where,",
+          "0:fill- 1:ing 1.5:the 2:air.",
+          "0:Oh,",
+          "0:how",
+          "0:hap- 2:py",
+          "0:are 1:their 2:tones.",
+          "0:Gai- 1:ly 1.5:they 2:ring,",
+          "0:while 1:peo- 1.5:ple 2:sing,",
+          "0:songs 1:of 1.5:good 2:cheer,",
+          "0:Christ- 1:mas 1.5:is 2:here!",
+          "0:Ding, 1:dong, 1.5:ding, 2:dong,",
+          "0:that 1:is 1.5:their 2:song,",
+          "0:With 1:joy- 1.5:ful 2:ring,",
+          "0:all 1:car- 1.5:ol- 2:ing.",
+          "0:Ding,",
+          "0:dong,",
+          "0:ding,",
+          "0:ding,",
+          "0:dong.",
+          "",
+          "",
+          "",
+          "0:On, 1:on 1.5:they 2:send,",
+          "0:on 1:with- 1.5:out 2:end,",
+          "0:Their 1:joy- 1.5:ful 2:tone",
+          "0:to 1:eve- 1.5:ry 2:home.",
+          "",
+          ""
+        ],
+        "bass": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "0:One 1:seems 1.5:to 2:hear",
+          "0:words 1:of 1.5:good 2:cheer",
+          "0:From 1:ev- 1.5:’ry- 2:where,",
+          "0:fill- 1:ing 1.5:the 2:air.",
+          "0:Oh, 1:how 1.5:they 2:pound,",
+          "0:rais- 1:ing 1.5:the 2:sound,",
+          "0:O’er 1:hill 1.5:and 2:dale,",
+          "0:tell- 1:ing 1.5:their 2:tale.",
+          "0:Gai- 1:ly 1.5:they 2:ring,",
+          "0:while 1:peo- 1.5:ple 2:sing,",
+          "0:songs 1:of 1.5:good 2:cheer,",
+          "0:Christ- 1:mas 1.5:is 2:here!",
+          "0:Ding,",
+          "0:dong,",
+          "0:ding,",
+          "0:dong.",
+          "0:Ding,",
+          "0:dong,",
+          "0:ding,",
+          "",
+          "0:dong.",
+          "",
+          "",
+          "",
+          "0:dong.",
+          "",
+          "",
+          "",
+          "",
+          "0:Bohm!"
+        ]
+      }
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.25
+    ],
+    "alto": [
+      0.25,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      0.75
+    ],
+    "bass": [
+      0.75,
+      1
+    ]
+  },
+  "compact": {
+    "instructions": "Ritornello: dopo la battuta 36 si torna alla 5; la seconda volta si salta da 32 alla 37."
+  }
+}

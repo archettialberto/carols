@@ -71,4 +71,4 @@ for n, staff in enumerate(staves):
     for x, p in heads:
         if cols and x - cols[-1][0] < 4: cols[-1][1].append(p)
         else: cols.append([x, [p]])
-    print(f'staff {n} ({clefs[n % len(clefs)]}):', ' '.join(f"{x:.0f}:{'/'.join(ps)}" for x, ps in cols))
+    print(f'staff {n} y={top * 72 / a.dpi:.0f} ({clefs[n % len(clefs)]}):', ' '.join(f"{x:.0f}:{'/'.join(ps)}" for x, ps in cols))

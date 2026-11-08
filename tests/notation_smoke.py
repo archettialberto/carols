@@ -110,7 +110,7 @@ with sync_playwright() as p:
     page.locator('#voice').select_option(label='Tutte le voci');page.wait_for_timeout(120)
     assert page.evaluate('voices.every(v=>Math.abs(voiceBuses[v].gain.value-1)<.01)')
     page.locator('#play').click()
-    assert page.locator('details').count()==0
+    assert page.locator('details:not(#booklet)').count()==0
     assert page.locator('#download').count()==1
     assert page.locator('.system:visible svg').is_visible()
     for width in [320,390]:

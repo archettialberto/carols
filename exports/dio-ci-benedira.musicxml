@@ -50,10 +50,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>124</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="124" />
       </direction>
       <note>
         <rest />
@@ -3451,10 +3451,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>124</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="124" />
       </direction>
       <note>
         <rest />
@@ -6876,10 +6876,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>124</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="124" />
       </direction>
       <note>
         <rest />
@@ -10313,10 +10313,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>124</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="124" />
       </direction>
       <note>
         <rest />

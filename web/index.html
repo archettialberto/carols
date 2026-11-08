@@ -21,6 +21,7 @@
   <script src="vendor/abcjs-basic-6.7.2.min.js" defer></script>
   <script src="notation.js" defer></script>
   <script src="sounds.js" defer></script>
+  <script src="booklet.js" defer></script>
   <script src="player.js" defer></script>
 </head>
 <body class="library-open">
@@ -34,6 +35,14 @@
   <section id="library-panel" tabindex="0">
     <div class="library-heading"><h2 data-i18n="library">Brani</h2><span class="alphabetical" aria-hidden="true">A–Z</span></div>
     <ul id="song-list"><li data-i18n="loading">Caricamento…</li></ul>
+    <details id="booklet" class="booklet">
+      <summary><span>Genera PDF</span><span class="booklet-arrow" aria-hidden="true">▾</span></summary>
+      <p class="booklet-hint">Scegli i brani e trascina ⠿ per l’ordine: un unico PDF da stampare.</p>
+      <label class="booklet-all"><input id="booklet-all" type="checkbox"> Seleziona tutti</label>
+      <ol id="booklet-list"></ol>
+      <label class="booklet-even"><input id="booklet-even" type="checkbox" checked> Rendi pagine pari <small>(fronte-retro: ogni brano inizia a destra)</small></label>
+      <div class="booklet-actions"><button id="booklet-make" type="button" disabled>Genera PDF</button> <span id="booklet-status" aria-live="polite"></span></div>
+    </details>
   </section>
 
   <div id="practice-panel" tabindex="0" hidden>

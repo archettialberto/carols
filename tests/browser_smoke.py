@@ -66,7 +66,7 @@ with sync_playwright() as p:
         page.wait_for_function('document.documentElement.dataset.theme === "light"')
         assert page.locator('.system:visible').count()==1
         assert page.locator('.system:visible svg').count()==1
-        assert page.locator('details').count()==0
+        assert page.locator('details:not(#booklet)').count()==0
         # One light PDF download, no original scan, no lyric-voice or custom-mix controls.
         assert page.locator('#download').count()==1 and page.locator('#download').get_attribute('href').endswith('-digital.pdf')
         assert page.locator('#text-voice, #mix, #downloads, #lyrics-title, #score-hint, [href^="songs/"]').count()==0

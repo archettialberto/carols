@@ -3,7 +3,7 @@ const ScoreNotation = (() => {
   const allVoices = ['soprano','alto','tenor','bass'];
   const lengths = {.25:'/4', .5:'/2', .75:'3/4', 1:'', 1.5:'3/2', 2:'2', 3:'3', 4:'4'};
   const keys = {'-7':'Cb','-6':'Gb','-5':'Db','-4':'Ab','-3':'Eb','-2':'Bb','-1':'F',0:'C',1:'G',2:'D',3:'A',4:'E',5:'B',6:'F#',7:'C#'};
-  function pitchToken(pitch, voice, keyFifths, state = new Map()) {
+  function pitchToken(pitch, voice, keyFifths, state = new Map(), record = true) {
     if (pitch === 'R') return 'z';
     let octave = Number(pitch.at(-1));
     // treble-8 prints written pitches; the canonical note and Web Audio stay at sounding pitch.
@@ -15,7 +15,8 @@ const ScoreNotation = (() => {
     const wanted = pitch.includes('#') ? '#' : pitch.includes('b') ? 'b' : '';
     const current = state.has(letter) ? state.get(letter) : inKey;
     const accidental = wanted === current ? '' : wanted === '#' ? '^' : wanted === 'b' ? '_' : '=';
-    state.set(letter,wanted);
+    // abcjs does not let a tied-over note's accidental affect the rest of the bar.
+    if (record) state.set(letter,wanted);
     return accidental + letter;
   }
   function build(song, bars, voices = allVoices, names = {}, options = {}) {
@@ -36,6 +37,7 @@ const ScoreNotation = (() => {
     voices.forEach((voice,vi) => {
       abc += `[V:V${vi}] `;
       const lyricRows = [];
+      let tiedIn = false;
       bars.forEach((bar,mi) => {
         const key = bar.key_fifths ?? song.key_fifths;
         // An inline K: must repeat the clef, otherwise abcjs resets the voice to treble.
@@ -52,7 +54,7 @@ const ScoreNotation = (() => {
           const info = {voice, voiceIndex:vi, measureIndex:mi, noteIndex:ni, measure:bar.measure,
             start:at, end:at+note.duration, pitch:note.pitch, lyrics:note.lyrics === undefined ? [note.lyric] : note.lyrics};
           mapping.set(abc.length,info); notes.push(info);
-          const head = note.pitches?.length > 1 ? '['+note.pitches.map(p => pitchToken(p,voice,key,accidentals)).join('')+']' : pitchToken(note.pitch,voice,key,accidentals);
+          const head = note.pitches?.length > 1 ? '['+note.pitches.map(p => pitchToken(p,voice,key,accidentals,!(tiedIn && ni === 0))).join('')+']' : pitchToken(note.pitch,voice,key,accidentals,!(tiedIn && ni === 0));
           abc += (note.annotation ? `"^${note.annotation}"` : '')+head+lengths[note.duration]+(note.tie ? '-' : '')+(beamed(note, bar.parts[voice][ni+1], at) ? '' : ' ');
           // Multiple w: fields share notes. A nonbreaking blank (~) keeps empty
           // cells aligned: abcjs can consume * skips on leading rests.
@@ -63,7 +65,7 @@ const ScoreNotation = (() => {
               lyricRows[row].push(lyric?.text ? lyric.text.replace(/_/g,'\\_')+(['begin','middle'].includes(lyric.syllabic) ? '-' : '') : '~');
             });
           }
-          at += note.duration;
+          at += note.duration; tiedIn = !!note.tie;
         });
         abc += '| ';
       });

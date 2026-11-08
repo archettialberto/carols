@@ -322,29 +322,42 @@ function sectionAt(measure, beat) {
   return name === 'verse' ? 'verseSection' : name;
 }
 
-function renderLyrics(segment) {
+// Lyrics run as one sliding line: the sung syllable stays near the left third, so the words of
+// the next bars are always visible ahead of it (read-ahead for singers).
+let lyricTimeline = null, lyricIndex = -2;
+function renderLyrics() {
   const voice = lyricVoice();
   const timeline = performanceData.lyrics[voice];
-  let first = timeline.findIndex(cue => cue.start < segment.end && cue.end > segment.start);
-  let last = first;
-  if (first >= 0) {
-    while (last+1 < timeline.length && timeline[last+1].start < segment.end) last++;
-    // Keep words readable across system breaks, while highlighting only their sung syllable.
-    while (first > 0 && timeline[first-1].verse === segment.verse && timeline[first-1].text.endsWith('-')) first--;
-    while (last+1 < timeline.length && timeline[last].text.endsWith('-') && timeline[last+1].verse === segment.verse) last++;
-  }
-  const cues = first < 0 ? [] : timeline.slice(first,last+1);
+  if (timeline === lyricTimeline) return;
+  lyricTimeline = timeline; lyricIndex = -2;
   $('lyric-rows').replaceChildren(); lyricSpans = [];
   const text = document.createElement('div'); text.className = 'lyric-text';
   let join = false;
-  cues.forEach((cue, index) => {
-    if (index && !join) text.append(document.createTextNode(' '));
+  timeline.forEach((cue, index) => {
+    if (index && !join) text.append(document.createTextNode(cue.verse !== timeline[index-1].verse ? ' · ' : ' '));
     const span = document.createElement('span'); span.className = 'syllable';
     span.textContent = cue.text.replace(/-$/, ''); span.dataset.start = cue.start; span.dataset.end = cue.end;
     text.append(span); lyricSpans.push(span); join = cue.text.endsWith('-');
   });
-  if (!cues.length) text.textContent = t('noLyrics');
+  if (!timeline.length) text.textContent = t('noLyrics');
   $('lyric-rows').append(text);
+}
+
+function slideLyrics(beat) {
+  let index = -1;
+  for (let i = 0; i < lyricSpans.length && Number(lyricSpans[i].dataset.start) <= beat; i++) index = i;
+  lyricSpans.forEach((span, i) => {
+    const start = Number(span.dataset.start), end = Number(span.dataset.end);
+    span.classList.toggle('current', beat >= start && beat < end);
+    span.classList.toggle('sung', beat >= end);
+  });
+  if (index === lyricIndex) return;
+  lyricIndex = index;
+  const text = $('lyric-rows').firstChild, anchor = lyricSpans[Math.max(index, 0)];
+  if (!text || !anchor) return;
+  const offset = Math.max(0, anchor.offsetLeft - $('lyric-rows').clientWidth * .25);
+  text.style.transform = `translateX(${-offset}px)`;
+  $('lyric-rows').classList.toggle('scrolled', offset > 0);  // fade the left edge only once text has left it
 }
 
 function resizeScore() {
@@ -398,17 +411,13 @@ function updatePosition(forcePan = false) {
     activeSystem.hidden = false; displayedSegment = bar.segment;
     $('line-position').textContent = t('line', {n:bar.system+1,total:song.systems.length});
     $('previous-line').disabled = bar.segment === 0; $('next-line').disabled = bar.segment === segments.length-1;
-    renderLyrics(segment); resizeScore(); forcePan = true;
+    renderLyrics(); resizeScore(); forcePan = true;
   }
   const fraction = digitalView?.update(beat,emphasizedVoice);
   const cursor = activeSystem.querySelector('.digital-cursor');
   cursor.style.left = `${(fraction || 0)*100}%`; cursor.hidden = fraction == null;
   if (fraction != null && (forcePan || (playing && followScore))) panToMarker(fraction);
-  for (const span of lyricSpans) {
-    const start = Number(span.dataset.start), end = Number(span.dataset.end);
-    span.classList.toggle('current', beat >= start && beat < end);
-    span.classList.toggle('sung', beat >= end);
-  }
+  slideLyrics(beat);
 }
 
 // The words shown are always those of the voice being listened to (soprano for all voices).
@@ -417,7 +426,7 @@ function changeVoices() {
   updateAudioMix();
   renderSummary();
   resizeScore();
-  const segment = segments[displayedSegment]; if (segment) renderLyrics(segment);
+  renderLyrics();
   updatePosition(true);
 }
 $('voice').onchange = () => {
@@ -467,7 +476,10 @@ function renderLibrary() {
     };
     li.append(button); return li;
   }));
+  Booklet.render(songs);
 }
+$('booklet-make').onclick = () => Booklet.make();
+$('booklet-all').onchange = event => Booklet.selectAll(event.target.checked);
 function showTab(name) {
   const library = name === 'library';
   if (library) { pause(); stopPreviews(); closeSheets(); }

@@ -44,7 +44,7 @@ python -m unittest discover -s tests   # validation
 
 Browser checks (development only, run against a running server):
 `tests/browser_smoke.py`, `tests/notation_smoke.py`, `tests/starting_note_smoke.py`.
-A gitignored `.venv` with Playwright and PyMuPDF is used for these tools.
+A gitignored `.venv` holds the development tools: `pip install -r requirements.txt`, then `playwright install chromium`.
 
 ## Publishing
 
