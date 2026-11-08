@@ -28,7 +28,7 @@ with sync_playwright() as p:
         assert '✓' not in page.locator('#song-list').inner_text()
         page.locator('.song-card').first.click()
         assert page.locator('#voice option').evaluate_all('(nodes)=>nodes.map(n=>n.value)')==[
-            'all','lead:soprano','lead:alto','lead:tenor','lead:bass','soprano','alto','tenor','bass']
+            'all','lead:soprano','lead:alto','lead:tenor','lead:bass','soprano','alto','tenor','bass','backing:organ','backing:piano']
         if width<=700:
             page.locator('#selection-summary').click()
             assert page.locator('#selection').bounding_box()['y'] < 40  # selection sheet opens from the top

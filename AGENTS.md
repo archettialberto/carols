@@ -133,7 +133,7 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - `web/sounds.js` synthesizes sounds with Web Audio only (no samples, no network). Choir parts
   always play as piano; an optional `backing_track` (organ lanes with the same measure count,
   for arrangements printed with accompaniment) always plays as organ on its own gain bus.
-  There is no instrument selector.
+  There is no instrument selector; songs with a backing track (“base”) get a “Volume base” slider (0–150%, remembered on the device) and the listening modes “Solo base (organo)” and “Solo base (pianoforte)”.
 - Phones (≤700px) must not need vertical scrolling while practising: one top bar (name, back button,
   appearance icon), a one-line song/verse/voice summary opening a sheet, the score, the current
   lyrics and the playback dock (keys, restart, play, tempo, seek). Song, verse, voice and

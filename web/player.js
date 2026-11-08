@@ -25,9 +25,23 @@ function voiceWeight(voice) {
   // quiet enough to follow the lead yet still heard as a mix.
   return selected.has(voice) ? (emphasizedVoice && voice !== emphasizedVoice ? .25 : 1) : 0;
 }
+// Organ (backing track) volume from the options sheet: 0–150%, remembered on this device.
+let organVolume = 1, backingKind = 'organ', backingOnly = false;
+try { organVolume = Math.min(1.5, Math.max(0, Number(localStorage.getItem('organVolume') ?? 1))); } catch {}
+function showOrganVolume() {
+  $('organ-control').hidden = !song?.backing_track;
+  document.querySelectorAll('#voice .backing-mode').forEach(option => option.hidden = option.disabled = !song?.backing_track);
+  if (!song?.backing_track && $('voice').value.startsWith('backing:')) { $('voice').value = 'all'; $('voice').onchange(); }
+  $('organ-volume').value = Math.round(organVolume * 100); $('organ-value').textContent = `${Math.round(organVolume * 100)}%`;
+}
+$('organ-volume').oninput = () => {
+  organVolume = Number($('organ-volume').value) / 100; showOrganVolume();
+  try { localStorage.setItem('organVolume', organVolume); } catch {}
+  updateAudioMix();
+};
 function updateAudioMix() {
   if (!audio || !master) return;
-  const backingLevel = performanceData?.backing_events?.length ? .38 : 0;
+  const backingLevel = performanceData?.backing_events?.length ? .38 * organVolume : 0;
   const energy = voices.reduce((sum,voice) => sum+voiceWeight(voice)**2,0) + backingLevel**2;
   for (const voice of voices) {
     voiceBuses[voice].gain.cancelScheduledValues(audio.currentTime);
@@ -50,7 +64,7 @@ function tone(note, start, duration, voice, preview = false) {
 }
 function backingTone(note, start, duration) {
   const handle = Sounds.play(audio, backingBus, {
-    midi:note.midi + transpose, start, duration, kind:'organ', level:.09});
+    midi:note.midi + transpose, start, duration, kind:backingKind, level:backingKind === 'piano' ? .12 : .09});
   sounding.push(handle);
   handle.onended = () => { sounding = sounding.filter(item => item !== handle); };
   return handle;
@@ -115,7 +129,7 @@ async function startAudio() {
 }
 async function play() {
   if (playing || starting) { pause(); return; }
-  if (!selected.size) { showError(t('selectVoice')); return; }
+  if (!selected.size && !backingOnly) { showError(t('selectVoice')); return; }
   clearAudio();
   const request = ++playRequest;
   starting = true;
@@ -201,7 +215,7 @@ function chooseSong() {
   $('tempo').value = song.tempo; previousTempo = song.tempo;
   zoom = 1; renderScore(); renderDownloads(); preparePerformance(song.performance);
   $('play').disabled = false; $('stop').disabled = false;
-  renderLibrary(); renderSummary();
+  renderLibrary(); renderSummary(); showOrganVolume();
 }
 async function chooseVerse() {
   const request = ++loadRequest, id = song.id, verse = $('verse').value;
@@ -430,7 +444,11 @@ function changeVoices() {
   updatePosition(true);
 }
 $('voice').onchange = () => {
-  const voice = $('voice').value;
+  const voice = $('voice').value, kind = voice === 'backing:piano' ? 'piano' : 'organ';
+  // Accompaniment-only modes: no choir parts; the backing track plays as organ or piano.
+  backingOnly = voice.startsWith('backing:');
+  if (kind !== backingKind) { backingKind = kind; if (playing) { pause(); play(); } }
+  if (backingOnly) { emphasizedVoice = null; selected.clear(); changeVoices(); return; }
   emphasizedVoice = voice.startsWith('lead:') ? voice.split(':')[1] : null;
   selected.clear(); (voice === 'all' || emphasizedVoice ? voices : [voice]).forEach(v => selected.add(v));
   changeVoices();

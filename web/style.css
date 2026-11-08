@@ -64,6 +64,8 @@ main { position:relative; }
 /* Song, verse and voice. */
 #selection-summary { display:none; }
 .selection { display:grid; grid-template-columns:2fr 1.5fr 1.3fr 1fr; gap:12px; margin:22px 0 16px; align-items:end; }
+/* Songs with organ: the volume slider takes a narrow fifth column on the same row. */
+@media (min-width:701px) { .selection:has(#organ-control:not([hidden])) { grid-template-columns:2fr 1.5fr 1.3fr 1fr .8fr; } }
 .selection .sheet-heading { display:none; }
 .selection label { min-width:0; }
 #error { background:var(--error-bg); padding:12px; color:var(--error-ink); border-radius:8px; }
@@ -207,3 +209,10 @@ body.library-open main { padding-bottom:40px; }
 .booklet input[type=checkbox] { flex:none; margin:0; }
 .booklet-even small { color:var(--muted); }
 .booklet-actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; }
+
+/* Organ volume (songs with a backing track). */
+#organ-control input { width:100%; height:44px; margin:0; box-sizing:border-box; accent-color:var(--accent); }
+#organ-control output { line-height:1; }
+#organ-control output { font-weight:500; }
+#organ-control > span { white-space:nowrap; }
+@media (max-width:700px) { #organ-control { grid-column:1/-1; } }
