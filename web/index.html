@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#f6f0e1">
+  <meta name="description" content="Christmas Carol Choir: prova le voci SATB dei canti di Natale.">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Carol Choir">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <title>Christmas Carol Choir</title>
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="icons/icon.svg" type="image/svg+xml">
+  <link rel="icon" href="icons/icon-192.png" sizes="192x192" type="image/png">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
+  <link rel="preload" href="fonts/im-fell-english.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css">
+  <script src="appearance.js"></script>
+  <script src="i18n.js" defer></script>
+  <script src="vendor/abcjs-basic-6.7.2.min.js" defer></script>
+  <script src="notation.js" defer></script>
+  <script src="sounds.js" defer></script>
+  <script src="player.js" defer></script>
+</head>
+<body class="library-open">
+<main>
+  <header class="topbar">
+    <h1 class="brand"><span class="brand-icon" aria-hidden="true">🎄</span><span>Christmas Carol Choir</span></h1>
+    <button id="library-back" class="library-back" type="button" data-label="backToLibrary" aria-label="Torna ai brani" hidden><span data-i18n="library">Brani</span></button>
+    <button id="theme" class="icon-button theme-button" type="button" aria-label="Aspetto: dispositivo" title="Aspetto: dispositivo"><span aria-hidden="true">◐</span></button>
+  </header>
+
+  <section id="library-panel" tabindex="0">
+    <div class="library-heading"><h2 data-i18n="library">Brani</h2><span class="alphabetical" aria-hidden="true">A–Z</span></div>
+    <ul id="song-list"><li data-i18n="loading">Caricamento…</li></ul>
+  </section>
+
+  <div id="practice-panel" tabindex="0" hidden>
+    <button id="selection-summary" type="button" aria-expanded="false" aria-controls="selection"><span id="summary-song"></span><span id="summary-detail"></span><span class="summary-options" aria-hidden="true"><span data-i18n="summaryOptions">Opzioni</span> ▾</span></button>
+    <section id="selection" class="selection" aria-label="Brano e voci" data-label="selection">
+      <div class="sheet-heading"><h2 data-i18n="selection">Brano e voci</h2><button class="sheet-close icon-button" type="button" data-close="selection" data-label="close" aria-label="Chiudi">✕</button></div>
+      <label class="song-label"><span data-i18n="song">Brano</span><select id="song" disabled><option data-i18n="loading">Caricamento…</option></select></label>
+      <label><span data-i18n="verse">Strofa</span><select id="verse" disabled></select></label>
+      <label><span data-i18n="listen">Ascolta</span><select id="voice"><option value="all" data-i18n="allVoices">Tutte le voci</option><option value="lead:soprano" data-i18n="leadSoprano">Soprani in evidenza</option><option value="lead:alto" data-i18n="leadAlto">Contralti in evidenza</option><option value="lead:tenor" data-i18n="leadTenor">Tenori in evidenza</option><option value="lead:bass" data-i18n="leadBass">Bassi in evidenza</option><option value="soprano" data-i18n="soloSoprano">Solo soprani</option><option value="alto" data-i18n="soloAlto">Solo contralti</option><option value="tenor" data-i18n="soloTenor">Solo tenori</option><option value="bass" data-i18n="soloBass">Solo bassi</option></select></label>
+      <label><span data-i18n="transpose">Trasposizione</span><select id="transpose"></select></label>
+    </section>
+    <p id="error" role="alert" hidden></p>
+    <section class="practice" aria-label="Spartito e testo" data-label="practice">
+      <div class="score-heading">
+        <div class="score-title"><h2 id="line-position"></h2><span id="section-name"></span></div>
+        <div class="line-nav">
+          <button id="zoom-out" data-label="zoomOut" aria-label="Riduci spartito">−</button><button id="zoom-in" data-label="zoomIn" aria-label="Ingrandisci spartito">+</button>
+          <a id="download" class="icon-link" data-label="downloadPDF" aria-label="Scarica PDF" download><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 19.5h14" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <button id="previous-line" data-label="previousLine" aria-label="Rigo precedente">‹</button><button id="next-line" data-label="nextLine" aria-label="Rigo successivo">›</button>
+        </div>
+      </div>
+      <div id="score-viewport" tabindex="0" data-label="scoreScroll" aria-label="Spartito: scorri orizzontalmente"><div id="score"></div></div>
+      <div class="lyrics-panel"><div id="lyric-rows"></div></div>
+    </section>
+  </div>
+</main>
+<section class="player-dock" aria-label="Riproduzione" data-label="playback" hidden>
+  <div class="dock-inner">
+    <div class="transport">
+      <button id="play" class="primary" disabled>▶ Ascolta</button>
+      <button id="stop" disabled data-label="restart" aria-label="Ricomincia">↺</button>
+      <div class="keys" role="group" data-label="firstNote" aria-label="Prima nota"><span class="keys-label" data-i18n="firstNote" aria-hidden="true">Prima nota</span></div>
+    </div>
+    <div class="progress">
+      <label class="tempo-label"><span class="sr-only" data-i18n="tempo">Tempo</span><input id="tempo" type="number" inputmode="numeric" min="40" max="220" value="96"><small>bpm</small></label>
+      <input id="seek" data-label="seek" aria-label="Posizione di riproduzione" type="range" min="0" max="100" value="0" step="0.01">
+      <span id="time">0:00</span>
+    </div>
+    <span id="position" class="sr-only" role="status" aria-live="polite" data-i18n="ready">Pronto</span>
+  </div>
+</section>
+</body>
+</html>

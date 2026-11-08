@@ -1,0 +1,645 @@
+{
+  "id": "good-king-wenceslas",
+  "title": "Good King Wenceslas",
+  "emoji": "👑",
+  "meter": [
+    4,
+    4
+  ],
+  "key_fifths": 3,
+  "tempo": 120,
+  "source_pdf": "songs/Good King Wenceslas.pdf",
+  "review_notes": [
+    "Pitches computed from the notehead path centres against the staff lines and checked on the page; durations from head shape (filled quarter, hollow half, whole in the last bar).",
+    "Bar 11 alto is A3 (head centred below the C4 ledger; voice exchange with the tenor’s D4). The final chord is printed A4/E4 over C♯4/A3 (bass on A3).",
+    "The edition suggests a dramatised performance: stanza 2 tenor solo (king) then treble solo (page); stanza 3 tenor solo then all; stanza 4 treble solo then tenor solo; stanzas 1 and 5 all. Playback keeps the full SATB texture.",
+    "Default tempo quarter = 120 (user choice)."
+  ],
+  "parts": {
+    "soprano": [
+      "A4:1 A4:1 A4:1 B4:1",
+      "A4:1 A4:1 E4:2",
+      "F#4:1 E4:1 F#4:1 G#4:1",
+      "A4:2 A4:2",
+      "A4:1 A4:1 A4:1 B4:1",
+      "A4:1 A4:1 E4:2",
+      "F#4:1 E4:1 F#4:1 G#4:1",
+      "A4:2 A4:2",
+      "E5:1 D5:1 C#5:1 B4:1",
+      "C#5:1 B4:1 A4:2",
+      "F#4:1 E4:1 F#4:1 G#4:1",
+      "A4:2 A4:2",
+      "E4:1 E4:1 F#4:1 G#4:1",
+      "A4:1 A4:1 B4:2",
+      "E5:1 D5:1 C#5:1 B4:1",
+      "A4:2 D5:2",
+      "A4:4"
+    ],
+    "alto": [
+      "E4:1 E4:1 F#4:1 E4:1",
+      "E4:1 F#4:1 B3:2",
+      "D4:1 E4:1 D4:1 D4:1",
+      "C#4:2 C#4:2",
+      "E4:1 E4:1 F#4:1 E4:1",
+      "E4:1 F#4:1 B3:2",
+      "D4:1 E4:1 D4:1 D4:1",
+      "C#4:2 C#4:2",
+      "A4:1 A4:1 A4:1 G#4:1",
+      "A4:1 G#4:1 F#4:2",
+      "A3:1 E4:1 D4:1 D4:1",
+      "C#4:2 C#4:2",
+      "E4:1 E4:1 D4:1 D4:1",
+      "C#4:1 C#4:1 E4:2",
+      "E4:1 A4:1 A4:1 G#4:1",
+      "A4:2 F#4:2",
+      "E4:4"
+    ],
+    "tenor": [
+      "C#4:1 C#4:1 C#4:1 B3:1",
+      "C#4:1 D4:1 G#3:2",
+      "A3:1 A3:1 A3:1 B3:1",
+      "E3:2 E3:2",
+      "C#4:1 C#4:1 C#4:1 B3:1",
+      "C#4:1 D4:1 G#3:2",
+      "A3:1 A3:1 A3:1 B3:1",
+      "E3:2 E3:2",
+      "E4:1 F#4:1 E4:1 E4:1",
+      "E4:1 E4:1 C#4:2",
+      "D4:1 A3:1 A3:1 B3:1",
+      "E3:2 E3:2",
+      "A3:1 A3:1 A3:1 B3:1",
+      "A3:1 A3:1 G#3:2",
+      "A3:1 F#4:1 E4:1 F#4:1",
+      "C#4:2 D4:2",
+      "C#4:4"
+    ],
+    "bass": [
+      "A3:1 A3:1 F#3:1 G#3:1",
+      "A3:1 D3:1 E3:2",
+      "D3:1 C#3:1 D3:1 B2:1",
+      "A2:2 A2:2",
+      "A3:1 A3:1 F#3:1 G#3:1",
+      "A3:1 D3:1 E3:2",
+      "D3:1 C#3:1 D3:1 B2:1",
+      "A2:2 A2:2",
+      "C#3:1 D3:1 E3:1 E3:1",
+      "A3:1 E3:1 F#3:2",
+      "D3:1 C#3:1 D3:1 B2:1",
+      "A2:2 A2:2",
+      "C#3:1 C#3:1 D3:1 B2:1",
+      "F#3:1 F#3:1 E3:2",
+      "C#3:1 D3:1 E3:1 E3:1",
+      "F#3:2 D3:2",
+      "A3:4"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/good-king-wenceslas-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 355
+    },
+    {
+      "image": "scores/good-king-wenceslas-2.png",
+      "page": 1,
+      "first_measure": 5,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 354
+    },
+    {
+      "image": "scores/good-king-wenceslas-3.png",
+      "page": 1,
+      "first_measure": 9,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 355
+    },
+    {
+      "image": "scores/good-king-wenceslas-4.png",
+      "page": 1,
+      "first_measure": 13,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 1096,
+      "height": 371
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Strofa 1",
+      "lyrics": {
+        "soprano": [
+          "0:Good 1:King 2:Wen- 3:ces-",
+          "0:las 1:looked 2:out,",
+          "0:on 1:the 2:fest 3:of",
+          "0:Ste- 2:phen,",
+          "0:when 1:the 2:snow 3:lay",
+          "0:round 1:a- 2:bout,",
+          "0:deep 1:and 2:crisp 3:and",
+          "0:e- 2:ven:",
+          "0:Bright- 1:ly 2:shone 3:the",
+          "0:moon 1:that 2:night,",
+          "0:though 1:the 2:frost 3:was",
+          "0:cru- 2:el,",
+          "0:when 1:a 2:poor 3:man",
+          "0:came 1:in 2:sight,",
+          "0:ga- 1:th’ring 2:win- 3:ter",
+          "0:fu-",
+          "0:el."
+        ],
+        "alto": [
+          "0:Good 1:King 2:Wen- 3:ces-",
+          "0:las 1:looked 2:out,",
+          "0:on 1:the 2:fest 3:of",
+          "0:Ste- 2:phen,",
+          "0:when 1:the 2:snow 3:lay",
+          "0:round 1:a- 2:bout,",
+          "0:deep 1:and 2:crisp 3:and",
+          "0:e- 2:ven:",
+          "0:Bright- 1:ly 2:shone 3:the",
+          "0:moon 1:that 2:night,",
+          "0:though 1:the 2:frost 3:was",
+          "0:cru- 2:el,",
+          "0:when 1:a 2:poor 3:man",
+          "0:came 1:in 2:sight,",
+          "0:ga- 1:th’ring 2:win- 3:ter",
+          "0:fu-",
+          "0:el."
+        ],
+        "tenor": [
+          "0:Good 1:King 2:Wen- 3:ces-",
+          "0:las 1:looked 2:out,",
+          "0:on 1:the 2:fest 3:of",
+          "0:Ste- 2:phen,",
+          "0:when 1:the 2:snow 3:lay",
+          "0:round 1:a- 2:bout,",
+          "0:deep 1:and 2:crisp 3:and",
+          "0:e- 2:ven:",
+          "0:Bright- 1:ly 2:shone 3:the",
+          "0:moon 1:that 2:night,",
+          "0:though 1:the 2:frost 3:was",
+          "0:cru- 2:el,",
+          "0:when 1:a 2:poor 3:man",
+          "0:came 1:in 2:sight,",
+          "0:ga- 1:th’ring 2:win- 3:ter",
+          "0:fu-",
+          "0:el."
+        ],
+        "bass": [
+          "0:Good 1:King 2:Wen- 3:ces-",
+          "0:las 1:looked 2:out,",
+          "0:on 1:the 2:fest 3:of",
+          "0:Ste- 2:phen,",
+          "0:when 1:the 2:snow 3:lay",
+          "0:round 1:a- 2:bout,",
+          "0:deep 1:and 2:crisp 3:and",
+          "0:e- 2:ven:",
+          "0:Bright- 1:ly 2:shone 3:the",
+          "0:moon 1:that 2:night,",
+          "0:though 1:the 2:frost 3:was",
+          "0:cru- 2:el,",
+          "0:when 1:a 2:poor 3:man",
+          "0:came 1:in 2:sight,",
+          "0:ga- 1:th’ring 2:win- 3:ter",
+          "0:fu-",
+          "0:el."
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Strofa 2",
+      "lyrics": {
+        "soprano": [
+          "0:“Hi- 1:ther 2:page 3:and",
+          "0:stand 1:by 2:me,",
+          "0:if 1:thou 2:know’st 3:it",
+          "0:tell- 2:ing,",
+          "0:yon- 1:der 2:pea- 3:sant,",
+          "0:who 1:is 2:he?",
+          "0:where 1:and 2:what 3:his",
+          "0:dwell- 2:ing?”",
+          "0:“Sire, 1:he 2:lives 3:a",
+          "0:good 1:league 2:hence,",
+          "0:un- 1:der- 2:neath 3:the",
+          "0:moun- 2:tain;",
+          "0:right 1:a- 2:gainst 3:the",
+          "0:for- 1:est 2:fence,",
+          "0:by 1:Saint 2:Ag- 3:nes",
+          "0:foun-",
+          "0:tain.”"
+        ],
+        "alto": [
+          "0:“Hi- 1:ther 2:page 3:and",
+          "0:stand 1:by 2:me,",
+          "0:if 1:thou 2:know’st 3:it",
+          "0:tell- 2:ing,",
+          "0:yon- 1:der 2:pea- 3:sant,",
+          "0:who 1:is 2:he?",
+          "0:where 1:and 2:what 3:his",
+          "0:dwell- 2:ing?”",
+          "0:“Sire, 1:he 2:lives 3:a",
+          "0:good 1:league 2:hence,",
+          "0:un- 1:der- 2:neath 3:the",
+          "0:moun- 2:tain;",
+          "0:right 1:a- 2:gainst 3:the",
+          "0:for- 1:est 2:fence,",
+          "0:by 1:Saint 2:Ag- 3:nes",
+          "0:foun-",
+          "0:tain.”"
+        ],
+        "tenor": [
+          "0:“Hi- 1:ther 2:page 3:and",
+          "0:stand 1:by 2:me,",
+          "0:if 1:thou 2:know’st 3:it",
+          "0:tell- 2:ing,",
+          "0:yon- 1:der 2:pea- 3:sant,",
+          "0:who 1:is 2:he?",
+          "0:where 1:and 2:what 3:his",
+          "0:dwell- 2:ing?”",
+          "0:“Sire, 1:he 2:lives 3:a",
+          "0:good 1:league 2:hence,",
+          "0:un- 1:der- 2:neath 3:the",
+          "0:moun- 2:tain;",
+          "0:right 1:a- 2:gainst 3:the",
+          "0:for- 1:est 2:fence,",
+          "0:by 1:Saint 2:Ag- 3:nes",
+          "0:foun-",
+          "0:tain.”"
+        ],
+        "bass": [
+          "0:“Hi- 1:ther 2:page 3:and",
+          "0:stand 1:by 2:me,",
+          "0:if 1:thou 2:know’st 3:it",
+          "0:tell- 2:ing,",
+          "0:yon- 1:der 2:pea- 3:sant,",
+          "0:who 1:is 2:he?",
+          "0:where 1:and 2:what 3:his",
+          "0:dwell- 2:ing?”",
+          "0:“Sire, 1:he 2:lives 3:a",
+          "0:good 1:league 2:hence,",
+          "0:un- 1:der- 2:neath 3:the",
+          "0:moun- 2:tain;",
+          "0:right 1:a- 2:gainst 3:the",
+          "0:for- 1:est 2:fence,",
+          "0:by 1:Saint 2:Ag- 3:nes",
+          "0:foun-",
+          "0:tain.”"
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Strofa 3",
+      "lyrics": {
+        "soprano": [
+          "0:“Bring 1:me 2:flesh 3:and",
+          "0:bring 1:me 2:wine,",
+          "0:bring 1:me 2:pine 3:logs",
+          "0:hi- 2:ther:",
+          "0:thou 1:and 2:I 3:will",
+          "0:see 1:him 2:dine,",
+          "0:when 1:we 2:bear 3:them",
+          "0:thi- 2:ther.”",
+          "0:Page 1:and 2:mon- 3:arch",
+          "0:forth 1:they 2:went,",
+          "0:forth 1:they 2:went 3:to-",
+          "0:geth- 2:er;",
+          "0:through 1:the 2:rude 3:wind’s",
+          "0:wild 1:la- 2:ment",
+          "0:and 1:the 2:bit- 3:ter",
+          "0:wea-",
+          "0:ther."
+        ],
+        "alto": [
+          "0:“Bring 1:me 2:flesh 3:and",
+          "0:bring 1:me 2:wine,",
+          "0:bring 1:me 2:pine 3:logs",
+          "0:hi- 2:ther:",
+          "0:thou 1:and 2:I 3:will",
+          "0:see 1:him 2:dine,",
+          "0:when 1:we 2:bear 3:them",
+          "0:thi- 2:ther.”",
+          "0:Page 1:and 2:mon- 3:arch",
+          "0:forth 1:they 2:went,",
+          "0:forth 1:they 2:went 3:to-",
+          "0:geth- 2:er;",
+          "0:through 1:the 2:rude 3:wind’s",
+          "0:wild 1:la- 2:ment",
+          "0:and 1:the 2:bit- 3:ter",
+          "0:wea-",
+          "0:ther."
+        ],
+        "tenor": [
+          "0:“Bring 1:me 2:flesh 3:and",
+          "0:bring 1:me 2:wine,",
+          "0:bring 1:me 2:pine 3:logs",
+          "0:hi- 2:ther:",
+          "0:thou 1:and 2:I 3:will",
+          "0:see 1:him 2:dine,",
+          "0:when 1:we 2:bear 3:them",
+          "0:thi- 2:ther.”",
+          "0:Page 1:and 2:mon- 3:arch",
+          "0:forth 1:they 2:went,",
+          "0:forth 1:they 2:went 3:to-",
+          "0:geth- 2:er;",
+          "0:through 1:the 2:rude 3:wind’s",
+          "0:wild 1:la- 2:ment",
+          "0:and 1:the 2:bit- 3:ter",
+          "0:wea-",
+          "0:ther."
+        ],
+        "bass": [
+          "0:“Bring 1:me 2:flesh 3:and",
+          "0:bring 1:me 2:wine,",
+          "0:bring 1:me 2:pine 3:logs",
+          "0:hi- 2:ther:",
+          "0:thou 1:and 2:I 3:will",
+          "0:see 1:him 2:dine,",
+          "0:when 1:we 2:bear 3:them",
+          "0:thi- 2:ther.”",
+          "0:Page 1:and 2:mon- 3:arch",
+          "0:forth 1:they 2:went,",
+          "0:forth 1:they 2:went 3:to-",
+          "0:geth- 2:er;",
+          "0:through 1:the 2:rude 3:wind’s",
+          "0:wild 1:la- 2:ment",
+          "0:and 1:the 2:bit- 3:ter",
+          "0:wea-",
+          "0:ther."
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "title": "Strofa 4",
+      "lyrics": {
+        "soprano": [
+          "0:“Sire, 1:the 2:night 3:is",
+          "0:dark- 1:er 2:now,",
+          "0:and 1:the 2:wind 3:blows",
+          "0:strong- 2:er;",
+          "0:fails 1:my 2:heart, 3:I",
+          "0:know 1:not 2:how,",
+          "0:I 1:can 2:go 3:no",
+          "0:lon- 2:ger.”",
+          "0:“Mark 1:my 2:foot- 3:steps,",
+          "0:good 1:my 2:page;",
+          "0:tread 1:thou 2:in 3:them",
+          "0:bold- 2:ly:",
+          "0:thou 1:shalt 2:find 3:the",
+          "0:win- 1:ter’s 2:rage",
+          "0:freeze 1:thy 2:blood 3:less",
+          "0:cold-",
+          "0:ly.”"
+        ],
+        "alto": [
+          "0:“Sire, 1:the 2:night 3:is",
+          "0:dark- 1:er 2:now,",
+          "0:and 1:the 2:wind 3:blows",
+          "0:strong- 2:er;",
+          "0:fails 1:my 2:heart, 3:I",
+          "0:know 1:not 2:how,",
+          "0:I 1:can 2:go 3:no",
+          "0:lon- 2:ger.”",
+          "0:“Mark 1:my 2:foot- 3:steps,",
+          "0:good 1:my 2:page;",
+          "0:tread 1:thou 2:in 3:them",
+          "0:bold- 2:ly:",
+          "0:thou 1:shalt 2:find 3:the",
+          "0:win- 1:ter’s 2:rage",
+          "0:freeze 1:thy 2:blood 3:less",
+          "0:cold-",
+          "0:ly.”"
+        ],
+        "tenor": [
+          "0:“Sire, 1:the 2:night 3:is",
+          "0:dark- 1:er 2:now,",
+          "0:and 1:the 2:wind 3:blows",
+          "0:strong- 2:er;",
+          "0:fails 1:my 2:heart, 3:I",
+          "0:know 1:not 2:how,",
+          "0:I 1:can 2:go 3:no",
+          "0:lon- 2:ger.”",
+          "0:“Mark 1:my 2:foot- 3:steps,",
+          "0:good 1:my 2:page;",
+          "0:tread 1:thou 2:in 3:them",
+          "0:bold- 2:ly:",
+          "0:thou 1:shalt 2:find 3:the",
+          "0:win- 1:ter’s 2:rage",
+          "0:freeze 1:thy 2:blood 3:less",
+          "0:cold-",
+          "0:ly.”"
+        ],
+        "bass": [
+          "0:“Sire, 1:the 2:night 3:is",
+          "0:dark- 1:er 2:now,",
+          "0:and 1:the 2:wind 3:blows",
+          "0:strong- 2:er;",
+          "0:fails 1:my 2:heart, 3:I",
+          "0:know 1:not 2:how,",
+          "0:I 1:can 2:go 3:no",
+          "0:lon- 2:ger.”",
+          "0:“Mark 1:my 2:foot- 3:steps,",
+          "0:good 1:my 2:page;",
+          "0:tread 1:thou 2:in 3:them",
+          "0:bold- 2:ly:",
+          "0:thou 1:shalt 2:find 3:the",
+          "0:win- 1:ter’s 2:rage",
+          "0:freeze 1:thy 2:blood 3:less",
+          "0:cold-",
+          "0:ly.”"
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "title": "Strofa 5",
+      "lyrics": {
+        "soprano": [
+          "0:In 1:his 2:mas- 3:ter’s",
+          "0:steps 1:he 2:trod,",
+          "0:where 1:the 2:snow 3:lay",
+          "0:dint- 2:ed;",
+          "0:heat 1:was 2:in 3:the",
+          "0:ve- 1:ry 2:sod",
+          "0:which 1:the 2:saint 3:had",
+          "0:print- 2:ed.",
+          "0:There- 1:fore, 2:Christ- 3:ian",
+          "0:men, 1:be 2:sure,",
+          "0:wealth 1:or 2:rank 3:poss-",
+          "0:ess- 2:ing,",
+          "0:ye 1:who 2:now 3:will",
+          "0:bless 1:the 2:poor,",
+          "0:shall 1:your- 2:selves 3:find",
+          "0:bless-",
+          "0:ing."
+        ],
+        "alto": [
+          "0:In 1:his 2:mas- 3:ter’s",
+          "0:steps 1:he 2:trod,",
+          "0:where 1:the 2:snow 3:lay",
+          "0:dint- 2:ed;",
+          "0:heat 1:was 2:in 3:the",
+          "0:ve- 1:ry 2:sod",
+          "0:which 1:the 2:saint 3:had",
+          "0:print- 2:ed.",
+          "0:There- 1:fore, 2:Christ- 3:ian",
+          "0:men, 1:be 2:sure,",
+          "0:wealth 1:or 2:rank 3:poss-",
+          "0:ess- 2:ing,",
+          "0:ye 1:who 2:now 3:will",
+          "0:bless 1:the 2:poor,",
+          "0:shall 1:your- 2:selves 3:find",
+          "0:bless-",
+          "0:ing."
+        ],
+        "tenor": [
+          "0:In 1:his 2:mas- 3:ter’s",
+          "0:steps 1:he 2:trod,",
+          "0:where 1:the 2:snow 3:lay",
+          "0:dint- 2:ed;",
+          "0:heat 1:was 2:in 3:the",
+          "0:ve- 1:ry 2:sod",
+          "0:which 1:the 2:saint 3:had",
+          "0:print- 2:ed.",
+          "0:There- 1:fore, 2:Christ- 3:ian",
+          "0:men, 1:be 2:sure,",
+          "0:wealth 1:or 2:rank 3:poss-",
+          "0:ess- 2:ing,",
+          "0:ye 1:who 2:now 3:will",
+          "0:bless 1:the 2:poor,",
+          "0:shall 1:your- 2:selves 3:find",
+          "0:bless-",
+          "0:ing."
+        ],
+        "bass": [
+          "0:In 1:his 2:mas- 3:ter’s",
+          "0:steps 1:he 2:trod,",
+          "0:where 1:the 2:snow 3:lay",
+          "0:dint- 2:ed;",
+          "0:heat 1:was 2:in 3:the",
+          "0:ve- 1:ry 2:sod",
+          "0:which 1:the 2:saint 3:had",
+          "0:print- 2:ed.",
+          "0:There- 1:fore, 2:Christ- 3:ian",
+          "0:men, 1:be 2:sure,",
+          "0:wealth 1:or 2:rank 3:poss-",
+          "0:ess- 2:ing,",
+          "0:ye 1:who 2:now 3:will",
+          "0:bless 1:the 2:poor,",
+          "0:shall 1:your- 2:selves 3:find",
+          "0:bless-",
+          "0:ing."
+        ]
+      }
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.5
+    ],
+    "alto": [
+      0,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      1
+    ],
+    "bass": [
+      0.5,
+      1
+    ]
+  },
+  "shared_lyrics": true,
+  "compact": {
+    "instructions": "Cinque strofe numerate sulle stesse note; testo comune alle quattro voci.",
+    "notes": [
+      "Suggerimento dell’edizione: str. 2 tenore solo (re), poi soprano solo (paggio); str. 3 tenore solo, poi tutti; str. 4 soprano solo, poi tenore solo; str. 1 e 5 tutti."
+    ]
+  }
+}

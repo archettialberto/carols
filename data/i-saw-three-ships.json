@@ -1,0 +1,598 @@
+{
+  "id": "i-saw-three-ships",
+  "title": "I Saw Three Ships",
+  "emoji": "⛵",
+  "meter": [
+    6,
+    8
+  ],
+  "key_fifths": 1,
+  "tempo": 132,
+  "measure_beats": [
+    0.5,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2.5
+  ],
+  "source_pdf": "songs/I Saw Three Ships.pdf",
+  "review_notes": [
+    "Pitches read from the embedded Opus glyphs (vector_heads.py) and checked against all four systems; rhythms read from the page.",
+    "The eighth pickup is data measure 1, so printed bar n is data measure n+1. Final bar: dotted quarter + quarter (completes the pickup).",
+    "The score prints stanzas 1–4. Stanzas 5–8 are added from a public-domain hymnal; stanza 2 keeps the printed “what was in those ships” (a public-domain hymnal: “who”). The the 1833 collection stanza “Then let us all rejoice amain” is not in that source and is omitted.",
+    "Stanza 7 (“in Heav’n shall sing”) has one extra syllable: all voices split the first quarter of printed bars 2 and 6 into two eighths on the same pitch.",
+    "Suggested tempo quarter = 132 (dotted quarter = 88), a lilting 6/8."
+  ],
+  "parts": {
+    "soprano": [
+      "D4:0.5",
+      "G4:1 G4:0.5 A4:1 B4:0.5",
+      "D5:1 B4:0.5 A4:1 C5:0.5",
+      "B4:1 G4:0.5 G4:1 B4:0.5",
+      "A4:1 F#4:0.5 D4:1 D4:0.5",
+      "G4:1 G4:0.5 A4:1 B4:0.5",
+      "D5:1 B4:0.5 A4:1 C5:0.5",
+      "B4:1 G4:0.5 G4:0.5 A4:0.5 B4:0.5",
+      "A4:1.5 G4:1"
+    ],
+    "alto": [
+      "D4:0.5",
+      "D4:1 D4:0.5 D4:1 D4:0.5",
+      "G4:1 D4:0.5 D4:1 F#4:0.5",
+      "E4:1 E4:0.5 E4:1 E4:0.5",
+      "F#4:1 D4:0.5 A3:1 C4:0.5",
+      "B3:1 E4:0.5 D4:1 D4:0.5",
+      "G4:1 D4:0.5 D4:1 D4:0.5",
+      "D4:1 B3:0.5 D4:0.5 D4:0.5 D4:0.5",
+      "D4:1 C4:0.5 B3:1"
+    ],
+    "tenor": [
+      "D4:0.5",
+      "B3:1 G3:0.5 F#3:1 G3:0.5",
+      "B3:1 G3:0.5 F#3:1 A3:0.5",
+      "G3:1 B3:0.5 C4:1 C4:0.5",
+      "D4:1 A3:0.5 F#3:1 A3:0.5",
+      "G3:1 B3:0.5 A3:1 G3:0.5",
+      "B3:1 G3:0.5 F#3:1 A3:0.5",
+      "G3:1 G3:0.5 G3:0.5 G3:0.5 G3:0.5",
+      "F#3:1.5 G3:1"
+    ],
+    "bass": [
+      "D3:0.5",
+      "G2:1 B2:0.5 D3:1 G3:0.5",
+      "G2:1 B2:0.5 D3:1 D3:0.5",
+      "E3:1 E3:0.5 C3:1 A2:0.5",
+      "D3:1 D3:0.5 D3:1 D3:0.5",
+      "E3:1 E3:0.5 F#3:1 G3:0.5",
+      "G2:1 B2:0.5 D3:1 D3:0.5",
+      "G2:1 G2:0.5 B2:0.5 B2:0.5 B2:0.5",
+      "D3:1.5 G2:1"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/i-saw-three-ships-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 1129,
+      "height": 350
+    },
+    {
+      "image": "scores/i-saw-three-ships-2.png",
+      "page": 1,
+      "first_measure": 4,
+      "barlines": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "width": 1129,
+      "height": 333
+    },
+    {
+      "image": "scores/i-saw-three-ships-3.png",
+      "page": 1,
+      "first_measure": 6,
+      "barlines": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "width": 1129,
+      "height": 333
+    },
+    {
+      "image": "scores/i-saw-three-ships-4.png",
+      "page": 1,
+      "first_measure": 8,
+      "barlines": [
+        0.0,
+        0.5,
+        1.0
+      ],
+      "width": 1129,
+      "height": 349
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Strofa 1",
+      "lyrics": {
+        "soprano": [
+          "0:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:I",
+          "0:saw 1:three 1.5:ships 2.5:come",
+          "0:sail- 1:ing 1.5:in 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Strofa 2",
+      "lyrics": {
+        "soprano": [
+          "0:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:And",
+          "0:what 1:was 1.5:in 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Strofa 3",
+      "lyrics": {
+        "soprano": [
+          "0:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day: 2.5:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day: 2.5:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day: 2.5:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day: 2.5:Our",
+          "0:Sa- 1:vior 1.5:Christ 2.5:and",
+          "0:His 1:la- 1.5:dy, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "title": "Strofa 4",
+      "lyrics": {
+        "soprano": [
+          "0:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day? 2.5:Pray",
+          "0:whi- 1:ther 1.5:sailed 2.5:those",
+          "0:ships 1:all 1.5:three, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "title": "Strofa 5",
+      "lyrics": {
+        "soprano": [
+          "0:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:O",
+          "0:they 1:sailed 1.5:in- 2.5:to",
+          "0:Beth- 1:le- 1.5:hem, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      }
+    },
+    {
+      "number": 6,
+      "title": "Strofa 6",
+      "lyrics": {
+        "soprano": [
+          "0:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:bells 2.5:on",
+          "0:earth 1:shall 1.5:ring, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      }
+    },
+    {
+      "number": 7,
+      "title": "Strofa 7",
+      "lyrics": {
+        "soprano": [
+          "0:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:an- 2.5:gels",
+          "0:in 0.5:Heav’n 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      },
+      "parts": {
+        "soprano": {
+          "3": "D5:0.5 D5:0.5 B4:0.5 A4:1 C5:0.5",
+          "7": "D5:0.5 D5:0.5 B4:0.5 A4:1 C5:0.5"
+        },
+        "alto": {
+          "3": "G4:0.5 G4:0.5 D4:0.5 D4:1 F#4:0.5",
+          "7": "G4:0.5 G4:0.5 D4:0.5 D4:1 D4:0.5"
+        },
+        "tenor": {
+          "3": "B3:0.5 B3:0.5 G3:0.5 F#3:1 A3:0.5",
+          "7": "B3:0.5 B3:0.5 G3:0.5 F#3:1 A3:0.5"
+        },
+        "bass": {
+          "3": "G2:0.5 G2:0.5 B2:0.5 D3:1 D3:0.5",
+          "7": "G2:0.5 G2:0.5 B2:0.5 D3:1 D3:0.5"
+        }
+      }
+    },
+    {
+      "number": 8,
+      "title": "Strofa 8",
+      "lyrics": {
+        "soprano": [
+          "0:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "alto": [
+          "0:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "tenor": [
+          "0:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ],
+        "bass": [
+          "0:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day, 2.5:on",
+          "0:Christ- 1:mas 1.5:day; 2.5:And",
+          "0:all 1:the 1.5:souls 2.5:on",
+          "0:earth 1:shall 1.5:sing, 2.5:On",
+          "0:Christ- 1:mas 1.5:day 2:in 2.5:the",
+          "0:morn- 1.5:ing."
+        ]
+      }
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.5
+    ],
+    "alto": [
+      0,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      1
+    ],
+    "bass": [
+      0.5,
+      1
+    ]
+  },
+  "shared_lyrics": true,
+  "compact": {
+    "instructions": "Otto strofe numerate sulle stesse note; testo comune alle quattro voci."
+  }
+}

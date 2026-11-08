@@ -1,0 +1,562 @@
+{
+  "id": "hark-the-herald",
+  "title": "Hark! the Herald Angels Sing",
+  "emoji": "🎺",
+  "meter": [
+    4,
+    4
+  ],
+  "key_fifths": 1,
+  "tempo": 100,
+  "source_pdf": "songs/Hark the Herald Angels Sing.pdf",
+  "review_notes": [
+    "Notes from an Audiveris draft and raster notehead positions (sources/scripts/raster_heads.py), checked bar by bar against the scan; small parenthesised organ notes in bars 17–18 are not sung and are omitted.",
+    "At the user’s request all three verses use the page-1 SATB setting; the printed verse-3 descant with organ (pages 2–3) is not encoded. Verse 3 words from page 2 (“Ris’n” sung as one syllable).",
+    "Bars 19–20 are printed “Unison”: every voice sings the tune, tenors and basses an octave lower.",
+    "Bar 7 tenor D4–E4 and bar 13 tenor F♮4 (printed natural) were read from enlarged crops; bar 15 bass is printed high (D4 C4 B3 G3).",
+    "Suggested tempo quarter = 100."
+  ],
+  "parts": {
+    "soprano": [
+      "D4:1 G4:1 G4:1.5 F#4:0.5",
+      "G4:1 B4:1 B4:1 A4:1",
+      "D5:1 D5:1 D5:1.5 C5:0.5",
+      "B4:1 A4:1 B4:2",
+      "D4:1 G4:1 G4:1.5 F#4:0.5",
+      "G4:1 B4:1 B4:1 A4:1",
+      "D5:1 A4:1 A4:1.5 F#4:0.5",
+      "F#4:1 E4:1 D4:2",
+      "D5:1 D5:1 D5:1 G4:1",
+      "C5:1 B4:1 B4:1 A4:1",
+      "D5:1 D5:1 D5:1 G4:1",
+      "C5:1 B4:1 B4:1 A4:1",
+      "E5:1 E5:1 E5:1 D5:1",
+      "C5:1 B4:1 C5:2",
+      "A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5",
+      "G4:1 A4:1 B4:2",
+      "E5:1.5 E5:0.5 E5:1 D5:1",
+      "C5:1 B4:1 C5:2",
+      "A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5",
+      "G4:1 A4:1 B4:2"
+    ],
+    "alto": [
+      "D4:1 D4:1 D4:1.5 D4:0.5",
+      "D4:1 G4:1 G4:1 F#4:1",
+      "G4:1 F#4:1 E4:1 A4:1",
+      "G4:1 F#4:1 G4:2",
+      "D4:1 D4:1 D4:1.5 C4:0.5",
+      "B3:1 G4:1 G4:2",
+      "F#4:1 E4:1 F#4:1.5 D4:0.5",
+      "D4:1 C#4:1 D4:2",
+      "D4:1 D4:1 D4:1 G4:1",
+      "A4:1 G4:1 G4:1 F#4:1",
+      "D4:1 D4:1 D4:1 G4:1",
+      "A4:1 G4:1 G4:1 F#4:1",
+      "C5:1 C5:1 C5:1 B4:1",
+      "A4:1 G#4:1 A4:2",
+      "F#4:1 F#4:1 G4:1.5 D4:0.5",
+      "D4:1 F#4:1 G4:2",
+      "C5:1.5 C5:0.5 C5:1 B4:1",
+      "A4:1 G#4:1 A4:2",
+      "A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5",
+      "G4:1 A4:1 B4:2"
+    ],
+    "tenor": [
+      "B3:1 B3:1 B3:1.5 A3:0.5",
+      "G3:1 D4:1 D4:2",
+      "D4:1 D4:1 E4:1 E4:1",
+      "D4:1 D4:1 D4:2",
+      "B3:1 B3:1 B3:1.5 A3:0.5",
+      "G3:1 D4:1 E4:2",
+      "D4:1 E4:1 A3:1.5 A3:0.5",
+      "B3:1 G3:1 F#3:2",
+      "D4:1 D4:1 D4:1 D4:1",
+      "D4:1 D4:1 D4:2",
+      "D4:1 D4:1 D4:1 D4:1",
+      "D4:1 D4:1 D4:2",
+      "E4:1 E4:1 E4:1 F4:1",
+      "E4:1 D4:1 C4:2",
+      "D4:1 D4:1 D4:1.5 B3:0.5",
+      "B3:1 D4:1 D4:2",
+      "E4:1.5 E4:0.5 E4:1 D4:1",
+      "C4:1 B3:1 C4:2",
+      "A3:1 B3:0.5 C4:0.5 D4:1.5 G3:0.5",
+      "G3:1 A3:1 B3:2"
+    ],
+    "bass": [
+      "G3:1 G3:1 G3:1.5 D3:0.5",
+      "B2:1 G2:1 D3:2",
+      "B2:1 B2:1 C3:1 C3:1",
+      "D3:1 D3:1 G2:2",
+      "G3:1 G3:1 G3:1.5 D3:0.5",
+      "E3:1 D3:1 C#3:1.5 A2:0.5",
+      "B2:1 C#3:1 D3:1 F#2:1",
+      "G2:1 A2:1 D3:2",
+      "D4:1 D4:1 D4:1 B3:1",
+      "F#3:1 G3:1 D3:2",
+      "D4:1 D4:1 D4:1 B3:1",
+      "F#3:1 G3:1 D3:2",
+      "C3:1 C3:1 C3:1 D3:1",
+      "E3:1 E3:1 A3:2",
+      "D4:1 C4:1 B3:1.5 G3:0.5",
+      "D3:1 D3:1 G3:2",
+      "C4:1.5 C4:0.5 C4:1 B3:1",
+      "A3:1 G#3:1 A3:2",
+      "A3:1 B3:0.5 C4:0.5 D4:1.5 G3:0.5",
+      "G3:1 A3:1 B3:2"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    },
+    {
+      "measure": 18
+    },
+    {
+      "measure": 19
+    },
+    {
+      "measure": 20
+    }
+  ],
+  "sections": [
+    {
+      "at": [
+        17,
+        0
+      ],
+      "name": "chorus"
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/hark-the-herald-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 773,
+      "height": 203
+    },
+    {
+      "image": "scores/hark-the-herald-2.png",
+      "page": 1,
+      "first_measure": 5,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 773,
+      "height": 203
+    },
+    {
+      "image": "scores/hark-the-herald-3.png",
+      "page": 1,
+      "first_measure": 9,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 773,
+      "height": 192
+    },
+    {
+      "image": "scores/hark-the-herald-4.png",
+      "page": 1,
+      "first_measure": 13,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 773,
+      "height": 191
+    },
+    {
+      "image": "scores/hark-the-herald-5.png",
+      "page": 1,
+      "first_measure": 17,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 773,
+      "height": 215
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Strofa 1",
+      "lyrics": {
+        "soprano": [
+          "0:Hark! 1:the 2:he- 3.5:rald",
+          "0:an- 1:gels 2:sing",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King;",
+          "0:Peace 1:on 2:earth 3.5:and",
+          "0:mer- 1:cy 2:mild,",
+          "0:God 1:and 2:sin- 3.5:ners",
+          "0:re- 1:con- 2:ciled:",
+          "0:Joy- 1:ful 2:all 3:ye",
+          "0:na- 1:tions 2:rise,",
+          "0:Join 1:the 2:tri- 3:umph",
+          "0:of 1:the 2:skies,",
+          "0:With 1:th’an- 2:gel- 3:ic",
+          "0:host 1:pro- 2:claim,",
+          "0:Christ 1:is 2:born 3.5:in",
+          "0:Beth- 1:le- 2:hem.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "alto": [
+          "0:Hark! 1:the 2:he- 3.5:rald",
+          "0:an- 1:gels 2:sing",
+          "0:Glo- 1:ry 2:to‿the",
+          "0:new- 1:born 2:King;",
+          "0:Peace 1:on 2:earth 3.5:and",
+          "0:mer- 1:cy 2:mild,",
+          "0:God 1:and 2:sin- 3.5:ners",
+          "0:re- 1:con- 2:ciled:",
+          "0:Joy- 1:ful 2:all 3:ye",
+          "0:na- 1:tions 2:rise,",
+          "0:Join 1:the 2:tri- 3:umph",
+          "0:of 1:the 2:skies,",
+          "0:With 1:th’an- 2:gel- 3:ic",
+          "0:host 1:pro- 2:claim,",
+          "0:Christ 1:is 2:born 3.5:in",
+          "0:Beth- 1:le- 2:hem.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "tenor": [
+          "0:Hark! 1:the 2:he- 3.5:rald",
+          "0:an- 1:gels 2:sing",
+          "0:Glo- 1:ry 2:to‿the",
+          "0:new- 1:born 2:King;",
+          "0:Peace 1:on 2:earth 3.5:and",
+          "0:mer- 1:cy 2:mild,",
+          "0:God 1:and 2:sin- 3.5:ners",
+          "0:re- 1:con- 2:ciled:",
+          "0:Joy- 1:ful 2:all 3:ye",
+          "0:na- 1:tions 2:rise,",
+          "0:Join 1:the 2:tri- 3:umph",
+          "0:of 1:the 2:skies,",
+          "0:With 1:th’an- 2:gel- 3:ic",
+          "0:host 1:pro- 2:claim,",
+          "0:Christ 1:is 2:born 3.5:in",
+          "0:Beth- 1:le- 2:hem.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "bass": [
+          "0:Hark! 1:the 2:he- 3.5:rald",
+          "0:an- 1:gels 2:sing",
+          "0:Glo- 1:ry 2:to‿the",
+          "0:new- 1:born 2:King;",
+          "0:Peace 1:on 2:earth 3.5:and",
+          "0:mer- 1:cy 2:mild,",
+          "0:God 1:and 2:sinners",
+          "0:re- 1:con- 2:ciled:",
+          "0:Joy- 1:ful 2:all 3:ye",
+          "0:na- 1:tions 2:rise,",
+          "0:Join 1:the 2:tri- 3:umph",
+          "0:of 1:the 2:skies,",
+          "0:With 1:th’an- 2:gel- 3:ic",
+          "0:host 1:pro- 2:claim,",
+          "0:Christ 1:is 2:born 3.5:in",
+          "0:Beth- 1:le- 2:hem.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Strofa 2",
+      "lyrics": {
+        "soprano": [
+          "0:Christ, 1:by 2:high- 3.5:est",
+          "0:heav’n 1:a- 2:dored,",
+          "0:Christ, 1:the 2:e- 3.5:ver-",
+          "0:last- 1:ing 2:Lord,",
+          "0:Late 1:in 2:time 3.5:be-",
+          "0:hold 1:him 2:come,",
+          "0:Off- 1:spring 2:of 3.5:a",
+          "0:vir- 1:gin’s 2:womb:",
+          "0:Veiled 1:in 2:flesh 3:the",
+          "0:God- 1:head 2:see,",
+          "0:Hail 1:th’in- 2:car- 3:nate",
+          "0:De- 1:i- 2:ty!",
+          "0:Pleased 1:as 2:man 3:with",
+          "0:man 1:to 2:dwell,",
+          "0:Je- 1:sus, 2:our 3.5:Em-",
+          "0:ma- 1:nu- 2:el.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "alto": [
+          "0:Christ, 1:by 2:high- 3.5:est",
+          "0:heav’n 1:a- 2:dored,",
+          "0:Christ, 1:the 2:ever-",
+          "0:last- 1:ing 2:Lord,",
+          "0:Late 1:in 2:time 3.5:be-",
+          "0:hold 1:him 2:come,",
+          "0:Off- 1:spring 2:of 3.5:a",
+          "0:vir- 1:gin’s 2:womb:",
+          "0:Veiled 1:in 2:flesh 3:the",
+          "0:God- 1:head 2:see,",
+          "0:Hail 1:th’in- 2:car- 3:nate",
+          "0:De- 1:i- 2:ty!",
+          "0:Pleased 1:as 2:man 3:with",
+          "0:man 1:to 2:dwell,",
+          "0:Je- 1:sus, 2:our 3.5:Em-",
+          "0:ma- 1:nu- 2:el.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "tenor": [
+          "0:Christ, 1:by 2:high- 3.5:est",
+          "0:heav’n 1:a- 2:dored,",
+          "0:Christ, 1:the 2:ever-",
+          "0:last- 1:ing 2:Lord,",
+          "0:Late 1:in 2:time 3.5:be-",
+          "0:hold 1:him 2:come,",
+          "0:Off- 1:spring 2:of 3.5:a",
+          "0:vir- 1:gin’s 2:womb:",
+          "0:Veiled 1:in 2:flesh 3:the",
+          "0:God- 1:head 2:see,",
+          "0:Hail 1:th’in- 2:car- 3:nate",
+          "0:De- 1:i- 2:ty!",
+          "0:Pleased 1:as 2:man 3:with",
+          "0:man 1:to 2:dwell,",
+          "0:Je- 1:sus, 2:our 3.5:Em-",
+          "0:ma- 1:nu- 2:el.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "bass": [
+          "0:Christ, 1:by 2:high- 3.5:est",
+          "0:heav’n 1:a- 2:dored,",
+          "0:Christ, 1:the 2:ever-",
+          "0:last- 1:ing 2:Lord,",
+          "0:Late 1:in 2:time 3.5:be-",
+          "0:hold 1:him 2:come,",
+          "0:Off- 1:spring 2:of‿a",
+          "0:vir- 1:gin’s 2:womb:",
+          "0:Veiled 1:in 2:flesh 3:the",
+          "0:God- 1:head 2:see,",
+          "0:Hail 1:th’in- 2:car- 3:nate",
+          "0:De- 1:i- 2:ty!",
+          "0:Pleased 1:as 2:man 3:with",
+          "0:man 1:to 2:dwell,",
+          "0:Je- 1:sus, 2:our 3.5:Em-",
+          "0:ma- 1:nu- 2:el.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Strofa 3",
+      "lyrics": {
+        "soprano": [
+          "0:Hail 1:the 2:heav’n- 3.5:born",
+          "0:Prince 1:of 2:Peace!",
+          "0:Hail 1:the 2:Sun 3.5:of",
+          "0:Right- 1:eous- 2:ness!",
+          "0:Light 1:and 2:life 3.5:to",
+          "0:all 1:he 2:brings,",
+          "0:Ris’n 1:with 2:heal- 3.5:ing",
+          "0:in 1:his 2:wings;",
+          "0:Mild 1:he 2:lays 3:his",
+          "0:glo- 1:ry 2:by,",
+          "0:Born 1:that 2:man 3:no",
+          "0:more 1:may 2:die,",
+          "0:Born 1:to 2:raise 3:the",
+          "0:sons 1:of 2:earth,",
+          "0:Born 1:to 2:give 3.5:them",
+          "0:se- 1:cond 2:birth.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "alto": [
+          "0:Hail 1:the 2:heav’n- 3.5:born",
+          "0:Prince 1:of 2:Peace!",
+          "0:Hail 1:the 2:Sun‿of",
+          "0:Right- 1:eous- 2:ness!",
+          "0:Light 1:and 2:life 3.5:to",
+          "0:all 1:he 2:brings,",
+          "0:Ris’n 1:with 2:heal- 3.5:ing",
+          "0:in 1:his 2:wings;",
+          "0:Mild 1:he 2:lays 3:his",
+          "0:glo- 1:ry 2:by,",
+          "0:Born 1:that 2:man 3:no",
+          "0:more 1:may 2:die,",
+          "0:Born 1:to 2:raise 3:the",
+          "0:sons 1:of 2:earth,",
+          "0:Born 1:to 2:give 3.5:them",
+          "0:se- 1:cond 2:birth.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "tenor": [
+          "0:Hail 1:the 2:heav’n- 3.5:born",
+          "0:Prince 1:of 2:Peace!",
+          "0:Hail 1:the 2:Sun‿of",
+          "0:Right- 1:eous- 2:ness!",
+          "0:Light 1:and 2:life 3.5:to",
+          "0:all 1:he 2:brings,",
+          "0:Ris’n 1:with 2:heal- 3.5:ing",
+          "0:in 1:his 2:wings;",
+          "0:Mild 1:he 2:lays 3:his",
+          "0:glo- 1:ry 2:by,",
+          "0:Born 1:that 2:man 3:no",
+          "0:more 1:may 2:die,",
+          "0:Born 1:to 2:raise 3:the",
+          "0:sons 1:of 2:earth,",
+          "0:Born 1:to 2:give 3.5:them",
+          "0:se- 1:cond 2:birth.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ],
+        "bass": [
+          "0:Hail 1:the 2:heav’n- 3.5:born",
+          "0:Prince 1:of 2:Peace!",
+          "0:Hail 1:the 2:Sun‿of",
+          "0:Right- 1:eous- 2:ness!",
+          "0:Light 1:and 2:life 3.5:to",
+          "0:all 1:he 2:brings,",
+          "0:Ris’n 1:with 2:healing",
+          "0:in 1:his 2:wings;",
+          "0:Mild 1:he 2:lays 3:his",
+          "0:glo- 1:ry 2:by,",
+          "0:Born 1:that 2:man 3:no",
+          "0:more 1:may 2:die,",
+          "0:Born 1:to 2:raise 3:the",
+          "0:sons 1:of 2:earth,",
+          "0:Born 1:to 2:give 3.5:them",
+          "0:se- 1:cond 2:birth.",
+          "0:Hark! 1.5:the 2:he- 3:rald",
+          "0:an- 1:gels 2:sing,",
+          "0:Glo- 1:ry 2:to 3.5:the",
+          "0:new- 1:born 2:King."
+        ]
+      }
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.5
+    ],
+    "alto": [
+      0,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      1
+    ],
+    "bass": [
+      0.5,
+      1
+    ]
+  },
+  "shared_lyrics": true,
+  "compact": {
+    "refrain_measures": [
+      17,
+      20
+    ],
+    "instructions": "Strofe 1–3 sulle righe numerate; il ritornello “Hark! the herald” è comune."
+  }
+}

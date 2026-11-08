@@ -1,0 +1,491 @@
+{
+  "id": "the-first-nowell",
+  "title": "The First Nowell",
+  "emoji": "⭐",
+  "meter": [
+    3,
+    4
+  ],
+  "key_fifths": 2,
+  "tempo": 96,
+  "source_pdf": "songs/The First Nowell.pdf",
+  "review_notes": [
+    "Rechecked SATB pitches against the exact clean digital source. Corrected bass measures 5, 7, 11, 13, 15 and 21, plus alto/tenor errors. The printed bass octave leaps and high refrain are present in this edition and have been retained. the arranger’s unaltered MusicXML was used only as a comparison."
+  ],
+  "parts": {
+    "soprano": [
+      "R:2 F#4:0.5 E4:0.5",
+      "D4:1.5 E4:0.5 F#4:0.5 G4:0.5",
+      "A4:2 B4:0.5 C#5:0.5",
+      "D5:1 C#5:1 B4:1",
+      "A4:2 B4:0.5 C#5:0.5",
+      "D5:1 C#5:1 B4:1",
+      "A4:1 B4:1 C#5:1",
+      "D5:1 A4:1 G4:1",
+      "F#4:2 F#4:0.5 E4:0.5",
+      "D4:1.5 E4:0.5 F#4:0.5 G4:0.5",
+      "A4:2 B4:0.5 C#5:0.5",
+      "D5:1 C#5:1 B4:1",
+      "A4:2 B4:0.5 C#5:0.5",
+      "D5:1 C#5:1 B4:1",
+      "A4:1 A4:1 B4:1",
+      "C#5:1 A4:1 G4:1",
+      "F#4:2 F#4:0.5 E4:0.5",
+      "D4:1.5 E4:0.5 F#4:0.5 G4:0.5",
+      "A4:2 D5:0.5 C#5:0.5",
+      "B4:2 B4:1",
+      "A4:3",
+      "D5:1 C#5:1 B4:1",
+      "A4:1 B4:1 C#5:1",
+      "D5:1 A4:1 G4:1",
+      "F#4:3"
+    ],
+    "alto": [
+      "R:2 C#4:1",
+      "D4:2 D4:1",
+      "E4:2 E4:1",
+      "A4:1~ A4:1 G4:1",
+      "F#4:2 D4:0.5 E4:0.5",
+      "A4:1 F#4:1 G4:1",
+      "A4:1 D4:1 G4:1",
+      "F#4:1~ F#4:1 E4:1",
+      "D4:2 C#4:1",
+      "A3:2 D4:0.5 D4:0.5",
+      "E4:2 E4:1",
+      "A4:1~ A4:1 G4:1",
+      "F#4:2 D4:0.5 E4:0.5",
+      "A4:1 F#4:1 G4:1",
+      "A4:1 G4:1 G4:1",
+      "F#4:1~ F#4:1 E4:1",
+      "D4:2 C#4:1",
+      "A3:2 D4:1",
+      "C#4:1 D4:1 F#4:1",
+      "G4:2 G4:1",
+      "F#4:2 A4:1",
+      "F#4:1 F#4:1 G4:1",
+      "F#4:2 G4:1",
+      "F#4:2 E4:1",
+      "D4:3"
+    ],
+    "tenor": [
+      "R:2 A3:0.5 G3:0.5",
+      "F#3:2 D4:1",
+      "C#4:2 B3:1",
+      "A3:1~ A3:1 B3:0.5 C#4:0.5",
+      "D4:2 B3:0.5 A3:0.5",
+      "A3:1~ A3:1 C#4:1",
+      "D4:1 B3:1 G3:1",
+      "A3:1 D4:1 A3:1",
+      "A3:2 A3:0.5 G3:0.5",
+      "F#3:2 D4:0.5 D4:0.5",
+      "D4:1 C#4:1 B3:1",
+      "A3:1~ A3:1 B3:0.5 C#4:0.5",
+      "D4:2 B3:0.5 A3:0.5",
+      "A3:1~ A3:1 C#4:1",
+      "D4:2 E4:1",
+      "A3:1 D4:1 A3:1",
+      "A3:2 A3:0.5 G3:0.5",
+      "F#3:2 B3:1",
+      "A3:2 A3:1",
+      "B3:1.5 C#4:0.5 D4:0.5 E4:0.5",
+      "F#4:2 E4:1",
+      "D4:1 D4:1 D4:1",
+      "D4:2 G3:1",
+      "A3:2 A3:1",
+      "A3:3"
+    ],
+    "bass": [
+      "R:2 A2:1",
+      "D3:2 B2:1",
+      "A2:1.5 A3:0.5 G3:1",
+      "F#3:1~ F#3:1 G3:1",
+      "D3:2 G3:0.5~ G3:0.5",
+      "F#3:1 D3:1 E3:1",
+      "F#3:1 G3:1 E3:1",
+      "F#3:0.5 G3:0.5 A3:1 A3:1",
+      "D3:2 A2:1",
+      "D3:2 B2:0.5~ B2:0.5",
+      "A2:1.5 A3:0.5 G3:1",
+      "F#3:1~ F#3:1 G3:1",
+      "D3:2 G3:0.5~ G3:0.5",
+      "F#3:1 D3:1 E3:1",
+      "F#3:1 G3:1 E3:1",
+      "F#3:0.5 G3:0.5 A3:1 A2:1",
+      "D3:2 A2:1",
+      "D3:2 B2:1",
+      "F#3:2 D3:1",
+      "G3:1.5 A3:0.5 B3:0.5 C#4:0.5",
+      "D4:2 C#4:1",
+      "B3:1 A3:1 G3:1",
+      "D4:1 D3:1 E3:1",
+      "F#3:0.5 G3:0.5 A3:1 A2:1",
+      "D3:3"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    },
+    {
+      "measure": 18
+    },
+    {
+      "measure": 19
+    },
+    {
+      "measure": 20
+    },
+    {
+      "measure": 21
+    },
+    {
+      "measure": 22
+    },
+    {
+      "measure": 23
+    },
+    {
+      "measure": 24
+    },
+    {
+      "measure": 25
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/the-first-nowell-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.08333,
+        0.27604,
+        0.41979,
+        0.5625,
+        0.70729,
+        0.85104,
+        0.94271
+      ],
+      "width": 1144,
+      "height": 298
+    },
+    {
+      "image": "scores/the-first-nowell-2.png",
+      "page": 1,
+      "first_measure": 7,
+      "barlines": [
+        0.08333,
+        0.26667,
+        0.41667,
+        0.5625,
+        0.70833,
+        0.85104,
+        0.94271
+      ],
+      "width": 1144,
+      "height": 282
+    },
+    {
+      "image": "scores/the-first-nowell-3.png",
+      "page": 1,
+      "first_measure": 13,
+      "barlines": [
+        0.08333,
+        0.27604,
+        0.41979,
+        0.5625,
+        0.70729,
+        0.85104,
+        0.94271
+      ],
+      "width": 1144,
+      "height": 282
+    },
+    {
+      "image": "scores/the-first-nowell-4.png",
+      "page": 1,
+      "first_measure": 19,
+      "barlines": [
+        0.08333,
+        0.26771,
+        0.39167,
+        0.47708,
+        0.60313,
+        0.69375,
+        0.79792,
+        0.88542
+      ],
+      "width": 1144,
+      "height": 241
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "The first Nowell",
+      "lyrics": {
+        "all": [
+          "2:The",
+          "0:first 2:Now-",
+          "0:ell, 2:the",
+          "0:an- 1:gel 2:did",
+          "0:say, 2:was 2.5:to",
+          "0:cer- 1:tain 2:poor",
+          "0:shep- 1:herds 2:in",
+          "0:fields 1:as 2:they",
+          "0:lay, 2:in",
+          "0:fields 2:where",
+          "0:they 2:lay",
+          "0:keep- 1:ing 2:their",
+          "0:sheep 2:on 2.5:a",
+          "0:cold 1:win- 2:ter's",
+          "0:night 2:that",
+          "0:was 2:so",
+          "0:deep. 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell,",
+          "0:Born 1:is 2:the",
+          "0:King 2:of",
+          "0:Is- 2:ra-",
+          "0:el."
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "They looked up",
+      "lyrics": {
+        "all": [
+          "2:They",
+          "0:look- 2:ed",
+          "0:up 2:and",
+          "0:saw 2:a",
+          "0:star 2:shin- 2.5:ing",
+          "0:in 2:the",
+          "0:east 2:be-",
+          "0:yond 2:them",
+          "0:far, 2:and",
+          "0:to 2:the",
+          "0:earth 2:it",
+          "0:gave 2:great",
+          "0:light, 2:and",
+          "0:so 1:it 2:con-",
+          "0:tin- 1:ued 2:both",
+          "0:day 1:and",
+          "0:night. 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell,",
+          "0:Born 1:is 2:the",
+          "0:King 2:of",
+          "0:Is- 2:ra-",
+          "0:el."
+        ]
+      },
+      "parts": {
+        "tenor": {
+          "15": "D4:1 D4:1 E4:1"
+        }
+      }
+    },
+    {
+      "number": 3,
+      "title": "And by the light",
+      "lyrics": {
+        "all": [
+          "2:And",
+          "0:by 2:the",
+          "0:light 2:of",
+          "0:that 2:same",
+          "0:star 2:three",
+          "0:wise 2:men",
+          "0:came 2:from",
+          "0:coun- 2:try",
+          "0:far. 2:To",
+          "0:seek 2:for 2.5:a",
+          "0:king 2:was",
+          "0:their 2:in-",
+          "0:tent, 2:and 2.5:to",
+          "0:fol- 1:low 2:the",
+          "0:star 2:where",
+          "0:ev- 1:er 2:it",
+          "0:went. 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell,",
+          "0:Born 1:is 2:the",
+          "0:King 2:of",
+          "0:Is- 2:ra-",
+          "0:el."
+        ]
+      }
+    },
+    {
+      "number": 4,
+      "title": "This star drew nigh",
+      "lyrics": {
+        "all": [
+          "2:This",
+          "0:star 2:drew",
+          "0:nigh 2:to",
+          "0:the 2:north-",
+          "0:west, 2:o'er",
+          "0:Beth- 2:le-",
+          "0:hem 2:it",
+          "0:took 2:its",
+          "0:rest, 2:and",
+          "0:there 2:it",
+          "0:did 2:both",
+          "0:stop 2:and",
+          "0:stay 2:right",
+          "0:o- 1:ver 2:the",
+          "0:place 2:where",
+          "0:Je- 1:sus",
+          "0:lay. 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell,",
+          "0:Born 1:is 2:the",
+          "0:King 2:of",
+          "0:Is- 2:ra-",
+          "0:el."
+        ]
+      }
+    },
+    {
+      "number": 5,
+      "title": "Then entered in",
+      "lyrics": {
+        "all": [
+          "2:Then",
+          "0:en- 2:tered",
+          "0:in 2:those",
+          "0:wise 2:men",
+          "0:three, 2:full",
+          "0:rev- 1:er- 2:ent-",
+          "0:ly 2:up-",
+          "0:on 2:their",
+          "0:knee, 2:and",
+          "0:of- 2:fered",
+          "0:there 2:in",
+          "0:His 2:pre-",
+          "0:sence 2:their",
+          "0:gold 2:and",
+          "0:myrrh 2:and",
+          "0:frank- 1:in-",
+          "0:cense. 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell, 2:Now-",
+          "0:ell,",
+          "0:Born 1:is 2:the",
+          "0:King 2:of",
+          "0:Is- 2:ra-",
+          "0:el."
+        ]
+      }
+    }
+  ],
+  "review_notes_it": [
+    "Ricontrollate le altezze SATB sulla copia digitale della stessa edizione. Corretti i bassi alle battute 5, 7, 11, 13, 15 e 21 e diversi errori di contralti e tenori. I salti di ottava e il ritornello acuto dei bassi sono stampati anche nella fonte pulita e sono conservati."
+  ],
+  "staff_bands": {
+    "soprano": [
+      0.025,
+      0.43
+    ],
+    "alto": [
+      0.025,
+      0.43
+    ],
+    "tenor": [
+      0.6,
+      1
+    ],
+    "bass": [
+      0.6,
+      1
+    ]
+  },
+  "sections": [
+    {
+      "at": [
+        17,
+        2
+      ],
+      "name": "chorus"
+    }
+  ],
+  "shared_lyrics": true,
+  "compact": {
+    "refrain_measures": [
+      18,
+      25
+    ],
+    "merge_refrain_systems": true,
+    "refrain_pickup_measures": [
+      17
+    ],
+    "annotations": [
+      {
+        "measure": 17,
+        "voice": "soprano",
+        "beat": 2,
+        "text": "Ritornello"
+      }
+    ],
+    "instructions": "Strofe 1–5: leggere le righe di testo numerate sulla stessa musica e cantare il ritornello dopo ogni strofa. Il testo sotto il soprano è comune alle quattro voci."
+  }
+}

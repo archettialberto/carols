@@ -1,0 +1,1153 @@
+{
+  "id": "a-new-year-carol",
+  "title": "A New Year Carol",
+  "emoji": "🎆",
+  "meter": [
+    3,
+    4
+  ],
+  "key_fifths": -3,
+  "tempo": 92,
+  "source_pdf": "songs/A New Year Carol.pdf",
+  "review_notes": [
+    "Printed for unison voices: all four parts sing the tune, tenors and basses an octave lower. The S.S.A. 1971 arrangement of the old scan is not encoded.",
+    "Form: intro 1–4, verse 5–12, refrain 13–22, D.S. to bar 5; verse 3 goes from bar 12 to the coda (refrain for verse 3, bars 23–30). Playback: verse 1 = 1–22, verse 2 = 5–22, verse 3 = 5–12 + 23–30.",
+    "The piano part becomes the organ backing track in six lanes, simplified to the printed chord tones of each half + quarter pattern (arpeggiations, pedal and una corda omitted). Upper coda voicings were read at reduced certainty.",
+    "“Sing” on bar 12 beat 3 is taken in every verse (it leads into both the refrain and the coda).",
+    "Suggested tempo quarter = 92 (“Quietly”)."
+  ],
+  "parts": {
+    "soprano": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "G4:0.5 F4:0.5 Eb4:1 G4:1",
+      "F4:0.5 G4:0.5 Ab4:1 F4:0.5 F4:0.5",
+      "G4:0.5 F4:0.5 Eb4:1 Eb4:1",
+      "Ab4:2 R:1",
+      "G4:0.5 F4:0.5 Eb4:1 G4:1",
+      "Bb4:1 Ab4:1 F4:1",
+      "G4:0.5 F4:0.5 Eb4:1 G4:1",
+      "F4:2 F4:1",
+      "Bb4:0.5 Ab4:0.5 G4:1 Bb4:1",
+      "Ab4:0.5 Bb4:0.5 C5:1 Ab4:1",
+      "Bb4:0.5 Ab4:0.5 G4:1 G4:1",
+      "C5:2 C5:1",
+      "D5:0.5 C5:0.5 Bb4:1 Bb4:1",
+      "Eb5:2 D5:0.5 C5:0.5",
+      "Bb4:0.5 Ab4:0.5 G4:1 F4:1",
+      "Eb4:2 R:1",
+      "R:3",
+      "R:3",
+      "Bb4:0.5 Ab4:0.5 G4:1 Bb4:1",
+      "Ab4:0.5 Bb4:0.5 C5:1 Ab4:1",
+      "Bb4:0.5 Ab4:0.5 G4:1 G4:1",
+      "C5:2 C5:1",
+      "D5:0.5 C5:0.5 Bb4:1 Bb4:1",
+      "Eb5:2 D5:0.5 C5:0.5",
+      "Bb4:0.5 Ab4:0.5 G4:1 F4:1",
+      "Eb4:2 R:1"
+    ],
+    "alto": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "G4:0.5 F4:0.5 Eb4:1 G4:1",
+      "F4:0.5 G4:0.5 Ab4:1 F4:0.5 F4:0.5",
+      "G4:0.5 F4:0.5 Eb4:1 Eb4:1",
+      "Ab4:2 R:1",
+      "G4:0.5 F4:0.5 Eb4:1 G4:1",
+      "Bb4:1 Ab4:1 F4:1",
+      "G4:0.5 F4:0.5 Eb4:1 G4:1",
+      "F4:2 F4:1",
+      "Bb4:0.5 Ab4:0.5 G4:1 Bb4:1",
+      "Ab4:0.5 Bb4:0.5 C5:1 Ab4:1",
+      "Bb4:0.5 Ab4:0.5 G4:1 G4:1",
+      "C5:2 C5:1",
+      "D5:0.5 C5:0.5 Bb4:1 Bb4:1",
+      "Eb5:2 D5:0.5 C5:0.5",
+      "Bb4:0.5 Ab4:0.5 G4:1 F4:1",
+      "Eb4:2 R:1",
+      "R:3",
+      "R:3",
+      "Bb4:0.5 Ab4:0.5 G4:1 Bb4:1",
+      "Ab4:0.5 Bb4:0.5 C5:1 Ab4:1",
+      "Bb4:0.5 Ab4:0.5 G4:1 G4:1",
+      "C5:2 C5:1",
+      "D5:0.5 C5:0.5 Bb4:1 Bb4:1",
+      "Eb5:2 D5:0.5 C5:0.5",
+      "Bb4:0.5 Ab4:0.5 G4:1 F4:1",
+      "Eb4:2 R:1"
+    ],
+    "tenor": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "G3:0.5 F3:0.5 Eb3:1 G3:1",
+      "F3:0.5 G3:0.5 Ab3:1 F3:0.5 F3:0.5",
+      "G3:0.5 F3:0.5 Eb3:1 Eb3:1",
+      "Ab3:2 R:1",
+      "G3:0.5 F3:0.5 Eb3:1 G3:1",
+      "Bb3:1 Ab3:1 F3:1",
+      "G3:0.5 F3:0.5 Eb3:1 G3:1",
+      "F3:2 F3:1",
+      "Bb3:0.5 Ab3:0.5 G3:1 Bb3:1",
+      "Ab3:0.5 Bb3:0.5 C4:1 Ab3:1",
+      "Bb3:0.5 Ab3:0.5 G3:1 G3:1",
+      "C4:2 C4:1",
+      "D4:0.5 C4:0.5 Bb3:1 Bb3:1",
+      "Eb4:2 D4:0.5 C4:0.5",
+      "Bb3:0.5 Ab3:0.5 G3:1 F3:1",
+      "Eb3:2 R:1",
+      "R:3",
+      "R:3",
+      "Bb3:0.5 Ab3:0.5 G3:1 Bb3:1",
+      "Ab3:0.5 Bb3:0.5 C4:1 Ab3:1",
+      "Bb3:0.5 Ab3:0.5 G3:1 G3:1",
+      "C4:2 C4:1",
+      "D4:0.5 C4:0.5 Bb3:1 Bb3:1",
+      "Eb4:2 D4:0.5 C4:0.5",
+      "Bb3:0.5 Ab3:0.5 G3:1 F3:1",
+      "Eb3:2 R:1"
+    ],
+    "bass": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "G3:0.5 F3:0.5 Eb3:1 G3:1",
+      "F3:0.5 G3:0.5 Ab3:1 F3:0.5 F3:0.5",
+      "G3:0.5 F3:0.5 Eb3:1 Eb3:1",
+      "Ab3:2 R:1",
+      "G3:0.5 F3:0.5 Eb3:1 G3:1",
+      "Bb3:1 Ab3:1 F3:1",
+      "G3:0.5 F3:0.5 Eb3:1 G3:1",
+      "F3:2 F3:1",
+      "Bb3:0.5 Ab3:0.5 G3:1 Bb3:1",
+      "Ab3:0.5 Bb3:0.5 C4:1 Ab3:1",
+      "Bb3:0.5 Ab3:0.5 G3:1 G3:1",
+      "C4:2 C4:1",
+      "D4:0.5 C4:0.5 Bb3:1 Bb3:1",
+      "Eb4:2 D4:0.5 C4:0.5",
+      "Bb3:0.5 Ab3:0.5 G3:1 F3:1",
+      "Eb3:2 R:1",
+      "R:3",
+      "R:3",
+      "Bb3:0.5 Ab3:0.5 G3:1 Bb3:1",
+      "Ab3:0.5 Bb3:0.5 C4:1 Ab3:1",
+      "Bb3:0.5 Ab3:0.5 G3:1 G3:1",
+      "C4:2 C4:1",
+      "D4:0.5 C4:0.5 Bb3:1 Bb3:1",
+      "Eb4:2 D4:0.5 C4:0.5",
+      "Bb3:0.5 Ab3:0.5 G3:1 F3:1",
+      "Eb3:2 R:1"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    },
+    {
+      "measure": 18
+    },
+    {
+      "measure": 19
+    },
+    {
+      "measure": 20
+    },
+    {
+      "measure": 21
+    },
+    {
+      "measure": 22
+    }
+  ],
+  "backing_track": {
+    "instrument": "organ",
+    "parts": {
+      "organ_1": [
+        "G4:2 G4:1",
+        "Ab4:2 Ab4:1",
+        "G4:2 G4:1",
+        "Ab4:2 Ab4:1",
+        "G4:2 G4:1",
+        "Ab4:2 Ab4:1",
+        "G4:2 G4:1",
+        "Ab4:2 Ab4:1",
+        "G4:2 G4:1",
+        "Bb4:1 Ab4:1 Ab4:1",
+        "G4:2 G4:1",
+        "Ab4:2 Ab4:1",
+        "Bb4:2 Bb4:1",
+        "C5:2 C5:1",
+        "Bb4:2 Bb4:1",
+        "C5:2 C5:1",
+        "D5:2 D5:1",
+        "Eb5:2 Ab4:1",
+        "G4:2 G4:1",
+        "Ab4:2 Ab4:1",
+        "G4:2 G4:1",
+        "Ab4:2 Ab4:1",
+        "Bb5:2 G4:1",
+        "C6:2 Ab4:1",
+        "Bb5:2 G4:1",
+        "C6:2 Ab4:1",
+        "Bb5:2 D5:1",
+        "C6:2 C5:1",
+        "D6:2 Bb5:1",
+        "Eb6:2 R:1"
+      ],
+      "organ_2": [
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "D4:2 D4:1",
+        "Eb4:2 Eb4:1",
+        "D4:2 D4:1",
+        "Eb4:2 Eb4:1",
+        "F4:2 F4:1",
+        "Ab4:2 C4:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 C4:1",
+        "D5:2 D4:1",
+        "Eb5:2 Eb4:1",
+        "D5:2 D4:1",
+        "Eb5:2 Eb4:1",
+        "F5:2 G4:1",
+        "Ab5:2 Ab4:1",
+        "Bb5:1 Bb4:1 R:1",
+        "G5:2 R:1"
+      ],
+      "organ_3": [
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "G3:2 G3:1",
+        "Ab3:2 Ab3:1",
+        "G3:2 G3:1",
+        "Ab3:2 Ab3:1",
+        "Bb3:2 Bb3:1",
+        "C4:2 F3:1",
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "G3:2 Eb3:1",
+        "Ab3:2 F3:1",
+        "Bb4:2 G3:1",
+        "C5:2 Ab3:1",
+        "Bb4:2 G3:1",
+        "C5:2 Ab3:1",
+        "D5:2 F3:1",
+        "Eb5:2 C3:1",
+        "F5:2 R:1",
+        "Eb5:2 R:1"
+      ],
+      "organ_4": [
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "D3:2 R:1",
+        "C3:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "G3:2 R:1",
+        "Ab3:2 R:1",
+        "G3:2 R:1",
+        "Ab3:2 R:1",
+        "F3:2 R:1",
+        "C3:2 R:1",
+        "Bb3:1 Bb3:1 Bb2:1",
+        "Bb2:2 R:1"
+      ],
+      "organ_5": [
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "G2:2 R:1",
+        "F2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Bb2:2 R:1",
+        "Ab2:2 R:1",
+        "F2:2 R:1",
+        "G2:2 R:1"
+      ],
+      "organ_6": [
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:3",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "R:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "Eb2:2 R:1",
+        "G2:2 R:1",
+        "C2:2 R:1",
+        "Bb1:2 R:1",
+        "Eb2:2 R:1"
+      ]
+    }
+  },
+  "sections": [
+    {
+      "at": [
+        1,
+        0
+      ],
+      "name": "intro"
+    },
+    {
+      "at": [
+        5,
+        0
+      ],
+      "name": "verse"
+    },
+    {
+      "at": [
+        13,
+        0
+      ],
+      "name": "chorus"
+    },
+    {
+      "at": [
+        21,
+        0
+      ],
+      "name": "interlude"
+    },
+    {
+      "at": [
+        23,
+        0
+      ],
+      "name": "coda"
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/a-new-year-carol-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 422
+    },
+    {
+      "image": "scores/a-new-year-carol-2.png",
+      "page": 1,
+      "first_measure": 5,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 422
+    },
+    {
+      "image": "scores/a-new-year-carol-3.png",
+      "page": 1,
+      "first_measure": 9,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 506
+    },
+    {
+      "image": "scores/a-new-year-carol-4.png",
+      "page": 2,
+      "first_measure": 13,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 438
+    },
+    {
+      "image": "scores/a-new-year-carol-5.png",
+      "page": 2,
+      "first_measure": 17,
+      "barlines": [
+        0.0,
+        0.16667,
+        0.33333,
+        0.5,
+        0.66667,
+        0.83333,
+        1.0
+      ],
+      "width": 1096,
+      "height": 405
+    },
+    {
+      "image": "scores/a-new-year-carol-6.png",
+      "page": 2,
+      "first_measure": 23,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 422
+    },
+    {
+      "image": "scores/a-new-year-carol-7.png",
+      "page": 2,
+      "first_measure": 27,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1096,
+      "height": 456
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Strofa 1",
+      "playback": [
+        {
+          "measure": 1
+        },
+        {
+          "measure": 2
+        },
+        {
+          "measure": 3
+        },
+        {
+          "measure": 4
+        },
+        {
+          "measure": 5
+        },
+        {
+          "measure": 6
+        },
+        {
+          "measure": 7
+        },
+        {
+          "measure": 8
+        },
+        {
+          "measure": 9
+        },
+        {
+          "measure": 10
+        },
+        {
+          "measure": 11
+        },
+        {
+          "measure": 12
+        },
+        {
+          "measure": 13
+        },
+        {
+          "measure": 14
+        },
+        {
+          "measure": 15
+        },
+        {
+          "measure": 16
+        },
+        {
+          "measure": 17
+        },
+        {
+          "measure": 18
+        },
+        {
+          "measure": 19
+        },
+        {
+          "measure": 20
+        },
+        {
+          "measure": 21
+        },
+        {
+          "measure": 22
+        }
+      ],
+      "lyrics": {
+        "soprano": [
+          "",
+          "",
+          "",
+          "",
+          "0:Here 0.5:we 1:bring 2:new",
+          "0:wa- 1:ter 2:from 2.5:the",
+          "0:well 2:so",
+          "0:clear,",
+          "0:For 0.5:to 1:wor- 2:ship",
+          "0:God 1:with, 2:this",
+          "0:hap- 1:py 2:New",
+          "0:Year. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "alto": [
+          "",
+          "",
+          "",
+          "",
+          "0:Here 0.5:we 1:bring 2:new",
+          "0:wa- 1:ter 2:from 2.5:the",
+          "0:well 2:so",
+          "0:clear,",
+          "0:For 0.5:to 1:wor- 2:ship",
+          "0:God 1:with, 2:this",
+          "0:hap- 1:py 2:New",
+          "0:Year. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "tenor": [
+          "",
+          "",
+          "",
+          "",
+          "0:Here 0.5:we 1:bring 2:new",
+          "0:wa- 1:ter 2:from 2.5:the",
+          "0:well 2:so",
+          "0:clear,",
+          "0:For 0.5:to 1:wor- 2:ship",
+          "0:God 1:with, 2:this",
+          "0:hap- 1:py 2:New",
+          "0:Year. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "bass": [
+          "",
+          "",
+          "",
+          "",
+          "0:Here 0.5:we 1:bring 2:new",
+          "0:wa- 1:ter 2:from 2.5:the",
+          "0:well 2:so",
+          "0:clear,",
+          "0:For 0.5:to 1:wor- 2:ship",
+          "0:God 1:with, 2:this",
+          "0:hap- 1:py 2:New",
+          "0:Year. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Strofa 2",
+      "playback": [
+        {
+          "measure": 5
+        },
+        {
+          "measure": 6
+        },
+        {
+          "measure": 7
+        },
+        {
+          "measure": 8
+        },
+        {
+          "measure": 9
+        },
+        {
+          "measure": 10
+        },
+        {
+          "measure": 11
+        },
+        {
+          "measure": 12
+        },
+        {
+          "measure": 13
+        },
+        {
+          "measure": 14
+        },
+        {
+          "measure": 15
+        },
+        {
+          "measure": 16
+        },
+        {
+          "measure": 17
+        },
+        {
+          "measure": 18
+        },
+        {
+          "measure": 19
+        },
+        {
+          "measure": 20
+        },
+        {
+          "measure": 21
+        },
+        {
+          "measure": 22
+        }
+      ],
+      "lyrics": {
+        "soprano": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:toe,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:West 1:Door, 2:and",
+          "0:turn 0.5:the 1:Old 2:Year",
+          "0:go. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "alto": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:toe,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:West 1:Door, 2:and",
+          "0:turn 0.5:the 1:Old 2:Year",
+          "0:go. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "tenor": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:toe,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:West 1:Door, 2:and",
+          "0:turn 0.5:the 1:Old 2:Year",
+          "0:go. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "bass": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:toe,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:West 1:Door, 2:and",
+          "0:turn 0.5:the 1:Old 2:Year",
+          "0:go. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Strofa 3",
+      "playback": [
+        {
+          "measure": 5
+        },
+        {
+          "measure": 6
+        },
+        {
+          "measure": 7
+        },
+        {
+          "measure": 8
+        },
+        {
+          "measure": 9
+        },
+        {
+          "measure": 10
+        },
+        {
+          "measure": 11
+        },
+        {
+          "measure": 12
+        },
+        {
+          "measure": 23
+        },
+        {
+          "measure": 24
+        },
+        {
+          "measure": 25
+        },
+        {
+          "measure": 26
+        },
+        {
+          "measure": 27
+        },
+        {
+          "measure": 28
+        },
+        {
+          "measure": 29
+        },
+        {
+          "measure": 30
+        }
+      ],
+      "lyrics": {
+        "soprano": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:chin,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:East 1:Door, 2:and",
+          "0:let 0.5:the 1:New 2:Year",
+          "0:in. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "alto": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:chin,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:East 1:Door, 2:and",
+          "0:let 0.5:the 1:New 2:Year",
+          "0:in. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "tenor": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:chin,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:East 1:Door, 2:and",
+          "0:let 0.5:the 1:New 2:Year",
+          "0:in. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ],
+        "bass": [
+          "",
+          "",
+          "",
+          "",
+          "0:Sing 1:reign 2:of",
+          "0:Fair 1:Maid, 2:with",
+          "0:gold 0.5:up- 1:on 2:her",
+          "0:chin,",
+          "0:O- 0.5:pen 1:you 2:the",
+          "0:East 1:Door, 2:and",
+          "0:let 0.5:the 1:New 2:Year",
+          "0:in. 2:Sing",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine.",
+          "",
+          "",
+          "0:le- 0.5:vy 1:dew, 2:sing",
+          "0:le- 0.5:vy 1:dew, 2:the",
+          "0:wa- 0.5:ter 1:and 2:the",
+          "0:wine; 2:The",
+          "0:se- 0.5:ven 1:bright 2:gold",
+          "0:wires 2:and 2.5:the",
+          "0:bu- 0.5:gles 1:that 2:do",
+          "0:shine."
+        ]
+      }
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.5
+    ],
+    "alto": [
+      0,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      1
+    ],
+    "bass": [
+      0.5,
+      1
+    ]
+  },
+  "shared_lyrics": true,
+  "compact": {
+    "instructions": "Strofe 1–2: strofa e ritornello, poi D.S.; strofa 3: dopo “in.” al Coda (battute 23–30)."
+  }
+}

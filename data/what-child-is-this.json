@@ -1,0 +1,498 @@
+{
+  "id": "what-child-is-this",
+  "title": "What Child Is This",
+  "emoji": "👶",
+  "meter": [
+    6,
+    8
+  ],
+  "key_fifths": 1,
+  "tempo": 78,
+  "measure_beats": [
+    0.5,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    3,
+    2.5
+  ],
+  "source_pdf": "songs/What Child Is This.pdf",
+  "review_notes": [
+    "Pitches read from the capella glyphs (vector_heads.py with capella codes) and checked against all four systems; rhythms from the page.",
+    "The eighth pickup is data measure 1 (printed bar n = data n+1); the last bar is dotted quarter + quarter.",
+    "Printed bar 12 (data 13) drops the middle syllable in all three stanzas (“an - sing”, “me, you”, “lul - by”); the original text “angels sing”, “for me, for you”, “lullaby” is restored on the three printed notes.",
+    "Edition typos corrected in stanza 2: “bourne” → “borne”, “bane” → “babe”.",
+    "Suggested tempo quarter = 78 (dotted quarter = 52)."
+  ],
+  "parts": {
+    "soprano": [
+      "E4:0.5",
+      "G4:1 A4:0.5 B4:0.75 C5:0.25 B4:0.5",
+      "A4:1 F#4:0.5 D4:0.75 E4:0.25 F#4:0.5",
+      "G4:1 E4:0.5 E4:0.75 D#4:0.25 E4:0.5",
+      "F#4:1.5 B3:1 E4:0.5",
+      "G4:1 A4:0.5 B4:0.75 C5:0.25 B4:0.5",
+      "A4:1 F#4:0.5 D4:0.75 E4:0.25 F#4:0.5",
+      "G4:0.75 F#4:0.25 E4:0.5 D#4:0.75 C#4:0.25 D#4:0.5",
+      "E4:1.5 E4:1.5",
+      "D5:1.5 D5:0.75 C5:0.25 B4:0.5",
+      "A4:1 F#4:0.5 D4:0.75 E4:0.25 F#4:0.5",
+      "G4:1 E4:0.5 E4:0.75 D#4:0.25 E4:0.5",
+      "F#4:1 D#4:0.5 B3:1.5",
+      "D5:1.5 D5:0.75 C5:0.25 B4:0.5",
+      "A4:1 F#4:0.5 D4:0.75 E4:0.25 F#4:0.5",
+      "G4:0.75 F#4:0.25 E4:0.5 D#4:0.75 C#4:0.25 D#4:0.5",
+      "E4:1.5 E4:1"
+    ],
+    "alto": [
+      "B3:0.5",
+      "E4:1 D4:0.5 D4:1 G4:0.5",
+      "F#4:1 D4:0.5 D4:1 C4:0.5",
+      "B3:1 B3:0.5 A3:1 E4:0.5",
+      "D#4:1.5 B3:1 B3:0.5",
+      "E4:1 D4:0.5 D4:1 G4:0.5",
+      "F#4:1 D4:0.5 D4:1 C4:0.5",
+      "B3:1 C4:0.5 B3:1 B3:0.5",
+      "B3:1.5 B3:1.5",
+      "F#4:1.5 B4:0.75 A4:0.25 G4:0.5",
+      "F#4:1 D4:0.5 D4:1 C4:0.5",
+      "B3:1 B3:0.5 A3:1 E4:0.5",
+      "D#4:1 B3:0.5 B3:1.5",
+      "F#4:1.5 B4:0.75 A4:0.25 G4:0.5",
+      "F#4:1 D4:0.5 D4:1 C4:0.5",
+      "B3:1 C4:0.5 B3:1 B3:0.5",
+      "B3:1.5 B3:1"
+    ],
+    "tenor": [
+      "G3:0.5",
+      "B3:1 A3:0.5 G3:1 B3:0.5",
+      "D4:1 A3:0.5 F#3:1 A3:0.5",
+      "G3:1 G3:0.5 E3:1 E3:0.5",
+      "B3:1.5 B3:1 G3:0.5",
+      "B3:1 A3:0.5 G3:1 B3:0.5",
+      "D4:1 A3:0.5 F#3:1 A3:0.5",
+      "G3:1 A3:0.5 F#3:1 F#3:0.5",
+      "G3:1.5 G3:1.5",
+      "B3:1.5 D4:1 D4:0.5",
+      "D4:1 A3:0.5 F#3:1 A3:0.5",
+      "G3:1 G3:0.5 A3:1 E3:0.5",
+      "B3:1 F#3:0.5 B3:1.5",
+      "B3:1.5 D4:1 D4:0.5",
+      "D4:1 A3:0.5 F#3:1 A3:0.5",
+      "G3:1 A3:0.5 F#3:1 F#3:0.5",
+      "G3:1.5 G3:1"
+    ],
+    "bass": [
+      "E3:0.5",
+      "E3:1 F#3:0.5 G3:1 G3:0.5",
+      "D3:1 D3:0.5 D3:1 D#3:0.5",
+      "E3:1 E3:0.5 C3:1 C3:0.5",
+      "B2:1.5 B3:1 E3:0.5",
+      "E3:1 F#3:0.5 G3:1 G3:0.5",
+      "D3:1 D3:0.5 D3:1 D#3:0.5",
+      "E3:1 A2:0.5 B2:1 B2:0.5",
+      "E3:1.5 E3:1.5",
+      "B3:1.5 G3:1 G3:0.5",
+      "D3:1 D3:0.5 D3:1 D#3:0.5",
+      "E3:1 E3:0.5 C3:1 C3:0.5",
+      "B2:1 B2:0.5 B2:1.5",
+      "B3:1.5 G3:1 G3:0.5",
+      "D3:1 D3:0.5 D3:1 D#3:0.5",
+      "E3:1 A2:0.5 B2:1 B2:0.5",
+      "E3:1.5 E3:1"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/what-child-is-this-1.png",
+      "page": 3,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 1108,
+      "height": 321
+    },
+    {
+      "image": "scores/what-child-is-this-2.png",
+      "page": 3,
+      "first_measure": 6,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1108,
+      "height": 304
+    },
+    {
+      "image": "scores/what-child-is-this-3.png",
+      "page": 3,
+      "first_measure": 10,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1108,
+      "height": 321
+    },
+    {
+      "image": "scores/what-child-is-this-4.png",
+      "page": 3,
+      "first_measure": 14,
+      "barlines": [
+        0.0,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "width": 1108,
+      "height": 304
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Strofa 1",
+      "lyrics": {
+        "soprano": [
+          "0:What",
+          "0:child 1:is 1.5:this, 2.5:who,",
+          "0:laid 1:to 1.5:rest, 2.5:on",
+          "0:Ma- 1:ry’s 1.5:lap 2.5:is",
+          "0:sleep- 1.5:ing? 2.5:Whom",
+          "0:an- 1:gels 1.5:greet 2.5:with",
+          "0:an- 1:thems 1.5:sweet, 2.5:while",
+          "0:shep- 1:herds 1.5:watch 2.5:are",
+          "0:keep- 1.5:ing?",
+          "0:This, 1.5:this 2.5:is",
+          "0:Christ 1:the 1.5:King; 2.5:whom",
+          "0:shep- 1:herds 1.5:guard 2.5:and",
+          "0:an- 1:gels 1.5:sing:",
+          "0:Haste, 1.5:haste 2.5:to",
+          "0:bring 1:him 1.5:laud, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "alto": [
+          "0:What",
+          "0:child 1:is 1.5:this, 2.5:who,",
+          "0:laid 1:to 1.5:rest, 2.5:on",
+          "0:Ma- 1:ry’s 1.5:lap 2.5:is",
+          "0:sleep- 1.5:ing? 2.5:Whom",
+          "0:an- 1:gels 1.5:greet 2.5:with",
+          "0:an- 1:thems 1.5:sweet, 2.5:while",
+          "0:shep- 1:herds 1.5:watch 2.5:are",
+          "0:keep- 1.5:ing?",
+          "0:This, 1.5:this 2.5:is",
+          "0:Christ 1:the 1.5:King; 2.5:whom",
+          "0:shep- 1:herds 1.5:guard 2.5:and",
+          "0:an- 1:gels 1.5:sing:",
+          "0:Haste, 1.5:haste 2.5:to",
+          "0:bring 1:him 1.5:laud, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "tenor": [
+          "0:What",
+          "0:child 1:is 1.5:this, 2.5:who,",
+          "0:laid 1:to 1.5:rest, 2.5:on",
+          "0:Ma- 1:ry’s 1.5:lap 2.5:is",
+          "0:sleep- 1.5:ing? 2.5:Whom",
+          "0:an- 1:gels 1.5:greet 2.5:with",
+          "0:an- 1:thems 1.5:sweet, 2.5:while",
+          "0:shep- 1:herds 1.5:watch 2.5:are",
+          "0:keep- 1.5:ing?",
+          "0:This, 1.5:this 2.5:is",
+          "0:Christ 1:the 1.5:King; 2.5:whom",
+          "0:shep- 1:herds 1.5:guard 2.5:and",
+          "0:an- 1:gels 1.5:sing:",
+          "0:Haste, 1.5:haste 2.5:to",
+          "0:bring 1:him 1.5:laud, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "bass": [
+          "0:What",
+          "0:child 1:is 1.5:this, 2.5:who,",
+          "0:laid 1:to 1.5:rest, 2.5:on",
+          "0:Ma- 1:ry’s 1.5:lap 2.5:is",
+          "0:sleep- 1.5:ing? 2.5:Whom",
+          "0:an- 1:gels 1.5:greet 2.5:with",
+          "0:an- 1:thems 1.5:sweet, 2.5:while",
+          "0:shep- 1:herds 1.5:watch 2.5:are",
+          "0:keep- 1.5:ing?",
+          "0:This, 1.5:this 2.5:is",
+          "0:Christ 1:the 1.5:King; 2.5:whom",
+          "0:shep- 1:herds 1.5:guard 2.5:and",
+          "0:an- 1:gels 1.5:sing:",
+          "0:Haste, 1.5:haste 2.5:to",
+          "0:bring 1:him 1.5:laud, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Strofa 2",
+      "lyrics": {
+        "soprano": [
+          "0:Why",
+          "0:lies 1:he 1.5:in 2.5:such",
+          "0:mean 1:es- 1.5:tate, 2.5:where",
+          "0:ox 1:and 1.5:ass 2.5:are",
+          "0:feed- 1.5:ing? 2.5:Good",
+          "0:Christ- 1:ian 1.5:fear: 2.5:for",
+          "0:sin- 1:ners 1.5:here 2.5:the",
+          "0:si- 1:lent 1.5:Word 2.5:is",
+          "0:plead- 1.5:ing:",
+          "0:Nails, 1.5:spear 2.5:shall",
+          "0:pierce 1:him 1.5:through, 2.5:the",
+          "0:cross 1:be 1.5:borne, 2.5:for",
+          "0:me, 1:for 1.5:you:",
+          "0:Hail, 1.5:hail, 2.5:the",
+          "0:Word 1:made 1.5:flesh, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "alto": [
+          "0:Why",
+          "0:lies 1:he 1.5:in 2.5:such",
+          "0:mean 1:es- 1.5:tate, 2.5:where",
+          "0:ox 1:and 1.5:ass 2.5:are",
+          "0:feed- 1.5:ing? 2.5:Good",
+          "0:Christ- 1:ian 1.5:fear: 2.5:for",
+          "0:sin- 1:ners 1.5:here 2.5:the",
+          "0:si- 1:lent 1.5:Word 2.5:is",
+          "0:plead- 1.5:ing:",
+          "0:Nails, 1.5:spear 2.5:shall",
+          "0:pierce 1:him 1.5:through, 2.5:the",
+          "0:cross 1:be 1.5:borne, 2.5:for",
+          "0:me, 1:for 1.5:you:",
+          "0:Hail, 1.5:hail, 2.5:the",
+          "0:Word 1:made 1.5:flesh, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "tenor": [
+          "0:Why",
+          "0:lies 1:he 1.5:in 2.5:such",
+          "0:mean 1:es- 1.5:tate, 2.5:where",
+          "0:ox 1:and 1.5:ass 2.5:are",
+          "0:feed- 1.5:ing? 2.5:Good",
+          "0:Christ- 1:ian 1.5:fear: 2.5:for",
+          "0:sin- 1:ners 1.5:here 2.5:the",
+          "0:si- 1:lent 1.5:Word 2.5:is",
+          "0:plead- 1.5:ing:",
+          "0:Nails, 1.5:spear 2.5:shall",
+          "0:pierce 1:him 1.5:through, 2.5:the",
+          "0:cross 1:be 1.5:borne, 2.5:for",
+          "0:me, 1:for 1.5:you:",
+          "0:Hail, 1.5:hail, 2.5:the",
+          "0:Word 1:made 1.5:flesh, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "bass": [
+          "0:Why",
+          "0:lies 1:he 1.5:in 2.5:such",
+          "0:mean 1:es- 1.5:tate, 2.5:where",
+          "0:ox 1:and 1.5:ass 2.5:are",
+          "0:feed- 1.5:ing? 2.5:Good",
+          "0:Christ- 1:ian 1.5:fear: 2.5:for",
+          "0:sin- 1:ners 1.5:here 2.5:the",
+          "0:si- 1:lent 1.5:Word 2.5:is",
+          "0:plead- 1.5:ing:",
+          "0:Nails, 1.5:spear 2.5:shall",
+          "0:pierce 1:him 1.5:through, 2.5:the",
+          "0:cross 1:be 1.5:borne, 2.5:for",
+          "0:me, 1:for 1.5:you:",
+          "0:Hail, 1.5:hail, 2.5:the",
+          "0:Word 1:made 1.5:flesh, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ]
+      }
+    },
+    {
+      "number": 3,
+      "title": "Strofa 3",
+      "lyrics": {
+        "soprano": [
+          "0:So",
+          "0:bring 1:him 1.5:in- 2.5:cense,",
+          "0:gold 1:and 1.5:myrrh. 2.5:Come",
+          "0:pea- 1:sant, 1.5:King 2.5:to",
+          "0:own 1.5:him; 2.5:the",
+          "0:King 1:of 1.5:kings, 2.5:sal-",
+          "0:va- 1:tion 1.5:brings; 2.5:let",
+          "0:lo- 1:ving 1.5:hearts 2.5:en-",
+          "0:throne 1.5:him.",
+          "0:Raise, 1.5:raise 2.5:the",
+          "0:song 1:on 1.5:high, 2.5:The",
+          "0:Vir- 1:gin 1.5:sings 2.5:her",
+          "0:lul- 1:la- 1.5:by:",
+          "0:Joy, 1.5:joy 2.5:for",
+          "0:Christ 1:is 1.5:born, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "alto": [
+          "0:So",
+          "0:bring 1:him 1.5:in- 2.5:cense,",
+          "0:gold 1:and 1.5:myrrh. 2.5:Come",
+          "0:pea- 1:sant, 1.5:King 2.5:to",
+          "0:own 1.5:him; 2.5:the",
+          "0:King 1:of 1.5:kings, 2.5:sal-",
+          "0:va- 1:tion 1.5:brings; 2.5:let",
+          "0:lo- 1:ving 1.5:hearts 2.5:en-",
+          "0:throne 1.5:him.",
+          "0:Raise, 1.5:raise 2.5:the",
+          "0:song 1:on 1.5:high, 2.5:The",
+          "0:Vir- 1:gin 1.5:sings 2.5:her",
+          "0:lul- 1:la- 1.5:by:",
+          "0:Joy, 1.5:joy 2.5:for",
+          "0:Christ 1:is 1.5:born, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "tenor": [
+          "0:So",
+          "0:bring 1:him 1.5:in- 2.5:cense,",
+          "0:gold 1:and 1.5:myrrh. 2.5:Come",
+          "0:pea- 1:sant, 1.5:King 2.5:to",
+          "0:own 1.5:him; 2.5:the",
+          "0:King 1:of 1.5:kings, 2.5:sal-",
+          "0:va- 1:tion 1.5:brings; 2.5:let",
+          "0:lo- 1:ving 1.5:hearts 2.5:en-",
+          "0:throne 1.5:him.",
+          "0:Raise, 1.5:raise 2.5:the",
+          "0:song 1:on 1.5:high, 2.5:The",
+          "0:Vir- 1:gin 1.5:sings 2.5:her",
+          "0:lul- 1:la- 1.5:by:",
+          "0:Joy, 1.5:joy 2.5:for",
+          "0:Christ 1:is 1.5:born, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ],
+        "bass": [
+          "0:So",
+          "0:bring 1:him 1.5:in- 2.5:cense,",
+          "0:gold 1:and 1.5:myrrh. 2.5:Come",
+          "0:pea- 1:sant, 1.5:King 2.5:to",
+          "0:own 1.5:him; 2.5:the",
+          "0:King 1:of 1.5:kings, 2.5:sal-",
+          "0:va- 1:tion 1.5:brings; 2.5:let",
+          "0:lo- 1:ving 1.5:hearts 2.5:en-",
+          "0:throne 1.5:him.",
+          "0:Raise, 1.5:raise 2.5:the",
+          "0:song 1:on 1.5:high, 2.5:The",
+          "0:Vir- 1:gin 1.5:sings 2.5:her",
+          "0:lul- 1:la- 1.5:by:",
+          "0:Joy, 1.5:joy 2.5:for",
+          "0:Christ 1:is 1.5:born, 2.5:the",
+          "0:babe, 1:the 1.5:Son 2.5:of",
+          "0:Ma- 1.5:ry!"
+        ]
+      }
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.5
+    ],
+    "alto": [
+      0,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      1
+    ],
+    "bass": [
+      0.5,
+      1
+    ]
+  },
+  "shared_lyrics": true,
+  "compact": {
+    "instructions": "Tre strofe numerate sulle stesse note; testo comune alle quattro voci."
+  }
+}

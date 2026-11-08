@@ -1,0 +1,437 @@
+{
+  "id": "god-rest-ye-merry",
+  "title": "God Rest Ye Merry, Gentlemen",
+  "emoji": "🎩",
+  "meter": [
+    4,
+    4
+  ],
+  "key_fifths": -1,
+  "tempo": 140,
+  "source_pdf": "songs/God Rest Ye Merry.pdf",
+  "review_notes": [
+    "Pitches and accidentals read from the vector notehead positions of the clean copy of the same edition; rhythms, ties and slurs read from that page and compared with the scan.",
+    "Dashed curves: tenor ties in measure 3 (stanzas 2–4), 7 (stanzas 1–3) and 11 (stanza 4) are encoded as verse-specific ties; the other dashed curves join different pitches and are phrase slurs (melismas for those stanzas).",
+    "The refrain from “O tidings” (measure 13, beat 3) is common to all stanzas.",
+    "Handwritten notes on the scan (“Scritta in Re, da fare in Mi”, unison/part allocation, stanza assignments) are not transcribed. Playback is at printed pitch."
+  ],
+  "review_notes_it": [
+    "Altezze e alterazioni dalla copia vettoriale pulita della stessa edizione; ritmi e legature letti su quella pagina e confrontati con la scansione.",
+    "Legature tratteggiate del tenore solo per alcune strofe (b. 3 strofe 2–4, b. 7 strofe 1–3, b. 11 strofa 4); le altre curve tratteggiate sono legature di frase.",
+    "Le note a mano sulla scansione (“Scritta in Re, da fare in Mi”, ecc.) non sono trascritte: la riproduzione è all’altezza stampata."
+  ],
+  "parts": {
+    "soprano": [
+      "D4:1",
+      "D4:1 A4:1 A4:1 G4:1",
+      "F4:1 E4:1 D4:1 C4:1",
+      "D4:1 E4:1 F4:1 G4:1",
+      "A4:2 R:1 D4:1",
+      "D4:1 A4:1 A4:1 G4:1",
+      "F4:1 E4:1 D4:1 C4:1",
+      "D4:1 E4:1 F4:1 G4:1",
+      "A4:2 R:1 A4:1",
+      "Bb4:1 G4:1 A4:1 Bb4:1",
+      "C5:1 D5:1 A4:1 G4:1",
+      "F4:1 D4:1 E4:1 F4:1",
+      "G4:2 F4:1 G4:1",
+      "A4:2 Bb4:1 A4:1",
+      "A4:1 G4:1 F4:1 E4:1",
+      "D4:2 F4:0.5 E4:0.5 D4:1",
+      "G4:2 F4:1 G4:1",
+      "A4:1 Bb4:1 C5:1 D5:1",
+      "A4:1 G4:1 F4:1 E4:1",
+      "D4:4"
+    ],
+    "alto": [
+      "D4:1",
+      "D4:1 F4:1 E4:1 C#4:1",
+      "D4:1 C4:1 Bb3:1 A3:1",
+      "D4:1 C#4:1 D4:1 D4:1",
+      "C#4:2 R:1 D4:1",
+      "D4:1 F4:1 E4:1 C#4:1",
+      "D4:1 C4:1 Bb3:1 A3:1",
+      "D4:1 C#4:1 D4:1 D4:1",
+      "C#4:2 R:1 D4:1",
+      "D4:1 C4:1 C4:1 F4:1",
+      "Eb4:1 D4:1 C4:1 C#4:1",
+      "D4:1 B3:1 C4:1 F4:1",
+      "E4:2 F4:1 C4:1",
+      "C4:2 D4:1 C4:1",
+      "F4:1 E4:1 D4:1 C#4:1",
+      "D4:2 A3:0.5 A3:0.5 B3:1",
+      "C4:2 D4:1 E4:1",
+      "F4:2 F4:1 F4:1",
+      "F4:1 E4:1 D4:1 C#4:1",
+      "D4:4"
+    ],
+    "tenor": [
+      "D3:1",
+      "F3:1 D3:1 E3:1 A3:1",
+      "A3:1 A3:1 F3:1 F3:1",
+      "F3:1 A3:1 A3:1 D3:1",
+      "E3:2 R:1 D3:1",
+      "F3:1 D3:1 E3:1 A3:1",
+      "A3:1~ A3:1 F3:1 F3:1",
+      "F3:1 A3:1 A3:1 D3:1",
+      "E3:2 R:1 F#3:1",
+      "G3:1 G3:1 F3:1 F3:1",
+      "F3:1 F3:1 F3:1 E3:1",
+      "F3:1 F3:1 G3:1 C4:1",
+      "C4:1 Bb3:1 A3:1 G3:1",
+      "F3:2 F3:1 F3:1",
+      "C4:1 Bb3:1 A3:1 A3:1",
+      "F3:2 F3:0.5 F3:0.5 F3:1",
+      "E3:1 G3:1 C4:1 Bb3:1",
+      "A3:1 F3:1 C4:1 Bb3:1",
+      "C4:1 Bb3:1 A3:1 A3:1",
+      "F3:4"
+    ],
+    "bass": [
+      "D3:1",
+      "D3:1 D3:1 C#3:1 A2:1",
+      "D3:1 A2:1 Bb2:1 F2:1",
+      "Bb2:1 A2:1 D3:1 Bb2:1",
+      "A2:2 R:1 D3:1",
+      "D3:1 D3:1 C#3:1 A2:1",
+      "D3:1 A2:1 Bb2:1 F2:1",
+      "Bb2:1 A2:1 D3:1 Bb2:1",
+      "A2:2 R:1 D3:1",
+      "G3:1 E3:1 F3:1 D3:1",
+      "A2:1 Bb2:1 F2:1 A2:1",
+      "D3:1 D3:1 C3:1 A2:1",
+      "C3:2 D3:1 E3:1",
+      "F3:2 Bb2:1 F3:1",
+      "F2:1 G2:1 A2:1 A2:1",
+      "D3:2 D3:0.5 D3:0.5 D3:1",
+      "C3:1 Bb2:1 A2:1 G2:1",
+      "F2:1 D3:1 A2:1 Bb2:1",
+      "F2:1 G2:1 A2:1 A2:1",
+      "D3:4"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    },
+    {
+      "measure": 18
+    },
+    {
+      "measure": 19
+    },
+    {
+      "measure": 20
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/god-rest-ye-merry-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 962,
+      "height": 237
+    },
+    {
+      "image": "scores/god-rest-ye-merry-2.png",
+      "page": 1,
+      "first_measure": 6,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 962,
+      "height": 237
+    },
+    {
+      "image": "scores/god-rest-ye-merry-3.png",
+      "page": 1,
+      "first_measure": 11,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 962,
+      "height": 229
+    },
+    {
+      "image": "scores/god-rest-ye-merry-4.png",
+      "page": 1,
+      "first_measure": 16,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 962,
+      "height": 212
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Strofa 1",
+      "lyrics": {
+        "all": [
+          "0:God",
+          "0:rest 1:ye 2:mer- 3:ry,",
+          "0:gen- 1:tle- 2:men, 3:let",
+          "0:noth- 1:ing 2:you 3:dis-",
+          "0:may, 3:re-",
+          "0:mem- 1:ber 2:Christ 3:our",
+          "0:Sav- 2:iour 3:was",
+          "0:born 1:on 2:Christ- 3:mas",
+          "0:day 3:to",
+          "0:save 1:us 2:all 3:from",
+          "0:Sa- 1:tan’s 2:power 3:when",
+          "0:we 1:were 2:gone 3:a-",
+          "0:stray. 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy, 2:com- 2.5:fort 3:and",
+          "0:joy, 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy!"
+        ]
+      }
+    },
+    {
+      "number": 2,
+      "title": "Strofa 2",
+      "lyrics": {
+        "all": [
+          "0:From",
+          "0:God, 1:our 2:heav’n- 3:ly",
+          "0:fa- 2:ther, 3:a",
+          "0:bles- 1:sed 2:an- 3:gel",
+          "0:came, 3:and",
+          "0:un- 1:to 2:cer- 3:tain",
+          "0:shep- 2:herds 3:brought",
+          "0:ti- 1:dings 2:of 3:the",
+          "0:same: 3:how",
+          "0:that 1:in 2:Beth- 3:le-",
+          "0:hem 1:was 2:born 3:the",
+          "0:Son 1:of 2:God 3:by",
+          "0:name. 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy, 2:com- 2.5:fort 3:and",
+          "0:joy, 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy!"
+        ]
+      },
+      "parts": {
+        "tenor": {
+          "3": "A3:1~ A3:1 F3:1 F3:1"
+        }
+      }
+    },
+    {
+      "number": 3,
+      "title": "Strofa 3",
+      "lyrics": {
+        "all": [
+          "0:“Fear",
+          "0:not, 1:then” 2:said 3:the",
+          "0:an- 2:gel, 3:“Let",
+          "0:noth- 1:ing 2:you 3:af-",
+          "0:fright. 3:This",
+          "0:day 1:is 2:born 3:a",
+          "0:Sav- 2:iour 3:of",
+          "0:a 1:pure 2:vir- 3:gin",
+          "0:bright 3:to",
+          "0:free 1:all 2:those 3:who",
+          "0:trust 1:in 2:Him 3:from",
+          "0:Sa- 1:tan’s 2:pow’r 3:and",
+          "0:might. 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy, 2:com- 2.5:fort 3:and",
+          "0:joy, 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy!"
+        ]
+      },
+      "parts": {
+        "tenor": {
+          "3": "A3:1~ A3:1 F3:1 F3:1"
+        }
+      }
+    },
+    {
+      "number": 4,
+      "title": "Strofa 4",
+      "lyrics": {
+        "all": [
+          "0:Now",
+          "0:to 1:the 2:Lord 3:sing",
+          "0:prais- 2:es, 3:all",
+          "0:you 1:with- 2:in 3:this",
+          "0:place, 3:and",
+          "0:with 1:true 2:love 3:and",
+          "0:broth- 1:er- 2:hood 3:each",
+          "0:oth- 1:er 2:now 3:em-",
+          "0:brace. 3:This",
+          "0:ho- 1:ly 2:tide 3:of",
+          "0:Christ- 2:mas 3:doth",
+          "0:bring 1:re- 2:deem- 3:ing",
+          "0:grace. 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy, 2:com- 2.5:fort 3:and",
+          "0:joy, 2:O",
+          "0:ti- 2:dings 3:of",
+          "0:com- 2:fort 3:and",
+          "0:joy!"
+        ]
+      },
+      "parts": {
+        "tenor": {
+          "3": "A3:1~ A3:1 F3:1 F3:1",
+          "7": "A3:1 A3:1 F3:1 F3:1",
+          "11": "F3:1~ F3:1 F3:1 E3:1"
+        }
+      }
+    }
+  ],
+  "sections": [
+    {
+      "at": [
+        13,
+        2
+      ],
+      "name": "chorus"
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.5
+    ],
+    "alto": [
+      0,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      1
+    ],
+    "bass": [
+      0.5,
+      1
+    ]
+  },
+  "measure_beats": [
+    1,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4,
+    4
+  ],
+  "shared_lyrics": true,
+  "compact": {
+    "refrain_measures": [
+      14,
+      20
+    ],
+    "merge_refrain_systems": false,
+    "refrain_pickup_measures": [
+      13
+    ],
+    "annotations": [
+      {
+        "measure": 13,
+        "voice": "soprano",
+        "beat": 2,
+        "text": "Ritornello"
+      }
+    ],
+    "instructions": "Strofe 1–4 sulle righe numerate; il ritornello “O tidings” è comune."
+  }
+}
