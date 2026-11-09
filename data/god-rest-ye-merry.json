@@ -433,5 +433,11 @@
       }
     ],
     "instructions": "Strofe 1–4 sulle righe numerate; il ritornello “O tidings” è comune."
+  },
+  "recordings": {
+    "soprano": "recordings/god-rest-ye-merry/soprano.mp3",
+    "alto": "recordings/god-rest-ye-merry/alto.mp3",
+    "tenor": "recordings/god-rest-ye-merry/tenor.mp3",
+    "bass": "recordings/god-rest-ye-merry/bass.mp3"
   }
 }

@@ -545,5 +545,11 @@
       ]
     },
     "instructions": "Strofe 1–3 sulle righe numerate; tenori e bassi entrano sfalsati con le parole sotto il basso."
+  },
+  "recordings": {
+    "soprano": "recordings/joy-to-the-world/soprano.mp3",
+    "alto": "recordings/joy-to-the-world/alto.mp3",
+    "tenor": "recordings/joy-to-the-world/tenor.mp3",
+    "bass": "recordings/joy-to-the-world/bass.mp3"
   }
 }

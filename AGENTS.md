@@ -165,3 +165,10 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - When a supplied score prints only some stanzas, find the missing ones online, record the source
   and any wording variants in `review_notes`, and fit them to the printed notes.
 
+
+## Recordings
+
+- A song may have `recordings` (`{"soprano": url, …}`): YouTube links (embedded via
+  youtube-nocookie) or MP3 files kept in `web/recordings/<song-id>/<voice>.mp3`. Such songs'
+  cards open two choices: “Spartito interattivo” (the player) and “Registrazioni delle voci”
+  (one player per voice). `app.py` serves byte ranges for the MP3s (needed by Safari).

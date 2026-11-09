@@ -487,5 +487,11 @@
       }
     ],
     "instructions": "Strofe 1–5: leggere le righe di testo numerate sulla stessa musica e cantare il ritornello dopo ogni strofa. Il testo sotto il soprano è comune alle quattro voci."
+  },
+  "recordings": {
+    "soprano": "https://youtu.be/hfd8gDCUE4c",
+    "alto": "https://youtu.be/N6M9uAsBlOs",
+    "tenor": "https://youtu.be/JqmkbqCRsUM",
+    "bass": "https://youtu.be/ivTcKWoeM_A"
   }
 }

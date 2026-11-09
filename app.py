@@ -54,8 +54,28 @@ class Handler(SimpleHTTPRequestHandler):
             self.send_header('Content-Type',types[file.suffix])
             self.send_header('Content-Length',str(len(content)))
             self.end_headers();self.wfile.write(content)
+        elif path.startswith('/recordings/') and path.endswith('.mp3') and self.headers.get('Range'):
+            self.send_range(ROOT/'web'/path.lstrip('/'))
         else:
             super().do_GET()
+
+    def send_range(self, file):
+        # Safari only plays and seeks audio from servers that honour byte ranges.
+        if not file.is_file() or '..' in file.parts:
+            self.send_error(404);return
+        data=file.read_bytes()
+        try:
+            start,end=self.headers['Range'].removeprefix('bytes=').split('-')
+            start=int(start or 0); end=min(int(end) if end else len(data)-1,len(data)-1)
+            if start>end: raise ValueError
+        except ValueError:
+            self.send_error(416);return
+        self.send_response(206)
+        self.send_header('Content-Type','audio/mpeg')
+        self.send_header('Accept-Ranges','bytes')
+        self.send_header('Content-Range',f'bytes {start}-{end}/{len(data)}')
+        self.send_header('Content-Length',str(end-start+1))
+        self.end_headers();self.wfile.write(data[start:end+1])
 
 
 if __name__=='__main__':

@@ -494,5 +494,11 @@
   "shared_lyrics": true,
   "compact": {
     "instructions": "Tre strofe numerate sulle stesse note; testo comune alle quattro voci."
+  },
+  "recordings": {
+    "soprano": "https://youtu.be/TkVXqMiln_4",
+    "alto": "https://youtu.be/I569WtK9VdQ",
+    "tenor": "https://youtu.be/2QutV6yDMHs",
+    "bass": "https://youtu.be/MU5BRx3iljA"
   }
 }

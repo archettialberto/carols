@@ -135,6 +135,16 @@ main { position:relative; }
 .song-detail { font-size:12px; color:var(--muted); line-height:1.4; }
 .song-arrow { margin-left:auto; padding-left:6px; color:var(--berry); font-size:22px; }
 body.library-open main { padding-bottom:40px; }
+.song-choices { display:grid; grid-template-columns:1fr 1fr; gap:8px; margin-top:8px; }
+.song-choices button { font-weight:600; }
+.song-choices button + button { color:var(--berry); }
+.recordings-title { font:400 30px var(--title); margin:26px 0 14px; }
+#recordings-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:14px; }
+#recordings-list li { background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:12px 14px; display:flex; flex-direction:column; gap:10px; }
+#recordings-list h3 { font:400 21px var(--title); color:var(--ink); }
+#recordings-list iframe { width:100%; aspect-ratio:16/9; border:0; border-radius:8px; }
+#recordings-list audio { width:100%; }
+@media(max-width:700px) { #recordings-list { grid-template-columns:1fr; } .recordings-title { font-size:25px; margin:14px 0 10px; } }
 
 
 @media(max-width:700px) {

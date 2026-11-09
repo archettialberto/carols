@@ -488,24 +488,66 @@ function renderLibrary() {
     const title = document.createElement('span'); title.className = 'song-title'; title.textContent = item.title;
     const arrow = document.createElement('span'); arrow.className = 'song-arrow'; arrow.textContent = '›'; arrow.setAttribute('aria-hidden','true');
     copy.append(title); button.append(icon,copy,arrow);
-    button.onclick = () => {
+    const openPractice = () => {
       if (song?.id !== item.id) { $('song').value = String(index); chooseSong(); }
       showTab('practice'); $('selection-summary').focus();
     };
-    li.append(button); return li;
+    li.append(button);
+    if (!item.recordings) { button.onclick = openPractice; return li; }
+    // Songs with real rehearsal recordings offer a choice between the two ways to practise.
+    button.setAttribute('aria-expanded','false');
+    const choices = document.createElement('div'); choices.className = 'song-choices'; choices.hidden = true;
+    const practice = document.createElement('button'); practice.type = 'button'; practice.textContent = t('modeInteractive'); practice.onclick = openPractice;
+    const recordings = document.createElement('button'); recordings.type = 'button'; recordings.textContent = t('modeRecordings');
+    recordings.onclick = () => showRecordings(item);
+    choices.append(practice, recordings); li.append(choices);
+    button.onclick = () => {
+      const open = choices.hidden;
+      document.querySelectorAll('.song-choices').forEach(el => { el.hidden = true; el.previousElementSibling.setAttribute('aria-expanded','false'); });
+      choices.hidden = !open; button.setAttribute('aria-expanded', String(open));
+    };
+    return li;
   }));
   Booklet.render(songs);
 }
 $('booklet-make').onclick = () => Booklet.make();
 $('booklet-all').onchange = event => Booklet.selectAll(event.target.checked);
+function youtubeId(url) {
+  const match = /(?:youtu\.be\/|[?&]v=|\/embed\/)([\w-]{11})/.exec(url);
+  return match && match[1];
+}
+function showRecordings(item) {
+  $('recordings-title').textContent = item.title;
+  $('recordings-list').replaceChildren(...voices.filter(voice => item.recordings[voice]).map(voice => {
+    const li = document.createElement('li'), heading = document.createElement('h3'), url = item.recordings[voice];
+    heading.textContent = t(voice); li.append(heading);
+    const id = youtubeId(url);
+    if (id) {
+      const frame = document.createElement('iframe');
+      frame.src = `https://www.youtube-nocookie.com/embed/${id}`; frame.title = `${item.title} · ${t(voice)}`;
+      frame.loading = 'lazy'; frame.allow = 'encrypted-media; picture-in-picture'; frame.allowFullscreen = true;
+      li.append(frame);
+    } else {
+      const player = document.createElement('audio'); player.controls = true; player.preload = 'metadata'; player.src = url;
+      // One voice at a time: starting a recording pauses the others.
+      player.onplay = () => document.querySelectorAll('#recordings-list audio').forEach(other => other !== player && other.pause());
+      li.append(player);
+    }
+    return li;
+  }));
+  showTab('recordings'); $('recordings-panel').focus();
+}
 function showTab(name) {
-  const library = name === 'library';
-  if (library) { pause(); stopPreviews(); closeSheets(); }
-  $('library-panel').hidden = !library; $('practice-panel').hidden = library;
+  const library = name === 'library', recordings = name === 'recordings';
+  if (name !== 'practice') { pause(); stopPreviews(); closeSheets(); }
+  // Leaving the recordings removes the players, which stops any audio or video.
+  if (!recordings) $('recordings-list').replaceChildren();
+  $('recordings-panel').hidden = !recordings;
+  $('library-panel').hidden = !library; $('practice-panel').hidden = name !== 'practice';
   $('library-back').hidden = library;
-  document.querySelector('.player-dock').hidden = library;
-  document.body.classList.toggle('library-open',library);
-  if (!library) { resizeScore(); updatePosition(true); }
+  document.querySelector('.player-dock').hidden = name !== 'practice';
+  document.body.classList.toggle('library-open',library || recordings);
+  if (name === 'practice') { resizeScore(); updatePosition(true); }
 }
 $('library-back').onclick = () => { showTab('library'); $('library-panel').focus(); };
 function renderTransposeOptions() {

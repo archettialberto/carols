@@ -11,6 +11,7 @@ const messages = {
     leadSoprano:'Soprani in evidenza', leadAlto:'Contralti in evidenza', leadTenor:'Tenori in evidenza', leadBass:'Bassi in evidenza',
     scoreVersion:'Spartito', digitalScore:'Digitale', scannedScore:'Scansione originale', digitalPDF:'PDF digitale', digitalHTML:'Spartito digitale stampabile',
 
+    modeInteractive:'Spartito interattivo', modeRecordings:'Registrazioni delle voci',
     theme:'Aspetto', themeSystem:'Dispositivo', themeLight:'Chiaro', themeDark:'Scuro',
     navigation:'Navigazione', library:'Brani', backToLibrary:'Torna ai brani', rehearse:'Prova', verseCount:'{n} strofe', verseOne:'1 strofa', selectedSong:'Brano selezionato',
     lyricVoice:'Testo della voce', language:'Lingua', selection:'Brano e voci', song:'Brano', verse:'Strofa', allVerses:'Tutte le strofe',
