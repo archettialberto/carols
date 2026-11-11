@@ -48,11 +48,11 @@ systems = crop_systems('joy-to-the-world', 'songs/Joy to the World.pdf',
                        [(7, .15, .32), (5, .345, .5), (3, .52, .69), (5, .70, .87)], x=(.08, .9))
 
 song = dict(id='joy-to-the-world', title='Joy to the World', emoji='🌍', composer='Tune Antioch, George Frederick the composer; words the author, alt.',
-  arranger='the arranger (adapt. & arr.)', meter=[2, 2], key_fifths=2, tempo=185, source_pdf='songs/Joy to the World.pdf',
+  arranger='the arranger (adapt. & arr.)', meter=[2, 2], key_fifths=2, tempo=180, source_pdf='songs/Joy to the World.pdf',
   review_notes=['Pitches read from the vector notehead positions of the clean copy of the same edition; rhythms, rests and lyric positions from that page and compared with the scan.',
     'Tenor and bass rest at the end of measure 12 and enter staggered (“and heav’n and nature sing”), with their own printed words in measures 13–17. The tenor holds A3 through measure 15 and rejoins the upper words on the eighths of measure 16; the bass rejoins at measure 17 beat 4.',
     'Where a lower part has fewer notes than the shared words (tenor measure 3, measure 18) the syllables are joined or moved to the part’s own onset. Stanza 3 measure 17 beat 4 (“ders,”) is the printed upper text; the print gives the bass no separate word there.',
-    'Handwritten notes on the scan (key/transposition remarks, dynamics, part allocation) are not transcribed. Played in 2/2 with quarter-note beats; default tempo quarter = 185 (half ≈ 92).'],
+    'Handwritten notes on the scan (key/transposition remarks, dynamics, part allocation) are not transcribed. Played in 2/2 with quarter-note beats; default tempo quarter = 180 (half = 90; was 185, slowed slightly — hymn guides give 76–96 per beat for Antioch).'],
   review_notes_it=['Altezze dalla copia vettoriale pulita della stessa edizione; ritmi, pause e posizione delle sillabe da quella pagina, confrontati con la scansione.',
     'Tenori e bassi tacciono a fine b. 12 ed entrano sfalsati con parole proprie (bb. 13–17).',
     'Le annotazioni a mano sulla scansione (tonalità, dinamiche, divisione delle parti) non sono trascritte.'],

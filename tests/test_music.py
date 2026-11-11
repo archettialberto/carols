@@ -156,4 +156,30 @@ class ScoresTest(unittest.TestCase):
         self.assertEqual([(e['pitch'],e.get('syllable')) for e in events[:3]],[('F#4','The'),('E4',None),('D4','first')])
 
 
+class LibraryTest(unittest.TestCase):
+    def test_song_emojis_are_unique(self):
+        emojis=[song['emoji'] for song in load_songs()]
+        self.assertEqual(len(emojis),len(set(emojis)))
+
+    def test_recordings_are_listed_and_present(self):
+        import json
+        from music import recordings_payload, recording_files
+        index=json.loads((ROOT/'recordings'/'index.json').read_text())
+        ids={song['id'] for song in load_songs()}
+        for song_id,entries in index['songs'].items():
+            self.assertIn(song_id,ids)
+            for entry in entries:
+                self.assertIn(entry['voice'],('soprano','alto','tenor','bass','tenor-bass','all'))
+                self.assertGreater(entry['seconds'],0)
+        for relative in recording_files():
+            self.assertTrue(relative.endswith('.m4a') and (ROOT/relative).is_file(),relative)
+        for voice,items in recordings_payload().items():
+            for item in items:
+                own=item['tracks'][0]
+                if own['voice']==voice:
+                    # The voice's own track starts with title, first note and count-in.
+                    self.assertTrue(own['intro'],f'{item["id"]}: run tools/recordings.py build')
+                    self.assertTrue(own['file'].endswith(f'play-{voice}.m4a'))
+
+
 if __name__=='__main__': unittest.main()

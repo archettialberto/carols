@@ -18,6 +18,7 @@ const stanzaLabel = number => t('stanza', {n:number, total:song.verses.length});
 function clearAudio() {
   for (const handle of sounding) handle.stop();
   sounding = []; previewNotes.clear(); renderKeys();
+  stopChoir();
 }
 
 function voiceWeight(voice) {
@@ -70,11 +71,82 @@ function backingTone(note, start, duration) {
   return handle;
 }
 
+/* Choir: the recorded parts (MuseScore + Cantai renders of the score, all verses, from measure 1
+   beat 1) replace the piano for recorded voices. They play only at the tempo they were made at and
+   in the printed key; another tempo or a transposition falls back to the piano. They go through the
+   same voice buses, so "in evidenza" and solo modes work unchanged. */
+let soundMode = 'choir', choirBuffers = {}, choirSong = null, choirLoading = null, choirSources = [], choirVoices = new Set();
+const choirLevel = .6;
+function choirAllowed() {
+  return soundMode === 'choir' && !!song?.choir && transpose === 0 && Number($('tempo').value) === song.choir.tempo
+    && performanceData?.choirOffset != null;
+}
+function loadChoir() {
+  if (!song?.choir) return Promise.resolve();
+  if (choirSong === song.id) return choirLoading;
+  const id = song.id, Offline = window.OfflineAudioContext || window.webkitOfflineAudioContext;
+  choirSong = id; choirBuffers = {};
+  const decoder = new Offline(1, 1, 48000);
+  choirLoading = Promise.all(Object.entries(song.choir.files).map(async ([voice, file]) => {
+    const response = await fetch(file);
+    if (!response.ok) throw Error(file);
+    const buffer = await decoder.decodeAudioData(await response.arrayBuffer());
+    if (choirSong === id) choirBuffers[voice] = buffer;
+  })).catch(error => console.error('choir', error));  // missing parts simply stay on piano
+  return choirLoading;
+}
+// Beats into the full (all-verses) performance where the current performance starts.
+function choirOffset(data) {
+  if (!song?.choir) return null;
+  const full = song.performance.bars, first = data.bars[0];
+  if (data === song.performance) return 0;
+  const at = full.findIndex(bar => bar.verse === first.verse && !bar.final_return);
+  if (at < 0) return null;
+  const same = data.bars.every((bar, i) => full[at + i]?.measure === bar.measure && full[at + i]?.duration === bar.duration);
+  return same ? full[at].start - first.start : null;
+}
+function startChoir() {
+  choirVoices = new Set(choirAllowed() ? voices.filter(voice => choirBuffers[voice]) : []);
+  if (!choirVoices.size) return;
+  const beat = 60 / song.choir.tempo, offset = (performanceData.choirOffset + position) * beat;
+  const remaining = (performanceData.duration - position) * beat;
+  // A single verse stops (with a short fade) where the next verse would begin; the end of the song keeps its tail.
+  const last = performanceData.choirOffset + performanceData.duration >= song.performance.duration - 1e-6;
+  for (const voice of choirVoices) {
+    const buffer = choirBuffers[voice];
+    if (offset >= buffer.duration) continue;
+    const source = audio.createBufferSource(), gain = audio.createGain();
+    source.buffer = buffer; gain.gain.value = choirLevel;
+    source.connect(gain); gain.connect(voiceBuses[voice]);
+    if (last) source.start(anchorTime, offset);
+    else {
+      source.start(anchorTime, offset, remaining + .15);
+      gain.gain.setValueAtTime(choirLevel, anchorTime + remaining);
+      gain.gain.linearRampToValueAtTime(0, anchorTime + remaining + .15);
+    }
+    choirSources.push({source, gain});
+  }
+}
+function stopChoir(fade = 0) {
+  for (const {source, gain} of choirSources) {
+    try {
+      if (fade && audio) { gain.gain.cancelScheduledValues(audio.currentTime); gain.gain.setTargetAtTime(0, audio.currentTime, fade / 4); source.stop(audio.currentTime + fade); }
+      else source.stop();
+    } catch (_) {}
+  }
+  choirSources = []; choirVoices = new Set();
+}
+function renderSound() {
+  $('sound-control').hidden = !song?.choir;
+  $('sound').value = soundMode;
+  renderSummary();
+}
+
 function schedule() {
   if (!playing) return;
   const now = audio.currentTime;
   const end = Math.min(performanceData.duration, anchorBeat + (now + .16 - anchorTime) / secondsPerBeat());
-  for (const voice of voices) for (const note of performanceData.events[voice]) {
+  for (const voice of voices) if (!choirVoices.has(voice)) for (const note of performanceData.events[voice]) {
     if (note.start < scheduledUntil || note.start >= end) continue;
     const at = anchorTime + (note.start - anchorBeat) * secondsPerBeat();
     const noteEnd = at + note.duration * secondsPerBeat();
@@ -116,7 +188,20 @@ function unlockAudio() {
 }
 // The first tap anywhere unlocks audio, so the piano keys (pointerdown) also sound on iOS.
 for (const type of ['touchend', 'click']) document.addEventListener(type, unlockAudio, {passive:true});
-document.addEventListener('visibilitychange', () => { if (document.hidden) silentMedia?.pause(); });
+/* Locking the phone: the synthesized score cannot keep exact time in the background (timers are
+   throttled and iOS interrupts Web Audio), which garbled the notes. Pause cleanly instead; the
+   recording playlists play through a media element and keep going with the screen locked. */
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) { if (playing || starting) pause(); stopPreviews(); silentMedia?.pause(); }
+  else keepAwake();
+});
+/* Keep the screen on while the app is open (Screen Wake Lock: iOS 16.4+, Android Chrome). */
+let wakeLock = null;
+async function keepAwake() {
+  if (document.hidden || !navigator.wakeLock || (wakeLock && !wakeLock.released)) return;
+  try { wakeLock = await navigator.wakeLock.request('screen'); } catch (_) {}
+}
+for (const type of ['touchend', 'click']) document.addEventListener(type, keepAwake, {passive:true});
 async function startAudio() {
   unlockAudio();
   await audio.resume();
@@ -130,18 +215,20 @@ async function startAudio() {
 async function play() {
   if (playing || starting) { pause(); return; }
   if (!selected.size && !backingOnly) { showError(t('selectVoice')); return; }
-  clearAudio();
+  clearAudio(); Playlist.pause();
   const request = ++playRequest;
   starting = true;
   try {
     await startAudio();
+    if (choirAllowed()) await loadChoir();
     if (request !== playRequest) return;
     updateAudioMix();
     if (position >= performanceData.duration) position = 0;
     anchorBeat = position; anchorTime = audio.currentTime + .04; scheduledUntil = position;
     playing = true; starting = false; followScore = true;
     closeSheets();
-    for (const voice of voices) for (const note of performanceData.events[voice]) {
+    startChoir();
+    for (const voice of voices) if (!choirVoices.has(voice)) for (const note of performanceData.events[voice]) {
       if (note.start < position && note.start + note.duration > position)
         tone(note, anchorTime, (note.start + note.duration - position) * secondsPerBeat(), voice);
     }
@@ -161,9 +248,11 @@ async function play() {
   }
 }
 
-function pause() {
+function pause(atEnd = false) {
   if (playing) position = Math.max(0, Math.min(currentBeat(), performanceData.duration));
   playing = false; starting = false; ++playRequest;
+  // At the end of the song the recorded choir rings out instead of stopping dead.
+  if (atEnd) { stopChoir(2.5); }
   clearInterval(timer); clearAudio(); renderPlayButton();
 }
 function renderPlayButton() {
@@ -188,6 +277,7 @@ function renderVerseOptions() {
 }
 function preparePerformance(data) {
   performanceData = data;
+  data.choirOffset = choirOffset(data);
   updateAudioMix();
   position = 0; segments = [];
   data.bars.forEach((bar, index) => {
@@ -215,7 +305,8 @@ function chooseSong() {
   $('tempo').value = song.tempo; previousTempo = song.tempo;
   zoom = 1; renderScore(); renderDownloads(); preparePerformance(song.performance);
   $('play').disabled = false; $('stop').disabled = false;
-  renderLibrary(); renderSummary(); showOrganVolume();
+  renderLibrary(); renderSummary(); showOrganVolume(); renderSound();
+  if (soundMode === 'choir') loadChoir();  // decode in the background, ready for Play
 }
 async function chooseVerse() {
   const request = ++loadRequest, id = song.id, verse = $('verse').value;
@@ -301,6 +392,7 @@ async function pressKey(voice) {
   const note = performanceData?.events[voice]?.[0];
   if (!note) return;
   if (playing || starting) pause();  // pause without seeking
+  Playlist.pause();
   pressedAt.set(voice, null);
   try {
     await startAudio();
@@ -324,7 +416,9 @@ function renderSummary() {
   $('summary-song').textContent = song.title;
   const verse = song.verses.length < 2 ? '' : ($('verse').value === 'all' ? t('allVerses') : `${t('verse')} ${$('verse').value}`) + ' · ';
   const shift = transpose ? ` · ${transpose > 0 ? '+' : '−'}${Math.abs(transpose)}` : '';
-  $('summary-detail').textContent = `${verse}${$('voice').selectedOptions[0]?.textContent || ''}${shift}`;
+  // Songs with a recorded choir: say when the piano plays instead (other tempo or key, or chosen).
+  const sound = song.choir && !choirAllowed() ? ` · ${t('soundPiano')}` : '';
+  $('summary-detail').textContent = `${verse}${$('voice').selectedOptions[0]?.textContent || ''}${shift}${sound}`;
   $('selection-summary').setAttribute('aria-label', `${song.title}, ${$('summary-detail').textContent}. ${t('changeSelection')}`);
 }
 function sectionAt(measure, beat) {
@@ -408,7 +502,7 @@ function panToMarker(fraction) {
 function updatePosition(forcePan = false) {
   if (!performanceData) return;
   let beat = Math.max(0, currentBeat());
-  if (playing && beat >= performanceData.duration) { pause(); position = performanceData.duration; beat = position; }
+  if (playing && beat >= performanceData.duration) { pause(true); position = performanceData.duration; beat = position; }
   $('seek').value = beat;
   const barIndex = Math.max(0,performanceData.bars.findLastIndex(bar => bar.start <= beat));
   const bar = performanceData.bars[barIndex], segment = segments[bar.segment];
@@ -453,6 +547,11 @@ $('voice').onchange = () => {
   selected.clear(); (voice === 'all' || emphasizedVoice ? voices : [voice]).forEach(v => selected.add(v));
   changeVoices();
 };
+$('sound').onchange = () => {
+  soundMode = $('sound').value; renderSummary();
+  if (soundMode === 'choir') loadChoir();
+  if (playing) seek(currentBeat(), true);
+};
 $('play').onclick = play;
 $('stop').onclick = () => seek(0, false);
 $('song').onchange = chooseSong;
@@ -476,7 +575,7 @@ $('tempo').onchange = () => {
   const resume = playing;
   $('tempo').value = previousTempo;
   pause(); $('tempo').value = next; previousTempo = next;
-  updatePosition(); if (resume) play();
+  updatePosition(); renderSummary(); if (resume) play();
 };
 function renderLibrary() {
   $('song-list').replaceChildren(...songs.map((item,index) => {
@@ -498,16 +597,36 @@ function renderLibrary() {
 }
 $('booklet-make').onclick = () => Booklet.make();
 $('booklet-all').onchange = event => Booklet.selectAll(event.target.checked);
-function showTab(name) {
-  const library = name === 'library';
-  if (library) { pause(); stopPreviews(); closeSheets(); }
-  $('library-panel').hidden = !library; $('practice-panel').hidden = library;
-  $('library-back').hidden = library;
-  document.querySelector('.player-dock').hidden = library;
-  document.body.classList.toggle('library-open',library);
-  if (!library) { resizeScore(); updatePosition(true); }
+/* Views: home (three choices), the song list and practice, the voice albums and one playlist, the
+   PDF booklet. Each view is a history entry, so the phone's back gesture moves back through them. */
+const views = {home:'home-panel', library:'library-panel', practice:'practice-panel', albums:'albums-panel', playlist:'playlist-panel', booklet:'booklet-panel'};
+let view = 'home';
+function showTab(name, push = true) {
+  if (name !== 'practice') { pause(); stopPreviews(); closeSheets(); }
+  if (push && name !== view) history.pushState({view:name}, '');
+  view = name;
+  for (const [key, id] of Object.entries(views)) $(id).hidden = key !== name;
+  $('home-button').hidden = name === 'home';
+  document.querySelector('.player-dock').hidden = name !== 'practice';
+  document.body.classList.toggle('library-open', name !== 'practice');
+  for (const key of Object.keys(views)) document.body.classList.toggle(`view-${key}`, key === name);
+  renderMiniPlayer();
+  if (name === 'practice') { resizeScore(); updatePosition(true); }
+  scrollTo(0, 0);
 }
-$('library-back').onclick = () => { showTab('library'); $('library-panel').focus(); };
+// The recordings mini player stays available outside the score (the score has its own dock).
+function renderMiniPlayer() {
+  const show = view !== 'practice' && view !== 'library' && Playlist.hasQueue;
+  $('mini-player').hidden = !show; document.body.classList.toggle('mini-open', show);
+}
+document.addEventListener('playlistchange', renderMiniPlayer);
+Playlist.onStart = () => { if (playing || starting) pause(); stopPreviews(); };
+addEventListener('popstate', event => showTab(event.state?.view || 'home', false));
+$('home-button').onclick = () => { showTab('home'); $('home-panel').focus(); };
+$('open-library').onclick = () => { showTab('library'); $('library-panel').focus(); };
+$('open-albums').onclick = () => { showTab('albums'); $('albums-panel').focus(); };
+$('open-booklet').onclick = () => { showTab('booklet'); $('booklet-panel').focus({preventScroll:true}); };
+$('albums-back').onclick = () => { showTab('albums'); $('albums-panel').focus(); };
 function renderTransposeOptions() {
   const options = [];
   for (let n = 6; n >= -6; n--) {
@@ -557,13 +676,16 @@ $('theme').onclick = () => {
 if ('serviceWorker' in navigator && isSecureContext) navigator.serviceWorker.register('sw.js').catch(() => {});
 function frame() { updatePosition(); requestAnimationFrame(frame); }
 translatePage(); renderThemeButton(); renderPlayButton(); renderKeys();
+history.replaceState({view:'home'}, ''); showTab('home', false);
 fetch('api/songs.json').then(response => { if (!response.ok) throw Error(t('loadError')); return response.json(); }).then(data => {
   songs = data.sort((a,b) => new Intl.Collator('it', {sensitivity:'base', numeric:true}).compare(a.title,b.title)); if (!songs.length) throw Error(t('noScores'));
   $('song').replaceChildren(...songs.map((s, i) => new Option(s.title, i)));
   $('song').disabled = false;
   // The catalogue is the home page and must not depend on successfully engraving
   // the preloaded practice score.
-  renderLibrary(); showTab('library');
+  renderLibrary();
   try { chooseSong(); } catch (error) { showError(error.message); }
   frame();
 }).catch(error => showError(error.message));
+Playlist.load().catch(error => console.error(error));
+keepAwake();

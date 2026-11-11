@@ -267,6 +267,63 @@ def public(song):
 
 
 def songs_payload():
-    """Song list for the player, each with its all-verses performance (served as api/songs.json)."""
-    return [{**public(song),'verses':[{**v,'incipit':verse_incipit(song,v['number'])} for v in song['verses']],
-             'performance':performance(song,'all')} for song in load_songs()]
+    """Song list for the player, each with its all-verses performance (served as api/songs.json)
+    and, when parts are recorded, the choir recordings the interactive score plays instead of piano."""
+    index = json.loads(RECORDINGS.read_text()) if RECORDINGS.exists() else {'songs': {}}
+    payload = []
+    for song in load_songs():
+        item = {**public(song),'verses':[{**v,'incipit':verse_incipit(song,v['number'])} for v in song['verses']],
+                'performance':performance(song,'all')}
+        choir = choir_recordings(song, index['songs'].get(song['id'], []))
+        if choir: item['choir'] = choir
+        payload.append(item)
+    return payload
+
+
+# Rehearsal recordings (recordings/index.json, written by tools/recordings.py).
+RECORDINGS = ROOT/'recordings'/'index.json'
+PLAYLIST_VOICES = ('soprano', 'alto', 'tenor', 'bass')
+
+
+def choir_recordings(song, entries):
+    """The plain part recordings (all verses, from measure 1 beat 1) and the tempo they were made
+    at; the score plays them only at that tempo and in the printed key."""
+    files = {e['voice']: e['file'] for e in entries if e['voice'] in PLAYLIST_VOICES and 'transpose' not in e}
+    if not files:
+        return None
+    tempo = next((e['tempo'] for e in entries if e['voice'] in files and 'tempo' in e), song['tempo'])
+    return {'tempo': tempo, 'files': files}
+
+
+def playlist_entries(entries, voice):
+    """The recordings a voice's playlist plays for one song: its own part first, then the men
+    together (tenor/bass), then the whole choir."""
+    shared = ['tenor-bass'] if voice in ('tenor', 'bass') else []
+    return [e for wanted in [voice, *shared, 'all'] for e in entries if e['voice'] == wanted]
+
+
+def recordings_payload():
+    """Four voice playlists (served as api/recordings.json): songs in title order, each with the
+    recordings to play. The voice's own track is the built one (spoken title, starting note and
+    count-in joined to the recording by tools/recordings.py build); shared ones follow."""
+    index = json.loads(RECORDINGS.read_text()) if RECORDINGS.exists() else {'songs': {}}
+    songs = sorted(load_songs(), key=lambda s: s['title'].casefold())
+    playlists = {}
+    for voice in PLAYLIST_VOICES:
+        items = []
+        for song in songs:
+            tracks = playlist_entries(index['songs'].get(song['id'], []), voice)
+            if not tracks:
+                continue
+            items.append({'id': song['id'], 'title': song['title'], 'emoji': song.get('emoji', '🎵'),
+                          'tracks': [{'file': t.get('play', t['file']), 'voice': t['voice'], 'intro': 'play' in t,
+                                      'seconds': t.get('play_seconds', t.get('seconds', 0))} for t in tracks]})
+        playlists[voice] = items
+    return playlists
+
+
+def recording_files():
+    """Every audio file the app may serve: the playlist tracks and the parts the score plays."""
+    index = json.loads(RECORDINGS.read_text()) if RECORDINGS.exists() else {'songs': {}}
+    choir = {f for song in load_songs() for f in (choir_recordings(song, index['songs'].get(song['id'], [])) or {}).get('files', {}).values()}
+    return choir | {t['file'] for items in recordings_payload().values() for item in items for t in item['tracks']}

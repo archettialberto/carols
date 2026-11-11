@@ -54,8 +54,8 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - Keep the interface restrained, using evergreen, berry and warm gold accents.
   The Brani list and practice song selector share alphabetical title order. The list has an
   single list of all songs (with or without organ); cards show only icon and title.
-  Practice has only a "‹ Brani" back button (no tabs). Going back pauses audio; selecting the
-  current song preserves its position.
+  The top bar has one "Home" button (no tabs); every view is a history entry so the phone's back
+  gesture works. Leaving the score pauses its audio; selecting the current song preserves its position.
 - On phones the song/verse/voice summary carries a visible "Opzioni ▾" pill so it is clear
   that tapping it opens the song options; the selection sheet opens from the top.
 - Offer light, dark and device-adaptive appearance from one cycling icon button, remember the preference,
@@ -87,7 +87,7 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   opening chorus); the interface omits redundant captions such as a lyric heading or tap hints.
 - Lyrics run as one sliding line under the score: the sung syllable sits near the left quarter so
   the next bars' words are always visible to read ahead; the left edge fades only once text scrolled.
-- At the bottom of the Brani list, “Genera PDF” joins the chosen editions (checkboxes, “Seleziona tutti”, drag ⠿ to reorder; summary with a ▾ arrow)
+- The Home card “Genera PDF” opens its own view that joins the chosen editions (checkboxes, “Seleziona tutti”, drag ⠿ to reorder)
   into one PDF in the browser (vendored pdf-lib, loaded on demand); “Rendi pagine pari” pads each
   song to an even page count so double-sided copies start every song on a right-hand page.
 - The playback dock puts Play/restart on the left and the starting-note keys on the right.
@@ -130,10 +130,16 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 
 ## Sounds, phone layout and installable app
 
-- `web/sounds.js` synthesizes sounds with Web Audio only (no samples, no network). Choir parts
-  always play as piano; an optional `backing_track` (organ lanes with the same measure count,
+- `web/sounds.js` synthesizes sounds with Web Audio only (no samples, no network). Without
+  recordings the choir parts play as piano; an optional `backing_track` (organ lanes with the same measure count,
   for arrangements printed with accompaniment) always plays as organ on its own gain bus.
-  There is no instrument selector; songs with a backing track (“base”) get a “Volume base” slider (0–150%, remembered on the device) and the listening modes “Solo base (organo)” and “Solo base (pianoforte)”.
+  Songs with a backing track (“base”) get a “Volume base” slider (0–150%, remembered on the device) and the listening modes “Solo base (organo)” and “Solo base (pianoforte)”.
+- Songs with recorded parts (`choir` in `api/songs.json`) show “Suono: Coro / Pianoforte”, Coro by
+  default: the interactive score plays the part recordings (decoded once per song, started on the same
+  beat clock, through the per-voice buses, so emphasis/solo work; a single verse plays its slice and
+  fades out; the end keeps the reverb tail). Only at the recording's tempo (stored per recording) and
+  in the printed key; any other tempo or a transposition falls back to piano, and the summary says
+  “· Pianoforte”. Unrecorded voices stay on piano. Starting-note keys are always piano.
 - Phones (≤700px) must not need vertical scrolling while practising: one top bar (name, back button,
   appearance icon), a one-line song/verse/voice summary opening a sheet, the score, the current
   lyrics and the playback dock (keys, restart, play, tempo, seek). Song, verse, voice and
@@ -159,9 +165,40 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - iPhone audio: Web Audio is muted by the silent switch unless the page also plays media.
   Keep `unlockAudio()` (playback `navigator.audioSession` plus a looping silent `<audio>`),
   started from a click/touchend; pointerdown alone does not unlock audio on iOS.
-- The app opens on the Brani (song list) tab; the first song is preloaded for Prova.
+- The app opens on Home: three cards, "Spartiti interattivi" (Brani list → practice), "Playlist"
+  (four voice albums → playlist) and "Genera PDF" (booklet). The first song is preloaded for practice.
+  The interactive score has no recordings controls, and the playlists have no score.
 - Engraving beams eighths and shorter notes within a beat group (half note in 2/2, dotted quarter in
   6/8-type meters, otherwise a quarter), as printed scores do.
 - When a supplied score prints only some stanzas, find the missing ones online, record the source
   and any wording variants in `review_notes`, and fit them to the printed notes.
 
+
+## Rehearsal recordings and playlists
+
+- Recordings are synthesized from our own scores only (old voice notes and YouTube tracks were
+  removed 2026-11-11): `python tools/cantai_scores.py` writes `scratch/<song-id>.musicxml` (SATB,
+  every verse unfolded, all syllables on lyric line 1 because Cantai sings only line 1, extenders on
+  held syllables); the user renders each part in MuseScore Studio + Cantai and exports WAVs that
+  start at measure 1 beat 1. `scratch/` holds only these import files.
+- `python tools/recordings.py convert <wav> <song-id> <voice> --source "…"` writes
+  `recordings/<song-id>/<voice>.m4a` (AAC mono 48 kHz 64 kbit/s, −16 LUFS) and lists it in
+  `recordings/index.json`; originals stay local in the gitignored `songs/recordings/cantai/<song-id>/`.
+  Voices soprano, alto, tenor, bass (tenor-bass and all are still supported). A recording in another
+  key gets `"transpose": <semitones>`.
+- `.venv/bin/python tools/recordings.py build` joins separate parts into one track per voice,
+  `recordings/<song-id>/play-<voice>.m4a`: the spoken title (`title.m4a`, Piper TTS, offline voices in
+  gitignored `.tts/`), the voice's first note on the app's piano and a metronome count-in (one bar,
+  two when a bar has under three beats; beat group as in the engraving), both computed from the song
+  data, then the recording one beat after the last click. Decoded and encoded once, sample-accurate.
+  Rerun after adding recordings or changing a song's tempo, metre or first notes; only `play-*.m4a`
+  are served.
+- Albums Soprani/Contralti/Tenori/Bassi with the seasons 🌸 ☀️ 🍂 ❄️ (never a song's emoji; song
+  emojis are unique). A voice's playlist plays per song its own track, then tenor-bass (T/B) and all
+  when they exist. Songs can be ticked and reordered (remembered per device); covers are the title in
+  IM Fell with the song emoji. One `<audio>` element plays the queue, so it continues with the screen
+  locked, with Media Session metadata/artwork and play/pause/previous/next on the lock screen.
+- The synthesized score pauses cleanly when the page is hidden (background timers garble it), and
+  the Screen Wake Lock keeps the phone awake while the app is visible. The server answers byte
+  ranges for recordings (iOS Safari needs them); the service worker never caches them.
+- Check with `tests/playlist_smoke.py` (and `tests/browser_smoke.py`) against a running server.

@@ -38,10 +38,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>84</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="84" />
       </direction>
       <note>
         <rest />
@@ -590,7 +590,7 @@
       </note>
       <note>
         <pitch>
-          <step>A</step>
+          <step>B</step>
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
@@ -598,8 +598,9 @@
       </note>
       <note>
         <pitch>
-          <step>B</step>
-          <octave>4</octave>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
@@ -612,8 +613,7 @@
     <measure number="16">
       <note>
         <pitch>
-          <step>C</step>
-          <alter>1</alter>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>4</duration>
@@ -1448,7 +1448,7 @@
       </note>
       <note>
         <pitch>
-          <step>A</step>
+          <step>B</step>
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
@@ -1460,8 +1460,9 @@
       </note>
       <note>
         <pitch>
-          <step>B</step>
-          <octave>4</octave>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
@@ -1474,8 +1475,7 @@
     <measure number="41">
       <note>
         <pitch>
-          <step>C</step>
-          <alter>1</alter>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>4</duration>
@@ -2314,7 +2314,7 @@
       </note>
       <note>
         <pitch>
-          <step>A</step>
+          <step>B</step>
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
@@ -2322,8 +2322,9 @@
       </note>
       <note>
         <pitch>
-          <step>B</step>
-          <octave>4</octave>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
@@ -2336,8 +2337,7 @@
     <measure number="66">
       <note>
         <pitch>
-          <step>C</step>
-          <alter>1</alter>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>4</duration>
@@ -3172,7 +3172,7 @@
       </note>
       <note>
         <pitch>
-          <step>A</step>
+          <step>B</step>
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
@@ -3180,8 +3180,9 @@
       </note>
       <note>
         <pitch>
-          <step>B</step>
-          <octave>4</octave>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
@@ -3194,8 +3195,7 @@
     <measure number="91">
       <note>
         <pitch>
-          <step>C</step>
-          <alter>1</alter>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>4</duration>
@@ -4026,7 +4026,7 @@
       </note>
       <note>
         <pitch>
-          <step>A</step>
+          <step>B</step>
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
@@ -4034,8 +4034,9 @@
       </note>
       <note>
         <pitch>
-          <step>B</step>
-          <octave>4</octave>
+          <step>C</step>
+          <alter>1</alter>
+          <octave>5</octave>
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
@@ -4048,8 +4049,7 @@
     <measure number="116">
       <note>
         <pitch>
-          <step>C</step>
-          <alter>1</alter>
+          <step>D</step>
           <octave>5</octave>
         </pitch>
         <duration>4</duration>
@@ -4384,10 +4384,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>84</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="84" />
       </direction>
       <note>
         <rest />
@@ -8411,10 +8411,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>84</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="84" />
       </direction>
       <note>
         <rest />
@@ -12655,10 +12655,10 @@
         <direction-type>
           <metronome>
             <beat-unit>quarter</beat-unit>
-            <per-minute>96</per-minute>
+            <per-minute>84</per-minute>
           </metronome>
         </direction-type>
-        <sound tempo="96" />
+        <sound tempo="84" />
       </direction>
       <note>
         <rest />

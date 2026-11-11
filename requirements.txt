@@ -5,3 +5,5 @@ pymupdf==2.1         # reading scans and vector PDFs (sources/scripts)
 numpy==2.5.4
 scipy==1.18.1
 pillow==13.0.0
+yt-dlp==2026.10.26   # downloading supplied part videos (tools/recordings.py convert)
+piper-tts==1.8.0     # spoken titles for playlist intros (tools/recordings.py build; voices in .tts/)

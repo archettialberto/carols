@@ -1,0 +1,42 @@
+{
+  "songs": {
+    "joy-to-the-world": [
+      {
+        "voice": "soprano",
+        "file": "recordings/joy-to-the-world/soprano.m4a",
+        "seconds": 83.0,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/joy-to-the-world/play-soprano.m4a",
+        "play_seconds": 90.2,
+        "tempo": 180
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/joy-to-the-world/alto.m4a",
+        "seconds": 83.0,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/joy-to-the-world/play-alto.m4a",
+        "play_seconds": 90.2,
+        "tempo": 180
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/joy-to-the-world/tenor.m4a",
+        "seconds": 83.0,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/joy-to-the-world/play-tenor.m4a",
+        "play_seconds": 90.2,
+        "tempo": 180
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/joy-to-the-world/bass.m4a",
+        "seconds": 83.0,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/joy-to-the-world/play-bass.m4a",
+        "play_seconds": 90.2,
+        "tempo": 180
+      }
+    ]
+  }
+}

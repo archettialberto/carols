@@ -56,7 +56,7 @@ systems = crop_systems('ding-dong', 'songs/Ding Dong.pdf', [(4, .09, .37), (4, .
 systems += crop_systems('ding-dong', 'songs/Ding Dong.pdf', [(5, .07, .35), (3, .36, .65), (4, .66, .95)], page=1,
                         x=(.08, .98), first=13, start_index=3)
 
-song = dict(id='ding-dong', title='Ding Dong! Merrily on High', emoji='🔔',
+song = dict(id='ding-dong', title='Ding Dong! Merrily on High', emoji='🎶',
   composer='Tune: Branle de l’Official (1589); words the author', arranger='the arranger',
   meter=[2, 2], key_fifths=-2, tempo=140, source_pdf='songs/Ding Dong.pdf',
   review_notes=['Pitches read from the exact notehead positions of the supplied vector PDF; rhythms read from the page and syllables matched to the nearest printed note in each part.',

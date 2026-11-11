@@ -18,9 +18,16 @@ also offline after the first visit.
 
 ## Using the app
 
-- **Brani**: the song list. Tap a song to rehearse it; **Brani** goes back.
+- **Home** offers three choices; the top **Home** button (or the back gesture) returns there.
+- **Spartiti interattivi**: the song list. Tap a song to rehearse it.
+- **Playlist**: one album per voice (Soprani 🌸, Contralti ☀️, Tenori 🍂, Bassi ❄️). Tick and
+  drag songs, then play: each song starts with its spoken title, first note and a count-in,
+  then the part. It keeps playing with the screen locked (lock-screen controls included).
+- **Genera PDF**: choose and order songs and get one printable PDF.
+- The screen stays awake while the app is open; locking the phone pauses the interactive score.
 - **Opzioni**: song, verse, voice (all, one voice *in evidenza*, or solo) and
-  transposition (±6 semitones).
+  transposition (±6 semitones). Songs with recorded parts add **Suono**: *Coro* (the
+  recordings, the default) or *Pianoforte*; another tempo or a transposition uses the piano.
 - The score follows the audio with the words below; tap a note to start there.
 - **S C T B** keys play each voice's starting note (hold to sustain, several for a chord).
 - ⤓ downloads the printable PDF. Songs with accompaniment also play and print an organ part.

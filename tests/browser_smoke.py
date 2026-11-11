@@ -21,12 +21,17 @@ with sync_playwright() as p:
         page.on('pageerror',lambda error:errors.append(str(error)))
         page.goto(base)
         page.wait_for_function('performanceData && !document.getElementById("play").disabled')
-        # The song list is the home page; the practice view is one tap away.
-        assert page.locator('#library-panel').is_visible() and page.locator('#practice-panel').is_hidden()
-        assert page.locator('.player-dock').is_hidden() and page.locator('#library-back').is_hidden()
-        assert page.locator('#language, #sound, #settings, #settings-button, .page-tabs').count()==0
+        # Home offers the interactive scores and the recording playlists.
+        assert page.locator('#home-panel').is_visible() and page.locator('#practice-panel').is_hidden()
+        assert page.locator('.player-dock').is_hidden() and page.locator('#home-button').is_hidden()
+        assert page.locator('.home-card').count()==3
+        page.locator('#open-library').click()
+        assert page.locator('#library-panel').is_visible() and page.locator('#home-button').is_visible()
+        assert page.locator('#language, #settings, #settings-button, .page-tabs').count()==0
         assert '✓' not in page.locator('#song-list').inner_text()
         page.locator('.song-card').first.click()
+        # The Coro/Pianoforte choice appears only for songs with recorded parts.
+        assert page.evaluate("$('sound-control').hidden === !song.choir")
         assert page.locator('#voice option').evaluate_all('(nodes)=>nodes.map(n=>n.value)')==[
             'all','lead:soprano','lead:alto','lead:tenor','lead:bass','soprano','alto','tenor','bass','backing:organ','backing:piano']
         if width<=700:
@@ -42,12 +47,12 @@ with sync_playwright() as p:
         page.wait_for_function('document.documentElement.dataset.theme === "dark"')
         page.locator('#theme').click()
         assert page.locator('html').get_attribute('data-theme')=='light'
-        page.reload();page.wait_for_function('!!performanceData');page.locator('.song-card[aria-current=true]').click()
+        page.reload();page.wait_for_function('!!performanceData');page.locator('#open-library').click();page.locator('.song-card[aria-current=true]').click()
         assert page.locator('#theme').get_attribute('data-mode')=='light'  # explicit choice survives device preference and reload
         page.locator('#theme').click()
         assert page.locator('html').get_attribute('data-theme')=='dark'
         assert page.locator('.system:visible').evaluate('(e)=>getComputedStyle(e).backgroundColor')=='rgb(29, 39, 35)'  # dark score paper
-        page.locator('#library-back').click()
+        page.go_back()  # the back gesture returns to the song list
         assert page.locator('#library-panel').is_visible()
         assert page.locator('.player-dock').is_hidden()
         titles=page.locator('.song-title').all_text_contents()
@@ -58,7 +63,7 @@ with sync_playwright() as p:
         page.get_by_role('button',name='The First Nowell',exact=False).click()
         assert page.locator('#song').input_value()==str(page.evaluate('songs.findIndex(s => s.title === "The First Nowell")'))
         assert page.locator('#practice-panel').is_visible()
-        page.locator('#library-back').click()
+        page.locator('#home-button').click(); page.locator('#open-library').click()
         page.get_by_role('button',name='Jingle Bells',exact=False).click()
         assert page.locator('#song').input_value()==str(page.evaluate('songs.findIndex(s => s.title === "Jingle Bells")'))
         page.locator('#theme').click()
@@ -66,7 +71,7 @@ with sync_playwright() as p:
         page.wait_for_function('document.documentElement.dataset.theme === "light"')
         assert page.locator('.system:visible').count()==1
         assert page.locator('.system:visible svg').count()==1
-        assert page.locator('details:not(#booklet)').count()==0
+        assert page.locator('details').count()==0
         # One light PDF download, no original scan, no lyric-voice or custom-mix controls.
         assert page.locator('#download').count()==1 and page.locator('#download').get_attribute('href').endswith('-digital.pdf')
         assert page.locator('#text-voice, #mix, #downloads, #lyrics-title, #score-hint, [href^="songs/"]').count()==0
@@ -102,7 +107,7 @@ with sync_playwright() as p:
         assert page.locator('html').get_attribute('lang')=='it'
         assert 'Ascolta' in page.locator('#play').inner_text()
         assert 'Dashing' in page.locator('#lyric-rows').inner_text()  # sung text stays in its original language
-        page.reload();page.wait_for_function('!!performanceData');page.locator('.song-card[aria-current=true]').click()
+        page.reload();page.wait_for_function('!!performanceData');page.locator('#open-library').click();page.locator('.song-card[aria-current=true]').click()
         assert page.locator('html').get_attribute('lang')=='it'
         # All verses use the original score systems and update both stanza number and words.
         pick(page,'#song',label='The First Nowell')

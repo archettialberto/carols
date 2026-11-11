@@ -22,27 +22,57 @@
   <script src="notation.js" defer></script>
   <script src="sounds.js" defer></script>
   <script src="booklet.js" defer></script>
+  <script src="playlist.js" defer></script>
   <script src="player.js" defer></script>
 </head>
-<body class="library-open">
+<body class="library-open view-home">
 <main>
   <header class="topbar">
     <h1 class="brand"><span class="brand-icon" aria-hidden="true">🎄</span><span>Christmas Carol Choir</span></h1>
-    <button id="library-back" class="library-back" type="button" data-label="backToLibrary" aria-label="Torna ai brani" hidden><span data-i18n="library">Brani</span></button>
+    <button id="home-button" class="library-back" type="button" data-label="backHome" aria-label="Torna alla home" hidden><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 11.2 12 4.5l8 6.7M6.5 9.5V19h4v-5h3v5h4V9.5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/></svg><span data-i18n="home">Home</span></button>
     <button id="theme" class="icon-button theme-button" type="button" aria-label="Aspetto: dispositivo" title="Aspetto: dispositivo"><span aria-hidden="true">◐</span></button>
   </header>
 
-  <section id="library-panel" tabindex="0">
+  <section id="home-panel" tabindex="0" aria-label="Home">
+    <div class="home-choices">
+      <button id="open-library" class="home-card" type="button"><span class="home-art home-art-score" aria-hidden="true">🎼</span><span class="home-copy"><span class="home-title" data-i18n="interactive">Spartiti interattivi</span><span class="home-detail" data-i18n="interactiveDetail">Spartito, testo e voci al pianoforte</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
+      <button id="open-albums" class="home-card" type="button"><span class="home-art home-art-listen" aria-hidden="true">🎧</span><span class="home-copy"><span class="home-title" data-i18n="recordings">Playlist</span><span class="home-detail" data-i18n="recordingsDetail">Una playlist per ogni voce</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
+      <button id="open-booklet" class="home-card" type="button"><span class="home-art home-art-pdf" aria-hidden="true">🖨️</span><span class="home-copy"><span class="home-title" data-i18n="booklet">Genera PDF</span><span class="home-detail" data-i18n="bookletDetail">Un unico PDF dei brani scelti, da stampare</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
+    </div>
+  </section>
+
+  <section id="albums-panel" tabindex="0" hidden>
+    <div class="library-heading"><h2 data-i18n="recordings">Playlist</h2></div>
+    <ul id="album-list"></ul>
+  </section>
+
+  <section id="playlist-panel" tabindex="0" hidden>
+    <button id="albums-back" class="text-back" type="button"><span aria-hidden="true">‹</span> <span data-i18n="recordings">Playlist</span></button>
+    <div class="playlist-head">
+      <div id="playlist-cover"></div>
+      <div class="playlist-meta">
+        <h2 id="playlist-title"></h2>
+        <p id="playlist-detail"></p>
+        <button id="playlist-play" class="primary" type="button"></button>
+      </div>
+    </div>
+    <label class="booklet-all playlist-all"><input id="playlist-all" type="checkbox"> <span data-i18n="selectAll">Seleziona tutti</span></label>
+    <ol id="playlist-tracks"></ol>
+    <p class="playlist-hint" data-i18n="playlistHint">Spunta i brani, trascina ⠿ per l’ordine. Ogni brano inizia con titolo, prima nota e conteggio.</p>
+  </section>
+
+  <section id="library-panel" tabindex="0" hidden>
     <div class="library-heading"><h2 data-i18n="library">Brani</h2><span class="alphabetical" aria-hidden="true">A–Z</span></div>
     <ul id="song-list"><li data-i18n="loading">Caricamento…</li></ul>
-    <details id="booklet" class="booklet">
-      <summary><span>Genera PDF</span><span class="booklet-arrow" aria-hidden="true">▾</span></summary>
-      <p class="booklet-hint">Scegli i brani e trascina ⠿ per l’ordine: un unico PDF da stampare.</p>
-      <label class="booklet-all"><input id="booklet-all" type="checkbox"> Seleziona tutti</label>
-      <ol id="booklet-list"></ol>
-      <label class="booklet-even"><input id="booklet-even" type="checkbox" checked> Rendi pagine pari <small>(fronte-retro: ogni brano inizia a destra)</small></label>
-      <div class="booklet-actions"><button id="booklet-make" type="button" disabled>Genera PDF</button> <span id="booklet-status" aria-live="polite"></span></div>
-    </details>
+  </section>
+
+  <section id="booklet-panel" class="booklet" tabindex="0" hidden>
+    <div class="library-heading"><h2 data-i18n="booklet">Genera PDF</h2></div>
+    <p class="booklet-hint">Scegli i brani e trascina ⠿ per l’ordine: un unico PDF da stampare.</p>
+    <label class="booklet-all"><input id="booklet-all" type="checkbox"> Seleziona tutti</label>
+    <ol id="booklet-list"></ol>
+    <label class="booklet-even"><input id="booklet-even" type="checkbox" checked> Rendi pagine pari <small>(fronte-retro: ogni brano inizia a destra)</small></label>
+    <div class="booklet-actions"><button id="booklet-make" class="primary" type="button" disabled>Genera PDF</button> <span id="booklet-status" aria-live="polite"></span></div>
   </section>
 
   <div id="practice-panel" tabindex="0" hidden>
@@ -52,6 +82,7 @@
       <label class="song-label"><span data-i18n="song">Brano</span><select id="song" disabled><option data-i18n="loading">Caricamento…</option></select></label>
       <label><span data-i18n="verse">Strofa</span><select id="verse" disabled></select></label>
       <label><span data-i18n="listen">Ascolta</span><select id="voice"><option value="all" data-i18n="allVoices">Tutte le voci</option><option value="lead:soprano" data-i18n="leadSoprano">Soprani in evidenza</option><option value="lead:alto" data-i18n="leadAlto">Contralti in evidenza</option><option value="lead:tenor" data-i18n="leadTenor">Tenori in evidenza</option><option value="lead:bass" data-i18n="leadBass">Bassi in evidenza</option><option value="soprano" data-i18n="soloSoprano">Solo soprani</option><option value="alto" data-i18n="soloAlto">Solo contralti</option><option value="tenor" data-i18n="soloTenor">Solo tenori</option><option value="bass" data-i18n="soloBass">Solo bassi</option><option value="backing:organ" class="backing-mode">Solo base (organo)</option><option value="backing:piano" class="backing-mode">Solo base (pianoforte)</option></select></label>
+      <label id="sound-control" hidden><span data-i18n="sound">Suono</span><select id="sound"><option value="choir" data-i18n="soundChoir">Coro</option><option value="piano" data-i18n="soundPiano">Pianoforte</option></select></label>
       <label><span data-i18n="transpose">Trasposizione</span><select id="transpose"></select></label>
       <label id="organ-control" hidden><span>Volume base <output id="organ-value">100%</output></span><input id="organ-volume" type="range" min="0" max="150" step="10" value="100"></label>
     </section>
@@ -83,6 +114,18 @@
       <span id="time">0:00</span>
     </div>
     <span id="position" class="sr-only" role="status" aria-live="polite" data-i18n="ready">Pronto</span>
+  </div>
+</section>
+<section id="mini-player" class="mini-player" aria-label="Playlist in riproduzione" hidden>
+  <div class="mini-inner">
+    <div id="mini-cover" aria-hidden="true"></div>
+    <div class="mini-copy"><span id="mini-title"></span><span id="mini-status"></span></div>
+    <div class="mini-buttons">
+      <button id="mini-previous" type="button" data-label="previousSong" aria-label="Brano precedente">⏮</button>
+      <button id="mini-play" class="primary" type="button" data-label="play" aria-label="Ascolta">▶</button>
+      <button id="mini-next" type="button" data-label="nextSong" aria-label="Brano successivo">⏭</button>
+    </div>
+    <div class="mini-progress"><input id="mini-seek" type="range" min="0" max="1" step="0.1" value="0" data-label="seek" aria-label="Posizione"><span id="mini-time">0:00</span></div>
   </div>
 </section>
 </body>

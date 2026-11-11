@@ -7,10 +7,11 @@
     4
   ],
   "key_fifths": 2,
-  "tempo": 96,
+  "tempo": 84,
   "source_pdf": "songs/The First Nowell.pdf",
   "review_notes": [
-    "Rechecked SATB pitches against the exact clean digital source. Corrected bass measures 5, 7, 11, 13, 15 and 21, plus alto/tenor errors. The printed bass octave leaps and high refrain are present in this edition and have been retained. the arranger’s unaltered MusicXML was used only as a comparison."
+    "Rechecked SATB pitches against the exact clean digital source. Corrected bass measures 5, 7, 11, 13, 15 and 21, plus alto/tenor errors. The printed bass octave leaps and high refrain are present in this edition and have been retained. the arranger’s unaltered MusicXML was used only as a comparison.",
+    "Soprano measures 15–16 corrected to A4 B4 C#5 | D5 A4 G4 (exact noteheads of the clean digital source; the same phrase as measures 7–8). The earlier reading A4 A4 B4 | C#5 A4 G4 had copied the alto's unison A4."
   ],
   "parts": {
     "soprano": [
@@ -28,8 +29,8 @@
       "D5:1 C#5:1 B4:1",
       "A4:2 B4:0.5 C#5:0.5",
       "D5:1 C#5:1 B4:1",
-      "A4:1 A4:1 B4:1",
-      "C#5:1 A4:1 G4:1",
+      "A4:1 B4:1 C#5:1",
+      "D5:1 A4:1 G4:1",
       "F#4:2 F#4:0.5 E4:0.5",
       "D4:1.5 E4:0.5 F#4:0.5 G4:0.5",
       "A4:2 D5:0.5 C#5:0.5",
@@ -439,7 +440,8 @@
     }
   ],
   "review_notes_it": [
-    "Ricontrollate le altezze SATB sulla copia digitale della stessa edizione. Corretti i bassi alle battute 5, 7, 11, 13, 15 e 21 e diversi errori di contralti e tenori. I salti di ottava e il ritornello acuto dei bassi sono stampati anche nella fonte pulita e sono conservati."
+    "Ricontrollate le altezze SATB sulla copia digitale della stessa edizione. Corretti i bassi alle battute 5, 7, 11, 13, 15 e 21 e diversi errori di contralti e tenori. I salti di ottava e il ritornello acuto dei bassi sono stampati anche nella fonte pulita e sono conservati.",
+    "Soprani alle battute 15–16 corretti in La4 Si4 Do#5 | Re5 La4 Sol4 (come le battute 7–8, teste di nota esatte della copia digitale): la lettura precedente La4 La4 Si4 | Do#5 La4 Sol4 ripeteva il La4 all'unisono dei contralti."
   ],
   "staff_bands": {
     "soprano": [

@@ -34,7 +34,9 @@ harmonization was substituted; the supplied scans remain the source.
   separate tenor staff uses an octave treble clef without changing sounding pitch.
 - All five printed verses and their refrains are available, individually or in
   sequence. Verse 2 rearticulates the tenor D4 in measure 15 for “tin-ued”.
-  Practice tempo: quarter = 96.
+  Practice tempo: quarter = 84 (was 96; online editions and recordings range about 80–96, and
+  a slower, stately pace suits the carol). Soprano measures 15–16 were corrected to
+  A4 B4 C#5 | D5 A4 G4 from the clean digital source (the same phrase as measures 7–8).
 - Pencil alternatives, added notes, numbers, and rehearsal instructions were
   ignored. Printed phrase slurs with different pitches are not sustained ties.
 - Visual review corrected the lower voice crossings in the closing refrain,
@@ -314,7 +316,7 @@ read from the page and checked against the user's scan. Generator scripts in `so
   measure 13 beat 3, quarter = 140. Dashed tenor ties apply only to some stanzas (m. 3: 2–4;
   m. 7: 1–3; m. 11: 4) and are verse-specific `parts`; other dashed curves are slurs.
 - **Joy to the World** (Antioch, arr. the arranger). Clean copy page 2. D major, 2/2 (played in
-  quarter beats, quarter = 185), 20 measures, three stanzas. Tenor and bass rest at the end of
+  quarter beats, quarter = 180, i.e. half = 90; slowed from 185 — hymn-playing guides give 76–96 per beat for Antioch), 20 measures, three stanzas. Tenor and bass rest at the end of
   measure 12 and enter staggered with their own words (measures 13–17), so lyrics are per voice;
   the printed PDF shows the bass words only there (`compact.voice_lyrics`).
 
@@ -554,3 +556,26 @@ within each beat group. The notation suite re-verified every engraved note and s
 - The piano/harp part is a simplified organ: one chord per half bar read from the piano (`CHORDS`
   in the generator), root in the pedal and three close chord tones. Tempo 𝅗𝅥 = 69.
   Generator: `sources/scripts/make_angels_carol.py`. Listening check still advised.
+
+## Rehearsal recordings
+
+- 2026-11-11: all earlier recordings (supplied voice notes, YouTube practice tracks) were removed
+  from the app; recordings are now synthesized from the transcribed scores with MuseScore Studio +
+  Cantai, so they match our arrangements, keys and tempos exactly.
+- Joy to the World S/A/T/B: Cantai renders of `scratch/joy-to-the-world.musicxml` at ♩ = 180
+  (44.1 kHz float WAV, 83 s incl. reverb tail). Each part's first sound is within 11 ms of the score's
+  beat 1 and its last within 0.4 s of the score's end, so no trimming was needed.
+- Playlist tracks (`tools/recordings.py build`): title spoken by Piper (en_GB-alba-medium;
+  it_IT-paola-medium for Italian titles), the voice's first sounding note on the app's piano
+  spectrum, a count-in of four minim clicks at 90/min for Joy's 2/2, then the part. Measured in the
+  built file: clicks 0.667 s apart and the part entering one beat after the last click (±1 ms).
+- The interactive score also plays the plain part recordings (`<voice>.m4a`) as “Coro” at the
+  recording's tempo (stored at convert time) and printed key, piano otherwise. Chromium decodes them
+  with the first sound at 0–9 ms, the same as ffmpeg, so no decoder offset needs compensating.
+- Ding Dong's emoji changed from 🔔 (also Carol of the Bells) to 🎶; song emojis are now unique.
+- Synthesized part recordings: `python tools/cantai_scores.py` writes one SATB MusicXML per English
+  song to the gitignored `scratch/` for MuseScore Studio + Cantai (Synthesizer V renders as well but
+  its trial cannot export; OpenUtau/DiffSinger was tried and judged not good enough). Every verse is
+  unfolded, all syllables sit on lyric line 1 (Cantai ignores lines 2+) and held syllables get
+  extenders. Rendered WAVs go through `tools/recordings.py convert … --source "synthesized: Cantai"`,
+  then `tools/recordings.py build`.

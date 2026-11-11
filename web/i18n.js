@@ -3,6 +3,7 @@ const messages = {
   it: {
     audioBlocked:'L’audio è bloccato dal browser: tocca di nuovo Ascolta, disattiva il silenzioso e alza il volume.',
     verseShort:'Str. {n}', downloadPDF:'Scarica il PDF dello spartito',
+    sound:'Suono', soundChoir:'Coro', soundPiano:'Pianoforte',
     transpose:'Trasposizione', semitones:'{n} semitoni', semitone:'{n} semitono', originalKey:'0 · originale',
     close:'Chiudi', changeSelection:'Cambia brano, strofa o voce',
     keyHint:'Tieni premuto per sostenere; premi più tasti per l’accordo.', firstNoteOf:'Prima nota: {voice} {pitch}',
@@ -28,6 +29,15 @@ const messages = {
     lyrics:'Testo · {stanza}', noLyrics:'Pausa', arranged:'arrangiamento di',
     original:'PDF originale', xml:'MusicXML', midi:'MIDI', openLine:'Vai al rigo {n}',
     selectVoice:'Scegli almeno una voce.', audioError:'Impossibile avviare l’audio: {error}',
+    home:'Home', backHome:'Torna alla home', interactive:'Spartiti interattivi', interactiveDetail:'Spartito, testo e voci al pianoforte',
+    recordings:'Playlist', recordingsDetail:'Una playlist per ogni voce', booklet:'Genera PDF', bookletDetail:'Un unico PDF dei brani scelti, da stampare', selectAll:'Seleziona tutti',
+    playlistHint:'Spunta i brani, trascina ⠿ per l’ordine. Ogni brano inizia con titolo, prima nota e conteggio.',
+    albumSoprano:'Soprani', albumAlto:'Contralti', albumTenor:'Tenori', albumBass:'Bassi',
+    songCount:'{n} brani', songCountOne:'1 brano', chosenCount:'{n} di {total} scelti', minutes:'{n} min',
+    playAll:'Riproduci', playChosen:'Riproduci', noRecordings:'Nessuna registrazione per questa voce.',
+    voiceAll:'Tutto il coro', voiceTenorBass:'Tenori e bassi',
+    stepOf:'{n} di {total}', recordingCount:'{n} registrazioni', recordingOne:'1 registrazione',
+    previousSong:'Brano precedente', nextSong:'Brano successivo', playFrom:'Riproduci da {title}', dragToSort:'Trascina per riordinare',
     loadError:'Impossibile caricare i brani.', noScores:'Nessuno spartito disponibile.',
   },
 };

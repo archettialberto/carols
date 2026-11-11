@@ -228,3 +228,7 @@ web/scores/
 
 # Local OMR toolchain (Audiveris build, Maven, tessdata) for sources/scripts/omr.py
 .omr/
+scratch/
+
+# Offline Piper TTS voices for tools/recordings.py build
+.tts/

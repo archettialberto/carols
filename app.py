@@ -3,7 +3,7 @@ import argparse
 import json
 from http.server import SimpleHTTPRequestHandler, ThreadingHTTPServer
 from urllib.parse import unquote, urlparse, parse_qs
-from music import ROOT, load_songs, performance, songs_payload
+from music import ROOT, load_songs, performance, recording_files, recordings_payload, songs_payload
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -27,10 +27,42 @@ class Handler(SimpleHTTPRequestHandler):
         self.send_header('Cache-Control','no-store')
         self.end_headers();self.wfile.write(content)
 
+    def send_media(self, file):
+        content=file.read_bytes();size=len(content)
+        start,end=0,size-1
+        requested=self.headers.get('Range','')
+        if requested.startswith('bytes='):
+            first,_,last=requested[6:].split(',')[0].partition('-')
+            try:
+                start,end=(size-int(last),size-1) if not first else (int(first),min(size-1,int(last)) if last else size-1)
+            except ValueError:
+                start,end=0,size-1
+            if start<0 or start>end:
+                self.send_response(416);self.send_header('Content-Range',f'bytes */{size}');self.end_headers();return
+            self.send_response(206);self.send_header('Content-Range',f'bytes {start}-{end}/{size}')
+        else:
+            self.send_response(200)
+        self.send_header('Content-Type','audio/mp4');self.send_header('Accept-Ranges','bytes')
+        self.send_header('Content-Length',str(end-start+1));self.end_headers()
+        if self.command!='HEAD': self.wfile.write(content[start:end+1])
+
+    def do_HEAD(self):
+        path=unquote(urlparse(self.path).path)
+        if path.startswith('/recordings/') and path.lstrip('/') in recording_files(): self.send_media(ROOT/path.lstrip('/'))
+        else: super().do_HEAD()
+
     def do_GET(self):
         path=unquote(urlparse(self.path).path)
         if path=='/api/songs.json':
             self.send_json(songs_payload())
+        elif path=='/api/recordings.json':
+            self.send_json(recordings_payload())
+        elif path.startswith('/recordings/'):
+            # Only listed recordings; byte ranges are required by iOS Safari for media playback.
+            relative=path.lstrip('/')
+            if relative not in recording_files():
+                self.send_error(404);return
+            self.send_media(ROOT/relative)
         elif path.startswith('/api/performance/') and path.endswith('.json'):
             # /api/performance/<song>/<verse>.json — the same files tools/build_static.py writes.
             try:
