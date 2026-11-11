@@ -35,30 +35,29 @@
 
   <section id="home-panel" tabindex="0" aria-label="Home">
     <div class="home-choices">
-      <button id="open-library" class="home-card" type="button"><span class="home-art home-art-score" aria-hidden="true">🎼</span><span class="home-copy"><span class="home-title" data-i18n="interactive">Spartiti interattivi</span><span class="home-detail" data-i18n="interactiveDetail">Spartito, testo e voci al pianoforte</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
-      <button id="open-albums" class="home-card" type="button"><span class="home-art home-art-listen" aria-hidden="true">🎧</span><span class="home-copy"><span class="home-title" data-i18n="recordings">Playlist</span><span class="home-detail" data-i18n="recordingsDetail">Una playlist per ogni voce</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
-      <button id="open-booklet" class="home-card" type="button"><span class="home-art home-art-pdf" aria-hidden="true">🖨️</span><span class="home-copy"><span class="home-title" data-i18n="booklet">Genera PDF</span><span class="home-detail" data-i18n="bookletDetail">Un unico PDF dei brani scelti, da stampare</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
+      <button id="open-library" class="home-card" type="button"><span class="home-art home-art-score" aria-hidden="true">🎼</span><span class="home-copy"><span class="home-title" data-i18n="interactive">Spartiti interattivi</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
+      <button id="open-albums" class="home-card" type="button"><span class="home-art home-art-listen" aria-hidden="true">🎧</span><span class="home-copy"><span class="home-title" data-i18n="recordings">Playlist</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
+      <button id="open-booklet" class="home-card" type="button"><span class="home-art home-art-pdf" aria-hidden="true">🖨️</span><span class="home-copy"><span class="home-title" data-i18n="booklet">Genera PDF</span></span><span class="song-arrow" aria-hidden="true">›</span></button>
     </div>
   </section>
 
   <section id="albums-panel" tabindex="0" hidden>
-    <div class="library-heading"><h2 data-i18n="recordings">Playlist</h2></div>
-    <ul id="album-list"></ul>
+    <div class="library-heading"><h2 data-i18n="fullPlaylist">Playlist completa</h2></div>
+    <ul id="album-full" class="album-grid"></ul>
+    <div class="library-heading"><h2 data-i18n="voicePlaylists">Playlist per voce</h2></div>
+    <ul id="album-list" class="album-grid"></ul>
   </section>
 
   <section id="playlist-panel" tabindex="0" hidden>
-    <button id="albums-back" class="text-back" type="button"><span aria-hidden="true">‹</span> <span data-i18n="recordings">Playlist</span></button>
     <div class="playlist-head">
       <div id="playlist-cover"></div>
       <div class="playlist-meta">
         <h2 id="playlist-title"></h2>
         <p id="playlist-detail"></p>
-        <button id="playlist-play" class="primary" type="button"></button>
+        <div class="playlist-actions"><button id="playlist-play" class="primary" type="button"></button></div>
       </div>
     </div>
-    <label class="booklet-all playlist-all"><input id="playlist-all" type="checkbox"> <span data-i18n="selectAll">Seleziona tutti</span></label>
     <ol id="playlist-tracks"></ol>
-    <p class="playlist-hint" data-i18n="playlistHint">Spunta i brani, trascina ⠿ per l’ordine. Ogni brano inizia con titolo, prima nota e conteggio.</p>
   </section>
 
   <section id="library-panel" tabindex="0" hidden>
@@ -68,7 +67,6 @@
 
   <section id="booklet-panel" class="booklet" tabindex="0" hidden>
     <div class="library-heading"><h2 data-i18n="booklet">Genera PDF</h2></div>
-    <p class="booklet-hint">Scegli i brani e trascina ⠿ per l’ordine: un unico PDF da stampare.</p>
     <label class="booklet-all"><input id="booklet-all" type="checkbox"> Seleziona tutti</label>
     <ol id="booklet-list"></ol>
     <label class="booklet-even"><input id="booklet-even" type="checkbox" checked> Rendi pagine pari <small>(fronte-retro: ogni brano inizia a destra)</small></label>
@@ -109,7 +107,7 @@
       <div class="keys" role="group" data-label="firstNote" aria-label="Prima nota"><span class="keys-label" data-i18n="firstNote" aria-hidden="true">Prima nota</span></div>
     </div>
     <div class="progress">
-      <label class="tempo-label"><span class="sr-only" data-i18n="tempo">Tempo</span><input id="tempo" type="number" inputmode="numeric" min="40" max="220" value="96"><small>bpm</small></label>
+      <button id="slow" class="slow-toggle" type="button" aria-pressed="false" data-label="slowTitle" title="Rallenta a 0,75× (stessa intonazione)"><span data-i18n="slow">Lento</span></button>
       <input id="seek" data-label="seek" aria-label="Posizione di riproduzione" type="range" min="0" max="100" value="0" step="0.01">
       <span id="time">0:00</span>
     </div>

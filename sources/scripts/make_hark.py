@@ -10,22 +10,22 @@ S = ['D4:1 G4:1 G4:1.5 F#4:0.5', 'G4:1 B4:1 B4:1 A4:1', 'D5:1 D5:1 D5:1.5 C5:0.5
      'D4:1 G4:1 G4:1.5 F#4:0.5', 'G4:1 B4:1 B4:1 A4:1', 'D5:1 A4:1 A4:1.5 F#4:0.5', 'F#4:1 E4:1 D4:2',
      'D5:1 D5:1 D5:1 G4:1', 'C5:1 B4:1 B4:1 A4:1', 'D5:1 D5:1 D5:1 G4:1', 'C5:1 B4:1 B4:1 A4:1',
      'E5:1 E5:1 E5:1 D5:1', 'C5:1 B4:1 C5:2', 'A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5', 'G4:1 A4:1 B4:2',
-     'E5:1.5 E5:0.5 E5:1 D5:1', 'C5:1 B4:1 C5:2', 'A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5', 'G4:1 A4:1 B4:2']
+     'E5:1.5 E5:0.5 E5:1 D5:1', 'C5:1 B4:1 C5:2', 'A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5', 'G4:1 A4:1 G4:2']
 A = ['D4:1 D4:1 D4:1.5 D4:0.5', 'D4:1 G4:1 G4:1 F#4:1', 'G4:1 F#4:1 E4:1 A4:1', 'G4:1 F#4:1 G4:2',
      'D4:1 D4:1 D4:1.5 C4:0.5', 'B3:1 G4:1 G4:2', 'F#4:1 E4:1 F#4:1.5 D4:0.5', 'D4:1 C#4:1 D4:2',
      'D4:1 D4:1 D4:1 G4:1', 'A4:1 G4:1 G4:1 F#4:1', 'D4:1 D4:1 D4:1 G4:1', 'A4:1 G4:1 G4:1 F#4:1',
      'C5:1 C5:1 C5:1 B4:1', 'A4:1 G#4:1 A4:2', 'F#4:1 F#4:1 G4:1.5 D4:0.5', 'D4:1 F#4:1 G4:2',
-     'C5:1.5 C5:0.5 C5:1 B4:1', 'A4:1 G#4:1 A4:2', 'A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5', 'G4:1 A4:1 B4:2']
+     'C5:1.5 C5:0.5 C5:1 B4:1', 'A4:1 G#4:1 A4:2', 'A4:1 B4:0.5 C5:0.5 D5:1.5 G4:0.5', 'G4:1 A4:1 G4:2']
 T = ['B3:1 B3:1 B3:1.5 A3:0.5', 'G3:1 D4:1 D4:2', 'D4:1 D4:1 E4:1 E4:1', 'D4:1 D4:1 D4:2',
      'B3:1 B3:1 B3:1.5 A3:0.5', 'G3:1 D4:1 E4:2', 'D4:1 E4:1 A3:1.5 A3:0.5', 'B3:1 G3:1 F#3:2',
      'D4:1 D4:1 D4:1 D4:1', 'D4:1 D4:1 D4:2', 'D4:1 D4:1 D4:1 D4:1', 'D4:1 D4:1 D4:2',
      'E4:1 E4:1 E4:1 F4:1', 'E4:1 D4:1 C4:2', 'D4:1 D4:1 D4:1.5 B3:0.5', 'B3:1 D4:1 D4:2',
-     'E4:1.5 E4:0.5 E4:1 D4:1', 'C4:1 B3:1 C4:2', 'A3:1 B3:0.5 C4:0.5 D4:1.5 G3:0.5', 'G3:1 A3:1 B3:2']
+     'E4:1.5 E4:0.5 E4:1 D4:1', 'C4:1 B3:1 C4:2', 'A3:1 B3:0.5 C4:0.5 D4:1.5 G3:0.5', 'G3:1 A3:1 G3:2']
 B = ['G3:1 G3:1 G3:1.5 D3:0.5', 'B2:1 G2:1 D3:2', 'B2:1 B2:1 C3:1 C3:1', 'D3:1 D3:1 G2:2',
      'G3:1 G3:1 G3:1.5 D3:0.5', 'E3:1 D3:1 C#3:1.5 A2:0.5', 'B2:1 C#3:1 D3:1 F#2:1', 'G2:1 A2:1 D3:2',
      'D4:1 D4:1 D4:1 B3:1', 'F#3:1 G3:1 D3:2', 'D4:1 D4:1 D4:1 B3:1', 'F#3:1 G3:1 D3:2',
      'C3:1 C3:1 C3:1 D3:1', 'E3:1 E3:1 A3:2', 'D4:1 C4:1 B3:1.5 G3:0.5', 'D3:1 D3:1 G3:2',
-     'C4:1.5 C4:0.5 C4:1 B3:1', 'A3:1 G#3:1 A3:2', 'A3:1 B3:0.5 C4:0.5 D4:1.5 G3:0.5', 'G3:1 A3:1 B3:2']
+     'C4:1.5 C4:0.5 C4:1 B3:1', 'A3:1 G#3:1 A3:2', 'A3:1 B3:0.5 C4:0.5 D4:1.5 G3:0.5', 'G3:1 A3:1 G3:2']
 parts = {'soprano': S, 'alto': A, 'tenor': T, 'bass': B}
 
 D, Q3, Q4 = [0, 1, 2, 3.5], [0, 1, 2], [0, 1, 2, 3]
@@ -65,7 +65,7 @@ song = {
     'review_notes': [
         'Notes from an Audiveris draft and raster notehead positions (sources/scripts/raster_heads.py), checked bar by bar against the scan; small parenthesised organ notes in bars 17–18 are not sung and are omitted.',
         'At the user’s request all three verses use the page-1 SATB setting; the printed verse-3 descant with organ (pages 2–3) is not encoded. Verse 3 words from page 2 (“Ris’n” sung as one syllable).',
-        'Bars 19–20 are printed “Unison”: every voice sings the tune, tenors and basses an octave lower.',
+        'Bars 19–20 are printed “Unison”: every voice sings the tune, tenors and basses an octave lower. The final “King” is G (G A G), as printed; it had been read as B.',
         'Bar 7 tenor D4–E4 and bar 13 tenor F♮4 (printed natural) were read from enlarged crops; bar 15 bass is printed high (D4 C4 B3 G3).',
         'Suggested tempo quarter = 100.',
     ],

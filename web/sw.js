@@ -2,7 +2,7 @@
    updated songs and code win; the cache is used only when the server is unreachable.
    Browsers register service workers only on localhost or HTTPS (GitHub Pages is HTTPS,
    so there the installed app also works offline after a first visit). */
-const CACHE = 'carol-choir-v9';
+const CACHE = 'carol-choir-v16';
 // Relative paths: the app may live in a sub-folder (e.g. GitHub Pages /<repo>/).
 const SHELL = ['./', 'index.html', 'style.css', 'appearance.js', 'i18n.js', 'notation.js', 'sounds.js', 'player.js',
   'vendor/abcjs-basic-6.7.2.min.js', 'booklet.js', 'playlist.js', 'fonts/im-fell-english.woff2', 'manifest.webmanifest', 'icons/icon-192.png', 'api/songs.json'];

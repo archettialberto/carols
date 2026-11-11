@@ -20,14 +20,17 @@ also offline after the first visit.
 
 - **Home** offers three choices; the top **Home** button (or the back gesture) returns there.
 - **Spartiti interattivi**: the song list. Tap a song to rehearse it.
-- **Playlist**: one album per voice (Soprani 🌸, Contralti ☀️, Tenori 🍂, Bassi ❄️). Tick and
-  drag songs, then play: each song starts with its spoken title, first note and a count-in,
-  then the part. It keeps playing with the screen locked (lock-screen controls included).
+- **Playlist**: **Christmas Carols** 🎄 plays the whole choir, song after song; then one album per voice (Soprani 🌸, Contralti ☀️, Tenori 🍂, Bassi ❄️) and one per
+  voice *in evidenza* (the whole choir with that voice in front). Drag songs to reorder, then
+  play: each song starts with its spoken title, first note and a count-in, then the music.
+  Playback continues with the screen locked.
 - **Genera PDF**: choose and order songs and get one printable PDF.
 - The screen stays awake while the app is open; locking the phone pauses the interactive score.
 - **Opzioni**: song, verse, voice (all, one voice *in evidenza*, or solo) and
   transposition (±6 semitones). Songs with recorded parts add **Suono**: *Coro* (the
-  recordings, the default) or *Pianoforte*; another tempo or a transposition uses the piano.
+  recordings, the default) or *Pianoforte*; a transposition uses the piano.
+- **Lento** plays at 0.75× (the choir included, same pitch); there is no bpm field.
+- **Space** plays and pauses the score on a computer.
 - The score follows the audio with the words below; tap a note to start there.
 - **S C T B** keys play each voice's starting note (hold to sustain, several for a chord).
 - ⤓ downloads the printable PDF. Songs with accompaniment also play and print an organ part.
@@ -56,4 +59,6 @@ A gitignored `.venv` holds the development tools: `pip install -r requirements.t
 ## Publishing
 
 Every push to `main` builds the static site (`tools/build_static.py` → `site/`) and
-deploys it to GitHub Pages via `.github/workflows/pages.yml`.
+deploys it to GitHub Pages via `.github/workflows/pages.yml`. The playlist tracks are not in git:
+the workflow first runs `tools/recordings.py build` (ffmpeg + numpy) on the committed voice parts
+and spoken titles, so the repository holds only the recordings it cannot recreate.

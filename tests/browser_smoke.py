@@ -32,8 +32,9 @@ with sync_playwright() as p:
         page.locator('.song-card').first.click()
         # The Coro/Pianoforte choice appears only for songs with recorded parts.
         assert page.evaluate("$('sound-control').hidden === !song.choir")
-        assert page.locator('#voice option').evaluate_all('(nodes)=>nodes.map(n=>n.value)')==[
-            'all','lead:soprano','lead:alto','lead:tenor','lead:bass','soprano','alto','tenor','bass','backing:organ','backing:piano']
+        backing=['backing:organ','backing:piano'] if page.evaluate('performanceData.backing_events.length > 0') else []
+        assert page.locator('#voice option').evaluate_all('(nodes)=>nodes.filter(n=>!n.hidden).map(n=>n.value)')==[
+            'all','lead:soprano','lead:alto','lead:tenor','lead:bass','soprano','alto','tenor','bass',*backing]
         if width<=700:
             page.locator('#selection-summary').click()
             assert page.locator('#selection').bounding_box()['y'] < 40  # selection sheet opens from the top
@@ -96,8 +97,8 @@ with sync_playwright() as p:
         pick(page,'#voice',label='Solo contralti')
         assert page.evaluate('activeSystem.clientHeight < 180')
         page.locator('#play').click()
-        page.wait_for_timeout(400)
-        assert page.evaluate('playing && audio.state === "running" && sounding.length > 0')
+        # Recorded songs play the choir recordings, the others piano notes.
+        page.wait_for_function('playing && audio.state === "running" && (sounding.length > 0 || choirSources.length > 0)', timeout=20000)
         assert page.locator('#focus').count()==0  # no fullscreen/focus mode
         if width<600:
             assert page.locator('.lyrics-panel').bounding_box()['y'] < 700
@@ -106,6 +107,11 @@ with sync_playwright() as p:
         assert page.evaluate('position')==before
         assert page.locator('html').get_attribute('lang')=='it'
         assert 'Ascolta' in page.locator('#play').inner_text()
+        # Space plays and pauses, even with a clicked button still focused (it is not pressed too).
+        page.locator('#slow').focus(); slow=page.locator('#slow').get_attribute('aria-pressed')
+        page.keyboard.press(' ');page.wait_for_function('playing || starting', timeout=20000)
+        page.keyboard.press(' ');page.wait_for_function('!playing && !starting')
+        assert page.locator('#slow').get_attribute('aria-pressed')==slow
         assert 'Dashing' in page.locator('#lyric-rows').inner_text()  # sung text stays in its original language
         page.reload();page.wait_for_function('!!performanceData');page.locator('#open-library').click();page.locator('.song-card[aria-current=true]').click()
         assert page.locator('html').get_attribute('lang')=='it'
@@ -126,8 +132,8 @@ with sync_playwright() as p:
         assert page.evaluate('zoom > 1')
         # End all sounds and highlighting at the end of a run.
         page.evaluate('seek(performanceData.duration-.1,false)')
-        page.locator('#play').click();page.wait_for_timeout(250)
-        assert not page.evaluate('playing')
+        page.locator('#play').click()  # the choir decodes its recordings first
+        page.wait_for_function('!playing && !starting', timeout=30000);page.wait_for_timeout(100)
         assert page.evaluate('sounding.length')==0
         assert page.locator('.syllable.current').count()==0
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth')

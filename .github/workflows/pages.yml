@@ -23,6 +23,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      # The playlist tracks (play-*, play-lead-*, choir.m4a) are not committed: they are built here
+      # from the committed parts and spoken titles, exactly as `tools/recordings.py build` does locally.
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
+      - run: pip install numpy
+      - run: python tools/recordings.py build
       # Validates every song, then writes site/ (the committed PDFs are reused, no browser needed).
       - run: python -m unittest discover -s tests
       - run: python tools/build_static.py

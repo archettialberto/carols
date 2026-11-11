@@ -31,7 +31,7 @@ def main():
     for relative in sorted(recording_files()):
         (out/relative).parent.mkdir(parents=True, exist_ok=True)
         shutil.copy2(ROOT/relative, out/relative)
-    for song in load_songs():
+    for song in [s for s in load_songs() if not s.get('hidden')]:
         for verse in ['all'] + [v['number'] for v in song['verses']]:
             write_json(out/'api'/'performance'/song['id']/f'{verse}.json', performance(song, verse))
         for relative in [f"exports/{song['id']}-digital.pdf"]:

@@ -1,22 +1,42 @@
-"""Build data/a-new-year-carol.json: A New Year Carol (the composer, the 1936 original.
-Source: the clean two-page edition supplied by the user (unison voices + piano), E♭ major, 3/4:
-intro 1–4, verse 5–12, refrain 13–22 with D.S., coda (refrain for verse 3) 23–30.
-All choir parts sing the printed tune (tenors and basses an octave lower); the piano part is a
-slightly simplified organ backing track (chord tones per half + quarter, as printed)."""
+"""Build data/a-new-year-carol.json: A New Year Carol, the choir version supplied by the user
+(songs/A New Year Carol (SATB).pdf, three pages of scan excerpts, E♭ major, 3/4), sung a cappella.
+
+Each stanza is 16 bars (verse 8 + refrain 8) and the three are written out one after another:
+stanza 1 sopranos alone; stanza 2 sopranos and altos; stanza 3 everyone, sopranos with a descant
+in the refrain, altos taking the tune, tenors and basses in unison on the third staff (printed in
+treble clef, sung an octave lower). The bars of rest after stanzas 1 and 2 (for the piano) are left
+out, so every bar has singing. No organ or backing track."""
 from song_kit import crop_systems, fit_lyrics, save_song
 
-PDF = 'songs/A New Year Carol.pdf'
-R3 = 'R:3'
-TUNE = (['R:3'] * 4 + [
-    'G4:0.5 F4:0.5 Eb4:1 G4:1', 'F4:0.5 G4:0.5 Ab4:1 F4:0.5 F4:0.5', 'G4:0.5 F4:0.5 Eb4:1 Eb4:1', 'Ab4:2 R:1',
-    'G4:0.5 F4:0.5 Eb4:1 G4:1', 'Bb4:1 Ab4:1 F4:1', 'G4:0.5 F4:0.5 Eb4:1 G4:1', 'F4:2 F4:1'])
+PDF = 'songs/A New Year Carol (SATB).pdf'
+R16 = ['R:3'] * 16
+
+# ---- the tune (stanza 1 sopranos), reused by the sopranos in stanzas 2–3 and the altos' refrain 3
+VERSE1 = ['G4:0.5 F4:0.5 Eb4:1 G4:1', 'F4:0.5 G4:0.5 Ab4:1 F4:0.5 F4:0.5', 'G4:0.5 F4:0.5 Eb4:1 Eb4:1', 'Ab4:2 R:1',
+          'G4:0.5 F4:0.5 Eb4:1 G4:1', 'Bb4:1 Ab4:1 F4:1', 'G4:0.5 F4:0.5 Eb4:1 G4:1', 'F4:2 F4:1']
+# stanzas 2–3: "Fair Maid, with" ends on one quarter instead of two eighths
+VERSE23 = VERSE1[:1] + ['F4:0.5 G4:0.5 Ab4:1 F4:1'] + VERSE1[2:]
 REFRAIN = ['Bb4:0.5 Ab4:0.5 G4:1 Bb4:1', 'Ab4:0.5 Bb4:0.5 C5:1 Ab4:1', 'Bb4:0.5 Ab4:0.5 G4:1 G4:1', 'C5:2 C5:1',
            'D5:0.5 C5:0.5 Bb4:1 Bb4:1', 'Eb5:2 D5:0.5 C5:0.5', 'Bb4:0.5 Ab4:0.5 G4:1 F4:1', 'Eb4:2 R:1']
-TUNE += REFRAIN + [R3, R3] + REFRAIN
+# ---- the second line (altos in stanza 2, tenors and basses in stanza 3)
+LOW_REFRAIN = ['G4:0.5 Ab4:0.5 Bb4:1 G4:1', 'C5:0.5 Bb4:0.5 Ab4:1 C5:1', 'G4:0.5 Ab4:0.5 Bb4:1 G4:1']
+ALTO2 = (['Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'Ab4:0.5 G4:0.5 F4:1 Ab4:1', 'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:2 R:1',
+          'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:1 F4:1 Ab4:1', 'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'F4:2 F4:1']
+         + LOW_REFRAIN + ['Eb4:2 Ab4:1',
+            'Bb4:0.5 Ab4:0.5 G4:1 F4:1', 'Eb4:1 C5:1 Bb4:0.5 Ab4:0.5', 'G4:0.5 G4:0.5 C4:1 D4:1', 'Eb4:2 R:1'])
+# ---- stanza 3
+ALTO3 = (['Bb4:1 G4:1 Eb4:1', 'Ab4:0.5 G4:0.5 F4:1 Ab4:1', 'Bb4:1 G4:1 Eb4:1', 'F4:2 R:1',
+          'Bb4:1 G4:1 Eb4:0.5 Eb4:0.5', 'F4:1 F4:1 Eb4:1', 'Bb4:0.5 Ab4:0.5 G4:1 Eb4:1', 'F4:2 F4:1']
+         + REFRAIN[:2] + ['Bb4:0.5 Ab4:0.5 G4:1 Bb4:1'] + REFRAIN[3:])
+DESCANT = ['Bb4:3', 'C5:3', 'D5:3', 'Eb5:2 F5:1', 'F5:3', 'G5:1 F5:1 Eb5:1~', 'Eb5:1 D5:0.5 C5:0.5 Bb4:0.5 Ab4:0.5', 'G4:2 R:1']
+LOW3 = (['Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:1 F4:1 Ab4:1', 'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:2 R:1',
+         'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:1 F4:1 Ab4:1', 'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'F4:2 F4:1']
+        + LOW_REFRAIN + ['Eb4:2 C5:1',
+           'Bb4:0.5 Ab4:0.5 G4:0.5 F4:0.5 Eb4:0.5 D4:0.5', 'C4:2 D4:0.5 Eb4:0.5', 'F4:0.5 F4:0.5 Bb4:1 Bb3:1', 'Eb4:2 R:1'])
 
 
 def down(bar):
-    """The same bar an octave lower (tenors and basses)."""
+    """The same bar an octave lower (tenors and basses sing the treble-clef line)."""
     out = []
     for token in bar.split():
         pitch, rest = token.split(':', 1)
@@ -24,95 +44,87 @@ def down(bar):
     return ' '.join(out)
 
 
-parts = {'soprano': TUNE, 'alto': TUNE, 'tenor': [down(b) for b in TUNE], 'bass': [down(b) for b in TUNE]}
+soprano = VERSE1 + REFRAIN + VERSE23 + REFRAIN + VERSE23 + DESCANT
+alto = R16 + ALTO2 + ALTO3
+low = R16 + R16 + [down(b) for b in LOW3]
+parts = {'soprano': soprano, 'alto': alto, 'tenor': low, 'bass': list(low)}
+assert all(len(p) == 48 for p in parts.values()), {v: len(p) for v, p in parts.items()}
 
-# Piano → organ: each bar is (half-note chord, quarter chord), notes listed high → low.
-I_ = (['G4', 'Bb3', 'G3', 'Bb2', 'Eb2'], ['G4', 'Bb3', 'Eb3'])          # verse, odd bars
-IV = (['Ab4', 'C4', 'Ab3', 'Bb2', 'Eb2'], ['Ab4', 'C4', 'F3'])          # verse, even bars
-RI = (['Bb4', 'D4', 'G3', 'Bb2', 'Eb2'], ['Bb4', 'D4', 'G3'])           # refrain
-RIV = (['C5', 'Eb4', 'Ab3', 'Bb2', 'Eb2'], ['C5', 'Eb4', 'Ab3'])
-CI = (['Bb5', 'D5', 'Bb4', 'G3', 'Bb2', 'Eb2'], ['G4', 'D4', 'G3'])     # coda (higher, fuller)
-CIV = (['C6', 'Eb5', 'C5', 'Ab3', 'Bb2', 'Eb2'], ['Ab4', 'Eb4', 'Ab3'])
-CHORDS = ([I_, IV] * 4 + [I_, 'b10', I_, IV]
-          + [RI, RIV, RI, RIV, (['D5', 'F4', 'Bb3', 'D3', 'G2'], ['D5', 'F4', 'Bb3']),
-             (['Eb5', 'Ab4', 'C4', 'C3', 'F2'], ['Ab4', 'C4', 'F3']), I_, IV, I_, IV]
-          + [CI, CIV, CI, CIV, (['Bb5', 'F5', 'D5', 'F3', 'Bb2', 'G2'], ['D5', 'G4', 'F3']),
-             (['C6', 'Ab5', 'Eb5', 'C3', 'Ab2', 'C2'], ['C5', 'Ab4', 'C3']), 'b29', 'b30'])
-LANES = 6
-SPECIAL = {  # bars written out lane by lane (top lane first)
-    'b10': ['Bb4:1 Ab4:1 Ab4:1', 'C4:2 C4:1', 'Ab3:2 F3:1', 'Bb2:2 R:1', 'Eb2:2 R:1', R3],
-    'b29': ['D6:2 Bb5:1', 'Bb5:1 Bb4:1 R:1', 'F5:2 R:1', 'Bb3:1 Bb3:1 Bb2:1', 'F2:2 R:1', 'Bb1:2 R:1'],
-    'b30': ['Eb6:2 R:1', 'G5:2 R:1', 'Eb5:2 R:1', 'Bb2:2 R:1', 'G2:2 R:1', 'Eb2:2 R:1'],
-}
-lanes = {f'organ_{i + 1}': [] for i in range(LANES)}
-for chord in CHORDS:
-    if isinstance(chord, str):
-        rows = SPECIAL[chord]
-    else:
-        half, quarter = chord
-        rows = []
-        for i in range(LANES):
-            h = f'{half[i]}:2' if i < len(half) else 'R:2'
-            q = f'{quarter[i]}:1' if i < len(quarter) else 'R:1'
-            rows.append(f'{h} {q}')
-    for i, row in enumerate(rows):
-        lanes[f'organ_{i + 1}'].append(row)
-assert all(len(v) == 30 for v in lanes.values())
-
-E4 = [0, .5, 1, 2]
-VERSE_ONSETS = {1: [E4, [0, 1, 2, 2.5], [0, 2], [0], E4, [0, 1, 2], [0, 1, 2], [0, 2]],
-                2: [[0, 1, 2], [0, 1, 2], E4, [0], E4, [0, 1, 2], E4, [0, 2]]}
-VERSE_ONSETS[3] = VERSE_ONSETS[2]
-REFRAIN_ONSETS = [E4, E4, E4, [0, 2], E4, [0, 2, 2.5], E4, [0]]
-REFRAIN_WORDS = 'le- vy dew, sing | le- vy dew, the | wa- ter and the | wine; The | se- ven bright gold | wires and the | bu- gles that do | shine.'
-VERSES = {
-    1: 'Here we bring new | wa- ter from the | well so | clear, | For to wor- ship | God with, this | hap- py New | Year. Sing',
-    2: 'Sing reign of | Fair Maid, with | gold up- on her | toe, | O- pen you the | West Door, and | turn the Old Year | go. Sing',
-    3: 'Sing reign of | Fair Maid, with | gold up- on her | chin, | O- pen you the | East Door, and | let the New Year | in. Sing',
+# ---- words: 'syllables | per | bar' with the beats of each syllable
+REFRAIN_WORDS = ('0:le- .5:vy 1:dew, 2:sing | 0:le- .5:vy 1:dew, 2:the | 0:wa- .5:ter 1:and 2:the | 0:wine; 2:The | '
+                 '0:sev- .5:en 1:bright 2:gold | 0:wires 2:and 2.5:the | 0:bu- .5:gles 1:that 2:do | 0:shine.')
+TUNE_ONSETS_1 = '0:{} .5:{} 1:{} 2:{} | 0:{} 1:{} 2:{} 2.5:{} | 0:{} 2:{} | 0:{} | 0:{} .5:{} 1:{} 2:{} | 0:{} 1:{} 2:{} | 0:{} 1:{} 2:{} | 0:{} 2:{}'
+TUNE_ONSETS_23 = '0:{} 1:{} 2:{} | 0:{} 1:{} 2:{} | 0:{} .5:{} 1:{} 2:{} | 0:{} | 0:{} .5:{} 1:{} 2:{} | 0:{} 1:{} 2:{} | 0:{} .5:{} 1:{} 2:{} | 0:{} 2:{}'
+STANZA = {
+    1: 'Here we bring new wa- ter from the well so clear, For to wor- ship God with, this hap- py New Year. Sing',
+    2: 'Sing reign of Fair Maid, with gold up- on her toe. O- pen you the West Door, and turn the Old Year go. Sing',
+    3: 'Sing reign of Fair Maid, with gold up- on her chin, O- pen you the East Door, and let the New Year in. Sing',
 }
 
 
-def cues(onsets, text):
-    out = []
-    for beats, words in zip(onsets, text.split('|')):
-        words = words.split(); assert len(beats) == len(words), (beats, words)
-        out.append(' '.join(f'{b:g}:{w}' for b, w in zip(beats, words)))
-    return out
+def rows(text):
+    return [' '.join(cue for cue in bar.split()) for bar in text.split('|')]
 
 
-refrain = cues(REFRAIN_ONSETS, REFRAIN_WORDS)
-verses = []
-for number in (1, 2, 3):
-    rows = [''] * 4 + cues(VERSE_ONSETS[number], VERSES[number]) + refrain + ['', ''] + refrain
-    order = list(range(1, 23)) if number == 1 else list(range(5, 23)) if number == 2 else list(range(5, 13)) + list(range(23, 31))
-    verses.append({'number': number, 'title': f'Strofa {number}', 'playback': [{'measure': m} for m in order],
-                   'lyrics': {v: fit_lyrics(parts[v], rows) for v in parts}})
+def fill(pattern, words):
+    return rows(pattern.format(*words.split()))
 
-systems = crop_systems('a-new-year-carol', PDF, [(4, .12, .37), (4, .37, .62), (4, .62, .92)], page=0, x=(.05, .97))
-systems += crop_systems('a-new-year-carol', PDF, [(4, .0, .26), (6, .25, .49), (4, .48, .73), (4, .72, .99)],
-                        page=1, x=(.05, .97), first=13, start_index=3)
+
+EMPTY = [''] * 16
+tune1 = fill(TUNE_ONSETS_1, STANZA[1]) + rows(REFRAIN_WORDS)
+tune2 = fill(TUNE_ONSETS_23, STANZA[2]) + rows(REFRAIN_WORDS)
+tune3 = fill(TUNE_ONSETS_23, STANZA[3])
+descant = rows('0:le- | | 0:vy | 0:dew, 2:the | 0:bu- | 2:gles | 1:that 2:do | 0:shine.')
+alto3_verse = rows('0:Sing 1:reign 2:of | 0:Fair 1:Maid, 2:with | 0:gold 1:on 2:her | 0:chin, | '
+                   '0:O- 1:pen 2:you 2.5:the | 0:East 1:Door, 2:and | 0:let .5:the 1:New 2:Year | 0:in. 2:Sing')
+alto2_words = fill(TUNE_ONSETS_23, STANZA[2]) + rows(
+    '0:le- .5:vy 1:dew, 2:sing | 0:le- .5:vy 1:dew, 2:the | 0:wa- .5:ter 1:and 2:the | 0:wine; 2:The | '
+    '0:sev- .5:en 1:bright 2:gold | 0:wires 2:and 2.5:the | 0:bu- .5:gles 1:that 2:do | 0:shine.')
+low3_words = fill(TUNE_ONSETS_23, STANZA[3]) + rows(
+    '0:le- .5:vy 1:dew, 2:sing | 0:le- .5:vy 1:dew, 2:the | 0:wa- .5:ter 1:and 2:the | 0:wine; 2:The | '
+    '0:sev- .5:en 1:bright 2:gold | 0:wires 2:and 2.5:the | 0:bu- .5:gles 1:that 2:do | 0:shine.')
+words = {
+    'soprano': tune1 + tune2 + tune3 + descant,
+    'alto': EMPTY + alto2_words + alto3_verse + rows(REFRAIN_WORDS),
+    'tenor': EMPTY + EMPTY + low3_words,
+    'bass': EMPTY + EMPTY + low3_words,
+}
+assert all(len(w) == 48 for w in words.values()), {v: len(w) for v, w in words.items()}
+lyrics = {v: fit_lyrics(parts[v], words[v]) for v in parts}
+
+# Printed systems: four bars each (stanza 1 on page 1; stanza 2 on pages 1–2; stanza 3 on pages 2–3).
+H = 792
+systems = crop_systems('a-new-year-carol', PDF, [(4, 95 / H, 148 / H), (4, 158 / H, 207 / H), (4, 216 / H, 267 / H),
+                                               (4, 276 / H, 332 / H), (4, 392 / H, 507 / H), (4, 516 / H, 630 / H)],
+                       page=0, x=(.09, .91))
+systems += crop_systems('a-new-year-carol', PDF, [(4, 70 / H, 170 / H), (4, 180 / H, 285 / H), (4, 345 / H, 524 / H),
+                                                (4, 534 / H, 691 / H)], page=1, x=(.09, .91), first=21, start_index=6)
+systems += crop_systems('a-new-year-carol', PDF, [(4, 70 / H, 222 / H), (4, 232 / H, 393 / H)],
+                        page=2, x=(.09, .91), first=37, start_index=10)
+# crop_systems numbers bars by printed position; the data numbers the sung bars in order.
+for index, system in enumerate(systems):
+    system['first_measure'] = 1 + 4 * index
 
 song = {
     'id': 'a-new-year-carol', 'title': 'A New Year Carol', 'emoji': '🎆',
-    'composer': 'the composer; words anon.', 'arranger': 'the 1936 original',
+    'composer': 'the composer; words anon.', 'arranger': 'choir version supplied by the user',
     'meter': [3, 4], 'key_fifths': -3, 'tempo': 92,
     'source_pdf': PDF,
-    'sources': [{'description': 'Clean two-page edition (unison voices and piano) supplied by the user; it replaces the worn S.S.A. 1971 scan (kept locally as “A New Year Carol (SSA scan).pdf”, not transcribed).'}],
+    'sources': [{'description': 'Three pages of scan excerpts supplied by the user: stanza 1 sopranos; stanza 2 sopranos and altos; stanza 3 sopranos, altos, tenors and basses (“prima riga soprani, seconda contralti, terza tenori+bassi”). It replaces the unison + piano edition used before.'}],
     'review_notes': [
-        'Printed for unison voices: all four parts sing the tune, tenors and basses an octave lower. The S.S.A. 1971 arrangement of the old scan is not encoded.',
-        'Form: intro 1–4, verse 5–12, refrain 13–22, D.S. to bar 5; verse 3 goes from bar 12 to the coda (refrain for verse 3, bars 23–30). Playback: verse 1 = 1–22, verse 2 = 5–22, verse 3 = 5–12 + 23–30.',
-        'The piano part becomes the organ backing track in six lanes, simplified to the printed chord tones of each half + quarter pattern (arpeggiations, pedal and una corda omitted). Upper coda voicings were read at reduced certainty.',
-        '“Sing” on bar 12 beat 3 is taken in every verse (it leads into both the refrain and the coda).',
-        'Suggested tempo quarter = 92 (“Quietly”).',
+        'Sung a cappella: no piano or organ; the bars of rest after stanzas 1 and 2 are left out, so the three 16-bar stanzas follow each other (bars 1–16, 17–32, 33–48).',
+        'Stanza 1: sopranos alone. Stanza 2: sopranos (tune) and altos (second line, often crossing above). Stanza 3: sopranos tune then a descant in the refrain (B♭4–G5 in long notes, “le- … vy dew, the bu- … gles that do shine”), altos the tune in the refrain, tenors and basses in unison an octave below the printed treble-clef line.',
+        'Read by eye from small, uneven scan crops (about 10 px between staff lines): every head was checked against the staff lines next to it. Least certain: alto bar 18 and 34 “with” (A♭4, not G4), alto bar 36 “chin” (F4), stanza 3 low line bar 44 “The” (C5 printed) and bar 47 “do” (B♭3 printed, below a ledger line), alto bar 43 “the” (B♭4).',
+        'Stanzas 2–3 sopranos sing “with” on one quarter (stanza 1 “from the” has two eighths). Stanza 3 altos sing “gold on her chin” (no “up-”) and “O- pen” on two quarters.',
+        'Pencil marks on the scan (breaths, brackets) are not transcribed; the final fermata is not encoded. Tempo quarter = 92 (“Quietly”).',
     ],
-    'parts': parts, 'playback': [{'measure': m} for m in range(1, 23)],
-    'backing_track': {'instrument': 'organ', 'parts': lanes},
-    'sections': [{'at': [1, 0], 'name': 'intro'}, {'at': [5, 0], 'name': 'verse'}, {'at': [13, 0], 'name': 'chorus'},
-                 {'at': [21, 0], 'name': 'interlude'}, {'at': [23, 0], 'name': 'coda'}],
-    'systems': systems, 'verses': verses,
-    'staff_bands': {'soprano': [0, .5], 'alto': [0, .5], 'tenor': [.5, 1], 'bass': [.5, 1]},
-    'shared_lyrics': True,
-    'compact': {'instructions': 'Strofe 1–2: strofa e ritornello, poi D.S.; strofa 3: dopo “in.” al Coda (battute 23–30).'},
+    'parts': parts, 'playback': [{'measure': m} for m in range(1, 49)],
+    'sections': [{'at': [m, 0], 'name': name} for m, name in
+                 ((1, 'verse'), (9, 'chorus'), (17, 'verse'), (25, 'chorus'), (33, 'verse'), (41, 'chorus'))],
+    'systems': systems,
+    'verses': [{'number': 1, 'title': 'Brano intero', 'lyrics': lyrics}],
+    'staff_bands': {'soprano': [0, .34], 'alto': [.33, .67], 'tenor': [.66, 1], 'bass': [.66, 1]},
+    'compact': {'instructions': 'Strofa 1 soprani; strofa 2 soprani e contralti; strofa 3 tutti (tenori e bassi all’unisono, un’ottava sotto il rigo in chiave di violino).'},
 }
 
 save_song(song)

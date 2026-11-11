@@ -169,14 +169,17 @@ class LibraryTest(unittest.TestCase):
         for song_id,entries in index['songs'].items():
             self.assertIn(song_id,ids)
             for entry in entries:
-                self.assertIn(entry['voice'],('soprano','alto','tenor','bass','tenor-bass','all'))
+                self.assertIn(entry['voice'],('soprano','alto','tenor','bass','tenor-bass','all','choir'))
                 self.assertGreater(entry['seconds'],0)
         for relative in recording_files():
             self.assertTrue(relative.endswith('.m4a') and (ROOT/relative).is_file(),relative)
         for voice,items in recordings_payload().items():
             for item in items:
                 own=item['tracks'][0]
-                if own['voice']==voice:
+                if voice=='choir':
+                    # Christmas Carols: the whole choir, nothing before it.
+                    self.assertFalse(own['intro']); self.assertTrue(own['file'].endswith('/choir.m4a'))
+                elif own['voice']==voice:
                     # The voice's own track starts with title, first note and count-in.
                     self.assertTrue(own['intro'],f'{item["id"]}: run tools/recordings.py build')
                     self.assertTrue(own['file'].endswith(f'play-{voice}.m4a'))

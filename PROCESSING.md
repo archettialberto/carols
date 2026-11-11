@@ -374,6 +374,13 @@ generators were refactored onto it and still reproduce their data files byte for
 
 ## Ding Dong! Merrily on High
 
+- Rendering (2026-11-11): as printed, “ri-” of Gloria falls on beat 1½ (S/A, an eighth) or beat 1
+  (T/B, a quarter), and the lower voices re-enter after rests inside the melisma with no syllable,
+  so Cantai sang a long, staggered “riii”. The Cantai file only (not the app or PDF) splits the T/B
+  quarter and sings “o” on every melisma note: Glo-o-…-ri-a, with “ri” on beat 1½ in all voices.
+  The next render still had sopranos and altos early on “ria”; the file now gives “ri” only the last
+  sixteenth before “a” (beat 1¾) in every voice, the vowel “o” holding until then.
+
 - Source: the supplied two-page vector PDF (Sibelius export, arr. the arranger), stored privately
   as `songs/Ding Dong.pdf`. Bb major, 2/2 with quarter = 140 as printed, four separate staves
   (tenor in octave treble clef), 24 measures: verse (1–8), Gloria (9–16) printed twice (17–24).
@@ -492,6 +499,8 @@ within each beat group. The notation suite re-verified every engraved note and s
 - At the user's request all three verses use the page-1 SATB setting (verse-3 words from page 2;
   the descant/organ setting is not encoded) and the song stays a cappella. Small parenthesised
   organ notes in bars 17–18 are omitted. Unison bars: tenors and basses an octave below the tune.
+- Bar 20 (Unison): the final “King” was corrected from B to G (G A G), as printed on page 1, in
+  all four voices (tenors and basses an octave lower).
 - Tooling: Audiveris 5.4 was rebuilt in the gitignored `.omr/` (Maven 3.9.9, tessdata 4.1.0;
   `omr.py prepare-build` now excludes bsaf's obsolete `javax.jnlp` system dependency). New
   `sources/scripts/raster_heads.py` finds filled/hollow noteheads on scans (staff lines removed,
@@ -513,15 +522,16 @@ within each beat group. The notation suite re-verified every engraved note and s
 
 ## A New Year Carol
 
-- Source: the clean two-page edition supplied by the user (the composer, the 1936 original: unison
-  voices + piano), copied to `songs/A New Year Carol.pdf`; the worn S.S.A. 1971 scan is kept
-  locally as `songs/A New Year Carol (SSA scan).pdf` and not transcribed. E♭ major, 3/4, 30 bars:
-  intro 1–4, verse 5–12, refrain 13–22 + D.S., coda for verse 3 23–30.
-- All four parts sing the tune (T/B an octave lower). The piano part is the organ backing track
-  (six lanes; printed chord tones per half + quarter, arpeggiation/pedal omitted, coda voicings
-  read with less certainty). Per-verse playback: 1–22 / 5–22 / 5–12 + 23–30. Tempo ♩ = 92.
-  Generator: `sources/scripts/make_new_year.py`. Tests now allow organ parts in MusicXML/MIDI and
-  verses that play different measures.
+- Source (2026-11-11): the choir version supplied by the user, `songs/A New Year Carol (SATB).pdf`
+  (three pages of scan excerpts): stanza 1 sopranos; stanza 2 sopranos and altos; stanza 3 sopranos,
+  altos and tenors + basses on one treble-clef staff, sung an octave lower. It replaces the earlier
+  transcription of the unison + piano edition (all voices on the tune, piano as organ), which was wrong
+  for this choir. E♭ major, 3/4, ♩ = 92.
+- A cappella: no organ; the rest bars after stanzas 1 and 2 are left out, so the data is the three
+  16-bar stanzas in a row (1–16, 17–32, 33–48), one “Brano intero” verse. In stanza 3 the sopranos
+  sing a descant in the refrain and the altos take the tune.
+- Read by eye from small crops (staff spaces ~10 px), each head against the lines next to it; the
+  doubtful heads are listed in the song's `review_notes`. Generator: `sources/scripts/make_new_year.py`.
 
 ## Round 3: organ in editions, single list, internal copies
 
@@ -535,6 +545,10 @@ within each beat group. The notation suite re-verified every engraved note and s
 - Dio ci benedirà: all 96 printed bars restored; an organ part was added at the user's request
   (not printed in the source): it doubles the choir and fills the instrumental bars with choir
   material (1–4 = bars 6–9, 5 = E♭ chord, 28–29 = bars 6–7, 52–54 = bars 49–51).
+- 2026-11-11: Dio ci benedirà is a cappella again: the organ part was removed, and with it the bars
+  where nobody sings (printed 1–5, 28–29, 52–54 and the rest bar 63), leaving 85 bars (F major from
+  data bar 53). Its playlist tracks are the app's piano playing each part (`tools/recordings.py piano`),
+  since Cantai does not sing Italian.
 
 ## Carol of the Bells
 
@@ -550,12 +564,18 @@ within each beat group. The notation suite re-verified every engraved note and s
 ## Angels' Carol
 
 - Source: the supplied eight-page scan, renamed `songs/Angels' Carol.pdf`. F major → G major at bar
-  71, 2/2 (4/4 Tranquil at 104), 107 bars, three stanzas through-composed with Gloria refrains.
+  71, 2/2 (4/4 Tranquil at 104), 107 printed bars, three stanzas through-composed with Gloria refrains.
 - An Audiveris draft (`.omr/out/angels.mxl`) was checked system by system against enlarged crops;
   bars it missed or garbled were read by eye. Divisi: each part takes its upper note.
-- The piano/harp part is a simplified organ: one chord per half bar read from the piano (`CHORDS`
-  in the generator), root in the pedal and three close chord tones. Tempo 𝅗𝅥 = 69.
-  Generator: `sources/scripts/make_angels_carol.py`. Listening check still advised.
+- Sung a cappella (2026-11-11): the piano/harp part is not encoded (an earlier simplified organ
+  backing track was removed), and the bars where only the piano plays (printed 1–2, 35–36, 69–70)
+  are left out, so the data has 101 bars: data bar = printed − 2 from 3, − 4 from 37, − 6 from 71
+  (G major from data bar 65). The generator keeps printed numbers and renumbers at the end (`DROP`).
+  Tempo 𝅗𝅥 = 69. Generator: `sources/scripts/make_angels_carol.py`. Listening check still advised.
+- Lyric fix (2026-11-11): in 26 bars that open with a note tied from the bar before (e.g. “sound __ |
+  of the an-gel”), the words sat one note early (“of” on the held G, “gel” on the F). The generator's
+  onset finder now knows about ties into the bar, and `music.validate` rejects a voice's own syllable
+  on a tied-over note (shared “all” words may fall there: another voice sings them).
 
 ## Rehearsal recordings
 
@@ -569,6 +589,28 @@ within each beat group. The notation suite re-verified every engraved note and s
   it_IT-paola-medium for Italian titles), the voice's first sounding note on the app's piano
   spectrum, a count-in of four minim clicks at 90/min for Joy's 2/2, then the part. Measured in the
   built file: clicks 0.667 s apart and the part entering one beat after the last click (±1 ms).
+- Carol of the Bells S/A/T/B: Cantai renders at ♩ = 140 (93 s with tail); first sounds at 0.0 /
+  5.1 / 10.3 / 15.4 s, matching the score's staggered entries (the bass's consonant ~50 ms early).
+- Hark! the Herald (rendered after the bar-20 fix; the final “King” sings G4/G3) and Jingle Bells
+  S/A/T/B: Cantai renders aligned with the score within 13 ms. Away in a Manger, I Saw Three Ships
+  and What Child Is This: within 33 ms (6/8 count-ins: four dotted-quarter clicks). The First Nowell
+  (♩ = 84): each file a single voice, 95–100 % of notes at the expected pitch on the score's beat.
+- Check every part file before converting (sum of the others inside it? notes on the score's beats?).
+  God Rest Ye Merry and O Holy Night: the exported `soprano.wav` was the four parts summed (least
+  squares: alto, tenor, bass each at gain 1.00), so the soprano is that file minus the other three
+  renders (nothing of them left, gains < .01; the original kept as `soprano-exported-mix.wav`). In God
+  Rest that soprano also sang one beat + 80 ms early throughout (constant in every 15 s window): it is
+  delayed 0.509 s, and its lost pickup “God” (D4, the same note and word as the alto) is the alto's,
+  level-matched and crossfaded in 20 ms. Both then match 94–96 % of notes on the beat. The data and
+  MusicXML were correct; `scratch/god-rest-ye-merry.musicxml` stays for a clean re-render.
+- Angels' Carol (a cappella, after the lyric fix) and The First Nowell (re-rendered after the tie
+  rule): single voices, 94–100 % of notes on the beat.
+- O Holy Night (♩ = 110, already a cappella) and Good King Wenceslas (♩ = 120): the other parts single
+  voices, 95–100 % of notes on the beat.
+- `choir.m4a` (Christmas Carols album): the four parts summed at equal level, normalised to −16 LUFS,
+  with no intro.
+- `tools/recordings.py build` also writes `play-lead-<voice>.m4a` (“in evidenza”): the intro, then
+  the four parts with that voice at gain 1 and the others at .4, scaled to that part's loudness.
 - The interactive score also plays the plain part recordings (`<voice>.m4a`) as “Coro” at the
   recording's tempo (stored at convert time) and printed key, piano otherwise. Chromium decodes them
   with the first sound at 0–9 ms, the same as ffmpeg, so no decoder offset needs compensating.

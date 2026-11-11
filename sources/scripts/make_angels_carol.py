@@ -2,8 +2,9 @@
 supplied eight-page raster scan, F major → G major at bar 71, 2/2 (4/4 from bar 104), 107 bars,
 three stanzas set through-composed. Notes: Audiveris draft (omr.py, .omr/out/angels.mxl) checked
 and corrected system by system against 200–350 dpi crops; missing or garbled bars read by eye.
-Divisi: the upper note goes to the named voice (S1, A1, T1, B1). The piano part becomes a simplified
-organ: the bass and the chord of each half bar (see make_organ below)."""
+Divisi: the upper note goes to the named voice (S1, A1, T1, B1). Sung a cappella: the piano part is
+not encoded, and the bars where only the piano plays (1–2, 35–36, 69–70) are left out (DROP below);
+everything above is written in printed bar numbers and renumbered at the end."""
 from song_kit import crop_systems, fit_lyrics, save_song
 
 PDF = "songs/Angels' Carol.pdf"
@@ -158,8 +159,9 @@ AH = {v: {37: '0:Ah', 40: '3:Ah', 44: '0:Ah', 46: '1:Ah', 47: '2:Ah', 50: '3:Ah'
       for v in ('soprano', 'alto')}
 
 
-def starts(bar):
-    beat, out, tied = 0.0, [], False
+def starts(bar, tied=False):
+    """Beats where the bar's notes are sung; `tied` = the previous bar ends with a tie into this one."""
+    beat, out = 0.0, []
     for token in bar.split():
         pitch, dur = token.split(':')
         if pitch != 'R' and not tied:
@@ -177,75 +179,13 @@ for voice, blocks in WORDS.items():
             if not syl:
                 continue
             m = first + offset
-            beats = ONSETS[voice].get(m) or starts(parts[voice][m - 1])
+            beats = ONSETS[voice].get(m) or starts(parts[voice][m - 1], m > 1 and parts[voice][m - 2].endswith('~'))
             beats = beats[:len(syl)]
             assert len(beats) == len(syl), (voice, m, parts[voice][m - 1], syl)
             rows[m - 1] = ' '.join(f'{b:g}:{w}' for b, w in zip(beats, syl))
     for m, cue in AH.get(voice, {}).items():
         rows[m - 1] = cue
     lyrics[voice] = fit_lyrics(parts[voice], rows)
-
-
-# ---- organ: one chord per half bar read from the piano part (root in the pedal, three chord
-# tones close-voiced from G3). “X Y” = first half X, second half Y.
-CHORDS = (
-          'F F F Gm C7 F F Bb Gm C '  # 1–10
-          'F Eb F7 Bb C7 C|F Gm|Gm7 Eb C|F Gm '  # 11–20
-          'C7 F F|Dm Gm C7 Am Cm7|F Bb|Gm Am|Dm Gm7|C7 '  # 21–30
-          'Am|Bb F Gm7|C7 F F F F Gm C|Bb F '  # 31–40
-          'F Bb|F Gm C|C7 F Cm7|Gm F7 Dm C7 C|F '  # 41–50
-          'Gm Eb C|F Gm C7 F F Gm Bb|C7 Am '  # 51–60
-          'Am|F7 Bb|Gm Am|Dm Gm|C Am|Bb F Gm7|C7 F Am D7 '  # 61–70
-          'D|G Am7 D7|G G G|Em7 Am7 D7 G G Bm7b5 '  # 71–80
-          'G7 C|Am7 D7 Bm|Em Am7 F D|G Am7 D7|G G '  # 81–90
-          'G Am7|Em D7 G F|G C|Am D|Em Am|D7 G|C G '  # 91–100
-          'Am|D7 Em Eb G Am7|D7 G G'  # 101–107
-          ).split()
-assert len(CHORDS) == 107, len(CHORDS)
-QUALITY = {'': (0, 4, 7), 'm': (0, 3, 7), '7': (4, 7, 10), 'm7': (3, 7, 10), 'm7b5': (3, 6, 10)}
-ROOTS = {'C': 0, 'D': 2, 'Eb': 3, 'E': 4, 'F': 5, 'G': 7, 'A': 9, 'Bb': 10, 'B': 11, 'F#': 6}
-NAMES_F = ['C', 'Db', 'D', 'Eb', 'E', 'F', 'Gb', 'G', 'Ab', 'A', 'Bb', 'B']
-NAMES_G = ['C', 'C#', 'D', 'Eb', 'E', 'F', 'F#', 'G', 'G#', 'A', 'Bb', 'B']
-
-
-def name(n, bar):
-    return (NAMES_G if bar >= 71 else NAMES_F)[n % 12] + str(n // 12 - 1)
-
-
-def make_organ():
-    """Pedal on the root, three held chord tones voice-led around middle C, and a quarter-note
-    figure on top (5th, root, 3rd, 5th per half bar) that keeps the piano's constant motion."""
-    lanes = {f'organ_{i}': [] for i in range(1, 6)}
-    held = [55, 60, 64]
-    for bar, symbol in enumerate(CHORDS, 1):
-        halves = symbol.split('|') if '|' in symbol else [symbol, symbol]
-        rows = [[] for _ in range(5)]
-        for chord in halves:
-            root = next(r for r in sorted(ROOTS, key=len, reverse=True) if chord.startswith(r))
-            pc, quality = ROOTS[root], chord[len(root):]
-            pcs = [(pc + i) % 12 for i in QUALITY[quality]]
-            # nearest voicing (each tone within G3–G4) to the previous chord
-            options = []
-            for shift in range(3):
-                tones = pcs[shift:] + pcs[:shift]
-                voiced, low = [], 55
-                for t in tones:
-                    n = low + (t - low) % 12; voiced.append(n); low = n + 1
-                if voiced[-1] <= 69: options.append(voiced)
-            held = min(options, key=lambda v: sum(abs(x - y) for x, y in zip(v, held)))
-            rows[0].append(f'{name(40 + (pc - 40) % 12, bar)}:2')
-            for i in range(3):
-                rows[i + 1].append(f'{name(held[i], bar)}:2')
-            third, fifth = (pc + (3 if quality.startswith('m') else 4)) % 12, (pc + (6 if quality == 'm7b5' else 7)) % 12
-            up = lambda x: 69 + (x - 69) % 12
-            rows[4].append(' '.join(f'{name(up(x), bar)}:1' for x in (fifth, pc))
-                           if len(rows[4]) == 0 else ' '.join(f'{name(up(x), bar)}:1' for x in (third, fifth)))
-        for i, row in enumerate(rows):
-            text = ' '.join(row)
-            if i < 4 and row[0] == row[1]:
-                text = row[0].replace(':2', ':4')
-            lanes[f'organ_{i + 1}'].append(text)
-    return lanes
 
 
 LAYOUT = [(0, [(4, .14, .33), (4, .33, .51), (4, .51, .69), (4, .69, .87)]),
@@ -263,27 +203,37 @@ for page, rows in LAYOUT:
     first += sum(r[0] for r in rows)
 assert first == 108, first
 
+# ---- a cappella: leave out the piano-only bars and renumber (printed bar → data bar).
+DROP = {1, 2, 35, 36, 69, 70}
+assert all(all(t.startswith('R:') for t in parts[v][m - 1].split()) for v in parts for m in DROP)
+KEEP = [m for m in range(1, 108) if m not in DROP]
+new = {m: i for i, m in enumerate(KEEP, 1)}
+parts = {v: [p[m - 1] for m in KEEP] for v, p in parts.items()}
+lyrics = {v: [rows[m - 1] for m in KEEP] for v, rows in lyrics.items()}
+for system in systems:
+    printed = range(system['first_measure'], system['first_measure'] + len(system['barlines']) - 1)
+    count = sum(m in new for m in printed)
+    system['first_measure'] = next(new[m] for m in printed if m in new)
+    system['barlines'] = [round(i / count, 5) for i in range(count + 1)]
+
 song = {
     'id': 'angels-carol', 'title': 'Angels’ Carol', 'emoji': '😇',
     'source_pdf': PDF,
-    'meter': [2, 2], 'key_fifths': -1, 'measure_keys': {'71': 1}, 'tempo': 138,
+    'meter': [2, 2], 'key_fifths': -1, 'measure_keys': {str(new[71]): 1}, 'tempo': 138,
     'review_notes': [
         'Notes from an Audiveris draft checked and corrected system by system against enlarged crops of the scan; the alto moves B3 → B♭3 at 102–103 with the tenor; bars the draft missed (e.g. 54–61, 72, 78, 80–81, 94–95, 102–107) were read by eye. Inner divisi notes are the least certain.',
         'Divisi: each part sings the upper note of its own divisi (sopranos in thirds at 96–99, basses in octaves at 34, 56, 58, 106).',
         'Bars 3–10 sopranos and altos in unison; 11–18 tenors alone; 19–20 sopranos and tenors in octaves. Basses rest until bar 28.',
-        'The piano/harp part becomes a simplified organ backing track: one chord per half bar read from the piano (CHORDS, rechecked against the score), root in the pedal, three held chord tones voice-led around middle C and a quarter-note figure on top echoing the piano’s constant arpeggios (e.g. the four F-major bars 34–37). It is not a transcription of the piano part.',
+        'Sung a cappella: the piano/harp part is not encoded and its solo bars (printed 1–2, 35–36, 69–70) are left out, so data bars are printed bars − 2 from bar 3, − 4 from 37 and − 6 from 71. Bar numbers in these notes are the printed ones.',
         'Bars 104–107 are printed in 4/4 (“Tranquil”, quarter = 92) with a rallentando; playback keeps the opening pulse. Suggested tempo half = 69 (quarter = 138).',
     ],
-    'parts': parts, 'playback': [{'measure': m} for m in range(1, 108)],
-    'backing_track': {'instrument': 'organ', 'parts': make_organ()},
-    'sections': [{'at': [1, 0], 'name': 'intro'}, {'at': [3, 0], 'name': 'verse'}, {'at': [28, 0], 'name': 'chorus'},
-                 {'at': [35, 0], 'name': 'interlude'}, {'at': [37, 0], 'name': 'verse'},
-                 {'at': [62, 0], 'name': 'chorus'}, {'at': [71, 0], 'name': 'verse'}, {'at': [96, 0], 'name': 'chorus'},
-                 {'at': [104, 0], 'name': 'coda'}],
+    'parts': parts, 'playback': [{'measure': m} for m in range(1, len(KEEP) + 1)],
+    'sections': [{'at': [new[m], 0], 'name': name} for m, name in
+                 ((3, 'verse'), (28, 'chorus'), (37, 'verse'), (62, 'chorus'), (71, 'verse'), (96, 'chorus'), (104, 'coda'))],
     'systems': systems,
     'verses': [{'number': 1, 'title': 'Brano intero', 'lyrics': lyrics}],
     'staff_bands': {'soprano': [0, .25], 'alto': [0, .25], 'tenor': [.25, .5], 'bass': [.25, .5]},
-    'compact': {'instructions': 'Brano in forma continua: tre strofe con Gloria; da battuta 71 in sol maggiore.'},
+    'compact': {'instructions': f'Brano in forma continua: tre strofe con Gloria; da battuta {new[71]} in sol maggiore.'},
 }
 
 save_song(song)

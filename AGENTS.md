@@ -24,7 +24,7 @@ Turn the PDFs in `songs/` into actual editable music and a very simple local cho
 - Run `python tools/export.py` after changing data. Check measure lengths, matching parts, legal pitches, ties, repeat order, and the generated MusicXML and MIDI. Visually compare notes and rhythms with each page, especially shared staves and annotations.
 - Keep source attribution and processing decisions in `PROCESSING.md`. Export MusicXML for editing in a notation editor and MIDI for reuse.
 - Keep the app readable and small: Python standard library server, plain HTML/CSS/JavaScript, browser audio. No database, frontend build, deployment framework, or runtime network dependency is needed.
-- The user needs Play, the moving position on the score, all voices together or individual S/A/T/B voices, tempo, and simple navigation. Avoid unnecessary features.
+- The user needs Play, the moving position on the score, all voices together or individual S/A/T/B voices, a slower (Lento) option, and simple navigation. Avoid unnecessary features.
 
 Run locally: `python app.py`, then open http://localhost:8000. Validate with `python -m unittest discover -s tests`.
 
@@ -65,7 +65,8 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - Listening modes, in this order: all voices, S/A/T/B "in evidenza", solo S/A/T/B (no custom
   mix). The lyrics shown always follow the voice being heard (soprano for all voices); there is
   no separate lyric-voice selector. Emphasis
-  keeps the chosen voice at gain 1 and the other voices at .25 (still audible as a mix), with energy-based
+  keeps the chosen voice at gain 1 and the other voices at .25 on piano, .4 with the recorded choir
+  (sung voices stand out more; the playlists' "in evidenza" mixes use .4 too), with energy-based
   master normalization. Route all sounding notes through per-voice gain buses;
   mix changes must not restart the transport or lose sustained notes.
 - Generate digital notation from exactly the performance's notes and active verse
@@ -134,15 +135,22 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   recordings the choir parts play as piano; an optional `backing_track` (organ lanes with the same measure count,
   for arrangements printed with accompaniment) always plays as organ on its own gain bus.
   Songs with a backing track (“base”) get a “Volume base” slider (0–150%, remembered on the device) and the listening modes “Solo base (organo)” and “Solo base (pianoforte)”.
+  Every song is now a cappella (no `backing_track` in any data file, 2026-11-11), and bars where nobody
+  sings are left out of the data; the backing-track support stays for a future accompanied score.
 - Songs with recorded parts (`choir` in `api/songs.json`) show “Suono: Coro / Pianoforte”, Coro by
   default: the interactive score plays the part recordings (decoded once per song, started on the same
   beat clock, through the per-voice buses, so emphasis/solo work; a single verse plays its slice and
   fades out; the end keeps the reverb tail). Only at the recording's tempo (stored per recording) and
-  in the printed key; any other tempo or a transposition falls back to piano, and the summary says
+  in the printed key; a transposition (or a data tempo changed after recording) falls back to piano, and the summary says
   “· Pianoforte”. Unrecorded voices stay on piano. Starting-note keys are always piano.
+- There is no bpm field: every song plays at its data tempo, and “Lento” (a toggle in the dock,
+  remembered on the device) is the only speed control, 0.75×: the piano exactly, the choir through a WSOLA time-stretch computed
+  in the browser once per song (pitch kept, parts aligned within ±10 ms; recordings decoded at 32 kHz
+  to keep phone memory low). The playlists have no speed control. On a computer Space plays/pauses the score (the playlist elsewhere), even with a clicked button focused; fields, selects, checkboxes and the S/A/T/B keys keep it. Lento uses the standard button shape (as every button:
+  44px, 8px corners); pressed it takes the primary colours.
 - Phones (≤700px) must not need vertical scrolling while practising: one top bar (name, back button,
   appearance icon), a one-line song/verse/voice summary opening a sheet, the score, the current
-  lyrics and the playback dock (keys, restart, play, tempo, seek). Song, verse, voice and
+  lyrics and the playback dock (keys, restart, play, Lento, seek). Song, verse, voice and
   transposition live in the selection sheet. Desktop shows the
   selectors inline. Test 320×568, 390×664 and 1280px.
 - Keep the app installable from Safari/Chrome: `manifest.webmanifest`, `icons/` (SVG source and
@@ -165,8 +173,10 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - iPhone audio: Web Audio is muted by the silent switch unless the page also plays media.
   Keep `unlockAudio()` (playback `navigator.audioSession` plus a looping silent `<audio>`),
   started from a click/touchend; pointerdown alone does not unlock audio on iOS.
-- The app opens on Home: three cards, "Spartiti interattivi" (Brani list → practice), "Playlist"
-  (four voice albums → playlist) and "Genera PDF" (booklet). The first song is preloaded for practice.
+- The app opens on Home: three cards with no captions, "Spartiti interattivi" (Brani list → practice),
+  "Playlist" (voice albums → playlist) and "Genera PDF" (booklet, no hint text). The first song is
+  preloaded for practice. A song with `"hidden": true` (e.g. a transcription being redone) is left out of the
+  list, score selector, booklet and static site.
   The interactive score has no recordings controls, and the playlists have no score.
 - Engraving beams eighths and shorter notes within a beat group (half note in 2/2, dotted quarter in
   6/8-type meters, otherwise a quarter), as printed scores do.
@@ -179,7 +189,10 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - Recordings are synthesized from our own scores only (old voice notes and YouTube tracks were
   removed 2026-11-11): `python tools/cantai_scores.py` writes `scratch/<song-id>.musicxml` (SATB,
   every verse unfolded, all syllables on lyric line 1 because Cantai sings only line 1, extenders on
-  held syllables); the user renders each part in MuseScore Studio + Cantai and exports WAVs that
+  held syllables, and a tie broken wherever a syllable sits on its tied-over note, else Cantai skips it; per song,
+  `LATE` splits a note so a staggered syllable sounds together and `VOWEL` writes the vowel on every
+  note of a long melisma, across rests: Ding Dong's Gloria is “Glo-o-…-ri-a”, “ri” only on the last sixteenth (beat 1¾) of bar 14 in all voices; `A_CAPPELLA` songs, now Dio ci benedirà (Italian, rendered
+  on request), drop the bars where no voice sings and hold a note at most one bar, the final one two); the user renders each part in MuseScore Studio + Cantai and exports WAVs that
   start at measure 1 beat 1. `scratch/` holds only these import files.
 - `python tools/recordings.py convert <wav> <song-id> <voice> --source "…"` writes
   `recordings/<song-id>/<voice>.m4a` (AAC mono 48 kHz 64 kbit/s, −16 LUFS) and lists it in
@@ -191,13 +204,40 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   gitignored `.tts/`), the voice's first note on the app's piano and a metronome count-in (one bar,
   two when a bar has under three beats; beat group as in the engraving), both computed from the song
   data, then the recording one beat after the last click. Decoded and encoded once, sample-accurate.
+  A solo track (`play-<voice>`) skips the bars at the start and end where that voice does not sing
+  (it starts at the downbeat of the voice's first sung bar, so the count-in still leads into it, and
+  ends 2 s after its last sung bar): A New Year Carol for the basses starts at stanza 3. The “in
+  evidenza” and Christmas Carols tracks stay whole.
   Rerun after adding recordings or changing a song's tempo, metre or first notes; only `play-*.m4a`
-  are served.
-- Albums Soprani/Contralti/Tenori/Bassi with the seasons 🌸 ☀️ 🍂 ❄️ (never a song's emoji; song
-  emojis are unique). A voice's playlist plays per song its own track, then tenor-bass (T/B) and all
-  when they exist. Songs can be ticked and reordered (remembered per device); covers are the title in
-  IM Fell with the song emoji. One `<audio>` element plays the queue, so it continues with the screen
-  locked, with Media Session metadata/artwork and play/pause/previous/next on the lock screen.
+  are served. Generated tracks (`play-*.m4a`, `play-lead-*.m4a`, `choir.m4a`) are gitignored to keep
+  the repository small: the Pages workflow installs ffmpeg + numpy and runs the build before the tests
+  and `build_static.py`. Commit the parts, `title.m4a` (no TTS in CI) and `recordings/index.json`.
+- Cantai sings Italian too (experimental, since late 2026; MuseScore Studio ≥ 4.6.5, MuseHub ≥ 3.0): the
+  language is chosen in the Cantai window under the singer's name and applies to the whole score.
+  Until Dio ci benedirà has a Cantai render, its playlists use piano parts.
+- Songs with no sung render get piano parts:
+  `tools/recordings.py piano <song-id>` renders each part of the score with the app's piano and converts
+  it like a recording, marked `"piano": true`; they fill the playlists (their “in evidenza” mixes keep the
+  others at .25, as the score's piano), while the interactive score keeps its live piano (no “Coro”).
+- In a playlist every song cover takes that playlist's colour and its season emoji, faint behind (the list,
+  the mini player and the lock-screen artwork): Ding Dong in Bassi is snowy blue, in Tenori orange.
+- The Playlist page has two headings: “Playlist completa” (one card, “Christmas Carols” 🎄, no title
+  beside the cover) and “Playlist per voce” (the eight voice albums); every album is the same card, the cover alone (no song count).
+  Christmas Carols plays the whole choir, `choir.m4a` per song (the four
+  parts at equal level, −16 LUFS), nothing before each song: no title, note or count-in.
+- Eight voice albums: Soprani/Contralti/Tenori/Bassi, then the same “in evidenza” (`lead-<voice>`: the
+  four parts mixed by the build with that voice at 1 and the others at .4, in `play-lead-<voice>.m4a`).
+  Seasons 🌸 ☀️ 🍂 ❄️ (never a song's emoji; song emojis are unique); covers are one SVG drawing on a
+  fixed 200×200 grid (they scale like an image, nothing overlaps) in the season's colour
+  with a gold double frame, the initial and name in IM Fell, the emoji only large and faint behind, and a gold
+  “in evidenza” band. A voice's own album plays per song its track, then tenor-bass (T/B) and all when
+  they exist. No tick boxes, back link or hint: every song plays, reordered by dragging ⠿ (remembered
+  per device). Rows show only what the album name does not say (extra recordings, length); the mini
+  player shows the album name alone for the album's own tracks. Song lists (Brani, playlists, PDF)
+  share the title face, the emoji in a soft circle or cover, and views never scroll the top bar away. Song covers show the emoji; the lock-screen artwork draws the emoji into its own small
+  canvas with a solid fill and scales it (iOS Safari draws no emoji with a gradient fill). One
+  `<audio>` element plays the queue, so it continues with the screen locked, with Media Session
+  metadata/artwork and play/pause/previous/next on the lock screen.
 - The synthesized score pauses cleanly when the page is hidden (background timers garble it), and
   the Screen Wake Lock keeps the phone awake while the app is visible. The server answers byte
   ranges for recordings (iOS Safari needs them); the service worker never caches them.

@@ -118,9 +118,6 @@ main { position:relative; }
 .key[aria-pressed=true] small { color:#2d2816; }
 #stop { font-size:20px; }
 .progress { display:flex; align-items:center; gap:12px; margin-top:6px; }
-.tempo-label { flex-direction:row; align-items:center; gap:4px; font-weight:400; }
-.tempo-label small { font-size:11px; }
-#tempo { width:64px; min-height:36px; padding:5px 6px; font-size:15px; text-align:center; }
 #seek { flex:1; min-width:0; min-height:28px; cursor:pointer; margin:0; }
 #time { min-width:84px; text-align:right; font-size:12px; color:var(--muted); font-variant-numeric:tabular-nums; }
 
@@ -170,7 +167,6 @@ body.library-open main { padding-bottom:40px; }
   .key { width:46px; }
   button.primary { min-width:0; flex:1; max-width:150px; }
   .progress { gap:8px; margin-top:4px; }
-  #tempo { width:54px; font-size:14px; }
   #time { min-width:0; font-size:11px; }
   #song-list { grid-template-columns:1fr; gap:10px; }
   .song-card { padding:12px 14px; gap:12px; }
@@ -188,7 +184,6 @@ body.library-open main { padding-bottom:40px; }
   .key b { font-size:15px; }
   .key small { font-size:9.5px; }
   .play-label { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
-  .tempo-label small { display:none; }
   #zoom-out, #zoom-in { min-width:34px; }
 }
 @media(prefers-reduced-motion:reduce) { * { scroll-behavior:auto!important; transition:none!important; } }
@@ -200,7 +195,9 @@ body.library-open main { padding-bottom:40px; }
 #booklet-list { list-style:none; padding:0; margin:0 0 12px; }
 .booklet-row { display:flex; align-items:center; gap:6px; border-top:1px solid var(--border); padding:4px 0; }
 .booklet .booklet-row label { flex:1; display:flex; flex-direction:row; align-items:center; gap:10px; min-height:40px; font:inherit; font-weight:400; text-align:left; margin:0; }
-.booklet-row input, .booklet-even input { width:20px; height:20px; accent-color:var(--accent); }
+.booklet-row input, .booklet-even input, .booklet-all input { width:20px; height:20px; accent-color:var(--accent); }
+.booklet-icon { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; background:var(--soft); font-size:18px; line-height:1; flex-shrink:0; }
+.booklet-title { font:400 19px/1.2 var(--title); color:var(--ink); }
 .booklet-handle { width:44px; height:40px; display:grid; place-items:center; font-size:22px; color:var(--muted); cursor:grab; touch-action:none; user-select:none; }
 .booklet-row.dragging { background:var(--soft); border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.15); }
 .booklet label.booklet-all { display:flex; flex-direction:row; align-items:center; gap:10px; font:inherit; font-weight:600; color:var(--ink); margin:0 0 6px; min-height:40px; }
@@ -226,54 +223,47 @@ body.library-open main { padding-bottom:40px; }
 .home-art-pdf { background:linear-gradient(135deg,#b88f35,#76571a); }
 .home-copy { display:flex; flex-direction:column; gap:5px; min-width:0; }
 .home-title { font:400 25px/1.15 var(--title); }
-.home-detail { font-size:13px; color:var(--muted); line-height:1.4; }
 .library-back svg { width:20px; height:20px; }
 
-/* Covers: song title in the period face with its emoji, on evergreen paper with a gold rule. */
+/* Covers: song title in the period face with its emoji, on the playlist's colour (and faint season
+   emoji) with a gold rule. */
 .cover { position:relative; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6%; padding:9%; text-align:center;
   background:linear-gradient(135deg,#2f6a4a,#173b28); color:#fff6e0; border-radius:8px; box-shadow:inset 0 0 0 2px #d6b25e99; overflow:hidden; }
 .cover-emoji { font:1em/1 system-ui,sans-serif; }
+.cover-season { position:absolute; right:-14%; bottom:-16%; font:2.3em/1 system-ui,sans-serif; opacity:.17; transform:rotate(-12deg); pointer-events:none; }
+.cover-emoji, .cover-title { position:relative; }
 .cover-title { font:400 .5em/1.1 var(--title); overflow-wrap:anywhere; }
 .cover-small { width:52px; font-size:22px; padding:6px; border-radius:6px; flex-shrink:0; }
 .cover-small .cover-title { display:none; }
 .cover-mini { width:46px; font-size:20px; padding:5px; border-radius:6px; }
 .cover-mini .cover-title { display:none; }
 
-/* Voice albums. */
-#album-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
-.album-card { display:flex; flex-direction:column; align-items:stretch; gap:8px; width:100%; padding:10px; text-align:left; background:var(--surface); border:1px solid var(--border); border-radius:14px; color:var(--ink); }
-.album-card:hover:enabled { border-color:var(--gold); filter:none; }
-.album { position:relative; aspect-ratio:1; display:flex; flex-direction:column; align-items:center; justify-content:center; border-radius:10px; color:#fff6e0; box-shadow:inset 0 0 0 2px #d6b25e99; overflow:hidden; }
-.album-soprano { background:linear-gradient(135deg,#b2493e,#6d211b); }
-.album-alto { background:linear-gradient(135deg,#b88f35,#76571a); }
-.album-tenor { background:linear-gradient(135deg,#2f6a4a,#173b28); }
-.album-bass { background:linear-gradient(135deg,#34463e,#141f1a); }
-.album-letter { font:400 clamp(56px,9vw,92px)/1 var(--title); }
-.album-name { font:400 clamp(18px,2.4vw,24px)/1.1 var(--title); }
-.album-tree { position:absolute; top:7%; right:8%; font-size:clamp(18px,2.6vw,26px); line-height:1; }
-.album-caption { font-size:13px; color:var(--muted); padding:0 4px 2px; }
+/* Voice albums: season colour, gold double frame, voice initial in the period face, the season
+   emoji (crisp at the top, large and faint behind) and a gold band for "in evidenza". */
+.album-grid { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:14px; }
+/* The cover is the whole card: no frame around it (the focus ring shows only for keyboard use). */
+.album-card { display:block; width:100%; padding:0; background:none; border:0; border-radius:12px; min-height:0; color:var(--ink); }
+.album-card:hover:enabled { filter:brightness(1.06); }
+.album { display:block; width:100%; height:auto; aspect-ratio:1; border-radius:10px; box-shadow:0 1px 3px rgba(0,0,0,.18); }
+.playlist-actions { display:flex; gap:8px; flex-wrap:wrap; }
 .album-large { width:160px; flex-shrink:0; }
-.album-large .album-letter { font-size:76px; }
 
 /* One playlist. */
-.text-back { margin:18px 0 0; padding:6px 10px 6px 4px; border:0; background:transparent; font-weight:650; }
-.text-back span[aria-hidden] { font-size:22px; line-height:0; vertical-align:-2px; }
-.playlist-head { display:flex; align-items:flex-end; gap:20px; margin:10px 0 18px; }
+.playlist-head { display:flex; align-items:flex-end; gap:20px; margin:18px 0 18px; }
 .playlist-meta { display:flex; flex-direction:column; align-items:flex-start; gap:8px; min-width:0; }
 .playlist-meta h2 { font:400 34px/1.05 var(--title); }
 #playlist-detail { margin:0; color:var(--muted); font-size:14px; }
-.playlist-all { margin:0 0 4px; }
-label.playlist-all { display:flex; flex-direction:row; align-items:center; gap:10px; font:inherit; font-weight:600; color:var(--ink); min-height:40px; padding-left:10px; }
-.playlist-all input, .track-row > input { width:20px; height:20px; margin:0; flex:none; accent-color:var(--accent); }
 #playlist-tracks { list-style:none; margin:0; padding:0; border-top:1px solid var(--border); }
-.track-row { display:flex; align-items:center; gap:4px; padding:4px 0 4px 10px; border-bottom:1px solid var(--border); }
+.track-row { display:flex; align-items:center; gap:4px; padding:4px 0 4px 0; border-bottom:1px solid var(--border); }
 .track-row.current .track-title { color:var(--berry); }
 .track-row.dragging { background:var(--soft); border-radius:8px; box-shadow:0 2px 8px rgba(0,0,0,.15); }
 .track-play { flex:1; min-width:0; display:flex; align-items:center; gap:12px; padding:6px 8px; text-align:left; border:0; background:transparent; color:var(--ink); }
 .track-copy { display:flex; flex-direction:column; gap:3px; min-width:0; }
 .track-title { font:400 20px/1.15 var(--title); overflow-wrap:anywhere; }
 .track-detail { font-size:12px; color:var(--muted); }
-.playlist-hint { color:var(--muted); font-size:13px; margin:12px 0 0; }
+/* "Lento" (0.75×) toggles, in the score dock and the mini player. */
+.slow-toggle { flex:none; font-weight:600; }
+.slow-toggle[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
 
 /* Mini player for the recordings (home, albums, playlist). */
 .mini-player { position:fixed; z-index:20; bottom:0; left:0; right:0; padding:8px max(16px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left)); background:var(--dock); border-top:1px solid var(--border); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
@@ -295,14 +285,9 @@ body.mini-open main { padding-bottom:130px; }
   .home-card { padding:14px; gap:14px; }
   .home-art { width:60px; height:60px; font-size:32px; }
   .home-title { font-size:22px; }
-  #album-list { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
-  .album-letter { font-size:64px; }
-  .album-name { font-size:20px; }
-  .album-tree { font-size:20px; }
+  .album-grid { grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
   .playlist-head { gap:14px; margin:6px 0 12px; }
   .album-large { width:112px; }
-  .album-large .album-letter { font-size:54px; }
-  .album-large .album-name { font-size:17px; }
   .playlist-meta h2 { font-size:27px; }
   .playlist-meta button.primary { flex:none; min-width:120px; }
   #playlist-detail { font-size:13px; }

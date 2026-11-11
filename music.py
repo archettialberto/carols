@@ -100,12 +100,15 @@ def validate(song):
         for voice in VOICES:
             rows=verse['lyrics'].get(voice,verse['lyrics'].get('all'))
             assert rows is not None, 'Missing lyrics for a voice'
+            # A voice's own words never fall on a tied-over note (shared "all" words may: another
+            # voice sings them while this one holds).
+            own=voice in verse['lyrics']; tied=False
             for number,line in enumerate(rows,1):
                 text=verse.get('parts',{}).get(voice,{}).get(str(number),song['parts'][voice][number-1])
                 at=0; onsets=[]
                 for note in parse_bar(text):
-                    if note['pitch']!='R': onsets.append(at)
-                    at+=note['duration']
+                    if note['pitch']!='R' and not (own and tied): onsets.append(at)
+                    tied=note['tie']; at+=note['duration']
                 assert all(c['beat'] in onsets for c in parse_lyrics(line)), f'{voice} measure {number}: lyric without note onset'
 
 
@@ -272,6 +275,8 @@ def songs_payload():
     index = json.loads(RECORDINGS.read_text()) if RECORDINGS.exists() else {'songs': {}}
     payload = []
     for song in load_songs():
+        if song.get('hidden'):  # e.g. a transcription being redone: no list, score or booklet entry
+            continue
         item = {**public(song),'verses':[{**v,'incipit':verse_incipit(song,v['number'])} for v in song['verses']],
                 'performance':performance(song,'all')}
         choir = choir_recordings(song, index['songs'].get(song['id'], []))
@@ -283,12 +288,17 @@ def songs_payload():
 # Rehearsal recordings (recordings/index.json, written by tools/recordings.py).
 RECORDINGS = ROOT/'recordings'/'index.json'
 PLAYLIST_VOICES = ('soprano', 'alto', 'tenor', 'bass')
+# Albums: "Christmas Carols" (the whole choir, nothing before each song), each voice alone (then the
+# shared recordings), and each voice "in evidenza" in the full mix.
+ALBUMS = ('choir', *PLAYLIST_VOICES, *(f'lead-{voice}' for voice in PLAYLIST_VOICES))
 
 
 def choir_recordings(song, entries):
     """The plain part recordings (all verses, from measure 1 beat 1) and the tempo they were made
     at; the score plays them only at that tempo and in the printed key."""
-    files = {e['voice']: e['file'] for e in entries if e['voice'] in PLAYLIST_VOICES and 'transpose' not in e}
+    # Piano parts (songs no synthesizer can sing) are for the playlists only: the score plays its own piano.
+    files = {e['voice']: e['file'] for e in entries
+             if e['voice'] in PLAYLIST_VOICES and 'transpose' not in e and not e.get('piano')}
     if not files:
         return None
     tempo = next((e['tempo'] for e in entries if e['voice'] in files and 'tempo' in e), song['tempo'])
@@ -303,22 +313,30 @@ def playlist_entries(entries, voice):
 
 
 def recordings_payload():
-    """Four voice playlists (served as api/recordings.json): songs in title order, each with the
-    recordings to play. The voice's own track is the built one (spoken title, starting note and
-    count-in joined to the recording by tools/recordings.py build); shared ones follow."""
+    """The voice albums (served as api/recordings.json): songs in title order, each with the
+    recordings to play. A voice's own track is the built one (spoken title, starting note and
+    count-in joined to the part by tools/recordings.py build), followed by shared ones; a
+    "lead-<voice>" album plays the full mix with that voice in front."""
     index = json.loads(RECORDINGS.read_text()) if RECORDINGS.exists() else {'songs': {}}
     songs = sorted(load_songs(), key=lambda s: s['title'].casefold())
     playlists = {}
-    for voice in PLAYLIST_VOICES:
+    for album in ALBUMS:
         items = []
         for song in songs:
-            tracks = playlist_entries(index['songs'].get(song['id'], []), voice)
-            if not tracks:
-                continue
-            items.append({'id': song['id'], 'title': song['title'], 'emoji': song.get('emoji', '🎵'),
-                          'tracks': [{'file': t.get('play', t['file']), 'voice': t['voice'], 'intro': 'play' in t,
-                                      'seconds': t.get('play_seconds', t.get('seconds', 0))} for t in tracks]})
-        playlists[voice] = items
+            entries = index['songs'].get(song['id'], [])
+            if album == 'choir':
+                tracks = [{'file': e['file'], 'voice': 'choir', 'intro': False, 'seconds': e.get('seconds', 0)}
+                          for e in entries if e['voice'] == 'choir']
+            elif album.startswith('lead-'):
+                voice = album.removeprefix('lead-')
+                tracks = [{'file': e['lead'], 'voice': album, 'intro': True, 'seconds': e.get('lead_seconds', 0)}
+                          for e in entries if e['voice'] == voice and 'lead' in e]
+            else:
+                tracks = [{'file': t.get('play', t['file']), 'voice': t['voice'], 'intro': 'play' in t,
+                           'seconds': t.get('play_seconds', t.get('seconds', 0))} for t in playlist_entries(entries, album)]
+            if tracks:
+                items.append({'id': song['id'], 'title': song['title'], 'emoji': song.get('emoji', '🎵'), 'tracks': tracks})
+        playlists[album] = items
     return playlists
 
 

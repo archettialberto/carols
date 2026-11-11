@@ -1,5 +1,581 @@
 {
   "songs": {
+    "a-new-year-carol": [
+      {
+        "voice": "soprano",
+        "file": "recordings/a-new-year-carol/soprano.m4a",
+        "seconds": 97.0,
+        "tempo": 92,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/a-new-year-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/a-new-year-carol/play-soprano.m4a",
+        "play_seconds": 102.4,
+        "lead": "recordings/a-new-year-carol/play-lead-soprano.m4a",
+        "lead_seconds": 103.5
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/a-new-year-carol/alto.m4a",
+        "seconds": 97.0,
+        "tempo": 92,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/a-new-year-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/a-new-year-carol/play-alto.m4a",
+        "play_seconds": 71.1,
+        "lead": "recordings/a-new-year-carol/play-lead-alto.m4a",
+        "lead_seconds": 103.5
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/a-new-year-carol/tenor.m4a",
+        "seconds": 97.0,
+        "tempo": 92,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/a-new-year-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/a-new-year-carol/play-tenor.m4a",
+        "play_seconds": 39.8,
+        "lead": "recordings/a-new-year-carol/play-lead-tenor.m4a",
+        "lead_seconds": 103.5
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/a-new-year-carol/bass.m4a",
+        "seconds": 97.0,
+        "tempo": 92,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/a-new-year-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/a-new-year-carol/play-bass.m4a",
+        "play_seconds": 39.8,
+        "lead": "recordings/a-new-year-carol/play-lead-bass.m4a",
+        "lead_seconds": 103.5
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/a-new-year-carol/choir.m4a",
+        "seconds": 97.0,
+        "built": true
+      }
+    ],
+    "angels-carol": [
+      {
+        "voice": "soprano",
+        "file": "recordings/angels-carol/soprano.m4a",
+        "seconds": 178.7,
+        "tempo": 138,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/angels-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/angels-carol/play-soprano.m4a",
+        "play_seconds": 185.6,
+        "lead": "recordings/angels-carol/play-lead-soprano.m4a",
+        "lead_seconds": 186.6
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/angels-carol/alto.m4a",
+        "seconds": 178.7,
+        "tempo": 138,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/angels-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/angels-carol/play-alto.m4a",
+        "play_seconds": 185.6,
+        "lead": "recordings/angels-carol/play-lead-alto.m4a",
+        "lead_seconds": 186.6
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/angels-carol/tenor.m4a",
+        "seconds": 178.7,
+        "tempo": 138,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/angels-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/angels-carol/play-tenor.m4a",
+        "play_seconds": 171.6,
+        "lead": "recordings/angels-carol/play-lead-tenor.m4a",
+        "lead_seconds": 186.6
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/angels-carol/bass.m4a",
+        "seconds": 178.7,
+        "tempo": 138,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/angels-carol.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/angels-carol/play-bass.m4a",
+        "play_seconds": 142.1,
+        "lead": "recordings/angels-carol/play-lead-bass.m4a",
+        "lead_seconds": 186.6
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/angels-carol/choir.m4a",
+        "seconds": 178.7,
+        "built": true
+      }
+    ],
+    "away-in-a-manger-cradle-song": [
+      {
+        "voice": "soprano",
+        "file": "recordings/away-in-a-manger-cradle-song/soprano.m4a",
+        "seconds": 105.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/away-in-a-manger-cradle-song.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/away-in-a-manger-cradle-song/play-soprano.m4a",
+        "play_seconds": 111.8,
+        "lead": "recordings/away-in-a-manger-cradle-song/play-lead-soprano.m4a",
+        "lead_seconds": 112.8
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/away-in-a-manger-cradle-song/alto.m4a",
+        "seconds": 105.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/away-in-a-manger-cradle-song.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/away-in-a-manger-cradle-song/play-alto.m4a",
+        "play_seconds": 111.8,
+        "lead": "recordings/away-in-a-manger-cradle-song/play-lead-alto.m4a",
+        "lead_seconds": 112.8
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/away-in-a-manger-cradle-song/tenor.m4a",
+        "seconds": 105.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/away-in-a-manger-cradle-song.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/away-in-a-manger-cradle-song/play-tenor.m4a",
+        "play_seconds": 111.8,
+        "lead": "recordings/away-in-a-manger-cradle-song/play-lead-tenor.m4a",
+        "lead_seconds": 112.8
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/away-in-a-manger-cradle-song/bass.m4a",
+        "seconds": 105.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/away-in-a-manger-cradle-song.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/away-in-a-manger-cradle-song/play-bass.m4a",
+        "play_seconds": 111.8,
+        "lead": "recordings/away-in-a-manger-cradle-song/play-lead-bass.m4a",
+        "lead_seconds": 112.8
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/away-in-a-manger-cradle-song/choir.m4a",
+        "seconds": 105.9,
+        "built": true
+      }
+    ],
+    "carol-of-the-bells": [
+      {
+        "voice": "soprano",
+        "file": "recordings/carol-of-the-bells/soprano.m4a",
+        "seconds": 93.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/carol-of-the-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/carol-of-the-bells/play-soprano.m4a",
+        "play_seconds": 98.1,
+        "lead": "recordings/carol-of-the-bells/play-lead-soprano.m4a",
+        "lead_seconds": 99.1
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/carol-of-the-bells/alto.m4a",
+        "seconds": 93.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/carol-of-the-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/carol-of-the-bells/play-alto.m4a",
+        "play_seconds": 90.3,
+        "lead": "recordings/carol-of-the-bells/play-lead-alto.m4a",
+        "lead_seconds": 99.1
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/carol-of-the-bells/tenor.m4a",
+        "seconds": 93.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/carol-of-the-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/carol-of-the-bells/play-tenor.m4a",
+        "play_seconds": 85.2,
+        "lead": "recordings/carol-of-the-bells/play-lead-tenor.m4a",
+        "lead_seconds": 99.1
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/carol-of-the-bells/bass.m4a",
+        "seconds": 93.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/carol-of-the-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/carol-of-the-bells/play-bass.m4a",
+        "play_seconds": 82.6,
+        "lead": "recordings/carol-of-the-bells/play-lead-bass.m4a",
+        "lead_seconds": 99.1
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/carol-of-the-bells/choir.m4a",
+        "seconds": 93.1,
+        "built": true
+      }
+    ],
+    "ding-dong": [
+      {
+        "voice": "soprano",
+        "file": "recordings/ding-dong/soprano.m4a",
+        "seconds": 126.5,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/ding-dong.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/ding-dong/play-soprano.m4a",
+        "play_seconds": 134.4,
+        "lead": "recordings/ding-dong/play-lead-soprano.m4a",
+        "lead_seconds": 135.4
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/ding-dong/alto.m4a",
+        "seconds": 126.5,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/ding-dong.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/ding-dong/play-alto.m4a",
+        "play_seconds": 134.4,
+        "lead": "recordings/ding-dong/play-lead-alto.m4a",
+        "lead_seconds": 135.4
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/ding-dong/tenor.m4a",
+        "seconds": 126.5,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/ding-dong.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/ding-dong/play-tenor.m4a",
+        "play_seconds": 134.4,
+        "lead": "recordings/ding-dong/play-lead-tenor.m4a",
+        "lead_seconds": 135.4
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/ding-dong/bass.m4a",
+        "seconds": 126.5,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/ding-dong.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/ding-dong/play-bass.m4a",
+        "play_seconds": 134.4,
+        "lead": "recordings/ding-dong/play-lead-bass.m4a",
+        "lead_seconds": 135.4
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/ding-dong/choir.m4a",
+        "seconds": 126.5,
+        "built": true
+      }
+    ],
+    "dio-ci-benedira": [
+      {
+        "voice": "soprano",
+        "file": "recordings/dio-ci-benedira/soprano.m4a",
+        "seconds": 165.1,
+        "tempo": 124,
+        "source": "piano: the app's synthesized piano, from the score",
+        "piano": true,
+        "play": "recordings/dio-ci-benedira/play-soprano.m4a",
+        "play_seconds": 170.8,
+        "lead": "recordings/dio-ci-benedira/play-lead-soprano.m4a",
+        "lead_seconds": 171.3
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/dio-ci-benedira/alto.m4a",
+        "seconds": 165.1,
+        "tempo": 124,
+        "source": "piano: the app's synthesized piano, from the score",
+        "piano": true,
+        "play": "recordings/dio-ci-benedira/play-alto.m4a",
+        "play_seconds": 170.8,
+        "lead": "recordings/dio-ci-benedira/play-lead-alto.m4a",
+        "lead_seconds": 171.3
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/dio-ci-benedira/tenor.m4a",
+        "seconds": 165.1,
+        "tempo": 124,
+        "source": "piano: the app's synthesized piano, from the score",
+        "piano": true,
+        "play": "recordings/dio-ci-benedira/play-tenor.m4a",
+        "play_seconds": 170.8,
+        "lead": "recordings/dio-ci-benedira/play-lead-tenor.m4a",
+        "lead_seconds": 171.3
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/dio-ci-benedira/bass.m4a",
+        "seconds": 165.1,
+        "tempo": 124,
+        "source": "piano: the app's synthesized piano, from the score",
+        "piano": true,
+        "play": "recordings/dio-ci-benedira/play-bass.m4a",
+        "play_seconds": 170.8,
+        "lead": "recordings/dio-ci-benedira/play-lead-bass.m4a",
+        "lead_seconds": 171.3
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/dio-ci-benedira/choir.m4a",
+        "seconds": 165.1,
+        "built": true
+      }
+    ],
+    "god-rest-ye-merry": [
+      {
+        "voice": "soprano",
+        "file": "recordings/god-rest-ye-merry/soprano.m4a",
+        "seconds": 135.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/god-rest-ye-merry.musicxml (tools/cantai_scores.py); the exported soprano file was the four parts summed and one beat + 80 ms early: the soprano is that file minus the other parts, delayed 0.509 s, with the lost pickup “God” (D4) taken from the alto",
+        "play": "recordings/god-rest-ye-merry/play-soprano.m4a",
+        "play_seconds": 141.4,
+        "lead": "recordings/god-rest-ye-merry/play-lead-soprano.m4a",
+        "lead_seconds": 142.4
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/god-rest-ye-merry/alto.m4a",
+        "seconds": 135.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/god-rest-ye-merry.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/god-rest-ye-merry/play-alto.m4a",
+        "play_seconds": 141.4,
+        "lead": "recordings/god-rest-ye-merry/play-lead-alto.m4a",
+        "lead_seconds": 142.4
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/god-rest-ye-merry/tenor.m4a",
+        "seconds": 135.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/god-rest-ye-merry.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/god-rest-ye-merry/play-tenor.m4a",
+        "play_seconds": 141.4,
+        "lead": "recordings/god-rest-ye-merry/play-lead-tenor.m4a",
+        "lead_seconds": 142.4
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/god-rest-ye-merry/bass.m4a",
+        "seconds": 135.0,
+        "tempo": 140,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/god-rest-ye-merry.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/god-rest-ye-merry/play-bass.m4a",
+        "play_seconds": 141.4,
+        "lead": "recordings/god-rest-ye-merry/play-lead-bass.m4a",
+        "lead_seconds": 142.4
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/god-rest-ye-merry/choir.m4a",
+        "seconds": 135.1,
+        "built": true
+      }
+    ],
+    "good-king-wenceslas": [
+      {
+        "voice": "soprano",
+        "file": "recordings/good-king-wenceslas/soprano.m4a",
+        "seconds": 173.0,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/good-king-wenceslas.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/good-king-wenceslas/play-soprano.m4a",
+        "play_seconds": 178.9,
+        "lead": "recordings/good-king-wenceslas/play-lead-soprano.m4a",
+        "lead_seconds": 179.9
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/good-king-wenceslas/alto.m4a",
+        "seconds": 173.0,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/good-king-wenceslas.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/good-king-wenceslas/play-alto.m4a",
+        "play_seconds": 178.9,
+        "lead": "recordings/good-king-wenceslas/play-lead-alto.m4a",
+        "lead_seconds": 179.9
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/good-king-wenceslas/tenor.m4a",
+        "seconds": 173.0,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/good-king-wenceslas.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/good-king-wenceslas/play-tenor.m4a",
+        "play_seconds": 178.9,
+        "lead": "recordings/good-king-wenceslas/play-lead-tenor.m4a",
+        "lead_seconds": 179.9
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/good-king-wenceslas/bass.m4a",
+        "seconds": 173.0,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/good-king-wenceslas.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/good-king-wenceslas/play-bass.m4a",
+        "play_seconds": 178.9,
+        "lead": "recordings/good-king-wenceslas/play-lead-bass.m4a",
+        "lead_seconds": 179.9
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/good-king-wenceslas/choir.m4a",
+        "seconds": 173.1,
+        "built": true
+      }
+    ],
+    "hark-the-herald": [
+      {
+        "voice": "soprano",
+        "file": "recordings/hark-the-herald/soprano.m4a",
+        "seconds": 147.0,
+        "tempo": 100,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/hark-the-herald.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/hark-the-herald/play-soprano.m4a",
+        "play_seconds": 154.0,
+        "lead": "recordings/hark-the-herald/play-lead-soprano.m4a",
+        "lead_seconds": 155.0
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/hark-the-herald/alto.m4a",
+        "seconds": 147.0,
+        "tempo": 100,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/hark-the-herald.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/hark-the-herald/play-alto.m4a",
+        "play_seconds": 154.0,
+        "lead": "recordings/hark-the-herald/play-lead-alto.m4a",
+        "lead_seconds": 155.0
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/hark-the-herald/tenor.m4a",
+        "seconds": 147.0,
+        "tempo": 100,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/hark-the-herald.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/hark-the-herald/play-tenor.m4a",
+        "play_seconds": 154.0,
+        "lead": "recordings/hark-the-herald/play-lead-tenor.m4a",
+        "lead_seconds": 155.0
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/hark-the-herald/bass.m4a",
+        "seconds": 147.0,
+        "tempo": 100,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/hark-the-herald.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/hark-the-herald/play-bass.m4a",
+        "play_seconds": 154.0,
+        "lead": "recordings/hark-the-herald/play-lead-bass.m4a",
+        "lead_seconds": 155.0
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/hark-the-herald/choir.m4a",
+        "seconds": 147.1,
+        "built": true
+      }
+    ],
+    "i-saw-three-ships": [
+      {
+        "voice": "soprano",
+        "file": "recordings/i-saw-three-ships/soprano.m4a",
+        "seconds": 90.3,
+        "tempo": 132,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/i-saw-three-ships.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/i-saw-three-ships/play-soprano.m4a",
+        "play_seconds": 96.6,
+        "lead": "recordings/i-saw-three-ships/play-lead-soprano.m4a",
+        "lead_seconds": 97.6
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/i-saw-three-ships/alto.m4a",
+        "seconds": 90.3,
+        "tempo": 132,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/i-saw-three-ships.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/i-saw-three-ships/play-alto.m4a",
+        "play_seconds": 96.6,
+        "lead": "recordings/i-saw-three-ships/play-lead-alto.m4a",
+        "lead_seconds": 97.6
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/i-saw-three-ships/tenor.m4a",
+        "seconds": 90.3,
+        "tempo": 132,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/i-saw-three-ships.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/i-saw-three-ships/play-tenor.m4a",
+        "play_seconds": 96.6,
+        "lead": "recordings/i-saw-three-ships/play-lead-tenor.m4a",
+        "lead_seconds": 97.6
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/i-saw-three-ships/bass.m4a",
+        "seconds": 90.3,
+        "tempo": 132,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/i-saw-three-ships.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/i-saw-three-ships/play-bass.m4a",
+        "play_seconds": 96.6,
+        "lead": "recordings/i-saw-three-ships/play-lead-bass.m4a",
+        "lead_seconds": 97.6
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/i-saw-three-ships/choir.m4a",
+        "seconds": 90.3,
+        "built": true
+      }
+    ],
+    "jingle-bells": [
+      {
+        "voice": "soprano",
+        "file": "recordings/jingle-bells/soprano.m4a",
+        "seconds": 123.0,
+        "tempo": 112,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/jingle-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/jingle-bells/play-soprano.m4a",
+        "play_seconds": 128.7,
+        "lead": "recordings/jingle-bells/play-lead-soprano.m4a",
+        "lead_seconds": 129.7
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/jingle-bells/alto.m4a",
+        "seconds": 123.0,
+        "tempo": 112,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/jingle-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/jingle-bells/play-alto.m4a",
+        "play_seconds": 128.7,
+        "lead": "recordings/jingle-bells/play-lead-alto.m4a",
+        "lead_seconds": 129.7
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/jingle-bells/tenor.m4a",
+        "seconds": 123.0,
+        "tempo": 112,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/jingle-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/jingle-bells/play-tenor.m4a",
+        "play_seconds": 128.7,
+        "lead": "recordings/jingle-bells/play-lead-tenor.m4a",
+        "lead_seconds": 129.7
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/jingle-bells/bass.m4a",
+        "seconds": 123.0,
+        "tempo": 112,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/jingle-bells.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/jingle-bells/play-bass.m4a",
+        "play_seconds": 128.7,
+        "lead": "recordings/jingle-bells/play-lead-bass.m4a",
+        "lead_seconds": 129.7
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/jingle-bells/choir.m4a",
+        "seconds": 123.1,
+        "built": true
+      }
+    ],
     "joy-to-the-world": [
       {
         "voice": "soprano",
@@ -7,8 +583,10 @@
         "seconds": 83.0,
         "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
         "play": "recordings/joy-to-the-world/play-soprano.m4a",
-        "play_seconds": 90.2,
-        "tempo": 180
+        "play_seconds": 89.2,
+        "tempo": 180,
+        "lead": "recordings/joy-to-the-world/play-lead-soprano.m4a",
+        "lead_seconds": 90.2
       },
       {
         "voice": "alto",
@@ -16,8 +594,10 @@
         "seconds": 83.0,
         "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
         "play": "recordings/joy-to-the-world/play-alto.m4a",
-        "play_seconds": 90.2,
-        "tempo": 180
+        "play_seconds": 89.2,
+        "tempo": 180,
+        "lead": "recordings/joy-to-the-world/play-lead-alto.m4a",
+        "lead_seconds": 90.2
       },
       {
         "voice": "tenor",
@@ -25,8 +605,10 @@
         "seconds": 83.0,
         "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
         "play": "recordings/joy-to-the-world/play-tenor.m4a",
-        "play_seconds": 90.2,
-        "tempo": 180
+        "play_seconds": 89.2,
+        "tempo": 180,
+        "lead": "recordings/joy-to-the-world/play-lead-tenor.m4a",
+        "lead_seconds": 90.2
       },
       {
         "voice": "bass",
@@ -34,8 +616,172 @@
         "seconds": 83.0,
         "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/joy-to-the-world.musicxml (tools/cantai_scores.py)",
         "play": "recordings/joy-to-the-world/play-bass.m4a",
-        "play_seconds": 90.2,
-        "tempo": 180
+        "play_seconds": 89.2,
+        "tempo": 180,
+        "lead": "recordings/joy-to-the-world/play-lead-bass.m4a",
+        "lead_seconds": 90.2
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/joy-to-the-world/choir.m4a",
+        "seconds": 83.1,
+        "built": true
+      }
+    ],
+    "o-holy-night": [
+      {
+        "voice": "soprano",
+        "file": "recordings/o-holy-night/soprano.m4a",
+        "seconds": 248.5,
+        "tempo": 110,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/o-holy-night.musicxml (tools/cantai_scores.py); the exported soprano file was the four parts summed, so this is that file minus the alto, tenor and bass renders",
+        "play": "recordings/o-holy-night/play-soprano.m4a",
+        "play_seconds": 255.2,
+        "lead": "recordings/o-holy-night/play-lead-soprano.m4a",
+        "lead_seconds": 256.2
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/o-holy-night/alto.m4a",
+        "seconds": 248.5,
+        "tempo": 110,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/o-holy-night.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/o-holy-night/play-alto.m4a",
+        "play_seconds": 255.2,
+        "lead": "recordings/o-holy-night/play-lead-alto.m4a",
+        "lead_seconds": 256.2
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/o-holy-night/tenor.m4a",
+        "seconds": 248.5,
+        "tempo": 110,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/o-holy-night.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/o-holy-night/play-tenor.m4a",
+        "play_seconds": 255.2,
+        "lead": "recordings/o-holy-night/play-lead-tenor.m4a",
+        "lead_seconds": 256.2
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/o-holy-night/bass.m4a",
+        "seconds": 248.5,
+        "tempo": 110,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/o-holy-night.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/o-holy-night/play-bass.m4a",
+        "play_seconds": 255.2,
+        "lead": "recordings/o-holy-night/play-lead-bass.m4a",
+        "lead_seconds": 256.2
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/o-holy-night/choir.m4a",
+        "seconds": 248.5,
+        "built": true
+      }
+    ],
+    "the-first-nowell": [
+      {
+        "voice": "soprano",
+        "file": "recordings/the-first-nowell/soprano.m4a",
+        "seconds": 270.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/the-first-nowell.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/the-first-nowell/play-soprano.m4a",
+        "play_seconds": 276.4,
+        "lead": "recordings/the-first-nowell/play-lead-soprano.m4a",
+        "lead_seconds": 277.4
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/the-first-nowell/alto.m4a",
+        "seconds": 270.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/the-first-nowell.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/the-first-nowell/play-alto.m4a",
+        "play_seconds": 276.4,
+        "lead": "recordings/the-first-nowell/play-lead-alto.m4a",
+        "lead_seconds": 277.4
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/the-first-nowell/tenor.m4a",
+        "seconds": 270.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/the-first-nowell.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/the-first-nowell/play-tenor.m4a",
+        "play_seconds": 276.4,
+        "lead": "recordings/the-first-nowell/play-lead-tenor.m4a",
+        "lead_seconds": 277.4
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/the-first-nowell/bass.m4a",
+        "seconds": 270.9,
+        "tempo": 84,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/the-first-nowell.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/the-first-nowell/play-bass.m4a",
+        "play_seconds": 276.4,
+        "lead": "recordings/the-first-nowell/play-lead-bass.m4a",
+        "lead_seconds": 277.4
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/the-first-nowell/choir.m4a",
+        "seconds": 270.9,
+        "built": true
+      }
+    ],
+    "what-child-is-this": [
+      {
+        "voice": "soprano",
+        "file": "recordings/what-child-is-this/soprano.m4a",
+        "seconds": 113.8,
+        "tempo": 78,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/what-child-is-this.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/what-child-is-this/play-soprano.m4a",
+        "play_seconds": 122.2,
+        "lead": "recordings/what-child-is-this/play-lead-soprano.m4a",
+        "lead_seconds": 123.2
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/what-child-is-this/alto.m4a",
+        "seconds": 113.8,
+        "tempo": 78,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/what-child-is-this.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/what-child-is-this/play-alto.m4a",
+        "play_seconds": 122.2,
+        "lead": "recordings/what-child-is-this/play-lead-alto.m4a",
+        "lead_seconds": 123.2
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/what-child-is-this/tenor.m4a",
+        "seconds": 113.8,
+        "tempo": 78,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/what-child-is-this.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/what-child-is-this/play-tenor.m4a",
+        "play_seconds": 122.2,
+        "lead": "recordings/what-child-is-this/play-lead-tenor.m4a",
+        "lead_seconds": 123.2
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/what-child-is-this/bass.m4a",
+        "seconds": 113.8,
+        "tempo": 78,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/what-child-is-this.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/what-child-is-this/play-bass.m4a",
+        "play_seconds": 122.2,
+        "lead": "recordings/what-child-is-this/play-lead-bass.m4a",
+        "lead_seconds": 123.2
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/what-child-is-this/choir.m4a",
+        "seconds": 113.8,
+        "built": true
       }
     ]
   }

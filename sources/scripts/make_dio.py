@@ -1,4 +1,4 @@
-"""Build data/dio-ci-benedira.json: Dio ci benedirà (the composers), SATB.
+"""Build data/dio-ci-benedira.json: Dio ci benedirà (the composers), SATB a cappella.
 Source: the supplied six-page Finale vector PDF (Maestro font; a local choir,
 a local choir), E♭ major → F major at bar 64, 4/4 with 2/4 bars 87 and 89, 96 bars on four
 staves, one through-composed text. Notes, rhythms, ties and syllables are read by
@@ -82,21 +82,14 @@ def bar_string(voice, m):
     return ' '.join(f"{n['pitch']}:{n['duration']:g}{'~' if n['tie'] else ''}" for n in notes)
 
 
-# All printed bars are kept. No accompaniment is printed, so (at the user's request) an organ part
-# is added: it doubles the four choir parts, and in the instrumental multirest bars it plays
-# printed choir music: intro 1–5 = bars 6–9 + an E♭ chord, 28–29 = bars 6–7, 52–54 = bars 49–51.
-KEEP = list(range(1, LAST + 1))
+# Sung a cappella: no accompaniment is printed, and the bars where nobody sings (the multirests
+# 1–5, 28–29, 52–54 and the rest bar 63 before the key change) are left out.
+SILENT = [m for m in range(1, LAST + 1)
+          if all(t.startswith('R:') for v in VOICES for t in bar_string(v, m).split())]
+KEEP = [m for m in range(1, LAST + 1) if m not in SILENT]
 parts = {v: [bar_string(v, m) for m in KEEP] for v in VOICES}
-lyrics = {v: syllabify(v) for v in VOICES}
-data_no = {m: m for m in KEEP}
-FILL = {1: 6, 2: 7, 3: 8, 4: 9, 28: 6, 29: 7, 52: 49, 53: 50, 54: 51}
-ENDING = {'soprano': 'G4:4', 'alto': 'Eb4:4', 'tenor': 'Bb3:4', 'bass': 'Eb3:4'}  # bar 5: E♭ chord
-organ = {f'organ_{v}': [ENDING[v] if m == 5 else bar_string(v, FILL.get(m, m)) for m in KEEP] for v in VOICES}
-# A tie into a filled bar would break: the organ restarts the note instead.
-for lane in organ.values():
-    for i in range(len(lane) - 1):
-        if lane[i].endswith('~') and (i + 2 in FILL or i + 2 == 5 or i + 1 in FILL or i + 1 == 5):
-            lane[i] = lane[i][:-1]
+lyrics = {v: [row for m, row in enumerate(syllabify(v), 1) if m in KEEP] for v in VOICES}
+data_no = {m: i for i, m in enumerate(KEEP, 1)}
 divisi = sorted({m for m in range(1, LAST + 1) if m not in REST_BARS
                  for n in bars['soprano'][m] if len(n['chord']) > 1})
 
@@ -112,7 +105,9 @@ for page, counts in LAYOUT:
     bands = []
     for s in range(len(counts)):
         top, bottom = staff_tops[4 * s] - 28, staff_tops[4 * s + 3] + 50
-        bands.append((counts[s], max(0, top / height), min(1, bottom / height)))
+        first_bar = measure + sum(counts[:s])
+        kept = sum(m in data_no for m in range(first_bar, first_bar + counts[s]))
+        bands.append((kept, max(0, top / height), min(1, bottom / height)))
     first_kept = next(data_no[m] for m in range(measure, LAST + 1) if m in data_no)
     systems += crop_systems('dio-ci-benedira', PDF, bands, page=page, x=(.07, .97), first=first_kept, start_index=index)
     measure += sum(counts); index += len(counts)
@@ -126,13 +121,12 @@ song = {
     'sources': [{'description': 'Supplied six-page Finale vector PDF (Maestro font), SATB on four staves; all notes and words.'}],
     'review_notes': [
         'Notes, rhythms, ties and syllables read from the vector glyphs with sources/scripts/vector_score.py and compared with every page.',
-        'Printed bars 1–5, 28–29 and 52–54 are multirests for an accompaniment that is not printed. At the user’s request an organ part was added (not printed in the source, arranged here): it doubles the choir throughout and plays choir material in those bars (intro = bars 6–9 + E♭ chord; 28–29 = bars 6–7; 52–54 = bars 49–51).',
+        f'Sung a cappella: printed bars 1–5, 28–29 and 52–54 (multirests for an accompaniment that is not printed) and the rest bar 63 are left out (printed bars {", ".join(map(str, SILENT))}), so data bar numbers are lower than the printed ones. The organ part added earlier was removed.',
         f'The sopranos divide in (printed) bars {", ".join(map(str, divisi))}; the data keeps the upper (melody) note of each printed dyad.',
         'Key change to F major at printed bar 64; printed bars 87 and 89 are printed in 2/4 (shown as short bars, the engraving keeps 4/4).',
         'The score prints no hyphens; word divisions follow the Italian text. Printed elisions (ci.as, qui.il, …) are shown with ‿.',
         'No tempo is printed: quarter = 124 is the default tempo (user choice); the closing “Rall.” is not applied automatically.',
     ],
-    'backing_track': {'instrument': 'organ', 'parts': organ},
     'parts': parts, 'playback': [{'measure': m} for m in range(1, len(KEEP) + 1)],
     'systems': systems,
     'verses': [{'number': 1, 'title': 'Testo', 'lyrics': lyrics}],

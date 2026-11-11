@@ -8,9 +8,15 @@ let anchorTime = 0, anchorBeat = 0, scheduledUntil = 0, timer, playRequest = 0, 
 let sounding = [], activeSystem, displayedSegment = -1, followScore = true;
 const previewNotes = new Map();  // voice → held starting-note handle
 let transpose = 0;  // semitones; every song starts at its printed key
-let lyricSpans = [], zoom = 1, previousTempo = 96;
+let lyricSpans = [], zoom = 1;
 let emphasizedVoice = null, voiceBuses = {}, digitalView = null, digitalKey = '';
-const secondsPerBeat = () => 60 / Number($('tempo').value);
+// Each song plays at its own tempo; "Lento" is the only speed control: 0.75× (piano exactly; the
+// choir time-stretched, same pitch). There is no bpm field.
+const slowRate = .75;
+let slow = false;
+try { slow = localStorage.getItem('score-slow') === '1'; } catch {}
+const playRate = () => slow ? slowRate : 1;
+const secondsPerBeat = () => 60 / ((song?.tempo || 96) * playRate());
 const currentBeat = () => playing ? anchorBeat + (audio.currentTime - anchorTime) / secondsPerBeat() : position;
 const formatTime = seconds => `${Math.floor(seconds / 60)}:${String(Math.floor(seconds % 60)).padStart(2, '0')}`;
 const stanzaLabel = number => t('stanza', {n:number, total:song.verses.length});
@@ -22,9 +28,11 @@ function clearAudio() {
 }
 
 function voiceWeight(voice) {
-  // "X in evidenza": the lead stays at gain 1, the other voices drop to .25 (about −12 dB),
-  // quiet enough to follow the lead yet still heard as a mix.
-  return selected.has(voice) ? (emphasizedVoice && voice !== emphasizedVoice ? .25 : 1) : 0;
+  // "X in evidenza": the lead stays at gain 1, the other voices drop to .25 (about −12 dB) on piano,
+  // quiet enough to follow the lead yet still heard as a mix; sung voices stand out more, so
+  // with the recorded choir the others stay at .4 (about −8 dB, as in the playlists).
+  const others = choirVoices.size ? .4 : .25;
+  return selected.has(voice) ? (emphasizedVoice && voice !== emphasizedVoice ? others : 1) : 0;
 }
 // Organ (backing track) volume from the options sheet: 0–150%, remembered on this device.
 let organVolume = 1, backingKind = 'organ', backingOnly = false;
@@ -76,17 +84,19 @@ function backingTone(note, start, duration) {
    in the printed key; another tempo or a transposition falls back to the piano. They go through the
    same voice buses, so "in evidenza" and solo modes work unchanged. */
 let soundMode = 'choir', choirBuffers = {}, choirSong = null, choirLoading = null, choirSources = [], choirVoices = new Set();
+let slowBuffers = {}, slowLoading = null;
+const choirRate = 32000;  // plenty for voices, and it keeps phone memory low
 const choirLevel = .6;
 function choirAllowed() {
-  return soundMode === 'choir' && !!song?.choir && transpose === 0 && Number($('tempo').value) === song.choir.tempo
+  return soundMode === 'choir' && !!song?.choir && transpose === 0 && song.tempo === song.choir.tempo
     && performanceData?.choirOffset != null;
 }
 function loadChoir() {
   if (!song?.choir) return Promise.resolve();
   if (choirSong === song.id) return choirLoading;
   const id = song.id, Offline = window.OfflineAudioContext || window.webkitOfflineAudioContext;
-  choirSong = id; choirBuffers = {};
-  const decoder = new Offline(1, 1, 48000);
+  choirSong = id; choirBuffers = {}; slowBuffers = {}; slowLoading = null;
+  const decoder = new Offline(1, 1, choirRate);
   choirLoading = Promise.all(Object.entries(song.choir.files).map(async ([voice, file]) => {
     const response = await fetch(file);
     if (!response.ok) throw Error(file);
@@ -94,6 +104,45 @@ function loadChoir() {
     if (choirSong === id) choirBuffers[voice] = buffer;
   })).catch(error => console.error('choir', error));  // missing parts simply stay on piano
   return choirLoading;
+}
+/* Slowed choir: WSOLA time-stretch (40 ms Hann frames, half-frame output hop; each frame is taken
+   within ±10 ms of its nominal place where it best continues the previous one), so the pitch stays
+   and the parts stay aligned to within the search window. Computed once per song, off the beat. */
+async function stretch(input, rate) {
+  const n = Math.round(choirRate * .04) & ~1, hop = n / 2, tolerance = Math.round(choirRate * .01);
+  const pad = tolerance + n, x = new Float32Array(input.length + 2 * pad); x.set(input, pad);
+  const length = Math.ceil(input.length / rate), out = new Float32Array(length + n);
+  const window = new Float32Array(n);
+  for (let i = 0; i < n; i++) window[i] = .5 - .5 * Math.cos(2 * Math.PI * i / n);
+  const similarity = (p, q, step) => { let sum = 0; for (let i = 0; i < hop; i += step) sum += x[p + i] * x[q + i]; return sum; };
+  let previous = pad;
+  for (let k = 0, at = 0; at < length; k++, at += hop) {
+    let pos = pad + Math.round(k * hop * rate);
+    if (k) {
+      const natural = previous + hop;  // the input that would continue the last frame seamlessly
+      let best = pos, score = -Infinity;
+      for (let p = pos - tolerance; p <= pos + tolerance; p += 4) { const s = similarity(p, natural, 8); if (s > score) { score = s; best = p; } }
+      for (let p = best - 3, around = best, top = -Infinity; p <= around + 3; p++) { const s = similarity(p, natural, 2); if (s > top) { top = s; best = p; } }
+      pos = best;
+    }
+    for (let i = 0; i < n; i++) out[at + i] += x[pos + i] * window[i];
+    previous = pos;
+    if (k % 300 === 299) await new Promise(resolve => setTimeout(resolve));
+  }
+  return out.subarray(0, length);
+}
+function loadSlowChoir() {
+  if (slowLoading) return slowLoading;
+  const id = song.id;
+  slowLoading = loadChoir().then(async () => {
+    for (const [voice, buffer] of Object.entries(choirBuffers)) {
+      const data = await stretch(buffer.getChannelData(0), slowRate);
+      if (choirSong !== id) return;
+      const slowed = new AudioBuffer({length:data.length, numberOfChannels:1, sampleRate:choirRate});
+      slowed.copyToChannel(data, 0); slowBuffers[voice] = slowed;
+    }
+  }).catch(error => console.error('slow choir', error));
+  return slowLoading;
 }
 // Beats into the full (all-verses) performance where the current performance starts.
 function choirOffset(data) {
@@ -106,14 +155,15 @@ function choirOffset(data) {
   return same ? full[at].start - first.start : null;
 }
 function startChoir() {
-  choirVoices = new Set(choirAllowed() ? voices.filter(voice => choirBuffers[voice]) : []);
+  const buffers = slow ? slowBuffers : choirBuffers;
+  choirVoices = new Set(choirAllowed() ? voices.filter(voice => buffers[voice]) : []);
   if (!choirVoices.size) return;
-  const beat = 60 / song.choir.tempo, offset = (performanceData.choirOffset + position) * beat;
+  const beat = 60 / (song.choir.tempo * playRate()), offset = (performanceData.choirOffset + position) * beat;
   const remaining = (performanceData.duration - position) * beat;
   // A single verse stops (with a short fade) where the next verse would begin; the end of the song keeps its tail.
   const last = performanceData.choirOffset + performanceData.duration >= song.performance.duration - 1e-6;
   for (const voice of choirVoices) {
-    const buffer = choirBuffers[voice];
+    const buffer = buffers[voice];
     if (offset >= buffer.duration) continue;
     const source = audio.createBufferSource(), gain = audio.createGain();
     source.buffer = buffer; gain.gain.value = choirLevel;
@@ -220,14 +270,14 @@ async function play() {
   starting = true;
   try {
     await startAudio();
-    if (choirAllowed()) await loadChoir();
+    if (choirAllowed()) { await loadChoir(); if (slow) await loadSlowChoir(); }
     if (request !== playRequest) return;
     updateAudioMix();
     if (position >= performanceData.duration) position = 0;
     anchorBeat = position; anchorTime = audio.currentTime + .04; scheduledUntil = position;
     playing = true; starting = false; followScore = true;
     closeSheets();
-    startChoir();
+    startChoir(); updateAudioMix();
     for (const voice of voices) if (!choirVoices.has(voice)) for (const note of performanceData.events[voice]) {
       if (note.start < position && note.start + note.duration > position)
         tone(note, anchorTime, (note.start + note.duration - position) * secondsPerBeat(), voice);
@@ -302,7 +352,6 @@ function chooseSong() {
   $('verse').value = 'all'; renderVerseOptions(); $('verse').value = 'all';
   $('verse').disabled = false;
   transpose = 0; renderTransposeOptions();
-  $('tempo').value = song.tempo; previousTempo = song.tempo;
   zoom = 1; renderScore(); renderDownloads(); preparePerformance(song.performance);
   $('play').disabled = false; $('stop').disabled = false;
   renderLibrary(); renderSummary(); showOrganVolume(); renderSound();
@@ -552,6 +601,16 @@ $('sound').onchange = () => {
   if (soundMode === 'choir') loadChoir();
   if (playing) seek(currentBeat(), true);
 };
+function renderSlow() { $('slow').setAttribute('aria-pressed', String(slow)); }
+$('slow').onclick = () => {
+  const resume = playing; pause();  // keeps the current beat
+  slow = !slow; renderSlow();
+  try { localStorage.setItem('score-slow', slow ? '1' : '0'); } catch {}
+  updatePosition(true);
+  if (slow && choirAllowed()) loadSlowChoir();
+  if (resume) play();
+};
+renderSlow();
 $('play').onclick = play;
 $('stop').onclick = () => seek(0, false);
 $('song').onchange = chooseSong;
@@ -569,14 +628,6 @@ $('score-viewport').addEventListener('pointermove', event => {
 });
 window.addEventListener('pointerup', () => { dragStart = undefined; });
 window.addEventListener('resize', () => { resizeScore(); updatePosition(true); });
-$('tempo').onfocus = () => previousTempo = Number($('tempo').value);
-$('tempo').onchange = () => {
-  const next = Math.max(40, Math.min(220, Number($('tempo').value) || song.tempo));
-  const resume = playing;
-  $('tempo').value = previousTempo;
-  pause(); $('tempo').value = next; previousTempo = next;
-  updatePosition(); renderSummary(); if (resume) play();
-};
 function renderLibrary() {
   $('song-list').replaceChildren(...songs.map((item,index) => {
     const li = document.createElement('li');
@@ -622,11 +673,10 @@ function renderMiniPlayer() {
 document.addEventListener('playlistchange', renderMiniPlayer);
 Playlist.onStart = () => { if (playing || starting) pause(); stopPreviews(); };
 addEventListener('popstate', event => showTab(event.state?.view || 'home', false));
-$('home-button').onclick = () => { showTab('home'); $('home-panel').focus(); };
-$('open-library').onclick = () => { showTab('library'); $('library-panel').focus(); };
-$('open-albums').onclick = () => { showTab('albums'); $('albums-panel').focus(); };
+$('home-button').onclick = () => { showTab('home'); $('home-panel').focus({preventScroll:true}); };
+$('open-library').onclick = () => { showTab('library'); $('library-panel').focus({preventScroll:true}); };
+$('open-albums').onclick = () => { showTab('albums'); $('albums-panel').focus({preventScroll:true}); };
 $('open-booklet').onclick = () => { showTab('booklet'); $('booklet-panel').focus({preventScroll:true}); };
-$('albums-back').onclick = () => { showTab('albums'); $('albums-panel').focus(); };
 function renderTransposeOptions() {
   const options = [];
   for (let n = 6; n >= -6; n--) {
@@ -656,6 +706,14 @@ function closeSheets(except) {
 $('selection-summary').onclick = () => openSheet('selection', !document.body.classList.contains('selection-open'));
 document.querySelectorAll('[data-close]').forEach(button => button.onclick = () => openSheet(button.dataset.close, false));
 document.addEventListener('keydown', event => { if (event.key === 'Escape') closeSheets(); });
+// Desktop: Space plays/pauses the score, or the playlist elsewhere, even when a clicked button
+// keeps the focus (it is not also pressed). Fields, selects, checkboxes and the S/A/T/B keys keep Space.
+document.addEventListener('keydown', event => {
+  if (event.key !== ' ' || event.repeat || event.ctrlKey || event.metaKey || event.altKey) return;
+  if (event.target.closest?.('input:not([type="range"]), select, textarea, [contenteditable], .key')) return;
+  if (view === 'practice') { event.preventDefault(); play(); }
+  else if (Playlist.hasQueue) { event.preventDefault(); Playlist.toggle(); }
+});
 document.addEventListener('pointerdown', event => {
   if (!event.target.closest('.sheet, #selection-summary, .selection')) closeSheets();
 });

@@ -232,3 +232,8 @@ scratch/
 
 # Offline Piper TTS voices for tools/recordings.py build
 .tts/
+
+# Playlist tracks are generated from the parts by tools/recordings.py build: locally, and by the
+# Pages workflow before publishing. Only the parts, the spoken titles and index.json are committed.
+recordings/*/play-*.m4a
+recordings/*/choir.m4a

@@ -21,7 +21,10 @@ const Booklet = (() => {
       const label = document.createElement('label');
       const box = document.createElement('input'); box.type = 'checkbox'; box.checked = chosen.has(id);
       box.onchange = () => { box.checked ? chosen.add(id) : chosen.delete(id); update(); };
-      label.append(box, ` ${byId[id].emoji || '🎵'} ${byId[id].title}`);
+      const icon = document.createElement('span'); icon.className = 'booklet-icon'; icon.setAttribute('aria-hidden', 'true');
+      icon.textContent = byId[id].emoji || '🎵';
+      const title = document.createElement('span'); title.className = 'booklet-title'; title.textContent = byId[id].title;
+      label.append(box, icon, title);
       const handle = document.createElement('span'); handle.className = 'booklet-handle'; handle.textContent = '⠿';
       handle.setAttribute('aria-hidden', 'true'); handle.title = 'Trascina per riordinare';
       handle.onpointerdown = event => drag(event, li, songs);

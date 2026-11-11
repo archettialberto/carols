@@ -20,6 +20,10 @@ one track a voice's playlist plays. It joins separate parts, sample-accurately, 
   3. a metronome count-in at the score's tempo and beat (one bar; two bars when a bar has fewer
      than three beats), both computed from data/<song-id>.json, so the score stays the ground truth;
   4. the recording itself (<voice>.m4a), starting one beat after the last click.
+When all four parts exist it also writes play-lead-<voice>.m4a ("<voice> in evidenza"): the same
+intro, then the four parts mixed with that voice at gain 1 and the others at LEAD_OTHERS (the
+score's choir uses the same balance), and choir.m4a: the four parts at equal level, nothing before
+them, for the "Christmas Carols" album (listening to the whole choir, not rehearsing a part).
 Rerun after adding recordings or changing a song's tempo, metre or first notes.
 Needs ffmpeg, numpy and piper-tts:
     .venv/bin/pip install piper-tts
@@ -42,6 +46,8 @@ PARTS = ('soprano', 'alto', 'tenor', 'bass')
 TITLE_VOICE = {'dio-ci-benedira': 'it_IT-paola-medium'}
 DEFAULT_TITLE_VOICE = 'en_GB-alba-medium'
 RATE = 48000
+LEAD_OTHERS = .4  # "in evidenza" with recorded voices: the others at -8 dB
+PIANO_OTHERS = .25  # with piano parts, as the score's piano emphasis
 AAC = ['-vn', '-map_metadata', '-1', '-ac', '1', '-ar', str(RATE), '-c:a', 'aac', '-b:a', '64k', '-movflags', '+faststart']
 ENCODE = ['-af', 'loudnorm=I=-16:TP=-1.5:LRA=11', *AAC]
 
@@ -74,7 +80,8 @@ def convert(source, song_id, voice, note=None):
     target = ROOT/'recordings'/song_id/f'{voice}.m4a'
     encode(source, target)
     index = load_index()
-    entries = [e for e in index['songs'].get(song_id, []) if e['voice'] != voice]
+    # Generated entries (the whole-choir track) are dropped: `build` recreates them from the parts.
+    entries = [e for e in index['songs'].get(song_id, []) if e['voice'] != voice and not e.get('built')]
     song = json.loads((ROOT/'data'/f'{song_id}.json').read_text())
     # The tempo the recording was made at: the score plays it only at this tempo.
     entry = {'voice': voice, 'file': target.relative_to(ROOT).as_posix(), 'seconds': seconds(target), 'tempo': song['tempo']}
@@ -137,11 +144,46 @@ def spoken_title(song, target, retitle=False):
     return target
 
 
-def track(song, voice, entry, title):
-    """Title, starting note, count-in and recording as one array (the recording starts at its score time 0)."""
+def lead_mix(parts, voice, others=LEAD_OTHERS):
+    """The four parts with `voice` in front, at the loudness of that part alone."""
+    import numpy as np
+    length = max(len(p) for p in parts.values())
+    mix = np.zeros(length)
+    for name, part in parts.items():
+        mix[:len(part)] += part*(1 if name == voice else others)
+    own = parts[voice]
+    rms = lambda x: np.sqrt(np.mean(x[np.abs(x) > .02*np.abs(x).max()]**2))
+    mix *= 1.15*rms(own)/rms(mix)
+    return mix/max(1, np.abs(mix).max()/.97)
+
+
+def sung_span(song, voice):
+    """Seconds from the start of the first bar where `voice` sings to the end of its last such bar
+    (all verses): a solo track skips the bars before and after, where the voice has nothing to sing."""
+    from music import performance
+    perf = performance(song, 'all')
+    events = perf['events'][voice]
+    if not events:
+        return 0, None
+    first, last = events[0]['start'], max(e['start'] + e['duration'] for e in events)
+    start = max(b['start'] for b in perf['bars'] if b['start'] <= first)
+    end = min((b['start'] + b['duration'] for b in perf['bars'] if b['start'] + b['duration'] >= last - 1e-9),
+              default=perf['duration'])
+    spb = 60/song['tempo']
+    return start*spb, end*spb
+
+
+def track(song, voice, entry, title, recording=None, trim=False):
+    """Title, starting note, count-in and recording as one array (the recording starts at its score
+    time 0, or with `trim` at the voice's first sung bar, ending 2 s after its last one)."""
     import numpy as np
     from music import performance
-    recording = decode(ROOT/entry['file'])
+    if recording is None:
+        recording = decode(ROOT/entry['file'])
+    if trim:
+        start, end = sung_span(song, voice)
+        tail = None if end is None else round((end + 2)*RATE)
+        recording = recording[round(start*RATE):tail]
     loud = recording[np.abs(recording) > .02*np.abs(recording).max()]
     level = np.sqrt(np.mean(loud**2)) if len(loud) else .1
     speech = decode(title)
@@ -159,6 +201,38 @@ def track(song, voice, entry, title):
     return np.concatenate([gap(.15), speech, gap(.45), tone, gap(.35), lead, recording]).clip(-1, 1)
 
 
+def piano(song_id):
+    """Parts played by the app's piano, for songs no singing synthesizer can sing (Italian): each
+    voice of the all-verses performance at the score's tempo, converted like a recording and marked
+    "piano" (the interactive score keeps its own live piano for these)."""
+    import numpy as np
+    import wave
+    from music import load_songs, performance
+    song = next(s for s in load_songs() if s['id'] == song_id)
+    spb = 60/song['tempo']
+    perf = performance(song, 'all')
+    length = round((perf['duration']*spb + 2.5)*RATE)
+    for voice in PARTS:
+        out = np.zeros(length)
+        for event in perf['events'][voice]:
+            held = event['duration']*spb
+            tone = piano_tone(event['midi'], held + .4, held)
+            at = round(event['start']*spb*RATE)
+            out[at:at+len(tone)] += tone[:length-at]
+        out /= max(1e-9, np.abs(out).max()/.9)
+        with tempfile.TemporaryDirectory() as tmp:
+            path = pathlib.Path(tmp)/f'{voice}.wav'
+            with wave.open(str(path), 'wb') as w:
+                w.setnchannels(1); w.setsampwidth(2); w.setframerate(RATE)
+                w.writeframes((out*32767).astype('<i2').tobytes())
+            print(convert(path, song_id, voice, "piano: the app's synthesized piano, from the score").relative_to(ROOT))
+        index = load_index()
+        for entry in index['songs'][song_id]:
+            if entry['voice'] == voice:
+                entry['piano'] = True
+        save_index(index)
+
+
 def build(retitle=False):
     import numpy as np
     from music import load_songs
@@ -168,21 +242,41 @@ def build(retitle=False):
         for song_id, entries in index['songs'].items():
             song = songs[song_id]
             for entry in entries:
-                entry['seconds'] = seconds(ROOT/entry['file'])
+                if (ROOT/entry['file']).exists():
+                    entry['seconds'] = seconds(ROOT/entry['file'])
             title = spoken_title(song, ROOT/'recordings'/song_id/'title.m4a', retitle)
+            parts = {e['voice']: decode(ROOT/e['file']) for e in entries if e['voice'] in PARTS}
+            entries[:] = [e for e in entries if e['voice'] != 'choir']
+            if len(parts) == len(PARTS) and not any('transpose' in e for e in entries):
+                length = max(len(p) for p in parts.values())
+                mix = sum(np.pad(p, (0, length - len(p))) for p in parts.values())
+                raw = pathlib.Path(tmp)/'choir.f32'
+                raw.write_bytes((mix/max(1, np.abs(mix).max())).astype(np.float32).tobytes())
+                target = ROOT/'recordings'/song_id/'choir.m4a'
+                # Same loudness as every part (-16 LUFS); no title, note or count-in.
+                subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-f', 'f32le', '-ar', str(RATE),
+                                '-ac', '1', '-i', str(raw), *ENCODE, str(target)], check=True)
+                entries.append({'voice': 'choir', 'file': target.relative_to(ROOT).as_posix(), 'seconds': seconds(target), 'built': True})
+                print(target.relative_to(ROOT), f'{entries[-1]["seconds"]}s')
             for entry in entries:
                 if entry['voice'] not in PARTS:
                     continue
-                samples = track(song, entry['voice'], entry, title)
-                raw = pathlib.Path(tmp)/'track.f32'
-                raw.write_bytes(samples.astype(np.float32).tobytes())
-                target = ROOT/'recordings'/song_id/f'play-{entry["voice"]}.m4a'
-                subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-f', 'f32le', '-ar', str(RATE),
-                                '-ac', '1', '-i', str(raw), *AAC, str(target)], check=True)
-                entry['play'] = target.relative_to(ROOT).as_posix()
-                entry['play_seconds'] = seconds(target)
-                beat, _, clicks = count_in(song)
-                print(target.relative_to(ROOT), f'{entry["play_seconds"]}s;', clicks, f'clicks at {60/beat:.0f}/min')
+                kinds = [('play', parts[entry['voice']])]
+                if len(parts) == len(PARTS) and 'transpose' not in entry:
+                    others = PIANO_OTHERS if entry.get('piano') else LEAD_OTHERS
+                    kinds.append(('lead', lead_mix(parts, entry['voice'], others)))
+                for kind, recording in kinds:
+                    # Solo tracks skip the bars at the start and end where the voice is silent.
+                    samples = track(song, entry['voice'], entry, title, recording, trim=kind == 'play')
+                    raw = pathlib.Path(tmp)/'track.f32'
+                    raw.write_bytes(samples.astype(np.float32).tobytes())
+                    target = ROOT/'recordings'/song_id/(f'play-{entry["voice"]}.m4a' if kind == 'play' else f'play-lead-{entry["voice"]}.m4a')
+                    subprocess.run(['ffmpeg', '-hide_banner', '-loglevel', 'error', '-y', '-f', 'f32le', '-ar', str(RATE),
+                                    '-ac', '1', '-i', str(raw), *AAC, str(target)], check=True)
+                    entry[kind] = target.relative_to(ROOT).as_posix()
+                    entry[f'{kind}_seconds'] = seconds(target)
+                    beat, _, clicks = count_in(song)
+                    print(target.relative_to(ROOT), f'{entry[f"{kind}_seconds"]}s;', clicks, f'clicks at {60/beat:.0f}/min')
     save_index(index)
 
 
@@ -191,10 +285,14 @@ if __name__ == '__main__':
     commands = parser.add_subparsers(dest='command', required=True)
     c = commands.add_parser('convert')
     c.add_argument('input'); c.add_argument('song_id'); c.add_argument('voice'); c.add_argument('--source')
+    p = commands.add_parser('piano', help='parts played by the app piano (songs Cantai cannot sing)')
+    p.add_argument('song_id')
     b = commands.add_parser('build')
     b.add_argument('--retitle', action='store_true', help='remake the spoken titles')
     args = parser.parse_args()
     if args.command == 'convert':
         print(convert(args.input, args.song_id, args.voice, args.source).relative_to(ROOT))
+    elif args.command == 'piano':
+        piano(args.song_id)
     else:
         build(args.retitle)
