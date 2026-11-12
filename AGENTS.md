@@ -219,6 +219,9 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   are served. Generated tracks (`play-*.m4a`, `play-lead-*.m4a`, `choir.m4a`) are gitignored to keep
   the repository small: the Pages workflow installs ffmpeg + numpy and runs the build before the tests
   and `build_static.py`. Commit the parts, `title.m4a` (no TTS in CI) and `recordings/index.json`.
+  The build skips a song whose inputs (parts, title, data, `tools/recordings.py`) match the fingerprint
+  in `recordings/<song>/.build` and whose tracks exist; the workflow keeps the tracks in `actions/cache`,
+  so a publish rebuilds only changed songs.
 - Cantai sings Italian too (experimental, since late 2026; MuseScore Studio ≥ 4.6.5, MuseHub ≥ 3.0): the
   language is chosen in the Cantai window under the singer's name and applies to the whole score.
   Until Dio ci benedirà has a Cantai render, its playlists use piano parts.

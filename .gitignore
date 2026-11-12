@@ -237,3 +237,4 @@ scratch/
 # Pages workflow before publishing. Only the parts, the spoken titles and index.json are committed.
 recordings/*/play-*.m4a
 recordings/*/choir.m4a
+recordings/*/.build

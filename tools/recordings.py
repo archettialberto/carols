@@ -30,6 +30,7 @@ Needs ffmpeg, numpy and piper-tts:
     .venv/bin/python -m piper.download_voices --data-dir .tts en_GB-alba-medium it_IT-paola-medium
 """
 import argparse
+import hashlib
 import json
 import math
 import pathlib
@@ -233,6 +234,21 @@ def piano(song_id):
         save_index(index)
 
 
+def fingerprint(song, entries):
+    """Hash of everything a song's built tracks depend on: its parts, title, data and this script."""
+    h = hashlib.sha256()
+    for path in sorted({ROOT/e['file'] for e in entries if e['voice'] != 'choir'}) + [
+            ROOT/'recordings'/song['id']/'title.m4a', ROOT/'data'/f"{song['id']}.json", pathlib.Path(__file__)]:
+        h.update(path.name.encode()); h.update(path.read_bytes() if path.exists() else b'-')
+    return h.hexdigest()
+
+
+def built(song_id, entries):
+    """The generated files a song's index entries name (play, lead, choir)."""
+    files = [e['file'] for e in entries if e['voice'] == 'choir'] + [e[k] for e in entries for k in ('play', 'lead') if k in e]
+    return files and all((ROOT/f).exists() for f in files)
+
+
 def build(retitle=False):
     import numpy as np
     from music import load_songs
@@ -241,6 +257,11 @@ def build(retitle=False):
     with tempfile.TemporaryDirectory() as tmp:
         for song_id, entries in index['songs'].items():
             song = songs[song_id]
+            # Unchanged inputs and tracks already there (locally, or restored from the CI cache): skip.
+            stamp, digest = ROOT/'recordings'/song_id/'.build', fingerprint(song, entries)
+            if not retitle and stamp.exists() and stamp.read_text() == digest and built(song_id, entries):
+                print(song_id, 'unchanged')
+                continue
             for entry in entries:
                 if (ROOT/entry['file']).exists():
                     entry['seconds'] = seconds(ROOT/entry['file'])
@@ -277,6 +298,7 @@ def build(retitle=False):
                     entry[f'{kind}_seconds'] = seconds(target)
                     beat, _, clicks = count_in(song)
                     print(target.relative_to(ROOT), f'{entry[f"{kind}_seconds"]}s;', clicks, f'clicks at {60/beat:.0f}/min')
+            stamp.write_text(digest)
     save_index(index)
 
 

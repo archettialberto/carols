@@ -27,6 +27,16 @@ jobs:
       # from the committed parts and spoken titles, exactly as `tools/recordings.py build` does locally.
       - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends ffmpeg
       - run: pip install numpy
+      # Built tracks are cached between runs; the build redoes only songs whose parts, title, data or
+      # build script changed (a fingerprint per song in recordings/<song>/.build).
+      - uses: actions/cache@v4
+        with:
+          path: |
+            recordings/*/play-*.m4a
+            recordings/*/choir.m4a
+            recordings/*/.build
+          key: tracks-${{ hashFiles('recordings/**/*.m4a', 'data/*.json', 'tools/recordings.py') }}
+          restore-keys: tracks-
       - run: python tools/recordings.py build
       # Validates every song, then writes site/ (the committed PDFs are reused, no browser needed).
       - run: python -m unittest discover -s tests
