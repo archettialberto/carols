@@ -261,13 +261,18 @@ const Playlist = (() => {
     navigator.mediaSession.metadata = new MediaMetadata({title:step.item.title, artist:status,
       album:'Christmas Carol Choir', artwork:[{src, sizes:'512x512', type:'image/png'}]});
   }
-  if ('mediaSession' in navigator) {
+  // iOS reads these only once the <audio> is "Now Playing", and falls back to its own ±10 s otherwise:
+  // they are registered again on every 'playing' (with the seek actions explicitly cleared).
+  function registerActions() {
+    if (!('mediaSession' in navigator)) return;
     const actions = {play:resume, pause, previoustrack:previous, nexttrack:next,
       seekto:details => { media.currentTime = details.seekTime; },
       // No ±10 s: without these handlers the lock screen shows previous / play-pause / next.
       seekbackward:null, seekforward:null};
     for (const [action, handler] of Object.entries(actions)) { try { navigator.mediaSession.setActionHandler(action, handler); } catch {} }
   }
+  registerActions();
+  media.addEventListener('playing', registerActions);
 
   el('playlist-play').onclick = toggleQueue;
   const toggle = () => media.paused ? resume() : pause();
