@@ -20,7 +20,7 @@ also offline after the first visit.
 
 - **Home** offers three choices; the top **Home** button (or the back gesture) returns there.
 - **Spartiti interattivi**: the song list. Tap a song to rehearse it.
-- **Playlist**: **Christmas Carols** 🎄 plays the whole choir, song after song; then one album per voice (Soprani 🌸, Contralti ☀️, Tenori 🍂, Bassi ❄️) and one per
+- **Playlist**: **Christmas Carols** 🎄 plays the whole choir, song after song; then one album per voice (Soprani 🌸, Contralti 🌞, Tenori 🍂, Bassi ⛄) and one per
   voice *in evidenza* (the whole choir with that voice in front). Drag songs to reorder, then
   play: each song starts with its spoken title, first note and a count-in, then the music.
   Playback continues with the screen locked.

@@ -99,7 +99,7 @@ systems += crop_systems('o-holy-night', PDF, [(6, .05, .23), (8, .27, .47), (7, 
                         page=1, x=(.06, .97), first=23, start_index=4)
 
 song = {
-    'id': 'o-holy-night', 'title': 'O Holy Night', 'emoji': '✨',
+    'id': 'o-holy-night', 'title': 'O Holy Night', 'emoji': '🌃',
     'composer': 'the composer; words the authors, tr. the authors', 'arranger': 'an online edition',
     'meter': [6, 8], 'key_fifths': -5, 'tempo': 110,
     'source_pdf': PDF,

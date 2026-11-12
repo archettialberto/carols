@@ -186,3 +186,15 @@ class LibraryTest(unittest.TestCase):
 
 
 if __name__=='__main__': unittest.main()
+
+
+class EmojiTest(unittest.TestCase):
+    def test_emojis_need_no_variation_selector(self):
+        """Emojis whose default is text (🕯️, ☀️, ❄️, 🖨️) need U+FE0F and draw off-centre or as text
+        on some phones: songs, albums and the home cards use colour-by-default emojis only."""
+        import pathlib
+        root = pathlib.Path(__file__).resolve().parent.parent
+        emojis = [s['emoji'] for s in load_songs()]
+        self.assertEqual(len(emojis), len(set(emojis)), 'song emojis must be unique')
+        for text in [*emojis, (root/'web'/'playlist.js').read_text(), (root/'web'/'index.html').read_text()]:
+            self.assertNotIn('️', text)

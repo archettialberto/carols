@@ -5,7 +5,7 @@
 :root {
   color-scheme:light;
   --paper:#f6f0e1; --surface:#fffaf0; --ink:#22352c; --muted:#6a6650;
-  --border:#dccfae; --soft:#f0e7d0; --accent:#2f5a43; --on-accent:#fffaf0;
+  --border:#dccfae; --soft:#f0e7d0; --sheet:#ebdfc1; --accent:#2f5a43; --on-accent:#fffaf0;
   --berry:#9b3a31; --gold:#a8832f; --dock:#fffaf0f2; --score-paper:#fffdf7;
   --score-ink:#22352c; --score-active:#1f6a3f; --score-lead:#8a4e1d;
   --error-bg:#fbe8d5; --error-ink:#743c13; --shadow:0 10px 32px #3a2b1029;
@@ -16,7 +16,7 @@
 :root[data-theme=dark] {
   color-scheme:dark;
   --paper:#101714; --surface:#19231f; --ink:#f3ead6; --muted:#b9b09e;
-  --border:#3e4b45; --soft:#24312b; --accent:#8fc29e; --on-accent:#0d2117;
+  --border:#3e4b45; --soft:#24312b; --sheet:#2a3a32; --accent:#8fc29e; --on-accent:#0d2117;
   --berry:#e78d86; --gold:#e0bd70; --dock:#151f1bf2; --score-paper:#1d2723;
   --score-ink:#f5ecd8; --score-active:#9bddad; --score-lead:#f0c67d;
   --error-bg:#492b26; --error-ink:#ffd3c2; --shadow:0 14px 38px #000a;
@@ -33,8 +33,10 @@ label { font-size:12px; display:flex; flex-direction:column; gap:5px; font-weigh
 input,select,button { font:inherit; }
 select,input[type=number] { color:var(--ink); border:1px solid var(--border); border-radius:8px; background:var(--surface); padding:8px 10px; min-height:44px; font-size:16px; max-width:100%; font-weight:500; }
 select { width:100%; }
-button { min-height:44px; min-width:44px; padding:8px 12px; border:1px solid var(--border); background:var(--surface); border-radius:8px; cursor:pointer; color:var(--accent); touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
-button.primary { background:var(--accent); color:var(--on-accent); border-color:var(--accent); min-width:116px; font-weight:600; }
+/* One button look everywhere: 44px, 8px corners, thin border, cream (green when primary), normal weight.
+   Only the S/A/T/B piano keys and the cards (home, covers, song rows) differ on purpose. */
+button { min-height:44px; min-width:44px; padding:8px 12px; font-weight:500; border:1px solid var(--border); background:var(--surface); border-radius:8px; cursor:pointer; color:var(--accent); touch-action:manipulation; -webkit-tap-highlight-color:transparent; }
+button.primary { background:var(--accent); color:var(--on-accent); border-color:var(--accent); min-width:116px; }
 button:disabled { opacity:.4; cursor:default; }
 button:hover:enabled { filter:brightness(.97); }
 button:focus-visible,select:focus-visible,input:focus-visible,a:focus-visible,[tabindex]:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
@@ -50,7 +52,7 @@ a { color:var(--accent); text-underline-offset:3px; }
 .brand > span:last-child { transform:translateY(3px); }
 .brand-icon { display:grid; place-items:center; width:34px; height:34px; flex-shrink:0; border-radius:9px; background:#24563b; font:22px/1 system-ui,sans-serif; box-shadow:inset 0 0 0 1px #ffffff20; }
 .library-back, .theme-button { height:44px; min-height:44px; box-sizing:border-box; }
-.library-back { display:inline-flex; align-items:center; gap:4px; padding:0 14px 0 10px; font-weight:650; }
+.library-back { display:inline-flex; align-items:center; gap:6px; padding:0 12px; }
 .library-back span[aria-hidden] { font-size:22px; line-height:0; vertical-align:-1px; }
 .theme-button { width:44px; border:1px solid var(--border); background:var(--surface); color:var(--ink); font-size:21px; }
 
@@ -58,7 +60,7 @@ a { color:var(--accent); text-underline-offset:3px; }
 .sheet { z-index:30; background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); padding:14px 16px 16px; }
 .sheet-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; }
 .sheet-heading h2 { font:400 20px var(--title); }
-.sheet-close { min-width:40px; min-height:40px; border:0; background:transparent; color:var(--muted); font-size:16px; }
+.sheet-close { font-size:16px; }
 main { position:relative; }
 
 /* Song, verse and voice. */
@@ -81,7 +83,8 @@ main { position:relative; }
 .score-title h2 { font:400 18px var(--title); white-space:nowrap; }
 #section-name { font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 .line-nav { display:flex; gap:4px; flex-shrink:0; }
-.line-nav button, .icon-link { font-size:21px; padding:0; min-width:42px; min-height:42px; background:transparent; }
+.line-nav button, .icon-link { font-size:20px; padding:0; }
+.icon-link { display:grid; place-items:center; box-sizing:border-box; min-width:44px; min-height:44px; border:1px solid var(--border); border-radius:8px; background:var(--surface); color:var(--accent); }
 .icon-link { display:grid; place-items:center; border:1px solid var(--border); border-radius:8px; color:var(--accent); }
 .icon-link svg { width:21px; height:21px; }
 .icon-link:hover { background:var(--soft); }
@@ -125,7 +128,7 @@ main { position:relative; }
 .library-heading { display:flex; align-items:baseline; justify-content:space-between; margin:26px 0 14px; }
 .library-heading h2 { font:400 30px var(--title); }
 .alphabetical { color:var(--gold); font:15px var(--title); letter-spacing:2px; }
-#song-list { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+#song-list, #playlist-tracks { list-style:none; margin:0; padding:0; border-top:1px solid var(--border); }
 .song-card { display:flex; align-items:center; gap:14px; text-align:left; width:100%; padding:16px 18px; background:var(--surface); border:1px solid var(--border); border-radius:12px; color:var(--ink); }
 .song-card:hover:enabled { border-color:var(--gold); filter:none; }
 .song-card[aria-current=true] { border-color:var(--accent); }
@@ -144,22 +147,23 @@ body.library-open main { padding-bottom:40px; }
   .topbar::after { display:none; }
   .brand { font-size:17px; gap:6px; white-space:nowrap; }
   .brand-icon { width:28px; height:28px; border-radius:7px; font-size:18px; }
-  .library-back { padding:0 12px 0 8px; font-size:14px; }
+  .library-back { padding:0 10px; }
   .selection { position:fixed; left:8px; right:8px; width:auto; margin:0; max-height:82vh; overflow:auto; top:calc(8px + env(safe-area-inset-top)); bottom:auto; }
-  .selection { display:none; z-index:30; background:var(--surface); border:1px solid var(--border); border-radius:14px; box-shadow:var(--shadow); padding:12px 14px 16px; grid-template-columns:1fr 1fr; gap:12px; }
+  /* The options sheet is parchment-darker (lighter green in dark mode) with a gold edge, so it never
+     blends with the score paper behind it. */
+  .selection { display:none; z-index:30; background:var(--sheet); border:1px solid var(--gold); border-radius:14px; box-shadow:var(--shadow); padding:12px 14px 16px; grid-template-columns:1fr 1fr; gap:12px; }
   body.selection-open .selection { display:grid; }
   .selection .sheet-heading { display:flex; grid-column:1/-1; }
   .song-label { grid-column:1/-1; }
   #selection-summary { display:grid; grid-template-columns:minmax(0,1fr) auto; grid-template-rows:auto auto; column-gap:8px; width:100%; text-align:left; margin:0 0 8px; padding:6px 12px; min-height:48px; color:var(--ink); }
   #summary-song { font:400 18px/1.15 var(--title); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
   #summary-detail { grid-row:2; font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-  .summary-options { grid-row:1/3; grid-column:2; align-self:center; padding:6px 10px; border-radius:999px; background:var(--accent); color:var(--on-accent); font-size:13px; font-weight:650; white-space:nowrap; }
+  .summary-options { grid-row:1/3; grid-column:2; align-self:center; padding:6px 10px; border-radius:999px; background:var(--accent); color:var(--on-accent); font-size:13px; font-weight:500; white-space:nowrap; }
   .score-heading { padding:2px 4px 2px 10px; }
   .score-title { flex-direction:column; gap:0; }
   .score-title h2 { font-size:15px; }
   #section-name { font-size:11px; max-width:42vw; }
   .line-nav { gap:0; }
-  .line-nav button, .icon-link { min-width:40px; min-height:40px; font-size:19px; }
   .lyrics-panel { padding:8px 12px 10px; }
   .lyric-text { font-size:20px; line-height:1.6; }
   .player-dock { padding-top:6px; padding-bottom:calc(6px + env(safe-area-inset-bottom)); }
@@ -168,7 +172,6 @@ body.library-open main { padding-bottom:40px; }
   button.primary { min-width:0; flex:1; max-width:150px; }
   .progress { gap:8px; margin-top:4px; }
   #time { min-width:0; font-size:11px; }
-  #song-list { grid-template-columns:1fr; gap:10px; }
   .song-card { padding:12px 14px; gap:12px; }
   .song-icon { width:40px; height:40px; font-size:22px; }
   .song-title { font-size:19px; }
@@ -262,13 +265,14 @@ body.library-open main { padding-bottom:40px; }
 .track-title { font:400 20px/1.15 var(--title); overflow-wrap:anywhere; }
 .track-detail { font-size:12px; color:var(--muted); }
 /* "Lento" (0.75×) toggles, in the score dock and the mini player. */
-.slow-toggle { flex:none; font-weight:600; }
+.slow-toggle { flex:none; }
 .slow-toggle[aria-pressed="true"] { background:var(--accent); border-color:var(--accent); color:var(--on-accent); }
 
 /* Mini player for the recordings (home, albums, playlist). */
 .mini-player { position:fixed; z-index:20; bottom:0; left:0; right:0; padding:8px max(16px,env(safe-area-inset-right)) calc(8px + env(safe-area-inset-bottom)) max(16px,env(safe-area-inset-left)); background:var(--dock); border-top:1px solid var(--border); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px); }
 .mini-inner { max-width:1052px; margin:auto; display:grid; grid-template-columns:auto minmax(0,1fr) auto; grid-template-rows:auto auto; column-gap:12px; row-gap:4px; align-items:center; }
 #mini-cover { grid-row:1; }
+.mini-copy, #mini-cover { cursor:pointer; }
 .mini-copy { display:flex; flex-direction:column; gap:2px; min-width:0; }
 #mini-title { font:400 18px/1.15 var(--title); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
 #mini-status { font-size:12px; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
@@ -294,7 +298,6 @@ body.mini-open main { padding-bottom:130px; }
   .track-title { font-size:18px; }
   .cover-small { width:46px; font-size:20px; }
   .mini-buttons { gap:4px; }
-  .mini-buttons button:not(.primary) { min-width:40px; padding:6px; }
   #mini-play { min-width:50px; flex:none; }
   #mini-time { min-width:0; font-size:11px; }
   body.mini-open main { padding-bottom:124px; }

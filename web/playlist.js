@@ -11,7 +11,7 @@ const Playlist = (() => {
   const albumVoices = ['choir', ...parts, ...parts.map(voice => `lead-${voice}`)];
   const partOf = album => album.replace(/^lead-/, '');
   // One emoji per voice, none shared with a song: the four seasons, high to low.
-  const albumEmoji = {soprano:'🌸', alto:'☀️', tenor:'🍂', bass:'❄️'};
+  const albumEmoji = {soprano:'🌸', alto:'🌞', tenor:'🍂', bass:'⛄'};
   const voiceName = voice => t({soprano:'albumSoprano', alto:'albumAlto', tenor:'albumTenor', bass:'albumBass'}[voice]);
   const albumName = album => album === 'choir' ? t('albumChoir')
     : album.startsWith('lead-') ? `${voiceName(partOf(album))} ${t('inEvidence')}` : voiceName(album);
@@ -264,8 +264,8 @@ const Playlist = (() => {
   if ('mediaSession' in navigator) {
     const actions = {play:resume, pause, previoustrack:previous, nexttrack:next,
       seekto:details => { media.currentTime = details.seekTime; },
-      seekbackward:details => { media.currentTime = Math.max(0, media.currentTime - (details.seekOffset || 10)); },
-      seekforward:details => { media.currentTime = Math.min(media.duration || 0, media.currentTime + (details.seekOffset || 10)); }};
+      // No ±10 s: without these handlers the lock screen shows previous / play-pause / next.
+      seekbackward:null, seekforward:null};
     for (const [action, handler] of Object.entries(actions)) { try { navigator.mediaSession.setActionHandler(action, handler); } catch {} }
   }
 
@@ -273,6 +273,17 @@ const Playlist = (() => {
   const toggle = () => media.paused ? resume() : pause();
   el('mini-play').onclick = toggle;
   el('mini-next').onclick = next;
+  // As in music apps: tapping the playing song opens its playlist; × ends the playback.
+  const openQueue = () => { if (!queueVoice) return; voice = queueVoice; render(); showTab('playlist'); };
+  el('mini-cover').onclick = openQueue; el('mini-copy').onclick = openQueue;
+  function close() {
+    if (!steps.length) return;
+    media.pause(); media.removeAttribute('src'); media.load();
+    steps = []; index = 0; queueVoice = null;
+    if ('mediaSession' in navigator) { navigator.mediaSession.metadata = null; navigator.mediaSession.playbackState = 'none'; }
+    updateNowPlaying(); markCurrent(); renderPlayButton();
+  }
+  el('mini-close').onclick = close;
   el('mini-previous').onclick = previous;
   el('mini-seek').oninput = () => { media.currentTime = Number(el('mini-seek').value); };
 
@@ -282,7 +293,7 @@ const Playlist = (() => {
     data = await response.json(); renderAlbums();
   }
   return {
-    load:load_, render, renderAlbums, pause, toggle,
+    load:load_, render, renderAlbums, pause, toggle, close, cover,
     get hasQueue() { return steps.length > 0; },
     get playing() { return !media.paused; },
     set onStart(callback) { onStart = callback; },

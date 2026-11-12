@@ -38,7 +38,7 @@ with sync_playwright() as p:
         page.locator('.album-card').nth(7).click()  # Tenori in evidenza
         assert page.locator('#playlist-title').inner_text() == 'Tenori in evidenza'
         assert page.locator('#albums-back, #playlist-all, .playlist-hint, #playlist-tracks input').count() == 0
-        titles = page.locator('.track-title').all_text_contents()
+        titles = page.locator('#playlist-tracks .track-title').all_text_contents()
         assert titles == sorted(titles, key=str.casefold) and 'Joy to the World' in titles and 'Carol of the Bells' in titles
         page.locator('#playlist-play').click()
         page.wait_for_function('!document.getElementById("mini-player").hidden')
@@ -48,15 +48,15 @@ with sync_playwright() as p:
         page.locator('#mini-next').click()
         assert page.evaluate('document.documentElement.scrollWidth <= innerWidth'), 'horizontal page scroll'
         if shots: page.screenshot(path=f'{shots}/playlist-{width}.png', full_page=True)
-        # Starting the interactive score pauses the recordings; the score has its own dock.
+        # The playing playlist stays in the song list; opening a score ends it (the score has its own dock).
         page.locator('#home-button').click(); page.locator('#open-library').click()
-        assert page.locator('#mini-player').is_hidden()
-        page.locator('.song-card').first.click(); page.locator('#play').click()
-        assert page.evaluate('Playlist.playing') is False
+        assert page.locator('#mini-player').is_visible()
+        page.locator('#song-list .track-play').first.click(); page.locator('#play').click()
+        assert page.evaluate('Playlist.playing') is False and page.evaluate('Playlist.hasQueue') is False
         page.go_back(); page.go_back()
-        assert page.locator('#home-panel').is_visible() and page.locator('#mini-player').is_visible()
+        assert page.locator('#home-panel').is_visible() and page.locator('#mini-player').is_hidden()
         # A song with recorded parts plays the choir in the score; another tempo or key falls back to piano.
-        page.locator('#open-library').click(); page.locator('.song-card', has_text='Joy to the World').click()
+        page.locator('#open-library').click(); page.locator('#song-list .track-play', has_text='Joy to the World').click()
         page.wait_for_function('song.id === "joy-to-the-world" && Object.keys(choirBuffers).length === 4', timeout=20000)
         assert page.evaluate("!$('sound-control').hidden && $('sound').value === 'choir'")
         page.locator('#play').click(); page.wait_for_timeout(400)

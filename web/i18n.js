@@ -37,7 +37,7 @@ const messages = {
     playAll:'Riproduci', playChosen:'Riproduci', noRecordings:'Nessuna registrazione per questa voce.',
     voiceAll:'Tutto il coro', voiceTenorBass:'Tenori e bassi',
     stepOf:'{n} di {total}', recordingCount:'{n} registrazioni', recordingOne:'1 registrazione',
-    previousSong:'Brano precedente', nextSong:'Brano successivo', playFrom:'Riproduci da {title}', dragToSort:'Trascina per riordinare',
+    stopPlaylist:'Interrompi la riproduzione', previousSong:'Brano precedente', nextSong:'Brano successivo', playFrom:'Riproduci da {title}', dragToSort:'Trascina per riordinare',
     loadError:'Impossibile caricare i brani.', noScores:'Nessuno spartito disponibile.',
   },
 };

@@ -629,16 +629,22 @@ $('score-viewport').addEventListener('pointermove', event => {
 window.addEventListener('pointerup', () => { dragStart = undefined; });
 window.addEventListener('resize', () => { resizeScore(); updatePosition(true); });
 function renderLibrary() {
+  // The same rows as the playlists: cover with the emoji, title and length.
+  const clock = s => `${Math.floor(s / 60)}:${String(Math.round(s % 60)).padStart(2, '0')}`;
   $('song-list').replaceChildren(...songs.map((item,index) => {
-    const li = document.createElement('li');
-    const button = document.createElement('button'); button.className = 'song-card'; button.type = 'button';
+    const li = document.createElement('li'); li.className = 'track-row';
+    if (item.id === song?.id) li.classList.add('current');
+    const button = document.createElement('button'); button.className = 'track-play'; button.type = 'button';
     if (item.id === song?.id) button.setAttribute('aria-current','true');
-    const icon = document.createElement('span'); icon.className = 'song-icon'; icon.textContent = item.emoji || '🎵'; icon.setAttribute('aria-hidden','true');
-    const copy = document.createElement('span'); copy.className = 'song-copy';
-    const title = document.createElement('span'); title.className = 'song-title'; title.textContent = item.title;
-    const arrow = document.createElement('span'); arrow.className = 'song-arrow'; arrow.textContent = '›'; arrow.setAttribute('aria-hidden','true');
-    copy.append(title); button.append(icon,copy,arrow);
+    // Exactly the Christmas Carols playlist's cover: evergreen with the faint tree behind.
+    const cover = Playlist.cover(item, 'cover cover-small', 'choir'); cover.setAttribute('aria-hidden','true');
+    const copy = document.createElement('span'); copy.className = 'track-copy';
+    const title = document.createElement('span'); title.className = 'track-title'; title.textContent = item.title;
+    const detail = document.createElement('span'); detail.className = 'track-detail';
+    detail.textContent = clock(item.performance.duration * 60 / (item.tempo || 96));
+    copy.append(title, detail); button.append(cover, copy);
     button.onclick = () => {
+      Playlist.close();  // opening a score ends the playlist (the score is the interactive view)
       if (song?.id !== item.id) { $('song').value = String(index); chooseSong(); }
       showTab('practice'); $('selection-summary').focus();
     };
@@ -667,7 +673,8 @@ function showTab(name, push = true) {
 }
 // The recordings mini player stays available outside the score (the score has its own dock).
 function renderMiniPlayer() {
-  const show = view !== 'practice' && view !== 'library' && Playlist.hasQueue;
+  // The playing playlist stays reachable everywhere except inside a score (which has its own dock).
+  const show = view !== 'practice' && Playlist.hasQueue;
   $('mini-player').hidden = !show; document.body.classList.toggle('mini-open', show);
 }
 document.addEventListener('playlistchange', renderMiniPlayer);

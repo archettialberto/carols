@@ -157,6 +157,13 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   PNGs incl. 180px apple-touch and maskable; regenerate PNGs from `icon.svg` when it changes),
   iOS meta tags, and `sw.js` (network-first; only active on localhost/HTTPS). The server sends
   `Cache-Control: no-cache` so updates are never stale.
+- Every button looks the same: 44px, 8px corners, thin border, cream (green for the main action of a view),
+  normal weight (no bold; Home is a thin house icon and plain text), including icon buttons, the PDF
+  link and the mini player's ✕. Only the S/A/T/B piano keys and the cards (home cards, covers, song
+  rows) differ. Similar things look alike: the Brani list uses the playlist rows (cover with the faint
+  tree of Christmas Carols, title, length; no ⠿), and the playing playlist's mini player stays on every
+  view but the score; opening a score ends it. Tapping the mini player opens its playlist; ✕ stops it.
+- Emojis must be colour by default (no U+FE0F; 🕯️ ☀️ ❄️ 🖨️ drew off-centre or as text): a unit test checks.
 - Victorian but readable: IM Fell English (vendored, OFL) only for titles; Georgia for lyrics;
   system UI for controls; cream paper, evergreen, berry and gold in both themes.
 - Keep only needed files: no duplicate copies of scans or downloaded exports in `songs/`.
@@ -227,7 +234,7 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   parts at equal level, −16 LUFS), nothing before each song: no title, note or count-in.
 - Eight voice albums: Soprani/Contralti/Tenori/Bassi, then the same “in evidenza” (`lead-<voice>`: the
   four parts mixed by the build with that voice at 1 and the others at .4, in `play-lead-<voice>.m4a`).
-  Seasons 🌸 ☀️ 🍂 ❄️ (never a song's emoji; song emojis are unique); covers are one SVG drawing on a
+  Seasons 🌸 🌞 🍂 ⛄ (never a song's emoji; song emojis are unique); covers are one SVG drawing on a
   fixed 200×200 grid (they scale like an image, nothing overlaps) in the season's colour
   with a gold double frame, the initial and name in IM Fell, the emoji only large and faint behind, and a gold
   “in evidenza” band. A voice's own album plays per song its track, then tenor-bass (T/B) and all when

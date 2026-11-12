@@ -67,7 +67,7 @@ systems = crop_systems('away-in-a-manger-cradle-song',
                        x=(.045, .955))
 
 song = {
-    'id': 'away-in-a-manger-cradle-song', 'title': 'Away in a Manger', 'emoji': '🕯️',
+    'id': 'away-in-a-manger-cradle-song', 'title': 'Away in a Manger', 'emoji': '🐂',
     'composer': 'the composer', 'arranger': 'an online edition',
     'meter': [3, 4], 'key_fifths': -1, 'tempo': 84,
     'measure_beats': [1] + [3] * 15 + [2],

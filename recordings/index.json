@@ -264,55 +264,51 @@
       {
         "voice": "soprano",
         "file": "recordings/dio-ci-benedira/soprano.m4a",
-        "seconds": 165.1,
+        "seconds": 161.8,
         "tempo": 124,
-        "source": "piano: the app's synthesized piano, from the score",
-        "piano": true,
+        "source": "synthesized: MuseScore Studio + Cantai (Italian) from scratch/dio-ci-benedira.musicxml; the bars the A_CAPPELLA file drops (22, 44, 51-52, 69, 78) put back as silence so it follows the score",
         "play": "recordings/dio-ci-benedira/play-soprano.m4a",
-        "play_seconds": 170.8,
+        "play_seconds": 167.9,
         "lead": "recordings/dio-ci-benedira/play-lead-soprano.m4a",
-        "lead_seconds": 171.3
+        "lead_seconds": 167.9
       },
       {
         "voice": "alto",
         "file": "recordings/dio-ci-benedira/alto.m4a",
-        "seconds": 165.1,
+        "seconds": 161.8,
         "tempo": 124,
-        "source": "piano: the app's synthesized piano, from the score",
-        "piano": true,
+        "source": "synthesized: MuseScore Studio + Cantai (Italian) from scratch/dio-ci-benedira.musicxml; the bars the A_CAPPELLA file drops (22, 44, 51-52, 69, 78) put back as silence so it follows the score",
         "play": "recordings/dio-ci-benedira/play-alto.m4a",
-        "play_seconds": 170.8,
+        "play_seconds": 167.9,
         "lead": "recordings/dio-ci-benedira/play-lead-alto.m4a",
-        "lead_seconds": 171.3
+        "lead_seconds": 167.9
       },
       {
         "voice": "tenor",
         "file": "recordings/dio-ci-benedira/tenor.m4a",
-        "seconds": 165.1,
+        "seconds": 161.8,
         "tempo": 124,
-        "source": "piano: the app's synthesized piano, from the score",
-        "piano": true,
+        "source": "synthesized: MuseScore Studio + Cantai (Italian) from scratch/dio-ci-benedira.musicxml; the bars the A_CAPPELLA file drops (22, 44, 51-52, 69, 78) put back as silence so it follows the score",
         "play": "recordings/dio-ci-benedira/play-tenor.m4a",
-        "play_seconds": 170.8,
+        "play_seconds": 167.9,
         "lead": "recordings/dio-ci-benedira/play-lead-tenor.m4a",
-        "lead_seconds": 171.3
+        "lead_seconds": 167.9
       },
       {
         "voice": "bass",
         "file": "recordings/dio-ci-benedira/bass.m4a",
-        "seconds": 165.1,
+        "seconds": 161.8,
         "tempo": 124,
-        "source": "piano: the app's synthesized piano, from the score",
-        "piano": true,
+        "source": "synthesized: MuseScore Studio + Cantai (Italian) from scratch/dio-ci-benedira.musicxml; the bars the A_CAPPELLA file drops (22, 44, 51-52, 69, 78) put back as silence so it follows the score",
         "play": "recordings/dio-ci-benedira/play-bass.m4a",
-        "play_seconds": 170.8,
+        "play_seconds": 167.9,
         "lead": "recordings/dio-ci-benedira/play-lead-bass.m4a",
-        "lead_seconds": 171.3
+        "lead_seconds": 167.9
       },
       {
         "voice": "choir",
         "file": "recordings/dio-ci-benedira/choir.m4a",
-        "seconds": 165.1,
+        "seconds": 161.8,
         "built": true
       }
     ],
