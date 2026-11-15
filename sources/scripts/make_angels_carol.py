@@ -37,7 +37,7 @@ S = ([R, R] + MEL1 + [R] * 8                                                  # 
         'C5:0.5 D5:0.5 E5:2 D5:0.5 C5:0.5', 'D5:1 B4:1 G4:1 E4:1',                              # 98–99
         'R:1 D4:0.5 D4:0.5 G4:1 B4:1', 'A4:1 E4:1 F#4:1 A4:1', 'G4:4~', 'G4:4',                 # 100–103
         'R:1 D4:0.5 D4:0.5 G4:1 D5:1', 'C5:1 E5:1 D5:1 F#5:1', 'G5:4~', 'G5:2 R:2'])            # 104–107
-A = ([R, R] + MEL1 + [R] * 8 + [R] * 9                                         # 1–27
+A = ([R, R] + MEL1 + [R] * 8 + S[18:27]  # 1–27; 19–27 sopranos' tune in unison (user request; printed for S, T, B)
      + ['Bb4:0.5 C5:0.5 D5:2 C5:0.5 Bb4:0.5', 'C5:1 A4:1 F4:1 F4:1',
         'D4:0.5 E4:0.5 F4:2 E4:0.5 E4:0.5', 'E4:1 C4:1 D4:1 D4:1',
         'R:1 C4:0.5 C4:0.5 F4:1 E4:1', 'D4:1 D4:1 C4:1 C4:1', 'C4:4', R, R,
@@ -124,7 +124,7 @@ WORDS = {
                 79: 'He will bring new | hope | to the wait- ing | na- tions | When he comes to | reign in | pu- ri- ty and | love.',
                 88: 'Let the earth re- | joice at the Sa- viour’s | com- ing; | Let the hea- vens | an- swer | with the joy- ful | morn:',
                 96: GLORIA_SA + ' | ' + CHRIST + ' | | ' + CHRIST.replace('born’,', 'born’.')},
-    'alto': {3: V1A, 28: GLORIA_SA, 32: HEAR, 53: LOVE,
+    'alto': {3: V1A, 19: NEWS, 28: GLORIA_SA, 32: HEAR, 53: LOVE,
              64: 'Glo- ri- a in ex- | cel- sis De- o! | Hear them | sing ‘Peace on | earth’.',
              71: LIGHT, 79: 'He will bring new | hope | | to the | na- tions | When he comes in | pu- ri- ty and | love.',
              87: REJOICE + ' | | Let the hea- vens | an- swer | with the joy- ful | morn:',
@@ -223,7 +223,7 @@ song = {
     'review_notes': [
         'Notes from an Audiveris draft checked and corrected system by system against enlarged crops of the scan; bars the draft missed (e.g. 54–61, 72, 78, 80–81, 94–95, 102–107) were read by eye. Inner divisi notes are the least certain.',
         'Divisi: each part sings the upper note of its own divisi (sopranos in thirds at 96–99, basses divided at 34, 56, 58, 106).',
-        'Bars 3–10 sopranos and altos in unison; 11–18 tenors alone; 19–20 sopranos and tenors in octaves. The print has the basses resting until bar 28; at the user’s request (2026-11-15) they sing the tenors’ tune in unison in bars 11–27, so the men’s line is balanced from its first entry.',
+        'Bars 3–10 sopranos and altos in unison; 11–18 tenors alone; 19–20 sopranos and tenors in octaves. The print has the basses resting until bar 28; at the user’s request (2026-11-15) they sing the tenors’ tune in unison in bars 11–27, so the men’s line is balanced from its first entry. Likewise (2026-11-15) the altos sing the sopranos’ tune in unison in bars 19–27, printed for sopranos, tenors and basses only, so all four parts sing from bar 19 on; the Cantai recordings were made this way.',
         'Sung a cappella: the piano/harp part is not encoded and its solo bars (printed 1–2, 35–36, 69–70) are left out, so data bars are printed bars − 2 from bar 3, − 4 from 37 and − 6 from 71. Bar numbers in these notes are the printed ones.',
         'Audit against 400 dpi crops with staff-line pixel measurements (2026-11-15), printed bar numbers: tenor 61 C4 → E4 (half note on the second ledger line); sopranos/altos 66 dotted half E4/C4 → C4/A3 (two ledger lines below the staff); alto 78 G4 → F♯4; bass 80 B2 → D3; tenor 81–82 tied B3 → D4 (D4 C4 B3 A3 G3); 102–103: alto B3 tied (no B♭; the flat belongs to the lower staff), tenor G3 tied (was B3 → B♭3), bass E3 → E♭3 (was G3 tied).',
         'Tenor 94: printed as a dotted half D4 sharing a stem with the bass, then a D4 quarter on beat 4 shared with the basses’ “the”; the tenor re-sings it on “morn” (melisma), as printed (was one held whole note until 2026-11-15).',
