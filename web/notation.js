@@ -114,7 +114,8 @@ const ScoreNotation = (() => {
       update(beat, emphasized) {
         let x = null;
         for (const note of positions) {
-          const active = note.pitch !== 'R' && beat >= note.start && beat < note.end;
+          // A rest lights up too: a voice waiting still shows where it is (e.g. the rest before “Ringing”).
+          const active = beat >= note.start && beat < note.end;
           for (const element of note.elements) {
             element.classList.toggle('playing-note',active);
             element.classList.toggle('lead-voice',note.voice === emphasized);

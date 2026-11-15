@@ -626,13 +626,17 @@ function updatePosition(forcePan = false) {
     digitalView.update(beat, null);  // colours the sounding notes
     // The cursor follows the most recent onset, so a note held from long before never pulls the view
     // back while the other voices move on.
-    // At that onset a note wins over a rest: a whole-bar rest is drawn mid-bar, away from the notes.
+    // At that onset a note wins over a rest, and among rests the leftmost: a whole-bar rest is drawn
+    // mid-bar, ahead of a short rest at the downbeat and of the notes that follow it.
     let x = null, latest = -Infinity, rest = true;
     for (const note of digitalView.positions) {
       if (note.x == null || note.start > beat + 1e-6) continue;
       const isRest = note.pitch === 'R';
       if (note.start > latest + 1e-6) { latest = note.start; x = note.x; rest = isRest; }
-      else if (note.start > latest - 1e-6 && (rest || !isRest)) { x = rest && !isRest ? note.x : Math.max(x, note.x); rest = rest && isRest; }
+      else if (note.start > latest - 1e-6 && (rest || !isRest)) {
+        x = rest && !isRest ? note.x : isRest ? Math.min(x, note.x) : Math.max(x, note.x);
+        rest = rest && isRest;
+      }
     }
     const fraction = x == null ? null : x / digitalView.width;
     const notation = digitalView.svg.parentElement, lead = emphasizedVoice || (selected.size === 1 ? [...selected][0] : null);

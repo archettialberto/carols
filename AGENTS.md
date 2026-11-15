@@ -45,7 +45,8 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   line, always the four staves, turned a bar at a time like a page: the current bar (that of the most
   recent onset) sits near the left edge with the next bars visible ahead, the view moves only when a
   new bar begins (a bar wider than the view turns within itself), and the cursor moves across the
-  still page. Upright phones give each bar only what it needs (`phoneBarWidth`: 22 units a beat or 15 per
+  still page. At an onset the cursor takes a note over a rest and, among rests only, the leftmost (a
+  whole-bar rest is drawn mid-bar); a current rest lights up like a current note. Upright phones give each bar only what it needs (`phoneBarWidth`: 22 units a beat or 15 per
   onset, whichever is more; 60 a beat on desktop), so two to three bars or more fit on the screen, and
   phones (upright or sideways) print no voice names, so the first bar starts right after the clefs: no line breaks
   in the interactive score (they are for the printed PDF), and no repeated clef strip (it broke on
