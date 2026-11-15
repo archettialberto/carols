@@ -42,8 +42,10 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   final Fine behavior aligned between lyrics and music. All-verses playback
   must update both the stanza number and text, not just loop the first stanza.
 - The practice view engraves the whole performance (repeats unfolded, every stanza) as one endless
-  line, always the four staves, scrolled under a fixed cursor at about a third of the width, which
-  follows the most recent onset (a note held from before never pulls the view back): no line breaks
+  line, always the four staves, turned a bar at a time like a page: the current bar (that of the most
+  recent onset) sits near the left edge with the next bars visible ahead, the view moves only when a
+  new bar begins (a bar wider than the view turns within itself), and the cursor moves across the
+  still page. Upright phones space notes tighter (40 units a beat, 60 on desktop) so the next bar fits: no line breaks
   in the interactive score (they are for the printed PDF), and no repeated clef strip (it broke on
   key changes). At the default zoom the line is fitted to the height left by the head, options and
   words (60–130%), refitted whenever they change size or the chosen stanza chip widens; desktop adds −/+ zoom. The words are
@@ -96,8 +98,9 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   MusicXML/MIDI/HTML remain development artifacts under `exports/`, not UI controls.
 - Stanzas are chips: the number, and its first words “…” (computed from the lyrics, skipping an
   opening chorus) on the chosen one and in the phone sheet; a tap jumps to the stanza, its pickup included.
-- Lyrics run as one sliding line under the score: the sung syllable sits near the left quarter so
-  the next bars' words are always visible to read ahead; the left edge fades only once text scrolled.
+- Lyrics run as one line under the score, turned a bar at a time like the staves: the current bar's
+  first word (with its stanza number) sits near the left edge so the next bars' words are visible to
+  read ahead; the left edge fades only once text scrolled.
 - The PDF tab joins the chosen editions (the shared song rows with a tick box, “Seleziona tutti”,
   drag ⠿ to reorder) into one PDF in the browser (vendored pdf-lib, loaded on demand); “Pagine pari”
   pads each song to an even page count so double-sided copies start every song on a right-hand page.
@@ -158,7 +161,8 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   whenever the app opens) is the only speed control, 0.75×: the piano exactly, the choir through a WSOLA time-stretch computed
   in the browser once per song (pitch kept, parts aligned within ±10 ms; recordings decoded at 32 kHz
   to keep phone memory low). The playlists have no speed control. On a computer Space plays/pauses the score (the playlist elsewhere), even with a clicked button focused; fields and tick boxes keep it.
-- Phones (≤760px) must not need vertical scrolling while practising: voices, stanzas, Lento,
+- Phones (≤760px wide, or ≤500px high with touch, i.e. turned sideways: the phone block in
+  `style.css`; sideways the staves may shrink to 45% with desktop spacing) must not need vertical scrolling while practising: voices, stanzas, Lento,
   Coro/Pianoforte, transposition and the PDF live in a bottom sheet behind one options button.
   Desktop shows them inline above the line.
 - Keep the app installable from Safari/Chrome: `manifest.webmanifest`, `icons/` (SVG source and

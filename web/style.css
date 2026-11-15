@@ -236,7 +236,8 @@ body.mini-open main { padding-bottom:180px; }
 
 /* Phones: tabs become a bottom bar; the score drops the app bar and moves its options to a sheet,
    so the staves and the words keep all the height. */
-@media (max-width:760px) {
+/* Also a phone turned sideways (short touch screen); keep in step with PHONE in player.js. */
+@media (max-width:760px), (max-height:500px) and (pointer:coarse) {
   :root { --appbar:56px; }
   .appbar { backdrop-filter:none; -webkit-backdrop-filter:none; background:var(--paper); }
   .brand-name { font-size:21px; }

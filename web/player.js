@@ -474,7 +474,10 @@ function renderScore() {
   const dock = document.querySelector('.player-dock');
   if (dock.offsetHeight) document.documentElement.style.setProperty('--dock-h', `${dock.offsetHeight}px`);
   const bars = performanceData.bars, beats = bars.reduce((sum, bar) => sum + bar.duration, 0);
-  const width = Math.max(stage.clientWidth, 660, 130 + beats * 60) * zoom;
+  // Upright phones space the notes tighter, so the current bar and the next one fit together; a phone
+  // turned sideways has the width but little height, so it may shrink the staves further (45%).
+  const narrow = matchMedia('(max-width: 760px)').matches, sideways = matchMedia('(max-height: 500px) and (pointer: coarse)').matches;
+  const width = (narrow ? Math.max(stage.clientWidth, 100 + beats * 40) : Math.max(stage.clientWidth, 660, 130 + beats * 60)) * zoom;
   const sheet = $('score'), key = [song.id, Math.round(width), transpose].join(':');
   if (key !== digitalKey) {
     sheet.style.width = `${width}px`;
@@ -492,24 +495,51 @@ function renderScore() {
   const room = view.clientHeight - parseFloat(getComputedStyle(view).paddingTop) - others - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom) - 2;
   // At the default zoom the engraving fills the room: shrunk when tall (never below 60%), enlarged
   // when short (up to 130%), so on a phone the notes use the whole space above the words.
-  if (zoom === 1 && room > 80) { const fit = Math.min(1.3, Math.max(.6, room / h)); w *= fit; h *= fit; }
+  if (zoom === 1 && room > 80) { const fit = Math.min(1.3, Math.max(sideways ? .45 : .6, room / h)); w *= fit; h *= fit; }
   sheet.style.width = `${w}px`; sheet.style.height = `${h}px`;
   $('zoom-out').disabled = zoom <= .7; $('zoom-in').disabled = zoom >= 1.6;
 }
-function panTo(fraction) {
-  // The note being sung stays at about a third of the width.
-  const stage = $('score-viewport'), target = fraction * $('score').offsetWidth - stage.clientWidth * .3;
-  stage.scrollLeft = target < 60 ? 0 : target;  // near the start keep the clefs and voice names in sight
+/* The line turns a bar at a time, like a page: the current bar sits near the left edge with the next
+   ones visible ahead, and the view moves only when a new bar begins. A bar wider than the view turns
+   within itself, still a page at a time. */
+let pageLeft = null, pan = null;
+function barStarts() {
+  if (!digitalView.barX) {
+    digitalView.barX = [];
+    for (const note of digitalView.positions)
+      if (note.x != null) digitalView.barX[note.measureIndex] = Math.min(digitalView.barX[note.measureIndex] ?? Infinity, note.x);
+  }
+  return digitalView.barX;
+}
+function panTo(barIndex, fraction, instant) {
+  const stage = $('score-viewport'), sheet = $('score'), view = stage.clientWidth;
+  const scale = sheet.offsetWidth / digitalView.width, cursor = fraction * sheet.offsetWidth;
+  let left = (barStarts()[barIndex] ?? fraction * digitalView.width) * scale - Math.min(28, view * .06);
+  while (cursor > left + view * .85) left += view * .7;
+  if (barIndex === 0 || left < 60) left = 0;  // the first bar keeps the clefs and key in sight
+  if (!instant && left === pageLeft) return;
+  pageLeft = left;
+  if (instant) { pan = null; stage.scrollLeft = left; }
+  else { pan = {from:stage.scrollLeft, to:left, at:performance.now()}; stepPan(); }
+}
+// The turn is animated in the same frame as the cursor (not the browser's smooth scroll, which runs
+// apart from it and showed the cursor stepping back for a frame).
+function stepPan() {
+  if (!pan) return;
+  if (!followScore) { pan = null; return; }  // a drag takes over
+  const k = Math.min(1, (performance.now() - pan.at) / 380);
+  $('score-viewport').scrollLeft = pan.from + (pan.to - pan.from) * (1 - (1 - k) ** 3);
+  if (k >= 1) pan = null;
 }
 
-// Lyrics run as one sliding line: the sung syllable stays near the left quarter, so the words of
-// the next bars are always visible ahead of it (read-ahead for singers). They follow the voice heard.
-let lyricSpans = [], lyricTimeline = null, lyricIndex = -2;
+// Lyrics run as one line that turns a bar at a time, like the score: the current bar's words start
+// near the left edge, so the next bars are visible ahead (read-ahead). They follow the voice heard.
+let lyricSpans = [], lyricTimeline = null, lyricOffset = -1;
 function lyricVoice() { return emphasizedVoice || (selected.size === 1 ? [...selected][0] : 'soprano'); }
 function renderLyrics() {
   const timeline = performanceData.lyrics[lyricVoice()] || [];
   if (timeline === lyricTimeline) return;
-  lyricTimeline = timeline; lyricIndex = -2; lyricSpans = [];
+  lyricTimeline = timeline; lyricOffset = -1; lyricSpans = [];
   const line = document.createElement('div'); line.className = 'lyric-line';
   let join = true, verse = null;
   for (const cue of timeline) {
@@ -526,7 +556,7 @@ function renderLyrics() {
   if (!timeline.length) line.textContent = t('noLyrics');
   $('lyric-rows').replaceChildren(line);
 }
-function slideLyrics(beat) {
+function slideLyrics(beat, bar) {
   let index = -1;
   for (let i = 0; i < lyricSpans.length && Number(lyricSpans[i].dataset.start) <= beat; i++) index = i;
   lyricSpans.forEach(span => {
@@ -534,11 +564,19 @@ function slideLyrics(beat) {
     span.classList.toggle('current', beat >= start && beat < end);
     span.classList.toggle('sung', beat >= end);
   });
-  if (index === lyricIndex) return;
-  lyricIndex = index;
-  const line = $('lyric-rows').firstChild, anchor = lyricSpans[Math.max(index, 0)];
-  if (!line || !anchor) return;
-  const offset = Math.max(0, anchor.offsetLeft + anchor.offsetWidth / 2 - $('lyric-rows').clientWidth * .26);
+  const line = $('lyric-rows').firstChild;
+  if (!line || !lyricSpans.length) return;
+  // The bar's first syllable (or the next words, in a bar without any), with its stanza number.
+  let first = lyricSpans.findIndex(span => Number(span.dataset.start) >= bar.start - 1e-6);
+  if (first < 0) first = lyricSpans.length - 1;
+  const anchor = lyricSpans[first], mark = anchor.previousElementSibling?.classList.contains('verse-mark') ? anchor.previousElementSibling : anchor;
+  const width = $('lyric-rows').clientWidth, margin = Math.min(24, width * .05);
+  let offset = mark.offsetLeft - margin;
+  const now = lyricSpans[Math.max(index, first)];
+  while (now.offsetLeft + now.offsetWidth > offset + width * .92) offset += width * .7;  // many words in one bar
+  offset = Math.max(0, offset);
+  if (offset === lyricOffset) return;
+  lyricOffset = offset;
   line.style.transform = `translateX(${-offset}px)`;
   $('lyric-rows').classList.toggle('scrolled', offset > 0);  // fade the left edge only once text has left it
 }
@@ -561,7 +599,7 @@ function updatePosition(forcePan = false) {
   shownBeat = beat;
   if (!digitalView) renderScore();
   $('seek').value = beat; $('seek').style.setProperty('--fill', `${beat / performanceData.duration * 100}%`);
-  const bar = performanceData.bars[Math.max(0, performanceData.bars.findLastIndex(b => b.start <= beat))];
+  const barIndex = Math.max(0, performanceData.bars.findLastIndex(b => b.start <= beat)), bar = performanceData.bars[barIndex];
   const section = sectionAt(bar.measure, beat - bar.start);
   // Only informative parts: the stanza when there are several; the section unless that is just "verse".
   const several = song.verses.length > 1;
@@ -580,11 +618,13 @@ function updatePosition(forcePan = false) {
     digitalView.update(beat, null);  // colours the sounding notes
     // The cursor follows the most recent onset, so a note held from long before never pulls the view
     // back while the other voices move on.
-    let x = null, latest = -Infinity;
+    // At that onset a note wins over a rest: a whole-bar rest is drawn mid-bar, away from the notes.
+    let x = null, latest = -Infinity, rest = true;
     for (const note of digitalView.positions) {
       if (note.x == null || note.start > beat + 1e-6) continue;
-      if (note.start > latest + 1e-6) { latest = note.start; x = note.x; }
-      else if (note.start > latest - 1e-6) x = Math.max(x, note.x);
+      const isRest = note.pitch === 'R';
+      if (note.start > latest + 1e-6) { latest = note.start; x = note.x; rest = isRest; }
+      else if (note.start > latest - 1e-6 && (rest || !isRest)) { x = rest && !isRest ? note.x : Math.max(x, note.x); rest = rest && isRest; }
     }
     const fraction = x == null ? null : x / digitalView.width;
     const notation = digitalView.svg.parentElement, lead = emphasizedVoice || (selected.size === 1 ? [...selected][0] : null);
@@ -594,10 +634,10 @@ function updatePosition(forcePan = false) {
     cursor.hidden = fraction == null;
     if (fraction != null) {
       cursor.style.left = `${fraction * 100}%`;
-      if (forcePan || (playing && followScore)) panTo(fraction);
+      if (forcePan || (playing && followScore)) panTo(barIndex, fraction, forcePan);
     }
   }
-  slideLyrics(beat);
+  slideLyrics(beat, bar);
 }
 
 /* Views: Playlist (the albums and one album), Spartiti (the songs, then a score), PDF. Each is a
@@ -707,7 +747,7 @@ $('theme').onclick = () => {
   renderThemeButton();
 };
 if ('serviceWorker' in navigator && isSecureContext) navigator.serviceWorker.register('sw.js').catch(() => {});
-function frame() { updatePosition(); requestAnimationFrame(frame); }
+function frame() { updatePosition(); stepPan(); requestAnimationFrame(frame); }
 translatePage(); renderThemeButton(); renderPlayButton();
 route();
 fetch('api/songs.json').then(response => { if (!response.ok) throw Error(t('loadError')); return response.json(); }).then(data => {
