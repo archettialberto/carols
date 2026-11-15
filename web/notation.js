@@ -26,7 +26,7 @@ const ScoreNotation = (() => {
     const clefOf = voice => voice === 'bass' || voice === 'organ_lh' ? 'bass' : voice === 'tenor' ? 'treble-8' : 'treble';
     // A system opens in the key of its first bar; later changes are inline (see below).
     const startKey = bars.length ? (bars[0].key_fifths ?? song.key_fifths) : song.key_fifths;
-    voices.forEach((voice,i) => lines.push(`V:V${i} clef=${clefOf(voice)} name="${names[voice] || voice}"`));
+    voices.forEach((voice,i) => lines.push(`V:V${i} clef=${clefOf(voice)} ${names[voice] === '' ? '' : ` name="${names[voice] || voice}"`}`));
     if (options.measureNumbers && bars.length) {
       // Number the first bar of each system with its source measure number.
       lines.push('%%measurenb 0', `%%setbarnb ${bars[0].measure}`);

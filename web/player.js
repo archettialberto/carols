@@ -468,6 +468,13 @@ $('slow').onclick = () => {
 
 /* The engraving: the whole performance on one line, always the four staves (a solo part fades the
    others), fitted to the height the view leaves it (never below 60%), panned under the cursor. */
+// An upright phone gives each bar what it needs and no more, so two or three bars fit on the screen:
+// a little room per beat, more where many notes start (every voice's onsets), and the bar line.
+function phoneBarWidth(bar) {
+  const onsets = new Set();
+  for (const notes of Object.values(bar.parts)) { let at = 0; for (const note of notes) { onsets.add(Math.round(at * 96)); at += note.duration; } }
+  return Math.max(bar.duration * 22, onsets.size * 15) + 12;
+}
 function renderScore() {
   const stage = $('score-viewport');
   if (!song || $('practice-panel').hidden) return;
@@ -477,13 +484,14 @@ function renderScore() {
   // Upright phones space the notes tighter, so the current bar and the next one fit together; a phone
   // turned sideways has the width but little height, so it may shrink the staves further (45%).
   const narrow = matchMedia('(max-width: 760px)').matches, sideways = matchMedia('(max-height: 500px) and (pointer: coarse)').matches;
-  const width = (narrow ? Math.max(stage.clientWidth, 100 + beats * 40) : Math.max(stage.clientWidth, 660, 130 + beats * 60)) * zoom;
-  const sheet = $('score'), key = [song.id, Math.round(width), transpose].join(':');
+  const width = (narrow ? Math.max(stage.clientWidth, 90 + bars.reduce((sum, bar) => sum + phoneBarWidth(bar), 0)) : Math.max(stage.clientWidth, 660, 130 + beats * 60)) * zoom;
+  // Phones leave out the voice names, so the first bar starts right after the clefs.
+  const phone = narrow || sideways, sheet = $('score'), key = [song.id, Math.round(width), phone, transpose].join(':');
   if (key !== digitalKey) {
     sheet.style.width = `${width}px`;
     // No words in the staves: they are read from the sliding line below, so the staves sit closer.
     digitalView = ScoreNotation.render(sheet.querySelector('.notation'), song, bars, voices,
-      Object.fromEntries(voices.map(v => [v, t(v)])), width, note => seek(note.start, true), {paddingtop:8, transpose, lyricVoices:[], staffsep:44});
+      Object.fromEntries(voices.map(v => [v, phone ? '' : t(v)])), width, note => seek(note.start, true), {paddingtop:8, transpose, lyricVoices:[], staffsep:44});
     digitalKey = key;
   }
   // Room = the view's height minus everything else in it (head, options, words): the words stay
