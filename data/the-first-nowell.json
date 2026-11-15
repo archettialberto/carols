@@ -11,7 +11,8 @@
   "source_pdf": "songs/The First Nowell.pdf",
   "review_notes": [
     "Rechecked SATB pitches against the exact clean digital source. Corrected bass measures 5, 7, 11, 13, 15 and 21, plus alto/tenor errors. The printed bass octave leaps and high refrain are present in this edition and have been retained. the arranger’s unaltered MusicXML was used only as a comparison.",
-    "Soprano measures 15–16 corrected to A4 B4 C#5 | D5 A4 G4 (exact noteheads of the clean digital source; the same phrase as measures 7–8). The earlier reading A4 A4 B4 | C#5 A4 G4 had copied the alto's unison A4."
+    "Soprano measures 15–16 corrected to A4 B4 C#5 | D5 A4 G4 (exact noteheads of the clean digital source; the same phrase as measures 7–8). The earlier reading A4 A4 B4 | C#5 A4 G4 had copied the alto's unison A4.",
+    "Rechecked every bar against the clean vector page (reference-pages.pdf p. 3): bass measures 3 and 11 corrected from A2 dotted quarter + A3 eighth to three quarters A2 A3 G3 (no dot or flag is printed); alto and tenor measure 10 eighths D4–D4 are tied as printed (like the bass B2–B2); measure 16 lyric onsets corrected for verse 2 'and', verse 4 'sus' and verse 5 'in-' (beat 3, under the soprano G4, not beat 2)."
   ],
   "parts": {
     "soprano": [
@@ -51,7 +52,7 @@
       "A4:1 D4:1 G4:1",
       "F#4:1~ F#4:1 E4:1",
       "D4:2 C#4:1",
-      "A3:2 D4:0.5 D4:0.5",
+      "A3:2 D4:0.5~ D4:0.5",
       "E4:2 E4:1",
       "A4:1~ A4:1 G4:1",
       "F#4:2 D4:0.5 E4:0.5",
@@ -78,12 +79,12 @@
       "D4:1 B3:1 G3:1",
       "A3:1 D4:1 A3:1",
       "A3:2 A3:0.5 G3:0.5",
-      "F#3:2 D4:0.5 D4:0.5",
+      "F#3:2 D4:0.5~ D4:0.5",
       "D4:1 C#4:1 B3:1",
       "A3:1~ A3:1 B3:0.5 C#4:0.5",
       "D4:2 B3:0.5 A3:0.5",
       "A3:1~ A3:1 C#4:1",
-      "D4:2 E4:1",
+      "D4:1~ D4:1 E4:1",
       "A3:1 D4:1 A3:1",
       "A3:2 A3:0.5 G3:0.5",
       "F#3:2 B3:1",
@@ -98,7 +99,7 @@
     "bass": [
       "R:2 A2:1",
       "D3:2 B2:1",
-      "A2:1.5 A3:0.5 G3:1",
+      "A2:1 A3:1 G3:1",
       "F#3:1~ F#3:1 G3:1",
       "D3:2 G3:0.5~ G3:0.5",
       "F#3:1 D3:1 E3:1",
@@ -106,7 +107,7 @@
       "F#3:0.5 G3:0.5 A3:1 A3:1",
       "D3:2 A2:1",
       "D3:2 B2:0.5~ B2:0.5",
-      "A2:1.5 A3:0.5 G3:1",
+      "A2:1 A3:1 G3:1",
       "F#3:1~ F#3:1 G3:1",
       "D3:2 G3:0.5~ G3:0.5",
       "F#3:1 D3:1 E3:1",
@@ -321,7 +322,7 @@
           "0:light, 2:and",
           "0:so 1:it 2:con-",
           "0:tin- 1:ued 2:both",
-          "0:day 1:and",
+          "0:day 2:and",
           "0:night. 2:Now-",
           "0:ell, 2:Now-",
           "0:ell, 2:Now-",
@@ -332,11 +333,6 @@
           "0:Is- 2:ra-",
           "0:el."
         ]
-      },
-      "parts": {
-        "tenor": {
-          "15": "D4:1 D4:1 E4:1"
-        }
       }
     },
     {
@@ -392,7 +388,7 @@
           "0:stay 2:right",
           "0:o- 1:ver 2:the",
           "0:place 2:where",
-          "0:Je- 1:sus",
+          "0:Je- 2:sus",
           "0:lay. 2:Now-",
           "0:ell, 2:Now-",
           "0:ell, 2:Now-",
@@ -425,7 +421,7 @@
           "0:sence 2:their",
           "0:gold 2:and",
           "0:myrrh 2:and",
-          "0:frank- 1:in-",
+          "0:frank- 2:in-",
           "0:cense. 2:Now-",
           "0:ell, 2:Now-",
           "0:ell, 2:Now-",
@@ -441,7 +437,8 @@
   ],
   "review_notes_it": [
     "Ricontrollate le altezze SATB sulla copia digitale della stessa edizione. Corretti i bassi alle battute 5, 7, 11, 13, 15 e 21 e diversi errori di contralti e tenori. I salti di ottava e il ritornello acuto dei bassi sono stampati anche nella fonte pulita e sono conservati.",
-    "Soprani alle battute 15–16 corretti in La4 Si4 Do#5 | Re5 La4 Sol4 (come le battute 7–8, teste di nota esatte della copia digitale): la lettura precedente La4 La4 Si4 | Do#5 La4 Sol4 ripeteva il La4 all'unisono dei contralti."
+    "Soprani alle battute 15–16 corretti in La4 Si4 Do#5 | Re5 La4 Sol4 (come le battute 7–8, teste di nota esatte della copia digitale): la lettura precedente La4 La4 Si4 | Do#5 La4 Sol4 ripeteva il La4 all'unisono dei contralti.",
+    "Ricontrollata ogni battuta sulla pagina vettoriale pulita (reference-pages.pdf p. 3): bassi alle battute 3 e 11 corretti da La2 puntata + La3 croma a tre semiminime La2 La3 Sol3 (punto e coda non sono stampati); le crome Re4–Re4 di contralti e tenori alla battuta 10 sono legate come in stampa (come i bassi Si2–Si2); alla battuta 16 le sillabe 'and' (strofa 2), 'sus' (strofa 4) e 'in-' (strofa 5) cadono sul terzo tempo, sotto il Sol4 dei soprani."
   ],
   "staff_bands": {
     "soprano": [

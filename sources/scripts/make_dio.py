@@ -89,6 +89,32 @@ SILENT = [m for m in range(1, LAST + 1)
 KEEP = [m for m in range(1, LAST + 1) if m not in SILENT]
 parts = {v: [bar_string(v, m) for m in KEEP] for v in VOICES}
 lyrics = {v: [row for m, row in enumerate(syllabify(v), 1) if m in KEEP] for v in VOICES}
+
+# Held chords shortened to the version the choir rendered and rehearses (user, 2026-11-15): each chord
+# printed over two or more bars at a phrase end ("Dio ci benedirà", "si ritrovano") sounds one bar,
+# 3 beats and a breath; the final chord one whole bar; and "benedirà!" before "I-nizia" takes the
+# pickup into its own bar. Old data bars (after the silent bars above) → the bars that are left out.
+def head(v, m):
+    token = parts[v][m - 1]
+    assert ' ' not in token and token.endswith(':4~'), (v, m, token)
+    return token.split(':')[0]
+
+
+for v in VOICES:
+    for m in (21, 50, 68):                      # chord, then 3 beats and a quarter-rest breath
+        parts[v][m - 1] = f'{head(v, m)}:3 R:1'
+    pickup = parts[v][45 - 1].split()           # rests, then the "I-" pickup on beat 4
+    assert all(t.startswith('R:') for t in pickup[:-1]) and pickup[-1].endswith(':1'), (v, pickup)
+    parts[v][43 - 1] = f'{head(v, 43)}:3 {pickup[-1]}'
+    lyrics[v][43 - 1] = (lyrics[v][43 - 1] + ' ' + lyrics[v][45 - 1]).strip()
+    parts[v][82 - 1] = f'{head(v, 82)}:4'
+CUT = {22, 44, 45, 51, 52, 69, 83, 84, 85}
+for v in VOICES:
+    assert all(not lyrics[v][m - 1] or m == 45 for m in CUT), v
+    parts[v] = [bar for i, bar in enumerate(parts[v], 1) if i not in CUT]
+    lyrics[v] = [row for i, row in enumerate(lyrics[v], 1) if i not in CUT]
+CUT_PRINTED = [KEEP[i - 1] for i in sorted(CUT)]
+KEEP = [m for i, m in enumerate(KEEP, 1) if i not in CUT]
 data_no = {m: i for i, m in enumerate(KEEP, 1)}
 divisi = sorted({m for m in range(1, LAST + 1) if m not in REST_BARS
                  for n in bars['soprano'][m] if len(n['chord']) > 1})
@@ -107,7 +133,8 @@ for page, counts in LAYOUT:
         top, bottom = staff_tops[4 * s] - 28, staff_tops[4 * s + 3] + 50
         first_bar = measure + sum(counts[:s])
         kept = sum(m in data_no for m in range(first_bar, first_bar + counts[s]))
-        bands.append((kept, max(0, top / height), min(1, bottom / height)))
+        if kept:  # a system whose bars are all left out (the last, printed bar 96) is not shown
+            bands.append((kept, max(0, top / height), min(1, bottom / height)))
     first_kept = next(data_no[m] for m in range(measure, LAST + 1) if m in data_no)
     systems += crop_systems('dio-ci-benedira', PDF, bands, page=page, x=(.07, .97), first=first_kept, start_index=index)
     measure += sum(counts); index += len(counts)
@@ -126,6 +153,7 @@ song = {
         'Key change to F major at printed bar 64; printed bars 87 and 89 are printed in 2/4 (shown as short bars, the engraving keeps 4/4).',
         'The score prints no hyphens; word divisions follow the Italian text. Printed elisions (ci.as, qui.il, …) are shown with ‿.',
         'No tempo is printed: quarter = 124 is the default tempo (user choice); the closing “Rall.” is not applied automatically.',
+        f'Held chords shortened as the choir sings them (user choice, 2026-11-15): each phrase-end chord printed over two or three bars sounds 3 beats and a quarter-rest breath, the final chord one whole bar, and “benedirà!” before “I-nizia” takes the pickup into its own bar; printed bars {", ".join(map(str, CUT_PRINTED))} are left out.',
     ],
     'parts': parts, 'playback': [{'measure': m} for m in range(1, len(KEEP) + 1)],
     'systems': systems,

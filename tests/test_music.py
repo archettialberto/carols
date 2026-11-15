@@ -26,7 +26,9 @@ class ScoresTest(unittest.TestCase):
         self.assertEqual([b['measure'] for b in p['bars']],list(range(1,33))+list(range(1,17)))
         self.assertEqual(p['duration'],96)
         for voice in ('alto','tenor','bass'):
-            self.assertNotEqual(p['bars'][15]['parts'][voice][-1]['pitch'],'R')
+            # the bracketed pickup "(A)" is sung only before stanza 2 ("A day or two ago")
+            self.assertEqual(p['bars'][15]['parts'][voice][-1]['pitch'],'R')
+            self.assertNotEqual(performance(song,2)['bars'][15]['parts'][voice][-1]['pitch'],'R')
             self.assertEqual(p['bars'][-1]['parts'][voice][-1]['pitch'],'R')
         self.assertEqual(p['bars'][-1]['parts']['soprano'][-1]['pitch'],'R')
 
@@ -73,9 +75,9 @@ class ScoresTest(unittest.TestCase):
         with self.assertRaises(ValueError): performance(self.songs['jingle-bells'],99)
 
     def test_verse_and_voice_specific_lyric_entrances(self):
-        jingle=performance(self.songs['jingle-bells'],1)
+        jingle=performance(self.songs['jingle-bells'],2)
         self.assertTrue(any(c['start']==33.5 and c['text']=='A' for c in jingle['lyrics']['soprano']))
-        self.assertTrue(any(c['start']==32 and c['text']=='Dash-' for c in jingle['lyrics']['alto']))
+        self.assertTrue(any(c['start']==32 and c['text']=='Dash-' for c in performance(self.songs['jingle-bells'],1)['lyrics']['alto']))
         nowell=performance(self.songs['the-first-nowell'],'all')
         self.assertTrue(any(c['start']==77 and c['text']=='They' and c['verse']==2 for c in nowell['lyrics']['soprano']))
         self.assertEqual(performance(self.songs['the-first-nowell'],2)['bars'][14]['parts']['tenor'][1]['lyric']['text'],'ued')
@@ -191,10 +193,17 @@ if __name__=='__main__': unittest.main()
 class EmojiTest(unittest.TestCase):
     def test_emojis_need_no_variation_selector(self):
         """Emojis whose default is text (🕯️, ☀️, ❄️, 🖨️) need U+FE0F and draw off-centre or as text
-        on some phones: songs, albums and the home cards use colour-by-default emojis only."""
+        in HTML on some phones: songs and the page use colour-by-default emojis only. The two album
+        seasons that need it (☀️ altos, ❄️ basses) are drawn only inside SVG covers and the lock-screen
+        canvas, centred by their text anchor, and written as \\uFE0F escapes in web/ui.js."""
         import pathlib
         root = pathlib.Path(__file__).resolve().parent.parent
         emojis = [s['emoji'] for s in load_songs()]
         self.assertEqual(len(emojis), len(set(emojis)), 'song emojis must be unique')
-        for text in [*emojis, (root/'web'/'playlist.js').read_text(), (root/'web'/'index.html').read_text()]:
-            self.assertNotIn('️', text)
+        for name in ['playlist.js', 'player.js', 'ui.js', 'index.html']:
+            self.assertNotIn('️', (root/'web'/name).read_text(), name)
+        for emoji in emojis:
+            self.assertNotIn('️', emoji)
+        ui = (root/'web'/'ui.js').read_text()
+        self.assertIn("alto:'\\u2600\\uFE0F'", ui)
+        self.assertIn("bass:'\\u2744\\uFE0F'", ui)

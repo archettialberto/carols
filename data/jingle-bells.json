@@ -7,10 +7,12 @@
     4
   ],
   "key_fifths": 1,
-  "tempo": 112,
+  "tempo": 104,
   "source_pdf": "songs/Jingle Bells.pdf",
   "review_notes": [
-    "Manual first-pass transcription, checked visually against all three pages; not independently proofread. Dotted phrasing marks in the verses are slurs, not ties. Parenthesized pickups in measure 16 sound on the first pass only."
+    "Manual first-pass transcription, checked visually against all three pages; not independently proofread. Dotted phrasing marks in the verses are slurs, not ties. Parenthesized pickups in measure 16 sound on the first pass only.",
+    "Bar-by-bar audit against the scan (2026-11): corrected tenor m23–27 (had been read one staff step low: now D4×4 | D4 dotted–D4 | B3 D4 D4 B3 | B3 dotted–B3 | B3 D4 D4 D4, matching the D/G harmony and the m17–19 pattern), bass m19 G3 G3 F#3 B2 (was G3 F#3 E3 A2) and m20 C3 dotted–C3 (was B2), soprano m29 E4 C5 B4 A4 (was E4 D5 C5 B4), and bass m24 verses 2–3, whose last eighth carries 'The'/'Just' after '(ha ha)'.",
+    "Per-stanza articulation as printed (2026-11-15): the bracketed pickup “(A)” (alto/tenor/bass m16, soprano m17) is sung only in stanza 2 (“A day or two ago”), and a rest in stanzas 1 and 3, as is the soprano pickup in m25 of stanza 1 (the print has “-” there). Dashed ties hold the note in the stanzas without a syllable on it: stanza 1 soprano m19 and A/T/B m20, 22, 24 (alto, tenor), 26; stanza 2 A/T/B m18 sixteenths; stanza 3 soprano m19 and A/T/B m18 (whole bar), 20, 28."
   ],
   "parts": {
     "soprano": [
@@ -42,7 +44,7 @@
       "D4:0.5 B4:0.5 A4:0.5 G4:0.5",
       "D4:2",
       "R:0.5 C5:0.5 B4:0.5 A4:0.5",
-      "E4:0.5 D5:0.5 C5:0.5 B4:0.5",
+      "E4:0.5 C5:0.5 B4:0.5 A4:0.5",
       "D5:0.5 D5:0.5 D5:0.5 D5:0.5",
       "E5:0.5 D5:0.5 C5:0.5 A4:0.5",
       "G4:1 D5:1"
@@ -104,11 +106,11 @@
       "G3:1.5 G3:0.5",
       "G3:0.5 G3:0.5 G3:0.5 G3:0.5",
       "A3:1.5 A3:0.5",
-      "C4:0.5 C4:0.5 C4:0.5 C4:0.5",
-      "C4:1.5 C4:0.5",
-      "A3:0.5 C4:0.5 C4:0.5 A3:0.5",
-      "A3:1.5 A3:0.5",
-      "A3:0.5 C4:0.5 C4:0.5 C4:0.5",
+      "D4:0.5 D4:0.5 D4:0.5 D4:0.5",
+      "D4:1.5 D4:0.5",
+      "B3:0.5 D4:0.5 D4:0.5 B3:0.5",
+      "B3:1.5 B3:0.5",
+      "B3:0.5 D4:0.5 D4:0.5 D4:0.5",
       "G3:1.5 G3:0.5",
       "G3:0.5 G3:0.5 C4:0.5 C4:0.5",
       "B3:0.5 B3:0.5 B3:0.5 B3:0.5",
@@ -134,8 +136,8 @@
       "G3:1.5 G3:0.5",
       "G3:0.5 G3:0.5 F#3:0.5 G3:0.5",
       "G3:1.5 G3:0.25 G3:0.25",
-      "G3:0.5 F#3:0.5 E3:0.5 A2:0.5",
-      "B2:1.5 B2:0.5",
+      "G3:0.5 G3:0.5 F#3:0.5 B2:0.5",
+      "C3:1.5 C3:0.5",
       "C3:0.5 C3:0.5 E3:0.5 E3:0.5",
       "D3:1.5 D3:0.5",
       "D4:0.5 D3:0.5 E3:0.5 F#3:0.5",
@@ -364,7 +366,7 @@
           "0:is 0.5:to 1:ride 1.5:in 1.75:a",
           "0:one 0.5:horse 1:o- 1.5:pen",
           "0:sleigh!",
-          "1.5:A",
+          "",
           "0:Dash- 0.5:ing 1:through 1.5:the",
           "0:snow,",
           "0:One 0.5:horse 1:o- 1.5:pen",
@@ -397,7 +399,7 @@
           "0:Oh 0.5:what 1:fun 1.75:it",
           "0:is 0.5:to 1:ride 1.5:in 1.75:a",
           "0:one 0.5:horse 1:o- 1.5:pen",
-          "0:sleigh! 1.5:A",
+          "0:sleigh!",
           "0:Dash- 0.5:ing 1:through 1.5:the",
           "0:snow, 1.5:In 1.75:a",
           "0:one 0.5:horse 1:o- 1.5:pen",
@@ -431,7 +433,7 @@
           "0:Oh 0.5:what 1:fun 1.75:it",
           "0:is 0.5:to 1:ride 1.5:in 1.75:a",
           "0:one 0.5:horse 1:o- 1.5:pen",
-          "0:sleigh! 1.5:A",
+          "0:sleigh!",
           "0:Dash- 0.5:ing 1:through 1.5:the",
           "0:snow, 1.5:In 1.75:a",
           "0:one 0.5:horse 1:o- 1.5:pen",
@@ -465,7 +467,7 @@
           "0:Oh 0.5:what 1:fun 1.75:it",
           "0:is 0.5:to 1:ride 1.5:in 1.75:a",
           "0:one 0.5:horse 1:o- 1.5:pen",
-          "0:sleigh! 1.5:A",
+          "0:sleigh!",
           "0:Dash- 0.5:ing 1:through 1.5:the",
           "0:snow, 1.5:In 1.75:a",
           "0:one 0.5:horse 1:o- 1.5:pen",
@@ -483,6 +485,33 @@
           "0:sleigh- 0.5:ing 1:song 1.5:to-",
           "0:night. 1:Oh"
         ]
+      },
+      "parts": {
+        "alto": {
+          "16": "G4:1.5 R:0.5",
+          "20": "E4:1.5~ E4:0.5",
+          "22": "F#4:1.5~ F#4:0.5",
+          "24": "G4:1.5~ G4:0.5",
+          "26": "D4:1.5~ D4:0.5"
+        },
+        "tenor": {
+          "16": "B3:1.5 R:0.5",
+          "20": "G3:1.5~ G3:0.5",
+          "22": "A3:1.5~ A3:0.5",
+          "24": "D4:1.5~ D4:0.5",
+          "26": "B3:1.5~ B3:0.5"
+        },
+        "bass": {
+          "16": "G3:1.5 R:0.5",
+          "20": "C3:1.5~ C3:0.5",
+          "22": "D3:1.5~ D3:0.5",
+          "26": "G3:1.5~ G3:0.5"
+        },
+        "soprano": {
+          "17": "R:2",
+          "25": "R:2",
+          "19": "D4:1.5~ D4:0.5"
+        }
       }
     },
     {
@@ -615,7 +644,7 @@
           "0:soon 0.5:Miss 1:Fan- 1.5:nie",
           "0:Bright, 1.5:Was",
           "0:seat- 0.5:ed 1:by 1.5:my",
-          "0:side 0.5:(ha 1:ha 1.5:ha)",
+          "0:side. 0.5:(ha 1:ha) 1.5:The",
           "0:horse 0.5:was 1:lean 1.5:and",
           "0:lank; 1.5:Mis-",
           "0:for- 0.5:tune 1:seemed 1.5:his",
@@ -625,6 +654,17 @@
           "0:we, 0.5:we 1:got 1.5:up-",
           "0:sot. 1:Oh"
         ]
+      },
+      "parts": {
+        "alto": {
+          "18": "D4:1.5 D4:0.25~ D4:0.25"
+        },
+        "tenor": {
+          "18": "B3:1.5 B3:0.25~ B3:0.25"
+        },
+        "bass": {
+          "18": "G3:1.5 G3:0.25~ G3:0.25"
+        }
       }
     },
     {
@@ -757,7 +797,7 @@
           "0:Take 0.5:the 1:girls 1.5:to-",
           "0:night, 1.5:And",
           "0:sing 0.5:this 1:sleigh- 1.5:ing",
-          "0:song. 0.5:(ha 1:ha 1.5:ha)",
+          "0:song. 0.5:(ha 1:ha) 1.5:Just",
           "0:get 0.5:a 1:bob- 1.5:tailed",
           "0:bay, 1.5:Two",
           "0:for- 0.5:ty 1:as 1.5:his",
@@ -767,11 +807,37 @@
           "0:crack, 0.5:you'll 1:take 1.5:the",
           "0:lead. 1:Oh"
         ]
+      },
+      "parts": {
+        "alto": {
+          "16": "G4:1.5 R:0.5",
+          "18": "D4:1.5~ D4:0.25~ D4:0.25",
+          "20": "E4:1.5~ E4:0.5",
+          "28": "E4:1.5~ E4:0.5"
+        },
+        "tenor": {
+          "16": "B3:1.5 R:0.5",
+          "18": "B3:1.5~ B3:0.25~ B3:0.25",
+          "20": "G3:1.5~ G3:0.5",
+          "28": "G3:1.5~ G3:0.5"
+        },
+        "bass": {
+          "16": "G3:1.5 R:0.5",
+          "18": "G3:1.5~ G3:0.25~ G3:0.25",
+          "20": "C3:1.5~ C3:0.5",
+          "28": "C3:1.5~ C3:0.5"
+        },
+        "soprano": {
+          "17": "R:2",
+          "19": "D4:1.5~ D4:0.5"
+        }
       }
     }
   ],
   "review_notes_it": [
-    "Trascrizione manuale delle tre pagine, non ancora revisionata da un secondo musicista. Gli ingressi e il testo delle strofe seguono le singole parti della scansione."
+    "Trascrizione manuale delle tre pagine, non ancora revisionata da un secondo musicista. Gli ingressi e il testo delle strofe seguono le singole parti della scansione.",
+    "Revisione battuta per battuta sulla scansione (11/2026): corretti tenore b. 23–27 (letti un grado sotto), basso b. 19 (Sol Sol Fa# Si) e b. 20 (Do), soprano b. 29 (Mi Do Si La) e, nelle strofe 2–3, l’ultima croma del basso a b. 24 ('The'/'Just' dopo '(ha ha)').",
+    "Articolazione per strofa come stampata (15/11/2026): l’anacrusi “(A)” (contralti/tenori/bassi b. 16, soprani b. 17) si canta solo nella strofa 2 (“A day or two ago”); nelle strofe 1 e 3 è una pausa, come l’anacrusi dei soprani a b. 25 nella strofa 1. Le legature tratteggiate tengono la nota nelle strofe senza sillaba: strofa 1 soprani b. 19 e C/T/B b. 20, 22, 24 (C, T), 26; strofa 2 C/T/B semicrome di b. 18; strofa 3 soprani b. 19 e C/T/B b. 18 (intera), 20, 28."
   ],
   "staff_bands": {
     "soprano": [

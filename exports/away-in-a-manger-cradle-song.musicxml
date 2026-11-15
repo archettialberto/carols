@@ -3697,12 +3697,21 @@
           <step>C</step>
           <octave>4</octave>
         </pitch>
-        <duration>4</duration>
-        <type>quarter</type>
+        <duration>2</duration>
+        <type>eighth</type>
         <lyric number="1">
           <syllabic>single</syllabic>
           <text>A</text>
         </lyric>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <alter>-1</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>2</duration>
+        <type>eighth</type>
       </note>
     </measure>
     <measure number="2">
@@ -4308,12 +4317,21 @@
           <step>C</step>
           <octave>4</octave>
         </pitch>
-        <duration>4</duration>
-        <type>quarter</type>
+        <duration>2</duration>
+        <type>eighth</type>
         <lyric number="2">
           <syllabic>single</syllabic>
           <text>The</text>
         </lyric>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <alter>-1</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>2</duration>
+        <type>eighth</type>
       </note>
     </measure>
     <measure number="19">
@@ -4923,12 +4941,21 @@
           <step>C</step>
           <octave>4</octave>
         </pitch>
-        <duration>4</duration>
-        <type>quarter</type>
+        <duration>2</duration>
+        <type>eighth</type>
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>Be</text>
         </lyric>
+      </note>
+      <note>
+        <pitch>
+          <step>B</step>
+          <alter>-1</alter>
+          <octave>3</octave>
+        </pitch>
+        <duration>2</duration>
+        <type>eighth</type>
       </note>
     </measure>
     <measure number="36">

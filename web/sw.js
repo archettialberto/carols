@@ -2,10 +2,11 @@
    updated songs and code win; the cache is used only when the server is unreachable.
    Browsers register service workers only on localhost or HTTPS (GitHub Pages is HTTPS,
    so there the installed app also works offline after a first visit). */
-const CACHE = 'carol-choir-v22';
+const CACHE = 'carol-choir-v23';
 // Relative paths: the app may live in a sub-folder (e.g. GitHub Pages /<repo>/).
-const SHELL = ['./', 'index.html', 'style.css', 'appearance.js', 'i18n.js', 'notation.js', 'sounds.js', 'player.js',
-  'vendor/abcjs-basic-6.7.2.min.js', 'booklet.js', 'playlist.js', 'fonts/im-fell-english.woff2', 'manifest.webmanifest', 'icons/icon-192.png', 'api/songs.json'];
+const SHELL = ['./', 'index.html', 'style.css', 'appearance.js', 'i18n.js', 'ui.js', 'notation.js', 'sounds.js', 'player.js',
+  'vendor/abcjs-basic-6.7.2.min.js', 'booklet.js', 'playlist.js', 'icons.svg', 'fonts/im-fell-english.woff2', 'fonts/im-fell-english-italic.woff2',
+  'fonts/eb-garamond-latin.woff2', 'fonts/eb-garamond-italic-latin.woff2', 'manifest.webmanifest', 'icons/icon-192.png', 'api/songs.json'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)).then(() => self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(
   caches.keys().then(keys => Promise.all(keys.filter(key => key !== CACHE).map(key => caches.delete(key)))).then(() => self.clients.claim())));

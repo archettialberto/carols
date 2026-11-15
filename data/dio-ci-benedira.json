@@ -8,7 +8,7 @@
   ],
   "key_fifths": -3,
   "measure_keys": {
-    "53": -1
+    "48": -1
   },
   "tempo": 124,
   "measure_beats": [
@@ -81,18 +81,9 @@
     4,
     4,
     4,
-    4,
-    4,
-    4,
-    4,
-    4,
-    4,
     2,
     4,
     2,
-    4,
-    4,
-    4,
     4,
     4,
     4,
@@ -105,7 +96,8 @@
     "The sopranos divide in (printed) bars 24, 25, 26, 27, 32, 33, 36, 37, 48, 49, 50, 51, 58, 59, 60, 61, 62, 66, 67, 70, 71, 78, 79, 80, 83, 84, 85, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96; the data keeps the upper (melody) note of each printed dyad.",
     "Key change to F major at printed bar 64; printed bars 87 and 89 are printed in 2/4 (shown as short bars, the engraving keeps 4/4).",
     "The score prints no hyphens; word divisions follow the Italian text. Printed elisions (ci.as, qui.il, …) are shown with ‿.",
-    "No tempo is printed: quarter = 124 is the default tempo (user choice); the closing “Rall.” is not applied automatically."
+    "No tempo is printed: quarter = 124 is the default tempo (user choice); the closing “Rall.” is not applied automatically.",
+    "Held chords shortened as the choir sings them (user choice, 2026-11-15): each phrase-end chord printed over two or three bars sounds 3 beats and a quarter-rest breath, the final chord one whole bar, and “benedirà!” before “I-nizia” takes the pickup into its own bar; printed bars 27, 51, 55, 61, 62, 80, 94, 95, 96 are left out."
   ],
   "parts": {
     "soprano": [
@@ -129,8 +121,7 @@
       "Ab4:1 G4:1 C5:2~",
       "C5:2 R:1 Eb5:1",
       "C5:1 Bb4:1 Eb5:1.5 D5:0.5",
-      "Eb5:4~",
-      "Eb5:4",
+      "Eb5:3 R:1",
       "Bb4:1.5 Eb4:0.5 Eb4:1 F4:1",
       "G4:1 Eb4:1 F4:2",
       "C5:1.5 C5:0.5 C5:1 D5:1",
@@ -151,16 +142,12 @@
       "Ab4:1 G4:1 C5:2~",
       "C5:2 R:1 Eb5:1",
       "C5:1 Bb4:1 Eb5:1.5 D5:0.5",
-      "Eb5:4~",
-      "Eb5:4",
-      "R:2 R:1 Bb3:1",
+      "Eb5:3 Bb3:1",
       "C4:1.5 D4:0.5 Eb4:1 G4:1",
       "Ab4:1 G4:1 C5:2~",
       "C5:2 R:1 Eb5:1",
       "C5:1 Bb4:1 Eb5:1.5 D5:0.5",
-      "Eb5:4~",
-      "Eb5:4~",
-      "Eb5:4",
+      "Eb5:3 R:1",
       "C5:1.5 F4:0.5 F4:1 G4:1",
       "A4:1 F4:1 G4:2",
       "D5:1.5 D5:0.5 D5:1 E5:1",
@@ -176,7 +163,6 @@
       "D5:1.5 D5:0.5 D5:1 F4:1",
       "C5:1.5 C5:0.5 C5:2",
       "Bb4:1.5 Bb4:0.5 A4:1 C#5:1",
-      "D5:4~",
       "D5:3 R:1",
       "D4:1.5 E4:0.5 F4:1 A4:1",
       "Bb4:1 A4:1 D5:2~",
@@ -190,9 +176,6 @@
       "R:2 R:1 F5:1",
       "Bb5:2 A5:2",
       "G5:3 F5:1",
-      "F5:4~",
-      "F5:4~",
-      "F5:4~",
       "F5:4"
     ],
     "alto": [
@@ -216,8 +199,7 @@
       "Eb4:1 D4:1 Eb4:2~",
       "Eb4:2 R:1 Eb4:1",
       "Eb4:1 Eb4:1 Eb4:1.5 F4:0.5",
-      "Eb4:4~",
-      "Eb4:4",
+      "Eb4:3 R:1",
       "Eb4:1.5 Eb4:0.5 Eb4:1 Bb3:1",
       "Bb3:1 C4:1 Bb3:2",
       "C4:1.5 C4:0.5 C4:1 F4:1",
@@ -238,16 +220,12 @@
       "Eb4:1 D4:1 Eb4:2~",
       "Eb4:2 R:1 Eb4:1",
       "Eb4:1 Eb4:1 Eb4:1.5 F4:0.5",
-      "Eb4:4~",
-      "Eb4:4",
-      "R:2 R:1 Bb3:1",
+      "Eb4:3 Bb3:1",
       "C4:1.5 D4:0.5 Eb4:1 Eb4:1",
       "Eb4:1 D4:1 Eb4:2~",
       "Eb4:2 R:1 Eb4:1",
       "Eb4:1 Eb4:1 Eb4:1.5 F4:0.5",
-      "Eb4:4~",
-      "Eb4:4~",
-      "Eb4:4",
+      "Eb4:3 R:1",
       "F4:1.5 F4:0.5 F4:1 C4:1",
       "C4:1 D4:1 C4:2",
       "D4:1.5 D4:0.5 D4:1 G4:1",
@@ -263,7 +241,6 @@
       "F4:1.5 F4:0.5 F4:1 D4:1",
       "F4:1.5 F4:0.5 F4:2",
       "D4:1.5 D4:0.5 C#4:1 E4:1",
-      "F4:4~",
       "F4:3 R:1",
       "D4:1.5 E4:0.5 F4:1 F4:1",
       "F4:1 E4:1 F4:2~",
@@ -277,9 +254,6 @@
       "R:2 R:1 F4:1",
       "Bb4:2 F4:2",
       "Bb4:3 Bb4:1",
-      "F4:4~",
-      "F4:4~",
-      "F4:4~",
       "F4:4"
     ],
     "tenor": [
@@ -303,8 +277,7 @@
       "C4:1 B3:1 G3:2~",
       "G3:2 R:1 Eb3:1",
       "Eb3:1 Eb3:1 Ab3:1.5 Bb3:0.5",
-      "Bb3:4~",
-      "Bb3:4",
+      "Bb3:3 R:1",
       "G3:1.5 Ab3:0.5 Ab3:1 F3:1",
       "Eb3:1 Ab3:1 F3:2",
       "Eb3:1.5 Eb3:0.5 Ab3:1 F3:1",
@@ -325,16 +298,12 @@
       "C4:1 B3:1 G3:2~",
       "G3:2 R:1 Eb3:1",
       "Eb3:1 Eb3:1 Ab3:1.5 Bb3:0.5",
-      "Bb3:4~",
-      "Bb3:4",
-      "R:2 R:1 Bb2:1",
+      "Bb3:3 Bb2:1",
       "C3:1.5 D3:0.5 Eb3:1 Bb3:1",
       "C4:1 B3:1 G3:2~",
       "G3:2 R:1 Eb3:1",
       "Eb3:1 Eb3:1 Ab3:1.5 Bb3:0.5",
-      "Bb3:4~",
-      "Bb3:4~",
-      "Bb3:4",
+      "Bb3:3 R:1",
       "A3:1.5 Bb3:0.5 Bb3:1 G3:1",
       "F3:1 Bb3:1 G3:2",
       "F3:1.5 F3:0.5 Bb3:1 G3:1",
@@ -350,7 +319,6 @@
       "Bb3:1.5 Bb3:0.5 Bb3:1 Bb3:1",
       "C4:1.5 C4:0.5 C4:2",
       "G3:1.5 G3:0.5 E3:1 A3:1",
-      "A3:4~",
       "A3:3 R:1",
       "D3:1.5 E3:0.5 F3:1 C4:1",
       "D4:1 C#4:1 A3:2~",
@@ -364,9 +332,6 @@
       "R:2 R:1 F3:1",
       "G3:2 F3:2",
       "Bb3:3 C4:1",
-      "C4:4~",
-      "C4:4~",
-      "C4:4~",
       "C4:4"
     ],
     "bass": [
@@ -390,8 +355,7 @@
       "Ab3:1 G3:1 C3:2~",
       "C3:2 R:1 G2:1",
       "Ab2:1 G2:1 Bb2:1.5 Bb2:0.5",
-      "Eb3:4~",
-      "Eb3:4",
+      "Eb3:3 R:1",
       "Eb3:1.5 C3:0.5 C3:1 D3:1",
       "Eb3:1 C3:1 D3:2",
       "Ab2:1.5 Ab2:0.5 Ab2:1 Bb2:1",
@@ -412,16 +376,12 @@
       "Ab3:1 G3:1 C3:2~",
       "C3:2 R:1 G2:1",
       "Ab2:1 G2:1 Bb2:1.5 Bb2:0.5",
-      "Eb3:4~",
-      "Eb3:4",
-      "R:2 R:1 Bb2:1",
+      "Eb3:3 Bb2:1",
       "C3:1.5 D3:0.5 Eb3:1 Eb3:1",
       "Ab3:1 G3:1 C3:2~",
       "C3:2 R:1 G2:1",
       "Ab2:1 G2:1 Bb2:1.5 Bb2:0.5",
-      "Eb3:4~",
-      "Eb3:4~",
-      "Eb3:4",
+      "Eb3:3 R:1",
       "F3:1.5 D3:0.5 D3:1 E3:1",
       "F3:1 D3:1 E3:2",
       "Bb2:1.5 Bb2:0.5 Bb2:1 C3:1",
@@ -437,7 +397,6 @@
       "Bb3:1.5 Bb3:0.5 Bb3:1 Bb3:1",
       "A3:1.5 A3:0.5 A3:2",
       "G3:1.5 G2:0.5 A2:1 A2:1",
-      "D3:4~",
       "D3:3 R:1",
       "D3:1.5 E3:0.5 F3:1 F3:1",
       "Bb3:1 A3:1 D3:2~",
@@ -451,9 +410,6 @@
       "R:2 R:1 A2:1",
       "G2:2 A2:2",
       "Bb2:2 C3:1 C3:1",
-      "F3:4~",
-      "F3:4~",
-      "F3:4~",
       "F3:4"
     ]
   },
@@ -685,33 +641,6 @@
     },
     {
       "measure": 76
-    },
-    {
-      "measure": 77
-    },
-    {
-      "measure": 78
-    },
-    {
-      "measure": 79
-    },
-    {
-      "measure": 80
-    },
-    {
-      "measure": 81
-    },
-    {
-      "measure": 82
-    },
-    {
-      "measure": 83
-    },
-    {
-      "measure": 84
-    },
-    {
-      "measure": 85
     }
   ],
   "systems": [
@@ -780,10 +709,9 @@
       "first_measure": 20,
       "barlines": [
         0.0,
-        0.2,
-        0.4,
-        0.6,
-        0.8,
+        0.25,
+        0.5,
+        0.75,
         1.0
       ],
       "width": 1072,
@@ -792,7 +720,7 @@
     {
       "image": "scores/dio-ci-benedira-6.png",
       "page": 3,
-      "first_measure": 25,
+      "first_measure": 24,
       "barlines": [
         0.0,
         0.2,
@@ -807,7 +735,7 @@
     {
       "image": "scores/dio-ci-benedira-7.png",
       "page": 3,
-      "first_measure": 30,
+      "first_measure": 29,
       "barlines": [
         0.0,
         0.2,
@@ -822,7 +750,7 @@
     {
       "image": "scores/dio-ci-benedira-8.png",
       "page": 3,
-      "first_measure": 35,
+      "first_measure": 34,
       "barlines": [
         0.0,
         0.2,
@@ -837,13 +765,12 @@
     {
       "image": "scores/dio-ci-benedira-9.png",
       "page": 4,
-      "first_measure": 40,
+      "first_measure": 39,
       "barlines": [
         0.0,
-        0.2,
-        0.4,
-        0.6,
-        0.8,
+        0.25,
+        0.5,
+        0.75,
         1.0
       ],
       "width": 1072,
@@ -852,23 +779,7 @@
     {
       "image": "scores/dio-ci-benedira-10.png",
       "page": 4,
-      "first_measure": 45,
-      "barlines": [
-        0.0,
-        0.16667,
-        0.33333,
-        0.5,
-        0.66667,
-        0.83333,
-        1.0
-      ],
-      "width": 1072,
-      "height": 567
-    },
-    {
-      "image": "scores/dio-ci-benedira-11.png",
-      "page": 4,
-      "first_measure": 51,
+      "first_measure": 43,
       "barlines": [
         0.0,
         0.2,
@@ -881,9 +792,22 @@
       "height": 567
     },
     {
+      "image": "scores/dio-ci-benedira-11.png",
+      "page": 4,
+      "first_measure": 48,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 1072,
+      "height": 567
+    },
+    {
       "image": "scores/dio-ci-benedira-12.png",
       "page": 5,
-      "first_measure": 56,
+      "first_measure": 51,
       "barlines": [
         0.0,
         0.2,
@@ -898,7 +822,7 @@
     {
       "image": "scores/dio-ci-benedira-13.png",
       "page": 5,
-      "first_measure": 61,
+      "first_measure": 56,
       "barlines": [
         0.0,
         0.2,
@@ -913,14 +837,13 @@
     {
       "image": "scores/dio-ci-benedira-14.png",
       "page": 5,
-      "first_measure": 66,
+      "first_measure": 61,
       "barlines": [
         0.0,
-        0.16667,
-        0.33333,
-        0.5,
-        0.66667,
-        0.83333,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
         1.0
       ],
       "width": 1072,
@@ -929,7 +852,7 @@
     {
       "image": "scores/dio-ci-benedira-15.png",
       "page": 6,
-      "first_measure": 72,
+      "first_measure": 66,
       "barlines": [
         0.0,
         0.16667,
@@ -945,26 +868,13 @@
     {
       "image": "scores/dio-ci-benedira-16.png",
       "page": 6,
-      "first_measure": 78,
+      "first_measure": 72,
       "barlines": [
         0.0,
-        0.14286,
-        0.28571,
-        0.42857,
-        0.57143,
-        0.71429,
-        0.85714,
-        1.0
-      ],
-      "width": 1072,
-      "height": 567
-    },
-    {
-      "image": "scores/dio-ci-benedira-17.png",
-      "page": 6,
-      "first_measure": 85,
-      "barlines": [
-        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
         1.0
       ],
       "width": 1072,
@@ -998,7 +908,6 @@
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
           "0:Per 1.5:chi‿è 2:so- 3:lo‿e",
           "0:sof- 1:fri- 2:rà,",
           "0:no- 1.5:i 2:pre- 3:ghe-",
@@ -1019,16 +928,12 @@
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
-          "0:rà!",
-          "",
-          "3:I-",
+          "0:rà! 3:I-",
           "0:ni- 1.5:zia 2:qui‿il 3:mi-",
           "0:ra- 1:co- 2:lo,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
-          "",
           "0:Not- 1.5:te 2:di 3:fe-",
           "0:li- 1:ci- 2:tà,",
           "0:not- 1.5:te 2:di 3:Na-",
@@ -1045,7 +950,6 @@
           "0:cer- 1.5:ca- 2:no,",
           "0:si 1.5:ri- 2:tro- 3:va-",
           "0:no.",
-          "",
           "0:E 1.5:l’a- 2:mo- 3:re",
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
@@ -1058,10 +962,7 @@
           "3:Dio",
           "0:ci 2:be-",
           "0:ne- 3:di-",
-          "0:rà!",
-          "",
-          "",
-          ""
+          "0:rà!"
         ],
         "alto": [
           "0:Not- 1.5:te 2:di 3:fe-",
@@ -1085,7 +986,6 @@
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
           "0:Per 1.5:chi‿è 2:so- 3:lo‿e",
           "0:sof- 1:fri- 2:rà,",
           "0:no- 1.5:i 2:pre- 3:ghe-",
@@ -1106,16 +1006,12 @@
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
-          "0:rà!",
-          "",
-          "3:I-",
+          "0:rà! 3:I-",
           "0:ni- 1.5:zia 2:qui‿il 3:mi-",
           "0:ra- 1:co- 2:lo,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
-          "",
           "0:Not- 1.5:te 2:di 3:fe-",
           "0:li- 1:ci- 2:tà,",
           "0:not- 1.5:te 2:di 3:Na-",
@@ -1132,7 +1028,6 @@
           "0:cer- 1.5:ca- 2:no,",
           "0:si 1.5:ri- 2:tro- 3:va-",
           "0:no.",
-          "",
           "0:E 1.5:l’a- 2:mo- 3:re",
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
@@ -1145,10 +1040,7 @@
           "3:Dio",
           "0:ci 2:be-",
           "0:ne- 3:di-",
-          "0:rà!",
-          "",
-          "",
-          ""
+          "0:rà!"
         ],
         "tenor": [
           "0:Not- 1.5:te 2:di 3:fe-",
@@ -1172,7 +1064,6 @@
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
           "0:Per 1.5:chi‿è 2:so- 3:lo‿e",
           "0:sof- 1:fri- 2:rà,",
           "0:no- 1.5:i 2:pre- 3:ghe-",
@@ -1193,16 +1084,12 @@
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
-          "0:rà!",
-          "",
-          "3:I-",
+          "0:rà! 3:I-",
           "0:ni- 1.5:zia 2:qui‿il 3:mi-",
           "0:ra- 1:co- 2:lo,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
-          "",
           "0:Not- 1.5:te 2:di 3:fe-",
           "0:li- 1:ci- 2:tà,",
           "0:not- 1.5:te 2:di 3:Na-",
@@ -1219,7 +1106,6 @@
           "0:cer- 1.5:ca- 2:no,",
           "0:si 1.5:ri- 2:tro- 3:va-",
           "0:no.",
-          "",
           "0:E 1.5:l’a- 2:mo- 3:re",
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
@@ -1232,10 +1118,7 @@
           "3:Dio",
           "0:ci 2:be-",
           "0:ne- 3:di-",
-          "0:rà!",
-          "",
-          "",
-          ""
+          "0:rà!"
         ],
         "bass": [
           "0:Not- 1.5:te 2:di 3:fe-",
@@ -1259,7 +1142,6 @@
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
           "0:Per 1.5:chi‿è 2:so- 3:lo‿e",
           "0:sof- 1:fri- 2:rà,",
           "0:no- 1.5:i 2:pre- 3:ghe-",
@@ -1280,16 +1162,12 @@
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
-          "0:rà!",
-          "",
-          "3:I-",
+          "0:rà! 3:I-",
           "0:ni- 1.5:zia 2:qui‿il 3:mi-",
           "0:ra- 1:co- 2:lo,",
           "3:Dio",
           "0:ci 1:be- 2:ne- 3.5:di-",
           "0:rà!",
-          "",
-          "",
           "0:Not- 1.5:te 2:di 3:fe-",
           "0:li- 1:ci- 2:tà,",
           "0:not- 1.5:te 2:di 3:Na-",
@@ -1306,7 +1184,6 @@
           "0:cer- 1.5:ca- 2:no,",
           "0:si 1.5:ri- 2:tro- 3:va-",
           "0:no.",
-          "",
           "0:E 1.5:l’a- 2:mo- 3:re",
           "0:vin- 1:ce- 2:rà,",
           "3:Dio",
@@ -1319,10 +1196,7 @@
           "3:Dio",
           "0:ci 2:be-",
           "0:ne- 3:di-",
-          "0:rà!",
-          "",
-          "",
-          ""
+          "0:rà!"
         ]
       }
     }

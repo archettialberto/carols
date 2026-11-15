@@ -33,7 +33,9 @@ harmonization was substituted; the supplied scans remain the source.
 - Tenor and bass use the printed bass-clef pitches directly. The exported
   separate tenor staff uses an octave treble clef without changing sounding pitch.
 - All five printed verses and their refrains are available, individually or in
-  sequence. Verse 2 rearticulates the tenor D4 in measure 15 for “tin-ued”.
+  sequence. Every stanza sings the same notes: the tenor's measure-15 half note is stored as tied
+  quarters so verse 2's “tin-ued” has an onset (the verse-2 rearticulation override was removed
+  2026-11-15: the print gives one set of notes for all stanzas).
   Practice tempo: quarter = 84 (was 96; online editions and recordings range about 80–96, and
   a slower, stately pace suits the carol). Soprano measures 15–16 were corrected to
   A4 B4 C#5 | D5 A4 G4 from the clean digital source (the same phrase as measures 7–8).
@@ -104,8 +106,7 @@ the printed spellings and alternate verses. No online lyric edition was used.
 Each verse stores explicit per-measure syllable onsets. Shared Nowell lyrics use
 one map; Jingle uses separate maps because soprano enters a measure later than
 alto/tenor/bass and the bass has extra responses. “Is-ra-” in Nowell's closing
-phrase changes syllable on beat 2, with the intervening note a melisma. The verse
-2 tenor articulation in measure 15 is recorded as an explicit rhythmic override.
+phrase changes syllable on beat 2, with the intervening note a melisma. 
 The parenthesized introductory A is included for Jingle verses 1–2 and omitted
 from verse 3; final-chorus pickups are silent. Bass laughter remains a fill rather
 than an extra invented pickup syllable.
@@ -211,9 +212,8 @@ their unfolded verse sequences.
 
 Nowell's five lyric rows appear once below soprano, with a note that the text is
 common to SATB. Its refrain is combined into one system after the verse systems.
-The verse 2 tenor articulation in measure 15 is shown on a shared grid: the base
-D4 half note is engraved as tied quarters, with a star/footnote explaining that
-verse 2 rearticulates them. The other verses retain the original sustained sound.
+The tenor's measure-15 D4 half note is engraved as tied quarters in every verse (no
+verse-specific rearticulation since 2026-11-15).
 
 Jingle keeps the original 32-measure structure, a single chorus, and three
 numbered lyric rows per voice in the verse section. The staggered soprano/lower
@@ -422,11 +422,9 @@ within each beat group. The notation suite re-verified every engraved note and s
   traditional English carol, G major, 6/8, eighth pickup + 8 bars on two staves, stanzas 1–4
   printed. Pitches from `vector_heads.py --font Opus --dot 2122 --key F# --clefs T,B`; rhythms
   read from the page. Data measure 1 is the pickup (printed bar n = data n+1).
-- Stanzas 5–8 come from a public-domain hymnal (The Hymnal for Boys and Girls #33, public domain); stanza 2
-  keeps the printed “what was in those ships” (a public-domain hymnal: “who”). the 1833 collection “Then let us all rejoice
-  amain” is not in that source and is not added. Stanza 7 (“in Heav’n shall sing”) splits the
-  first quarter of printed bars 2 and 6 into two eighths in every voice (verse `parts` override;
-  one footnote in the PDF). Tempo ♩ = 132 (dotted quarter 88).
+- Only the four printed stanzas are sung (stanzas 5–8 from a public-domain hymnal, and stanza 7's
+  split notes, were removed 2026-11-15 at the user's request); stanza 2 keeps the printed “what was
+  in those ships”. Every stanza sings the same notes. Tempo ♩ = 132 (dotted quarter 88).
 - Renderer: 6/8 now beams by dotted quarter; equal rearticulation footnotes are merged per stanza.
   Generator: `sources/scripts/make_three_ships.py`.
 
@@ -488,7 +486,7 @@ within each beat group. The notation suite re-verified every engraved note and s
   lines and checked on the page; the words were typed from the page.
 - Bar 11 alto A3 (voice exchange with the tenor) and the printed final chord (bass on A3) are kept.
   The edition's dramatised solo suggestion (king = tenor, page = treble) is kept as a footnote;
-  playback stays SATB. Tempo ♩ = 100. Generator: `sources/scripts/make_wenceslas.py`.
+  playback stays SATB. Tempo ♩ = 120. Generator: `sources/scripts/make_wenceslas.py`.
 
 ## Hark! the Herald Angels Sing
 
@@ -621,3 +619,14 @@ within each beat group. The notation suite re-verified every engraved note and s
   unfolded, all syllables sit on lyric line 1 (Cantai ignores lines 2+) and held syllables get
   extenders. Rendered WAVs go through `tools/recordings.py convert … --source "synthesized: Cantai"`,
   then `tools/recordings.py build`.
+- Jingle Bells, per-stanza articulation as printed (2026-11-15): the bracketed pickup “(A)” is sung
+  only before stanza 2 (“A day or two ago”), a rest before stanzas 1 and 3 (also the stanza-1
+  soprano pickup in m25, printed “-”); dashed ties hold the note in the stanzas with no syllable on
+  it (verse `parts` overrides). The printed PDF engraves the pickup once and stanza 1's ties.
+  Tempo ♩ = 104 (was 112; 108 and 100 tried, 104 chosen by ear on the Cantai render). The print
+  gives only “Spiritoso”.
+- Dio ci benedirà, 2026-11-15: the held phrase-end chords are shortened as the choir rendered and
+  rehearses them (user choice): each “Dio ci benedirà” and “si ritrovano” chord sounds 3 beats and a
+  quarter-rest breath, the final chord one whole bar, and “benedirà!” before “I-nizia” takes the
+  pickup into its own bar (printed bars 27, 51, 55, 61, 62, 80, 94–96 left out; 76 data bars).
+  First Cantai recording (English voice singing the respelled Italian), replacing the piano parts.

@@ -30,7 +30,8 @@ class CompactScoreTest(unittest.TestCase):
                     at=bar['start']
                     if at>=limit: break
                     for note in bar['parts'][voice]:
-                        if note['pitch']!='R':
+                        if note['pitch']!='R' and not (note.get('optional') and not any(
+                                e['start']==at for e in base['events'][voice])):
                             if tie:
                                 self.assertEqual(actual[-1]['pitch'],note['pitch'])
                                 actual[-1]['duration']+=note['duration']
@@ -62,9 +63,9 @@ class CompactScoreTest(unittest.TestCase):
     def test_rhythm_exception_and_da_capo_are_explicit(self):
         songs={s['id']:s for s in load_songs()}
         nowell=compact_score(songs['the-first-nowell'])
-        self.assertEqual(nowell['variants'],[dict(voice='tenor',measure=15,beat=1.0,verses=[2])])
-        self.assertIn('battuta 15',nowell['notes'][0])
+        self.assertEqual(nowell['variants'],[])  # every stanza sings the same notes
         self.assertTrue(nowell['bars'][14]['parts']['tenor'][0]['tie'])
+        self.assertEqual(compact_score(songs['i-saw-three-ships'])['variants'],[])
         jingle=compact_score(songs['jingle-bells'])
         self.assertEqual(jingle['bars'][15]['parts']['soprano'][0]['annotation'],'Fine')
         self.assertEqual(jingle['bars'][-1]['parts']['soprano'][-1]['annotation'],'D.C. al Fine')

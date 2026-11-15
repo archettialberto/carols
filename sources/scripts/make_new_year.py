@@ -28,7 +28,7 @@ ALTO2 = (['Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'Ab4:0.5 G4:0.5 F4:1 Ab4:1', 'Eb4:0.5 F4:
 ALTO3 = (['Bb4:1 G4:1 Eb4:1', 'Ab4:0.5 G4:0.5 F4:1 Ab4:1', 'Bb4:1 G4:1 Eb4:1', 'F4:2 R:1',
           'Bb4:1 G4:1 Eb4:0.5 Eb4:0.5', 'F4:1 F4:1 Eb4:1', 'Bb4:0.5 Ab4:0.5 G4:1 Eb4:1', 'F4:2 F4:1']
          + REFRAIN[:2] + ['Bb4:0.5 Ab4:0.5 G4:1 Bb4:1'] + REFRAIN[3:])
-DESCANT = ['Bb4:3', 'C5:3', 'D5:3', 'Eb5:2 F5:1', 'F5:3', 'G5:1 F5:1 Eb5:1~', 'Eb5:1 D5:0.5 C5:0.5 Bb4:0.5 Ab4:0.5', 'G4:2 R:1']
+DESCANT = ['Bb4:3', 'C5:3', 'D5:3', 'Eb5:2 Eb5:1', 'F5:3', 'G5:1 F5:1 Eb5:1~', 'Eb5:1 D5:0.5 C5:0.5 Bb4:0.5 Ab4:0.5', 'G4:2 R:1']
 LOW3 = (['Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:1 F4:1 Ab4:1', 'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:2 R:1',
          'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'C4:1 F4:1 Ab4:1', 'Eb4:0.5 F4:0.5 G4:1 Eb4:1', 'F4:2 F4:1']
         + LOW_REFRAIN + ['Eb4:2 C5:1',
@@ -116,6 +116,7 @@ song = {
         'Stanza 1: sopranos alone. Stanza 2: sopranos (tune) and altos (second line, often crossing above). Stanza 3: sopranos tune then a descant in the refrain (B♭4–G5 in long notes, “le- … vy dew, the bu- … gles that do shine”), altos the tune in the refrain, tenors and basses in unison an octave below the printed treble-clef line.',
         'Read by eye from small, uneven scan crops (about 10 px between staff lines): every head was checked against the staff lines next to it. Least certain: alto bar 18 and 34 “with” (A♭4, not G4), alto bar 36 “chin” (F4), stanza 3 low line bar 44 “The” (C5 printed) and bar 47 “do” (B♭3 printed, below a ledger line), alto bar 43 “the” (B♭4).',
         'Stanzas 2–3 sopranos sing “with” on one quarter (stanza 1 “from the” has two eighths). Stanza 3 altos sing “gold on her chin” (no “up-”) and “O- pen” on two quarters.',
+        'Audit 2026-11-15: descant bar 44 “the” corrected F5 → E♭5 (the filled head sits in the top space, between the top two lines, like the preceding “dew” half note; it was read as on the top line). The rest of the score was re-checked bar by bar against the scan (pixel profiles of staff lines and heads) and matches.',
         'Pencil marks on the scan (breaths, brackets) are not transcribed; the final fermata is not encoded. Tempo quarter = 92 (“Quietly”).',
     ],
     'parts': parts, 'playback': [{'measure': m} for m in range(1, 49)],

@@ -26,7 +26,7 @@ S = ([R, R] + MEL1 + [R] * 8                                                  # 
         'E4:1 C4:0.5 C4:0.5 F4:1 A4:1', 'G4:4~', 'G4:1 A4:0.5 G4:0.5 F4:1 G4:1', 'A4:2 A4:2',   # 53–56
         'R:1 C4:0.5 C4:0.5 F4:1 C5:1', 'Bb4:2 Bb4:2~', 'Bb4:1 A4:0.5 Bb4:0.5 G4:1 D5:1', 'C5:4~', 'C5:2 R:2',
         R, R, 'Bb4:0.5 C5:0.5 D5:2 C5:0.5 Bb4:0.5', 'C5:1 A4:1 F4:1 D4:1',                    # 62–65
-        'E4:3 C5:1', 'Bb4:2 Bb4:1 Bb4:1', 'A4:4', R, R,                                         # 66–70
+        'C4:3 C5:1', 'Bb4:2 Bb4:1 Bb4:1', 'A4:4', R, R,                                         # 66–70
         R, 'R:1 C5:0.5 C5:0.5 E5:1 G5:1', 'F#5:0.5 E5:0.5 D5:0.5 C5:0.5 B4:1 A4:1', 'B4:2 B4:2',  # 71–74
         'R:1 D4:0.5 D4:0.5 G4:1 D5:1', 'C5:2 C5:2~', 'C5:1 B4:0.5 C5:0.5 A4:1 E5:1', 'D5:4',     # 75–78
         'R:1 G4:0.5 G4:0.5 D5:1 G5:1', 'F5:4~', 'F5:1 G5:0.5 F5:0.5 E5:1 D5:1', 'E5:2 E5:2~',    # 79–82
@@ -47,16 +47,16 @@ A = ([R, R] + MEL1 + [R] * 8 + [R] * 9                                         #
         'C4:1 C4:0.5 C4:0.5 F4:1 A4:1', 'G4:2 F4:2', 'E4:1 F4:0.5 E4:0.5 D4:1 E4:1', 'F4:2 F4:2',  # 53–56
         'R:1 C4:0.5 C4:0.5 F4:1 E4:1', 'D4:2 D4:2~', 'D4:1 C4:0.5 D4:0.5 E4:1 Bb4:1', 'A4:4~', 'A4:2 R:2',
         R, R, 'D4:0.5 E4:0.5 F4:2 E4:0.5 D4:0.5', 'E4:1 C4:1 D4:1 Bb3:1',
-        'C4:3 C4:1', 'D4:2 C4:1 C4:1', 'C4:4', R, R,                                           # 66–70
+        'A3:3 C4:1', 'D4:2 C4:1 C4:1', 'C4:4', R, R,                                           # 66–70
         'R:1 D4:0.5 D4:0.5 G4:1 B4:1', 'A4:4~', 'A4:1 B4:0.5 A4:0.5 G4:1 A4:1', 'G4:2 G4:2',   # 71–74
-        'R:1 D4:0.5 D4:0.5 D4:1 G4:1', 'G4:2 G4:2~', 'G4:1 G4:0.5 G4:0.5 A4:1 A4:1', 'G4:4',   # 75–78
+        'R:1 D4:0.5 D4:0.5 D4:1 G4:1', 'G4:2 G4:2~', 'G4:1 G4:0.5 G4:0.5 A4:1 A4:1', 'F#4:4',   # 75–78
         'R:1 G4:0.5 G4:0.5 G4:1 G4:1', 'A4:4', 'B4:4', 'G4:2 C5:1 B4:1',                      # 79–82
         'A4:2 F#4:2~', 'F#4:1 B4:0.5 A4:0.5 G4:1 F#4:1', 'E4:1 D4:1 C4:1 B3:1', 'C4:4',          # 83–86
         'R:1 D4:0.5 D4:0.5 G4:1 B4:1', 'A4:4~', 'A4:1 B4:0.5 A4:0.5 G4:1 A4:1', 'G4:2 G4:2',   # 87–90
         R, 'R:1 E4:0.5 E4:0.5 G4:1 B4:1', 'A4:2 A4:2~', 'A4:1 G4:0.5 A4:0.5 F#4:1 B4:1',        # 91–94
         'A4:2 G4:1 R:1', 'G4:1.5 G4:0.5 C5:1 G4:0.5 G4:0.5', 'B4:1 F#4:1 G4:0.5 F#4:0.5 E4:1',  # 95–97
         'E4:0.5 F#4:0.5 G4:2 F#4:0.5 E4:0.5', 'F#4:1 F#4:1 E4:0.5 D4:0.5 C4:1',                 # 98–99
-        'R:1 D4:0.5 D4:0.5 G4:1 F#4:1', 'E4:1 E4:1 D4:1 C4:1', 'B3:4', 'Bb3:4',                 # 100–103
+        'R:1 D4:0.5 D4:0.5 G4:1 F#4:1', 'E4:1 E4:1 D4:1 C4:1', 'B3:4~', 'B3:4',                # 100–103
         'R:1 D4:0.5 D4:0.5 G4:1 B4:1', 'A4:1 E4:1 F#4:1 A4:1', 'G4:4~', 'G4:2 R:2'])            # 104–107
 T = ([R] * 10 + ['R:1 F3:0.5 F3:0.5 C4:1 F4:1', 'Eb4:4~', 'Eb4:1 F4:0.5 Eb4:0.5 D4:1 C4:1', 'D4:2 D4:2~',
                  'D4:1 E4:0.5 D4:0.5 C4:1 Bb3:1', 'C4:3 F3:1', 'Bb3:1 A3:1 G3:1 F3:1', 'G3:4']   # 1–18
@@ -69,20 +69,20 @@ T = ([R] * 10 + ['R:1 F3:0.5 F3:0.5 C4:1 F4:1', 'Eb4:4~', 'Eb4:1 F4:0.5 Eb4:0.5 
         'R:1 C3:0.5 C3:0.5 F3:1 C4:1', 'Bb3:2 Bb3:2~', 'Bb3:1 A3:0.5 Bb3:0.5 G3:1 D4:1', 'C4:4~',  # 41–44
         'C4:1 F3:0.5 F3:0.5 C4:1 F4:1', 'Eb4:4~', 'Eb4:1 F4:0.5 Eb4:0.5 D4:1 C4:1', 'D4:2 D4:2',  # 45–48
         'R:1 E4:0.5 D4:0.5 C4:1 Bb3:1', 'C4:3 F3:1', 'Bb3:1 A3:1 G3:1 F3:1', 'A3:4', 'G3:1 R:3',  # 49–53
-        'Bb3:4~', 'Bb3:4', 'A3:4~', 'A3:4', 'Bb3:4~', 'Bb3:4', 'A3:2 C4:2', 'C4:2 R:2',        # 54–61
+        'Bb3:4~', 'Bb3:4', 'A3:4~', 'A3:4', 'Bb3:4~', 'Bb3:4', 'A3:2 C4:2', 'E4:2 R:2',        # 54–61
         'D4:0.5 E4:0.5 F4:2 E4:0.5 D4:0.5', 'E4:1 C4:1 A3:1 F3:1', R, R,                        # 62–65
         'R:1 C3:0.5 C3:0.5 F3:1 A3:1', 'G3:1 D3:1 E3:1 G3:1', 'G3:4', R, R,                     # 66–70
         'R:1 D3:0.5 D3:0.5 G3:1 B3:1', 'A3:4~', 'A3:1 B3:0.5 A3:0.5 G3:1 A3:1', 'B3:2 B3:2',   # 71–74
         'R:1 D4:0.5 D4:0.5 B3:1 G3:1', 'C4:2 C4:2~', 'C4:1 C4:0.5 C4:0.5 C4:1 C4:1', 'D4:4',     # 75–78
-        R, 'R:1 A3:0.5 A3:0.5 C4:1 E4:1', 'B3:4~', 'B3:1 C4:0.5 B3:0.5 A3:1 G3:1',              # 79–82
+        R, 'R:1 A3:0.5 A3:0.5 C4:1 E4:1', 'D4:4~', 'D4:1 C4:0.5 B3:0.5 A3:1 G3:1',              # 79–82
         'A3:2 A3:2', 'A3:2 B3:2', 'C4:3 C4:1', 'A3:4',                                          # 83–86
         'R:1 D3:0.5 D3:0.5 G3:1 B3:1', 'A3:4~', 'A3:1 B3:0.5 A3:0.5 G3:1 A3:1', 'B3:2 B3:2',   # 87–90
-        'R:1 D3:0.5 D3:0.5 G3:1 D4:1', 'C4:2 C4:2~', 'C4:1 B3:0.5 C4:0.5 A3:1 E4:1', 'D4:4',     # 91–94
+        'R:1 D3:0.5 D3:0.5 G3:1 D4:1', 'C4:2 C4:2~', 'C4:1 B3:0.5 C4:0.5 A3:1 E4:1', 'D4:3 D4:1', # 91–94
         'F4:3 R:1', 'E4:1.5 D4:0.5 C4:0.5 D4:0.5 E4:1', 'D4:0.5 E4:0.5 F#4:0.5 D4:0.5 E4:1 B3:1',  # 95–97
         'C4:1.5 D4:0.5 E4:0.5 C4:0.5 D4:0.5 E4:0.5', 'D4:1 D4:1 C4:1 G3:1',                     # 98–99
-        'R:1 D4:0.5 D4:0.5 B3:1 G3:1', 'C4:1 A3:1 D4:1 D4:1', 'B3:4', 'Bb3:4',                  # 100–103
+        'R:1 D4:0.5 D4:0.5 B3:1 G3:1', 'C4:1 A3:1 D4:1 D4:1', 'G3:4~', 'G3:4',                 # 100–103
         'B3:4', 'C4:4', 'B3:4~', 'B3:2 R:2'])                                                   # 104–107
-B = ([R] * 27
+B = (T[:27]  # printed 11–27: the basses double the tenors' tune in unison (user request; printed for tenors alone)
      + ['Bb3:1.5 A3:0.5 G3:2', 'A3:1 A3:1 D3:1 D3:1', 'G3:1.5 A3:0.5 Bb3:1 C4:0.5 C4:0.5', 'A3:1 A3:1 Bb3:1 Bb2:1',
         'C3:3 C3:1', 'C3:1 C3:1 C3:1 C3:1', 'C3:4', R, R,                                       # 32–36
         'R:1 C3:0.5 C3:0.5 F3:1 A3:1', 'G3:4~', 'G3:1 A3:0.5 G3:0.5 F3:1 G3:1', 'A3:2 A3:2',
@@ -94,13 +94,13 @@ B = ([R] * 27
         'R:1 C3:0.5 C3:0.5 F3:1 A3:1', 'G3:1 D3:1 E3:1 G3:1', 'F3:4', R, R,                     # 66–70
         'R:1 D3:0.5 D3:0.5 G3:1 B3:1', 'G3:4', 'A3:1 B3:0.5 A3:0.5 G3:1 A3:1', 'B3:2 B3:2',     # 71–74
         'R:1 D3:0.5 D3:0.5 E3:1 E3:1', 'A3:2 A3:2~', 'A3:1 G3:0.5 A3:0.5 F#3:1 A3:1', 'B3:4',   # 75–78
-        'R:1 G3:0.5 G3:0.5 B3:1 G3:1', 'B2:4', 'G3:3 G3:0.5 G3:0.5', 'C3:4', 'C3:4',            # 79–83
+        'R:1 G3:0.5 G3:0.5 B3:1 G3:1', 'D3:4', 'G3:3 G3:0.5 G3:0.5', 'C3:4', 'C3:4',            # 79–83
         'B2:2 E3:2', 'A2:3 A3:1', 'F3:4',                                                       # 84–86
         'R:1 D3:0.5 D3:0.5 G3:1 B3:1', 'G3:4', 'A3:1 B3:0.5 A3:0.5 G3:1 A3:1', 'B3:2 B3:2',     # 87–90
         R, 'R:1 B3:0.5 B3:0.5 A3:1 G3:1', 'F#3:2 F#3:2', 'B3:3 D4:1',                           # 91–94
         'C4:2 B3:1 R:1', 'C4:1.5 B3:0.5 A3:0.5 B3:0.5 C4:1', 'B3:0.5 C4:0.5 D4:0.5 B3:0.5 E4:1 E3:1',  # 95–97
         'A3:1.5 B3:0.5 C4:0.5 A3:0.5 B3:0.5 C4:0.5', 'B3:1 B2:1 C3:1 C3:1',                     # 98–99
-        'D3:3 D3:1', 'D3:1 D3:1 D3:1 D3:1', 'G3:4~', 'G3:4',                                    # 100–103
+        'D3:3 D3:1', 'D3:1 D3:1 D3:1 D3:1', 'E3:4', 'Eb3:4',                                   # 100–103
         'D3:4~', 'D3:4', 'D3:4~', 'D3:2 R:2'])                                                  # 104–107
 parts = {'soprano': S, 'alto': A, 'tenor': T, 'bass': B}
 assert all(len(p) == 107 for p in parts.values()), {v: len(p) for v, p in parts.items()}
@@ -135,7 +135,7 @@ WORDS = {
               80: 'He will bring new | hope | to the wait- ing | na- tions | When he | comes in | love.',
               87: REJOICE + ' | Let the hea- vens | an- swer | with the joy- ful | morn:',
               96: 'Glo- ri- a | in ex- cel- sis, | Glo- ri- a | in ex- cel- sis! | ' + CHRIST + ' | | Hum'},
-    'bass': {28: 'Glo- ri- a | in ex- cel- sis, | Glo- ri- a in ex- | cel- sis De- o!', 32: 'Hear them | sing their joy- ful | song.',
+    'bass': {11: V1T, 19: NEWS, 28: 'Glo- ri- a | in ex- cel- sis, | Glo- ri- a in ex- | cel- sis De- o!', 32: 'Hear them | sing their joy- ful | song.',
              37: V2, 45: JOY, 54: 'Hum | | | | | | | Hum', 62: 'Glo- ri- a in ex- | cel- sis De- o,',
              66: 'Hear the an- gels | sing- ing ‘Peace on | earth’.', 71: LIGHT,
              79: 'He will bring new | hope | to the | na- | tions | When he | comes in | love.',
@@ -221,10 +221,12 @@ song = {
     'source_pdf': PDF,
     'meter': [2, 2], 'key_fifths': -1, 'measure_keys': {str(new[71]): 1}, 'tempo': 138,
     'review_notes': [
-        'Notes from an Audiveris draft checked and corrected system by system against enlarged crops of the scan; the alto moves B3 → B♭3 at 102–103 with the tenor; bars the draft missed (e.g. 54–61, 72, 78, 80–81, 94–95, 102–107) were read by eye. Inner divisi notes are the least certain.',
-        'Divisi: each part sings the upper note of its own divisi (sopranos in thirds at 96–99, basses in octaves at 34, 56, 58, 106).',
-        'Bars 3–10 sopranos and altos in unison; 11–18 tenors alone; 19–20 sopranos and tenors in octaves. Basses rest until bar 28.',
+        'Notes from an Audiveris draft checked and corrected system by system against enlarged crops of the scan; bars the draft missed (e.g. 54–61, 72, 78, 80–81, 94–95, 102–107) were read by eye. Inner divisi notes are the least certain.',
+        'Divisi: each part sings the upper note of its own divisi (sopranos in thirds at 96–99, basses divided at 34, 56, 58, 106).',
+        'Bars 3–10 sopranos and altos in unison; 11–18 tenors alone; 19–20 sopranos and tenors in octaves. The print has the basses resting until bar 28; at the user’s request (2026-11-15) they sing the tenors’ tune in unison in bars 11–27, so the men’s line is balanced from its first entry.',
         'Sung a cappella: the piano/harp part is not encoded and its solo bars (printed 1–2, 35–36, 69–70) are left out, so data bars are printed bars − 2 from bar 3, − 4 from 37 and − 6 from 71. Bar numbers in these notes are the printed ones.',
+        'Audit against 400 dpi crops with staff-line pixel measurements (2026-11-15), printed bar numbers: tenor 61 C4 → E4 (half note on the second ledger line); sopranos/altos 66 dotted half E4/C4 → C4/A3 (two ledger lines below the staff); alto 78 G4 → F♯4; bass 80 B2 → D3; tenor 81–82 tied B3 → D4 (D4 C4 B3 A3 G3); 102–103: alto B3 tied (no B♭; the flat belongs to the lower staff), tenor G3 tied (was B3 → B♭3), bass E3 → E♭3 (was G3 tied).',
+        'Tenor 94: printed as a dotted half D4 sharing a stem with the bass, then a D4 quarter on beat 4 shared with the basses’ “the”; the tenor re-sings it on “morn” (melisma), as printed (was one held whole note until 2026-11-15).',
         'Bars 104–107 are printed in 4/4 (“Tranquil”, quarter = 92) with a rallentando; playback keeps the opening pulse. Suggested tempo half = 69 (quarter = 138).',
     ],
     'parts': parts, 'playback': [{'measure': m} for m in range(1, len(KEEP) + 1)],

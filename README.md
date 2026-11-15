@@ -18,22 +18,25 @@ also offline after the first visit.
 
 ## Using the app
 
-- **Home** offers three choices; the top **Home** button (or the back gesture) returns there.
-- **Spartiti interattivi**: the song list. Tap a song to rehearse it.
-- **Playlist**: **Christmas Carols** 🎄 plays the whole choir, song after song; then one album per voice (Soprani 🌸, Contralti 🌞, Tenori 🍂, Bassi ⛄) and one per
-  voice *in evidenza* (the whole choir with that voice in front). Drag songs to reorder, then
-  play: each song starts with its spoken title, first note and a count-in, then the music.
-  Playback continues with the screen locked.
-- **Genera PDF**: choose and order songs and get one printable PDF.
+The look is "Rubrica", a Victorian hymnal printed in black and red. Three tabs (a bottom bar on
+phones), no home page; the back gesture moves back through the views.
+
+- **Playlist** (the app opens here): **Christmas Carols** 🎄 plays the whole choir, song after song;
+  then one album per voice (Soprani 🌸, Contralti ☀️, Tenori 🍂, Bassi ❄️) and one per voice
+  *in evidenza* (the whole choir with that voice in front). Play plays them all in alphabetical
+  order: each song starts with its spoken title, first note and a count-in, then the music. Playback continues with the screen locked.
+- **Spartiti**: the song list. Tap a song to rehearse it. The whole song, every stanza and repeat,
+  is one engraved line of four staves that scrolls under a fixed cursor; the words of the voice
+  you hear slide below. Tap a note or a word to start there.
+- **Play** from the beginning opens like a playlist track: the starting note on the piano, a bar of
+  metronome, then the music; resuming goes on at once. There is only Play and the time bar.
+- **Voci e strofa** (inline on a computer, a sheet on phones): *Tutti* or a voice (one tap *in
+  evidenza*, a second tap alone, a third back to all), the stanzas, **Lento** (0.75×, the choir
+  included, same pitch; off when the app opens), *Coro* or *Pianoforte* for songs with recorded
+  parts, transposition (±6 semitones, which plays the piano) and the printable PDF.
+- **PDF**: tick and order songs and get one printable booklet (*Pagine pari* for double-sided copies).
 - The screen stays awake while the app is open; locking the phone pauses the interactive score.
-- **Opzioni**: song, verse, voice (all, one voice *in evidenza*, or solo) and
-  transposition (±6 semitones). Songs with recorded parts add **Suono**: *Coro* (the
-  recordings, the default) or *Pianoforte*; a transposition uses the piano.
-- **Lento** plays at 0.75× (the choir included, same pitch); there is no bpm field.
-- **Space** plays and pauses the score on a computer.
-- The score follows the audio with the words below; tap a note to start there.
-- **S C T B** keys play each voice's starting note (hold to sustain, several for a chord).
-- ⤓ downloads the printable PDF. Songs with accompaniment also play and print an organ part.
+- **Space** plays and pauses on a computer.
 
 ## Working on songs
 
@@ -53,7 +56,7 @@ python -m unittest discover -s tests   # validation
 ```
 
 Browser checks (development only, run against a running server):
-`tests/browser_smoke.py`, `tests/notation_smoke.py`, `tests/starting_note_smoke.py`.
+`tests/browser_smoke.py`, `tests/notation_smoke.py`, `tests/playlist_smoke.py`, `tests/count_in_smoke.py`.
 A gitignored `.venv` holds the development tools: `pip install -r requirements.txt`, then `playwright install chromium`.
 
 ## Publishing

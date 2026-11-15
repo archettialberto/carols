@@ -1492,10 +1492,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="2">
-          <syllabic>single</syllabic>
-          <text>and</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -1504,6 +1500,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>and</text>
+        </lyric>
       </note>
     </measure>
     <measure number="42">
@@ -3212,10 +3212,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="4">
-          <syllabic>end</syllabic>
-          <text>sus</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -3224,6 +3220,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="4">
+          <syllabic>end</syllabic>
+          <text>sus</text>
+        </lyric>
       </note>
     </measure>
     <measure number="92">
@@ -4066,10 +4066,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="5">
-          <syllabic>middle</syllabic>
-          <text>in</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -4078,6 +4074,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="5">
+          <syllabic>middle</syllabic>
+          <text>in</text>
+        </lyric>
       </note>
     </measure>
     <measure number="117">
@@ -4716,7 +4716,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="1">
           <syllabic>single</syllabic>
           <text>where</text>
@@ -4728,7 +4732,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="11">
@@ -5518,7 +5526,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="2">
           <syllabic>single</syllabic>
           <text>the</text>
@@ -5530,7 +5542,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="36">
@@ -5743,10 +5759,6 @@
         <notations>
           <tied type="stop" />
         </notations>
-        <lyric number="2">
-          <syllabic>single</syllabic>
-          <text>and</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -5755,6 +5767,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>and</text>
+        </lyric>
       </note>
     </measure>
     <measure number="42">
@@ -6312,7 +6328,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>for</text>
@@ -6324,7 +6344,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>a</text>
@@ -7114,7 +7138,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="4">
           <syllabic>single</syllabic>
           <text>it</text>
@@ -7126,7 +7154,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="86">
@@ -7335,10 +7367,6 @@
         <notations>
           <tied type="stop" />
         </notations>
-        <lyric number="4">
-          <syllabic>end</syllabic>
-          <text>sus</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -7347,6 +7375,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="4">
+          <syllabic>end</syllabic>
+          <text>sus</text>
+        </lyric>
       </note>
     </measure>
     <measure number="92">
@@ -7908,7 +7940,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="5">
           <syllabic>end</syllabic>
           <text>fered</text>
@@ -7920,7 +7956,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="111">
@@ -8125,10 +8165,6 @@
         <notations>
           <tied type="stop" />
         </notations>
-        <lyric number="5">
-          <syllabic>middle</syllabic>
-          <text>in</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -8137,6 +8173,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="5">
+          <syllabic>middle</syllabic>
+          <text>in</text>
+        </lyric>
       </note>
     </measure>
     <measure number="117">
@@ -8766,7 +8806,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="1">
           <syllabic>single</syllabic>
           <text>where</text>
@@ -8778,7 +8822,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="11">
@@ -8962,12 +9010,28 @@
           <step>D</step>
           <octave>4</octave>
         </pitch>
-        <duration>8</duration>
-        <type>half</type>
+        <duration>4</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="1">
           <syllabic>single</syllabic>
           <text>night</text>
         </lyric>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>4</duration>
+        <tie type="stop" />
+        <type>quarter</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -9610,7 +9674,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="2">
           <syllabic>single</syllabic>
           <text>the</text>
@@ -9622,7 +9690,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="36">
@@ -9799,7 +9871,11 @@
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
+        <tie type="start" />
         <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="2">
           <syllabic>middle</syllabic>
           <text>tin</text>
@@ -9811,7 +9887,11 @@
           <octave>4</octave>
         </pitch>
         <duration>4</duration>
+        <tie type="stop" />
         <type>quarter</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
         <lyric number="2">
           <syllabic>end</syllabic>
           <text>ued</text>
@@ -9850,10 +9930,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="2">
-          <syllabic>single</syllabic>
-          <text>and</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -9862,6 +9938,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>and</text>
+        </lyric>
       </note>
     </measure>
     <measure number="42">
@@ -10454,7 +10534,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>for</text>
@@ -10466,7 +10550,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>a</text>
@@ -10650,12 +10738,28 @@
           <step>D</step>
           <octave>4</octave>
         </pitch>
-        <duration>8</duration>
-        <type>half</type>
+        <duration>4</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>star</text>
         </lyric>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>4</duration>
+        <tie type="stop" />
+        <type>quarter</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -11298,7 +11402,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="4">
           <syllabic>single</syllabic>
           <text>it</text>
@@ -11310,7 +11418,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="86">
@@ -11486,12 +11598,28 @@
           <step>D</step>
           <octave>4</octave>
         </pitch>
-        <duration>8</duration>
-        <type>half</type>
+        <duration>4</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="4">
           <syllabic>single</syllabic>
           <text>place</text>
         </lyric>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>4</duration>
+        <tie type="stop" />
+        <type>quarter</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -11526,10 +11654,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="4">
-          <syllabic>end</syllabic>
-          <text>sus</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -11538,6 +11662,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="4">
+          <syllabic>end</syllabic>
+          <text>sus</text>
+        </lyric>
       </note>
     </measure>
     <measure number="92">
@@ -12134,7 +12262,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="start" />
         <type>eighth</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="5">
           <syllabic>end</syllabic>
           <text>fered</text>
@@ -12146,7 +12278,11 @@
           <octave>4</octave>
         </pitch>
         <duration>2</duration>
+        <tie type="stop" />
         <type>eighth</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
     </measure>
     <measure number="111">
@@ -12318,12 +12454,28 @@
           <step>D</step>
           <octave>4</octave>
         </pitch>
-        <duration>8</duration>
-        <type>half</type>
+        <duration>4</duration>
+        <tie type="start" />
+        <type>quarter</type>
+        <notations>
+          <tied type="start" />
+        </notations>
         <lyric number="5">
           <syllabic>single</syllabic>
           <text>myrrh</text>
         </lyric>
+      </note>
+      <note>
+        <pitch>
+          <step>D</step>
+          <octave>4</octave>
+        </pitch>
+        <duration>4</duration>
+        <tie type="stop" />
+        <type>quarter</type>
+        <notations>
+          <tied type="stop" />
+        </notations>
       </note>
       <note>
         <pitch>
@@ -12358,10 +12510,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="5">
-          <syllabic>middle</syllabic>
-          <text>in</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -12370,6 +12518,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="5">
+          <syllabic>middle</syllabic>
+          <text>in</text>
+        </lyric>
       </note>
     </measure>
     <measure number="117">
@@ -12710,9 +12862,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="1">
           <syllabic>end</syllabic>
           <text>ell,</text>
@@ -12723,8 +12874,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -13032,9 +13183,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="1">
           <syllabic>single</syllabic>
           <text>they</text>
@@ -13045,8 +13195,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -13599,9 +13749,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="2">
           <syllabic>single</syllabic>
           <text>up</text>
@@ -13612,8 +13761,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -13905,9 +14054,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="2">
           <syllabic>single</syllabic>
           <text>earth</text>
@@ -13918,8 +14066,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -14127,10 +14275,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="2">
-          <syllabic>single</syllabic>
-          <text>and</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -14139,6 +14283,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="2">
+          <syllabic>single</syllabic>
+          <text>and</text>
+        </lyric>
       </note>
     </measure>
     <measure number="42">
@@ -14468,9 +14616,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>light</text>
@@ -14481,8 +14628,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -14774,9 +14921,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="3">
           <syllabic>single</syllabic>
           <text>king</text>
@@ -14787,8 +14933,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -15341,9 +15487,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="4">
           <syllabic>single</syllabic>
           <text>nigh</text>
@@ -15354,8 +15499,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -15643,9 +15788,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="4">
           <syllabic>single</syllabic>
           <text>did</text>
@@ -15656,8 +15800,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -15861,10 +16005,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="4">
-          <syllabic>end</syllabic>
-          <text>sus</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -15873,6 +16013,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="4">
+          <syllabic>end</syllabic>
+          <text>sus</text>
+        </lyric>
       </note>
     </measure>
     <measure number="92">
@@ -16202,9 +16346,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="5">
           <syllabic>single</syllabic>
           <text>in</text>
@@ -16215,8 +16358,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -16508,9 +16651,8 @@
           <step>A</step>
           <octave>2</octave>
         </pitch>
-        <duration>6</duration>
+        <duration>4</duration>
         <type>quarter</type>
-        <dot />
         <lyric number="5">
           <syllabic>single</syllabic>
           <text>there</text>
@@ -16521,8 +16663,8 @@
           <step>A</step>
           <octave>3</octave>
         </pitch>
-        <duration>2</duration>
-        <type>eighth</type>
+        <duration>4</duration>
+        <type>quarter</type>
       </note>
       <note>
         <pitch>
@@ -16722,10 +16864,6 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
-        <lyric number="5">
-          <syllabic>middle</syllabic>
-          <text>in</text>
-        </lyric>
       </note>
       <note>
         <pitch>
@@ -16734,6 +16872,10 @@
         </pitch>
         <duration>4</duration>
         <type>quarter</type>
+        <lyric number="5">
+          <syllabic>middle</syllabic>
+          <text>in</text>
+        </lyric>
       </note>
     </measure>
     <measure number="117">

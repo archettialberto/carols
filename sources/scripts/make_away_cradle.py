@@ -20,7 +20,7 @@ parts = {
         'D4:1 D4:1 C4:0.5 Bb3:0.5', 'A3:2',
     ],
     'tenor': [
-        'C4:1', 'A3:1 A3:1 Bb3:0.5 C4:0.5', 'A3:1 A3:1 C4:1',
+        'C4:0.5 Bb3:0.5', 'A3:1 A3:1 Bb3:0.5 C4:0.5', 'A3:1 A3:1 C4:1',
         'C4:1 C4:1 A3:1', 'Bb3:2 Bb3:0.5 C4:0.5', 'D4:1 D4:1 C4:1',
         'C4:1 C4:1 A3:0.5 C4:0.5', 'B3:1 B3:1 G3:1',
         'G3:2 C4:0.5 Bb3:0.5', 'A3:1 A3:1 Bb3:0.5 C4:0.5',
@@ -79,10 +79,12 @@ song = {
         'The opening pickup is stored as measure 1; printed bar 13 therefore corresponds to data measure 14. Tenor pitches are sounding pitch.',
         'All three printed stanzas are encoded. Where an inner voice sustains across two printed syllables, its lyric cue joins those syllables instead of inventing a rearticulation.',
         'Phrase slurs over beamed notes are not encoded as ties. Practice tempo quarter = 84 is a suggested moderate lullaby tempo.',
+        'Audit correction: the tenor pickup is two slurred eighths C4–B♭3 (bass staff, stems up, beamed), not a quarter C4; the syllable (A / The / Be) is held over both.',
     ],
     'review_notes_it': [
         'Altezze lette dai glifi vettoriali Opus e confrontate visivamente con tutti e quattro i sistemi.',
         'L’anacrusi iniziale è la misura dati 1; le legature di frase non sono legature di valore.',
+        'Correzione di revisione: l’anacrusi del tenore è di due crome legate Do4–Si♭3, non una semiminima Do4; la sillaba si estende su entrambe.',
     ],
     'parts': parts, 'playback': [{'measure': i} for i in range(1, 18)],
     'systems': systems, 'verses': verses,

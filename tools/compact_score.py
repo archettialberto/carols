@@ -71,12 +71,16 @@ def compact_score(song):
             merged=[]
             for start,end in zip(grid,grid[1:]):
                 originals=[next(n for a,b,n in sequence if a<=start<b) for sequence in sequences]
-                if len({n['pitch'] for n in originals})!=1:
+                pitches={n['pitch'] for n in originals}
+                # A note some stanzas rest on is engraved once (the print's bracketed pickup).
+                if len(pitches-{'R'})>1:
                     raise ValueError(f"{voice}, measure {index+1}: a pitch variant needs separate notation")
-                first_end=next(b for a,b,n in sequences[0] if a<=start<b)
-                note=deepcopy(originals[0])
+                base=next(k for k,n in enumerate(originals) if n['pitch']!='R') if pitches!={'R'} else 0
+                first_end=next(b for a,b,n in sequences[base] if a<=start<b)
+                note=deepcopy(originals[base])
                 note['duration']=end-start
                 note['tie']=note['pitch']!='R' and (end<first_end or originals[0]['tie'])
+                if 'R' in pitches and note['pitch']!='R': note['optional']=True  # not every stanza sings it
                 note.pop('lyric',None)
                 note['lyrics']=[deepcopy(lyrics.get(start)) for lyrics in lyric_maps]
                 merged.append(note)

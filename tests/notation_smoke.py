@@ -12,7 +12,7 @@ with sync_playwright() as p:
     page=browser.new_page(viewport={'width':1280,'height':900})
     errors=[]
     page.on('pageerror',lambda e:errors.append(str(e)))
-    page.goto(base);page.wait_for_function('!!performanceData');page.locator('#open-library').click();page.locator('#song-list .track-play[aria-current=true]').click();page.wait_for_function('!!digitalView')
+    page.goto(base+'/#/brani');page.wait_for_function('!!performanceData');page.locator('#song-list .song-row[aria-current]').click();page.wait_for_function('!!digitalView')
     # Inspect the full printable editions with the same renderer. Reconstructing MIDI
     # from engraved ABC checks accidental state, tenor octave, durations and ties.
     for slug in sorted(f.stem for f in (Path(__file__).resolve().parents[1]/'data').glob('*.json')):
@@ -92,33 +92,37 @@ with sync_playwright() as p:
         assert 'error' not in result,(slug,result)
         print(slug,result)
         edition.close()
-    # Click an actual SVG note and check that playback seeks to that onset.
-    page.locator('#song').select_option(label='Jingle Bells');page.wait_for_function('!!digitalView')
+    # Click an actual SVG note of the continuous line and check that playback seeks to that onset
+    # (it then counts in, holding the clock at that beat).
+    page.evaluate("location.hash = '#/spartito/jingle-bells'");page.wait_for_function('song.id === "jingle-bells" && !!digitalView')
     page.evaluate('seek(0,false)')
-    target=page.locator('.system:visible .abcjs-note.abcjs-v0.abcjs-m1.abcjs-n0')
+    target=page.locator('#score .abcjs-note.abcjs-v0.abcjs-m1.abcjs-n0')
     # A beamed note's box includes empty space; abcjs resolves clicks by proximity.
-    target.click(force=True);page.wait_for_timeout(70)
-    assert page.evaluate('playing && Math.abs(currentBeat()-2)<.5')
-    page.locator('#voice').select_option(label='Bassi in evidenza');page.wait_for_timeout(150)
+    target.click(force=True);page.wait_for_function('playing',timeout=20000)  # after the choir has decoded
+    assert page.evaluate('Math.abs(currentBeat()-2)<.5')
+    chip=lambda v: page.locator(f'#voices [data-voice={v}]')
+    chip('bass').click();page.wait_for_timeout(150)  # one tap: in evidenza
     assert page.evaluate('emphasizedVoice==="bass" && selected.size===4')
-    assert page.evaluate('voiceBuses.bass.gain.value > voiceBuses.soprano.gain.value*3.5')
+    assert page.evaluate('voiceBuses.bass.gain.value > voiceBuses.soprano.gain.value*2.4')
+    assert page.locator('#score .notation').get_attribute('data-lead')=='3'
     before=page.evaluate('currentBeat()')
-    page.locator('#voice').select_option(label='Solo bassi');page.wait_for_timeout(100)
+    chip('bass').click();page.wait_for_timeout(100)  # second tap: alone
     assert page.evaluate('selected.size===1 && voiceBuses.soprano.gain.value<.01 && voiceBuses.bass.gain.value>.99')
-    assert page.evaluate('currentBeat()')>before  # mix changes do not restart the timeline
-    assert page.evaluate('digitalView.positions.every(p=>p.voice==="bass")')
-    page.locator('#voice').select_option(label='Tutte le voci');page.wait_for_timeout(120)
+    assert page.evaluate('currentBeat()')>=before  # mix changes do not restart the timeline
+    assert page.locator('#score svg .abcjs-staff-extra.abcjs-clef').count()>=4  # always the four staves
+    chip('all').click();page.wait_for_timeout(120)
     assert page.evaluate('voices.every(v=>Math.abs(voiceBuses[v].gain.value-1)<.01)')
+    assert page.locator('#score .notation').get_attribute('data-lead')==''
     page.locator('#play').click()
-    assert page.locator('details:not(#booklet)').count()==0
     assert page.locator('#download').count()==1
-    assert page.locator('.system:visible svg').is_visible()
+    assert page.locator('#score svg').is_visible()
     for width in [320,390]:
         page.set_viewport_size({'width':width,'height':844})
-        # The phone selection sheet holds the voice selector.
-        page.locator('#selection-summary').click();page.locator('#voice').select_option(label='Bassi in evidenza');page.keyboard.press('Escape')
+        # On phones the options sheet holds the voices.
+        page.locator('#options-button').click();chip('bass').click();page.keyboard.press('Escape')
         assert page.evaluate('document.documentElement.scrollWidth<=innerWidth')
-        assert page.locator('.system:visible .lead-voice').count()>0
+        assert page.locator('#score .notation').get_attribute('data-lead')=='3'
+        chip('all').evaluate('b => b.click()')
     assert not errors,errors
     browser.close()
-print('PASS: every engraved pitch/rhythm and SVG anchor, tenor octave, shared-stanza engraving, note click, solo/emphasized/ensemble gains, uninterrupted playback, minimal controls, mobile')
+print('PASS: every engraved pitch/rhythm and SVG anchor, tenor octave, shared-stanza engraving, note click on the continuous line, solo/emphasized/ensemble gains and fading, uninterrupted playback, minimal controls, mobile')
