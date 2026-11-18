@@ -26,7 +26,8 @@ time and tempo carried to the next kept bar. The app and the printed PDF keep th
 SUNG_AS songs also get scratch/<song-id>-<language>.musicxml for an English-only voice: the words
 in that language are respelled syllable by syllable so English letter-to-sound rules come out right
 (Latin in the ecclesiastical, Italianate way: "ex-cel-sis" → "Eck-shell-cease"). The plain file
-stays for a voice that sings the language itself.
+stays for a voice that sings the language itself. An English song in SUNG_AS ('english') gets the
+same treatment from its ENGLISH entry, for words Cantai's English voice mispronounces.
 """
 import copy
 import pathlib
@@ -46,7 +47,17 @@ A_CAPPELLA = {'dio-ci-benedira'}
 # Cantai sings only English and Latin (its FAQ, 2026-11). Church Latin is pronounced like Italian, so
 # these Italian songs' plain file is respelled for Cantai's Latin voice (set the language to Latin).
 AS_LATIN = {'dio-ci-benedira'}
-SUNG_AS = {'angels-carol': 'latin', 'ding-dong': 'latin', 'dio-ci-benedira': 'italian'}
+SUNG_AS = {'angels-carol': 'latin', 'ding-dong': 'latin', 'dio-ci-benedira': 'italian',
+           'we-wish-you-a-merry-christmas': 'english'}
+# song → [(whole word, lower case without punctuation, as a regex; {syllable: respelling})], for
+# Cantai's English voice (2026-11-18, We Wish You): "Christ" alone was sung "kraist", and "Kriss"
+# still slid into the lower note of "mas" (the voiced m), so "Krist" (a stop before the next note)
+# and "muss"; the din-don "di-ri" read "di-rai" ("dee-ree"). Matched words sing each syllable as its
+# own word, so Cantai does not re-split them by English rules.
+ENGLISH = {'we-wish-you-a-merry-christmas': [
+    (r'christmas', {'christ': 'krist', 'mas': 'muss'}),
+    (r'(diri)+(din)?', {'di': 'dee', 'ri': 'ree', 'din': 'din'}),
+]}
 # Latin word → {syllable: respelling}; "in" counts as Latin only right before "excelsis"
 LATIN = {
     'gloria': {'glo': 'glo', 'o': 'o', 'aw': 'aw', 'ri': 'ree', 'a': 'ah', 'ria': 'ryah'},  # Ding Dong: Glo-o-…-o-aw-ria
@@ -283,7 +294,7 @@ def split(text):
     return text[:start], core, text[start + len(core):]
 
 
-def respell_as(root, language):
+def respell_as(root, language, song=''):
     """Respell the words sung in `language` for an English voice, keeping punctuation and capitals."""
     for part in root.findall('part'):
         words, word = [], []  # each word: the lyric elements of its syllables
@@ -295,6 +306,11 @@ def respell_as(root, language):
             texts = [split(lyric.findtext('text')) for lyric in word]
             if language == 'italian':
                 table = ITALIAN
+            elif language == 'english':
+                name = ''.join(core for _, core, _ in texts).lower()
+                table = next((t for pattern, t in ENGLISH.get(song, []) if re.fullmatch(pattern, name)), None)
+                if table is None:
+                    continue
             else:
                 name = ''.join(core for _, core, _ in texts).lower()
                 name = 'gloria' if re.fullmatch('glo+(aw)?ria', name) else name
@@ -305,7 +321,7 @@ def respell_as(root, language):
             for lyric, (lead, core, trail) in zip(word, texts):
                 sung = table[core.lower()]
                 lyric.find('text').text = lead + (sung.capitalize() if core[:1].isupper() else sung) + trail
-                if language == 'italian':
+                if language in ('italian', 'english'):
                     # each syllable its own word: Cantai respells a whole word by English rules and
                     # spreads it over the notes, which put "di" of "be-ne-di-rà" and the middle of
                     # "pre-ghe-re-mo" early and made "e-sul-ta" "ee-ee-sul-ta"
@@ -329,7 +345,7 @@ def main(songs):
         ET.ElementTree(plain).write(out/f'{song}.musicxml', encoding='UTF-8', xml_declaration=True)
         print(f'scratch/{song}.musicxml')
         if song in SUNG_AS:
-            respell_as(root, SUNG_AS[song])
+            respell_as(root, SUNG_AS[song], song)
             ET.ElementTree(root).write(out/f'{song}-{SUNG_AS[song]}.musicxml', encoding='UTF-8', xml_declaration=True)
             print(f'scratch/{song}-{SUNG_AS[song]}.musicxml')
 

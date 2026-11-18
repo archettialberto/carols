@@ -575,6 +575,31 @@ within each beat group. The notation suite re-verified every engraved note and s
   onset finder now knows about ties into the bar, and `music.validate` rejects a voice's own syllable
   on a tied-over note (shared “all” words may fall there: another voice sings them).
 
+## We Wish You a Merry Christmas
+
+- Source (2026-11-18): the WhatsApp document `DOC-20261103-WA0004.pdf` supplied by the user, renamed
+  `songs/We Wish You a Merry Christmas.pdf` (gitignored): a 3-page NoteWorthy Composer vector export
+  (2017), “Canto autoctono Inglese”, arranger unnamed. SATB a cappella (tenor treble-8), B♭ major,
+  3/4, ♩ = 120, 49 bars, no repeats, no handwriting. Being vector, it is the transcription source.
+- Pitches from `vector_heads.py` with the NWC glyph codes (now in its docstring), compared note by
+  note with the data (all 580 heads match; the dump does not carry accidentals through the bar, so
+  tenor bars 6/22/38 F♯ and 30/46 E♮ were set by hand); head types match every duration.
+- Through-composed, one “Brano intero” stanza: T/B alone 1–9, S/A alone 9–17, tutti 18–49
+  (“Good tidings” 25–33 and 41–49, “din don diri” 33–41, sections chorus/interlude/chorus).
+  Slurred bass and tenor melismas take one syllable; staccato not encoded; “rall.” (bar 47) printed
+  as an annotation, playback stays at ♩ = 120. The traditional “figgy pudding” stanzas are not in
+  this arrangement and were not added.
+- Recordings (2026-11-18): Cantai S/A/T/B renders at ♩ = 120 from
+  `scratch/we-wish-you-a-merry-christmas-english.musicxml`, the import file with the words respelled
+  for Cantai's English voice (`ENGLISH` in `tools/cantai_scores.py`): plain “Christ” was sung “kraist”
+  and “di-ri” “di-rai”, so “Krist” “muss,” and “dee” “ree”, every syllable of those words its own
+  word. Pitch tracking of the alto showed “Kriss” rising 1–1.5 semitones and sliding down the voiced
+  m into the lower note of “mas” (bars 15, 23, 47); “Krist” (a stop before the next note) holds G4 and
+  attacks the next note cleanly. Alto and tenor are “Krist” renders (the “Kriss” tenor rose to C♯4
+  and slid into “mas” in bar 5); soprano and bass were rendered with “Kriss” (the user kept them). Each file is one voice (others' least-squares gains < .04),
+  first sounds 0.92 s (T/B, beat 3 of bar 1 at 1.0 s) and 12.87 s (S/A, 13.0 s), 95–99 % of notes
+  within 40 cents of the score. Generator: `sources/scripts/make_we_wish.py`.
+
 ## Rehearsal recordings
 
 - 2026-11-11: all earlier recordings (supplied voice notes, YouTube practice tracks) were removed

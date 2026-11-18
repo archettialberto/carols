@@ -728,6 +728,58 @@
         "built": true
       }
     ],
+    "we-wish-you-a-merry-christmas": [
+      {
+        "voice": "soprano",
+        "file": "recordings/we-wish-you-a-merry-christmas/soprano.m4a",
+        "seconds": 76.5,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/we-wish-you-a-merry-christmas-english.musicxml (tools/cantai_scores.py), rendered before 'Kriss' became 'Krist'",
+        "play": "recordings/we-wish-you-a-merry-christmas/play-soprano.m4a",
+        "play_seconds": 70.0,
+        "lead": "recordings/we-wish-you-a-merry-christmas/play-lead-soprano.m4a",
+        "lead_seconds": 83.0
+      },
+      {
+        "voice": "alto",
+        "file": "recordings/we-wish-you-a-merry-christmas/alto.m4a",
+        "seconds": 76.5,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/we-wish-you-a-merry-christmas-english.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/we-wish-you-a-merry-christmas/play-alto.m4a",
+        "play_seconds": 70.0,
+        "lead": "recordings/we-wish-you-a-merry-christmas/play-lead-alto.m4a",
+        "lead_seconds": 83.0
+      },
+      {
+        "voice": "tenor",
+        "file": "recordings/we-wish-you-a-merry-christmas/tenor.m4a",
+        "seconds": 76.5,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/we-wish-you-a-merry-christmas-english.musicxml (tools/cantai_scores.py)",
+        "play": "recordings/we-wish-you-a-merry-christmas/play-tenor.m4a",
+        "play_seconds": 82.0,
+        "lead": "recordings/we-wish-you-a-merry-christmas/play-lead-tenor.m4a",
+        "lead_seconds": 83.0
+      },
+      {
+        "voice": "bass",
+        "file": "recordings/we-wish-you-a-merry-christmas/bass.m4a",
+        "seconds": 76.5,
+        "tempo": 120,
+        "source": "synthesized: MuseScore Studio 4.7 + Cantai from scratch/we-wish-you-a-merry-christmas-english.musicxml (tools/cantai_scores.py), rendered before 'Kriss' became 'Krist'",
+        "play": "recordings/we-wish-you-a-merry-christmas/play-bass.m4a",
+        "play_seconds": 82.0,
+        "lead": "recordings/we-wish-you-a-merry-christmas/play-lead-bass.m4a",
+        "lead_seconds": 83.0
+      },
+      {
+        "voice": "choir",
+        "file": "recordings/we-wish-you-a-merry-christmas/choir.m4a",
+        "seconds": 76.6,
+        "built": true
+      }
+    ],
     "what-child-is-this": [
       {
         "voice": "soprano",

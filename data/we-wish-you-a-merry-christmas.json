@@ -1,0 +1,779 @@
+{
+  "id": "we-wish-you-a-merry-christmas",
+  "title": "We Wish You a Merry Christmas",
+  "emoji": "🎁",
+  "meter": [
+    3,
+    4
+  ],
+  "key_fifths": -2,
+  "tempo": 120,
+  "source_pdf": "songs/We Wish You a Merry Christmas.pdf",
+  "review_notes": [
+    "Pitches read from the exact notehead positions of the supplied vector PDF (NoteWorthy Composer font); rhythms, slurs and syllables read from the page. Accidentals carry through the bar: tenor bars 30/46 sing E♮ twice, tenor bars 6/22/38 F♯ three times.",
+    "Through-composed, one stanza (49 bars): tenors and basses alone in bars 1–9, sopranos and altos alone in bars 9–17 (the other pair rests), all four from bar 18; “Good tidings” 25–33, “din don diri” 33–41 (the basses sing “din di-ri di-ri” on their eighths), “Good tidings” again and the close 41–49. Bars 18–25 and 34–41 repeat the music of bars 10–17 (S/A) and 2–9 (T/B); bars 42–48 repeat 26–32.",
+    "Slurs are melismas, not ties: bass “mas,” and “We” in bars 3, 5, 19, 21, “dings”/“we” in 26 and 42, “bring”/“to” in 27 and 43, “We” (F2–A2) in 29 and 45; tenor “bring” (C–D–C) in 27/43 and “your” in 28/44.",
+    "The traditional stanzas (“Now bring us some figgy pudding …”) are not part of this arrangement, which sets only the refrain words; none were added.",
+    "Staccato dots are not encoded; “rall.” at bar 47 is printed as an annotation (playback keeps ♩ = 120, the printed tempo, throughout). No handwritten marks on the source."
+  ],
+  "parts": {
+    "soprano": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:2 F4:1",
+      "Bb4:1 Bb4:0.5 C5:0.5 Bb4:0.5 A4:0.5",
+      "G4:1 G4:1 G4:1",
+      "C5:1 C5:0.5 D5:0.5 C5:0.5 Bb4:0.5",
+      "A4:1 F4:1 F4:1",
+      "D5:1 D5:0.5 Eb5:0.5 D5:0.5 C5:0.5",
+      "Bb4:1 G4:1 F4:0.5 F4:0.5",
+      "G4:1 C5:1 A4:1",
+      "Bb4:2 F4:1",
+      "Bb4:1 Bb4:0.5 C5:0.5 Bb4:0.5 A4:0.5",
+      "G4:1 G4:1 G4:1",
+      "C5:1 C5:0.5 D5:0.5 C5:0.5 Bb4:0.5",
+      "A4:1 F4:1 F4:1",
+      "D5:1 D5:0.5 Eb5:0.5 D5:0.5 C5:0.5",
+      "Bb4:1 G4:1 F4:0.5 F4:0.5",
+      "G4:1 C5:1 A4:1",
+      "Bb4:2 F4:1",
+      "Bb4:1 Bb4:1 Bb4:1",
+      "A4:2 A4:1",
+      "Bb4:1 A4:1 G4:1",
+      "F4:2 C5:1",
+      "D5:1 C5:0.5 C5:0.5 Bb4:0.5 Bb4:0.5",
+      "C5:1 A4:1 F4:0.5 F4:0.5",
+      "G4:1 C5:1 A4:1",
+      "Bb4:2 F4:1",
+      "Bb4:1 Bb4:0.5 C5:0.5 Bb4:0.5 A4:0.5",
+      "G4:1 G4:1 G4:1",
+      "C5:1 C5:0.5 D5:0.5 C5:0.5 Bb4:0.5",
+      "A4:1 F4:1 F4:1",
+      "D5:1 D5:0.5 Eb5:0.5 D5:0.5 C5:0.5",
+      "Bb4:1 G4:1 F4:0.5 F4:0.5",
+      "G4:1 C5:1 A4:1",
+      "Bb4:2 F4:1",
+      "Bb4:1 Bb4:1 Bb4:1",
+      "A4:2 A4:1",
+      "Bb4:1 A4:1 G4:1",
+      "F4:2 C5:1",
+      "D5:1 C5:0.5 C5:0.5 Bb4:0.5 Bb4:0.5",
+      "C5:1 A4:1 F4:0.5 F4:0.5",
+      "G4:1 C5:1 A4:1",
+      "Bb4:3"
+    ],
+    "alto": [
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:2 F4:1",
+      "F4:1 F4:0.5 A4:0.5 G4:0.5 F4:0.5",
+      "Eb4:1 Eb4:1 Eb4:1",
+      "G4:1 G4:0.5 Bb4:0.5 A4:0.5 G4:0.5",
+      "F4:1 F4:1 F4:1",
+      "A4:1 A4:0.5 C5:0.5 Bb4:0.5 A4:0.5",
+      "G4:1 D4:1 D4:0.5 D4:0.5",
+      "C4:1 G4:1 F4:1",
+      "F4:2 F4:1",
+      "F4:1 F4:0.5 A4:0.5 G4:0.5 F4:0.5",
+      "Eb4:1 Eb4:1 Eb4:1",
+      "G4:1 G4:0.5 Bb4:0.5 A4:0.5 G4:0.5",
+      "F4:1 F4:1 F4:1",
+      "A4:1 A4:0.5 C5:0.5 Bb4:0.5 A4:0.5",
+      "G4:1 D4:1 D4:0.5 D4:0.5",
+      "C4:1 G4:1 F4:1",
+      "F4:2 F4:1",
+      "F4:1 F4:1 F4:1",
+      "F4:2 F4:1",
+      "G4:1 F4:1 E4:1",
+      "C4:2 F4:1",
+      "Bb4:1 A4:0.5 A4:0.5 F4:0.5 F4:0.5",
+      "G4:1 F4:1 F4:0.5 F4:0.5",
+      "Eb4:1 G4:1 F4:1",
+      "F4:2 F4:1",
+      "F4:1 F4:0.5 A4:0.5 G4:0.5 F4:0.5",
+      "Eb4:1 Eb4:1 Eb4:1",
+      "G4:1 G4:0.5 Bb4:0.5 A4:0.5 G4:0.5",
+      "F4:1 F4:1 F4:1",
+      "A4:1 A4:0.5 C5:0.5 Bb4:0.5 A4:0.5",
+      "G4:1 D4:1 D4:0.5 D4:0.5",
+      "C4:1 G4:1 F4:1",
+      "F4:2 F4:1",
+      "F4:1 F4:1 F4:1",
+      "F4:2 F4:1",
+      "G4:1 F4:1 E4:1",
+      "C4:2 F4:1",
+      "Bb4:1 A4:0.5 A4:0.5 F4:0.5 F4:0.5",
+      "G4:1 F4:1 F4:0.5 F4:0.5",
+      "Eb4:1 G4:1 F4:1",
+      "F4:3"
+    ],
+    "tenor": [
+      "R:2 F3:1",
+      "F3:1 F3:0.5 F3:0.5 F3:0.5 F3:0.5",
+      "Bb3:1 Bb3:1 Bb3:1",
+      "Eb4:1 Eb4:0.5 Eb4:0.5 Eb4:0.5 D4:0.5",
+      "C4:1 A3:1 G3:1",
+      "F#3:1 F#3:0.5 F#3:0.5 G3:0.5 A3:0.5",
+      "G3:1 Bb3:1 Bb3:0.5 A3:0.5",
+      "G3:1 Eb4:1 C4:1",
+      "D4:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:2 F3:1",
+      "F3:1 F3:0.5 F3:0.5 F3:0.5 F3:0.5",
+      "Bb3:1 Bb3:1 Bb3:1",
+      "Eb4:1 Eb4:0.5 Eb4:0.5 Eb4:0.5 D4:0.5",
+      "C4:1 A3:1 G3:1",
+      "F#3:1 F#3:0.5 F#3:0.5 G3:0.5 A3:0.5",
+      "G3:1 Bb3:1 Bb3:0.5 A3:0.5",
+      "G3:1 Eb4:1 C4:1",
+      "D4:2 A3:1",
+      "Bb3:1 D4:1 Bb3:1",
+      "C4:0.5 D4:0.5 C4:1 C4:1",
+      "Bb3:1 Bb3:1 C4:0.5 Bb3:0.5",
+      "A3:2 F3:1",
+      "F3:1 E3:0.5 E3:0.5 F3:0.5 F3:0.5",
+      "Eb3:1 C4:1 Bb3:0.5 A3:0.5",
+      "Bb3:1 Eb4:1 C4:1",
+      "D4:2 F3:1",
+      "F3:1 F3:0.5 F3:0.5 F3:0.5 F3:0.5",
+      "Bb3:1 Bb3:1 Bb3:1",
+      "Eb4:1 Eb4:0.5 Eb4:0.5 Eb4:0.5 D4:0.5",
+      "C4:1 A3:1 G3:1",
+      "F#3:1 F#3:0.5 F#3:0.5 G3:0.5 A3:0.5",
+      "G3:1 Bb3:1 Bb3:0.5 A3:0.5",
+      "G3:1 Eb4:1 C4:1",
+      "D4:2 A3:1",
+      "Bb3:1 D4:1 Bb3:1",
+      "C4:0.5 D4:0.5 C4:1 C4:1",
+      "Bb3:1 Bb3:1 C4:0.5 Bb3:0.5",
+      "A3:2 F3:1",
+      "F3:1 E3:0.5 E3:0.5 F3:0.5 F3:0.5",
+      "Eb3:1 C4:1 Bb3:0.5 A3:0.5",
+      "Bb3:1 Eb4:1 C4:1",
+      "D4:3"
+    ],
+    "bass": [
+      "R:2 F3:1",
+      "D3:1 D3:0.5 Bb2:0.5 C3:0.5 D3:0.5",
+      "Eb3:1 Eb3:0.5 F3:0.5 Eb3:0.5 D3:0.5",
+      "C3:1 C3:0.5 C3:0.5 D3:0.5 Eb3:0.5",
+      "F3:1 F3:0.5 G3:0.5 F3:0.5 Eb3:0.5",
+      "D3:1 D3:0.5 D3:0.5 E3:0.5 F#3:0.5",
+      "G3:1 G3:1 D3:0.5 D3:0.5",
+      "Eb3:1 C3:1 F3:1",
+      "Bb2:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:3",
+      "R:2 F3:1",
+      "D3:1 D3:0.5 Bb2:0.5 C3:0.5 D3:0.5",
+      "Eb3:1 Eb3:0.5 F3:0.5 Eb3:0.5 D3:0.5",
+      "C3:1 C3:0.5 C3:0.5 D3:0.5 Eb3:0.5",
+      "F3:1 F3:0.5 G3:0.5 F3:0.5 Eb3:0.5",
+      "D3:1 D3:0.5 D3:0.5 E3:0.5 F#3:0.5",
+      "G3:1 G3:1 D3:0.5 D3:0.5",
+      "Eb3:1 C3:1 F3:1",
+      "Bb2:2 F3:1",
+      "D3:1 Bb2:0.5 C3:0.5 D3:0.5 Eb3:0.5",
+      "F3:1.5 G3:0.5 F3:0.5 Eb3:0.5",
+      "D3:1 D3:1 E3:1",
+      "F3:1 F2:1 A2:1",
+      "Bb2:1 C3:0.5 C3:0.5 D3:0.5 D3:0.5",
+      "C3:1 F3:1 D3:0.5 D3:0.5",
+      "Eb3:1 C3:1 F3:1",
+      "Bb2:2 F3:1",
+      "D3:1 D3:0.5 Bb2:0.5 C3:0.5 D3:0.5",
+      "Eb3:1 Eb3:0.5 F3:0.5 Eb3:0.5 D3:0.5",
+      "C3:1 C3:0.5 C3:0.5 D3:0.5 Eb3:0.5",
+      "F3:1 F3:0.5 G3:0.5 F3:0.5 Eb3:0.5",
+      "D3:1 D3:0.5 D3:0.5 E3:0.5 F#3:0.5",
+      "G3:1 G3:1 D3:0.5 D3:0.5",
+      "Eb3:1 C3:1 F3:1",
+      "Bb2:2 F3:1",
+      "D3:1 Bb2:0.5 C3:0.5 D3:0.5 Eb3:0.5",
+      "F3:1.5 G3:0.5 F3:0.5 Eb3:0.5",
+      "D3:1 D3:1 E3:1",
+      "F3:1 F2:1 A2:1",
+      "Bb2:1 C3:0.5 C3:0.5 D3:0.5 D3:0.5",
+      "C3:1 F3:1 D3:0.5 D3:0.5",
+      "Eb3:1 C3:1 F3:1",
+      "Bb2:3"
+    ]
+  },
+  "playback": [
+    {
+      "measure": 1
+    },
+    {
+      "measure": 2
+    },
+    {
+      "measure": 3
+    },
+    {
+      "measure": 4
+    },
+    {
+      "measure": 5
+    },
+    {
+      "measure": 6
+    },
+    {
+      "measure": 7
+    },
+    {
+      "measure": 8
+    },
+    {
+      "measure": 9
+    },
+    {
+      "measure": 10
+    },
+    {
+      "measure": 11
+    },
+    {
+      "measure": 12
+    },
+    {
+      "measure": 13
+    },
+    {
+      "measure": 14
+    },
+    {
+      "measure": 15
+    },
+    {
+      "measure": 16
+    },
+    {
+      "measure": 17
+    },
+    {
+      "measure": 18
+    },
+    {
+      "measure": 19
+    },
+    {
+      "measure": 20
+    },
+    {
+      "measure": 21
+    },
+    {
+      "measure": 22
+    },
+    {
+      "measure": 23
+    },
+    {
+      "measure": 24
+    },
+    {
+      "measure": 25
+    },
+    {
+      "measure": 26
+    },
+    {
+      "measure": 27
+    },
+    {
+      "measure": 28
+    },
+    {
+      "measure": 29
+    },
+    {
+      "measure": 30
+    },
+    {
+      "measure": 31
+    },
+    {
+      "measure": 32
+    },
+    {
+      "measure": 33
+    },
+    {
+      "measure": 34
+    },
+    {
+      "measure": 35
+    },
+    {
+      "measure": 36
+    },
+    {
+      "measure": 37
+    },
+    {
+      "measure": 38
+    },
+    {
+      "measure": 39
+    },
+    {
+      "measure": 40
+    },
+    {
+      "measure": 41
+    },
+    {
+      "measure": 42
+    },
+    {
+      "measure": 43
+    },
+    {
+      "measure": 44
+    },
+    {
+      "measure": 45
+    },
+    {
+      "measure": 46
+    },
+    {
+      "measure": 47
+    },
+    {
+      "measure": 48
+    },
+    {
+      "measure": 49
+    }
+  ],
+  "sections": [
+    {
+      "at": [
+        25,
+        2
+      ],
+      "name": "chorus"
+    },
+    {
+      "at": [
+        33,
+        2
+      ],
+      "name": "interlude"
+    },
+    {
+      "at": [
+        41,
+        2
+      ],
+      "name": "chorus"
+    }
+  ],
+  "systems": [
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-1.png",
+      "page": 1,
+      "first_measure": 1,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 1060,
+      "height": 440
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-2.png",
+      "page": 1,
+      "first_measure": 6,
+      "barlines": [
+        0.0,
+        0.16667,
+        0.33333,
+        0.5,
+        0.66667,
+        0.83333,
+        1.0
+      ],
+      "width": 1060,
+      "height": 440
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-3.png",
+      "page": 1,
+      "first_measure": 12,
+      "barlines": [
+        0.0,
+        0.16667,
+        0.33333,
+        0.5,
+        0.66667,
+        0.83333,
+        1.0
+      ],
+      "width": 1060,
+      "height": 440
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-4.png",
+      "page": 2,
+      "first_measure": 18,
+      "barlines": [
+        0.0,
+        0.2,
+        0.4,
+        0.6,
+        0.8,
+        1.0
+      ],
+      "width": 1060,
+      "height": 440
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-5.png",
+      "page": 2,
+      "first_measure": 23,
+      "barlines": [
+        0.0,
+        0.16667,
+        0.33333,
+        0.5,
+        0.66667,
+        0.83333,
+        1.0
+      ],
+      "width": 1060,
+      "height": 440
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-6.png",
+      "page": 2,
+      "first_measure": 29,
+      "barlines": [
+        0.0,
+        0.16667,
+        0.33333,
+        0.5,
+        0.66667,
+        0.83333,
+        1.0
+      ],
+      "width": 1060,
+      "height": 450
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-7.png",
+      "page": 3,
+      "first_measure": 35,
+      "barlines": [
+        0.0,
+        0.16667,
+        0.33333,
+        0.5,
+        0.66667,
+        0.83333,
+        1.0
+      ],
+      "width": 1060,
+      "height": 440
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-8.png",
+      "page": 3,
+      "first_measure": 41,
+      "barlines": [
+        0.0,
+        0.16667,
+        0.33333,
+        0.5,
+        0.66667,
+        0.83333,
+        1.0
+      ],
+      "width": 1060,
+      "height": 440
+    },
+    {
+      "image": "scores/we-wish-you-a-merry-christmas-9.png",
+      "page": 3,
+      "first_measure": 47,
+      "barlines": [
+        0.0,
+        0.33333,
+        0.66667,
+        1.0
+      ],
+      "width": 1060,
+      "height": 450
+    }
+  ],
+  "verses": [
+    {
+      "number": 1,
+      "title": "Brano intero",
+      "lyrics": {
+        "soprano": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:dan 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year!"
+        ],
+        "alto": [
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:dan 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year!"
+        ],
+        "tenor": [
+          "2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year!",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:di- 2.5:ri-",
+          "0:din 1:don 2:din",
+          "0:dan 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year!"
+        ],
+        "bass": [
+          "2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year!",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "",
+          "2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 1:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year! 2:din",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:di- 1.5:ri 2:di- 2.5:ri",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:di- 1.5:ri 2:di- 2.5:ri",
+          "0:don 1:di- 1.5:ri- 2:di- 2.5:ri-",
+          "0:din 1:don 2:di- 2.5:ri",
+          "0:din 1:don 2:din",
+          "0:dan 2:Good",
+          "0:ti- 1:dings 2:we",
+          "0:bring 2:to",
+          "0:you 1:and 2:your",
+          "0:kin; 1:We",
+          "0:wish 1:you 1.5:a 2:Mer- 2.5:ry",
+          "0:Christ- 1:mas, 2:and 2.5:a",
+          "0:hap- 1:py 2:new",
+          "0:Year!"
+        ]
+      }
+    }
+  ],
+  "staff_bands": {
+    "soprano": [
+      0,
+      0.25
+    ],
+    "alto": [
+      0.25,
+      0.5
+    ],
+    "tenor": [
+      0.5,
+      0.75
+    ],
+    "bass": [
+      0.75,
+      1
+    ]
+  },
+  "compact": {
+    "annotations": [
+      {
+        "measure": 47,
+        "voice": "soprano",
+        "beat": 0,
+        "text": "rall."
+      }
+    ],
+    "instructions": "Brano in forma continua: tenori e bassi da soli (1–9), soprani e contralti da soli (9–17), poi tutti."
+  }
+}

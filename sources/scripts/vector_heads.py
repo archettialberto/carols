@@ -13,6 +13,9 @@ lower (tenor), B = bass. E.g. SATB on two staves: T,B; on four staves: T,T,T8,B.
 Glyphs per font: Finale Maestro/Petrucci: filled 153, half 2d9, dot 2e;
 Sibelius Opus: filled 153, half 2d9, dot 2122 (OpusSpecialStd). Rests: 152 = quarter.
 capella (capella3): --font capella --filled e5 --half none --dot 2e --accidentals 53,, ; flags e6 (up) and ea (down).
+NoteWorthy Composer (NWC2STDA): --font NWC2 --filled f06b --half f06a --whole none --dot f07a --rest f06d
+  --accidentals f064,f066,f065 (f06d is the half rest; f087 an eighth flag). Accidentals are not carried
+  through the bar: apply the bar's earlier accidental by hand.
 """
 import argparse
 import fitz
