@@ -39,12 +39,12 @@ with sync_playwright() as p:
         assert page.locator('html').get_attribute('data-theme')=='dark' and page.locator('#theme use').get_attribute('href')=='icons.svg#moon'
         page.locator('#theme').click(); page.emulate_media(color_scheme='light')
         page.wait_for_function('document.documentElement.dataset.theme === "light"')
-        # Spartiti: one alphabetical list, the same rows as the playlists (number, tile, title, length).
+        # Spartiti: one list in the choir's running order, the same rows as the playlists (number, tile, title, length).
         page.locator('.tabs a', has_text='Spartiti').click()
         page.wait_for_function('document.body.dataset.view === "library"')
         assert page.locator('#library-panel').is_visible()
         titles=page.locator('#song-list .song-title').all_text_contents()
-        assert titles==sorted(titles,key=str.casefold) and {'Jingle Bells','The First Nowell'}<=set(titles)
+        assert titles[0].startswith('We Wish') and titles[1].startswith('Hark') and {'Jingle Bells','The First Nowell'}<=set(titles)
         assert page.locator('#song-list .song-row').first.locator('.song-num, .song-art svg, .song-meta').count()==3
         assert page.locator('#song-list .song-row[aria-current] .song-title').inner_text()==titles[0]
         page.locator('#song-list .song-row', has_text='Jingle Bells').click()
@@ -131,6 +131,6 @@ with sync_playwright() as p:
         context.close()
     assert not errors,errors
     browser.close()
-print('PASS: 320/390/768/1280px, tabs without home, icon theme control, alphabetical rows, continuous four-staff line, '
+print('PASS: 320/390/768/1280px, tabs without home, icon theme control, running-order rows, continuous four-staff line, '
       'voice taps and voice-specific lyrics, stanza chips, count-in, Space, Lento off, transposition with piano fallback, '
       'final silence, back gesture, light PDF only')

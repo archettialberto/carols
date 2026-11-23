@@ -16,9 +16,8 @@ const Playlist = (() => {
   let data = {}, voice = 'choir', steps = [], index = 0, queueVoice = null, onStart = () => {};
   const media = new Audio(); media.preload = 'auto'; media.setAttribute('playsinline', '');
 
-  // Every album plays its songs in one fixed order, alphabetical like Spartiti (no reordering).
-  const collator = new Intl.Collator('it', {sensitivity:'base', numeric:true});
-  const songs = v => [...(data[v] || [])].sort((a, b) => collator.compare(a.title, b.title));
+  // Every album plays its songs in the choir's fixed order (music.SONG_ORDER), as Spartiti.
+  const songs = v => data[v] || [];
   const length = item => item.tracks.reduce((sum, track) => sum + track.seconds, 0);
   const cover = v => UI.cover(v, voiceName(UI.part(v)) || albumName(v), (voiceName(UI.part(v)) || '')[0], v.startsWith('lead-'));
 

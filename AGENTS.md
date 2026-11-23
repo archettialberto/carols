@@ -69,7 +69,7 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
 - Three tabs, Playlist · Spartiti · PDF (a bottom bar on phones, hidden in the score), no home page:
   the app opens on Playlist. Every view is a URL hash (`#/playlist[/<album>]`, `#/brani`,
   `#/spartito/<id>`, `#/pdf`), so the phone's back gesture and links work. Leaving the score pauses
-  its audio; opening the current song again keeps its position. The Spartiti list is alphabetical.
+  its audio; opening the current song again keeps its position. Every list (Spartiti, PDF, playlists) follows the choir's running order, `SONG_ORDER` in `music.py` (set 2026-11-23); songs not named there follow alphabetically.
 - Show the minimum and never repeat information on one screen: no page title that repeats the tab,
   no captions under covers, no decorative eyebrows or taglines, no "Strofa" section beside a stanza
   number, no lyric heading or tap hints.
@@ -261,7 +261,7 @@ Run locally: `python app.py`, then open http://localhost:8000. Validate with `py
   grid (they scale like an image, nothing overlaps): the voice's deep ink (choir black, madder, ochre,
   pine, indigo), a double gilt rule with corner lozenges, the initial and name in IM Fell, the season
   large and faint behind, and “in evidenza” in the same gilt italic (no band). A voice's own album plays per song its track, then tenor-bass (T/B) and all when
-  they exist. No tick boxes, back link, hint or reordering: Play plays every song, in alphabetical order
+  they exist. No tick boxes, back link, hint or reordering: Play plays every song, in the running order
   as in Spartiti. Rows show only what the album name does not say (extra recordings, length); the mini
   player shows the album name alone for the album's own tracks. Song lists share the one row, and views never scroll the top bar away. The lock-screen artwork draws the emoji into its own small
   canvas with a solid fill and scales it (iOS Safari draws no emoji with a gradient fill). One

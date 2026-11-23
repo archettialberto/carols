@@ -763,7 +763,7 @@ function frame() { updatePosition(); stepPan(); requestAnimationFrame(frame); }
 translatePage(); renderThemeButton(); renderPlayButton();
 route();
 fetch('api/songs.json').then(response => { if (!response.ok) throw Error(t('loadError')); return response.json(); }).then(data => {
-  songs = data.sort((a, b) => new Intl.Collator('it', {sensitivity:'base', numeric:true}).compare(a.title, b.title));
+  songs = data;  // the server's order (music.SONG_ORDER)
   if (!songs.length) throw Error(t('noScores'));
   renderLibrary(); Booklet.render(songs);
   if (!song) chooseSong(songs[0]);  // the first song is ready for practice

@@ -112,13 +112,24 @@ def validate(song):
                 assert all(c['beat'] in onsets for c in parse_lyrics(line)), f'{voice} measure {number}: lyric without note onset'
 
 
+# The choir's running order, used by every list in the app; songs not named here follow.
+SONG_ORDER = ['we-wish-you-a-merry-christmas', 'hark-the-herald', 'god-rest-ye-merry', 'angels-carol',
+              'ding-dong', 'away-in-a-manger-cradle-song', 'carol-of-the-bells', 'a-new-year-carol',
+              'joy-to-the-world', 'dio-ci-benedira', 'the-first-nowell', 'i-saw-three-ships', 'jingle-bells',
+              'good-king-wenceslas', 'what-child-is-this', 'o-holy-night']
+
+
+def song_rank(song):
+    return (SONG_ORDER.index(song['id']) if song['id'] in SONG_ORDER else len(SONG_ORDER), song['title'].casefold())
+
+
 def load_songs():
     songs=[]
     for path in sorted((ROOT/'data').glob('*.json')):
         song=json.loads(path.read_text())
         validate(song)
         songs.append(song)
-    return songs
+    return sorted(songs, key=song_rank)
 
 
 def playback_order(song, verse=1):
@@ -313,12 +324,12 @@ def playlist_entries(entries, voice):
 
 
 def recordings_payload():
-    """The voice albums (served as api/recordings.json): songs in title order, each with the
+    """The voice albums (served as api/recordings.json): songs in the choir's order (SONG_ORDER), each with the
     recordings to play. A voice's own track is the built one (spoken title, starting note and
     count-in joined to the part by tools/recordings.py build), followed by shared ones; a
     "lead-<voice>" album plays the full mix with that voice in front."""
     index = json.loads(RECORDINGS.read_text()) if RECORDINGS.exists() else {'songs': {}}
-    songs = sorted(load_songs(), key=lambda s: s['title'].casefold())
+    songs = load_songs()
     playlists = {}
     for album in ALBUMS:
         items = []

@@ -30,7 +30,7 @@ with sync_playwright() as p:
         page.locator('.album').nth(7).click(); view('playlist')  # Tenori in evidenza
         assert page.locator('#playlist-title').inner_text() == 'Tenori in evidenza'
         titles = page.locator('#playlist-tracks .song-title').all_text_contents()
-        assert titles == sorted(titles, key=str.casefold) and 'Joy to the World' in titles
+        assert titles[0].startswith('We Wish') and 'Joy to the World' in titles
         # The same rows as Spartiti, in a fixed order: no reordering.
         assert page.locator('#playlist-tracks li').first.locator('.song-num, .song-art svg, .song-meta').count() == 3
         assert page.locator('#playlist-tracks .grip').count() == 0
