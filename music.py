@@ -128,6 +128,9 @@ def load_songs():
     for path in sorted((ROOT/'data').glob('*.json')):
         song=json.loads(path.read_text())
         validate(song)
+        # Stanzas the choir does not sing stay in the data but are left out everywhere.
+        hidden=set(song.pop('hidden_verses',[]))
+        song['verses']=[v for v in song['verses'] if v['number'] not in hidden]
         songs.append(song)
     return sorted(songs, key=song_rank)
 

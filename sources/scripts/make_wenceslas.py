@@ -67,14 +67,15 @@ song = {
         'Bar 11 alto is A3 (head centred below the C4 ledger; voice exchange with the tenor’s D4). The final chord is printed A4/E4 over C♯4/A3 (bass on A3).',
         'The edition suggests a dramatised performance: stanza 2 tenor solo (king) then treble solo (page); stanza 3 tenor solo then all; stanza 4 treble solo then tenor solo; stanzas 1 and 5 all. Playback keeps the full SATB texture.',
         'Default tempo quarter = 120 (user choice).',
+        'Only stanzas 1, 3 and 5 are sung (user choice, 2026-11-24): stanzas 2 and 4 are kept in the data but hidden (`hidden_verses`); recordings were cut to the three stanzas.',
     ],
     'parts': parts, 'playback': [{'measure': m} for m in range(1, 18)],
     'systems': systems, 'verses': verses,
+    # The choir sings stanzas 1, 3 and 5 (user choice, 2026-11-24); 2 and 4 stay transcribed.
+    'hidden_verses': [2, 4],
     'staff_bands': {'soprano': [0, .5], 'alto': [0, .5], 'tenor': [.5, 1], 'bass': [.5, 1]},
     'shared_lyrics': True,
-    'compact': {'instructions': 'Cinque strofe numerate sulle stesse note; testo comune alle quattro voci.',
-                'notes': ['Suggerimento dell’edizione: str. 2 tenore solo (re), poi soprano solo (paggio); '
-                          'str. 3 tenore solo, poi tutti; str. 4 soprano solo, poi tenore solo; str. 1 e 5 tutti.']},
+    'compact': {'instructions': 'Strofe 1, 3 e 5 sulle stesse note; testo comune alle quattro voci.'},
 }
 
 save_song(song)

@@ -485,8 +485,11 @@ within each beat group. The notation suite re-verified every engraved note and s
   notehead path centres (5.4×4.7 pt; filled = quarter, hollow = half) against the hairline staff
   lines and checked on the page; the words were typed from the page.
 - Bar 11 alto A3 (voice exchange with the tenor) and the printed final chord (bass on A3) are kept.
-  The edition's dramatised solo suggestion (king = tenor, page = treble) is kept as a footnote;
+  The edition's dramatised solo suggestion (king = tenor, page = treble) was a footnote, dropped with stanzas 2 and 4;
   playback stays SATB. Tempo ♩ = 120. Generator: `sources/scripts/make_wenceslas.py`.
+- Only stanzas 1, 3 and 5 are sung (user choice, 2026-11-24): 2 and 4 stay in the data, hidden by
+  `hidden_verses` (dropped by `music.load_songs`, so app, PDF, MusicXML/MIDI and playlists skip them).
+  The Cantai parts were cut to those stanzas (34 s each at ♩ = 120); the full WAVs stay local in `full/`.
 
 ## Hark! the Herald Angels Sing
 
