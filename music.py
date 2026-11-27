@@ -115,8 +115,8 @@ def validate(song):
 # The choir's running order, used by every list in the app; songs not named here follow.
 SONG_ORDER = ['we-wish-you-a-merry-christmas', 'hark-the-herald', 'god-rest-ye-merry', 'angels-carol',
               'ding-dong', 'away-in-a-manger-cradle-song', 'carol-of-the-bells', 'a-new-year-carol',
-              'joy-to-the-world', 'dio-ci-benedira', 'the-first-nowell', 'i-saw-three-ships', 'jingle-bells',
-              'good-king-wenceslas', 'what-child-is-this', 'o-holy-night']
+              'good-king-wenceslas', 'joy-to-the-world', 'dio-ci-benedira', 'the-first-nowell', 'i-saw-three-ships', 'jingle-bells',
+              'what-child-is-this', 'o-holy-night']
 
 
 def song_rank(song):
